@@ -11,7 +11,7 @@ export default function Home() {
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
             backgroundImage:
-              "url('https://images.unsplash.com/photo-1615529328331-f8917597711f?w=1920&q=80')",
+              "url('/images/hero-home.jpg')",
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/60" />

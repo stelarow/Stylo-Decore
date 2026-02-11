@@ -1,6 +1,6 @@
 import type { NavItem, ContactInfo } from "@/types";
 
-export const WHATSAPP_NUMBER = "5548999999999";
+export const WHATSAPP_NUMBER = "554896733626";
 
 export const WHATSAPP_DEFAULT_MESSAGE =
   "Olá! Vim pelo site da Stylo Decore e gostaria de mais informações.";
@@ -11,7 +11,7 @@ export function getWhatsAppUrl(message?: string) {
 }
 
 export const CONTACT: ContactInfo = {
-  phone: "(48) 99999-9999",
+  phone: "(48) 9673-3626",
   whatsapp: WHATSAPP_NUMBER,
   email: "contato@stylodecore.com.br",
   address: "Rua Example, 123 - Centro",
