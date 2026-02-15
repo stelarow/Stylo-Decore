@@ -13,7 +13,7 @@ export default function ProductCard({ name, image, category }: ProductCardProps)
   const message = `Olá! Tenho interesse neste modelo de ${category}: ${name}. Gostaria de mais informações.`;
 
   return (
-    <div className="group overflow-hidden rounded-2xl bg-white shadow-sm transition-shadow hover:shadow-md">
+    <div className="group overflow-hidden bg-white shadow-sm transition-shadow hover:shadow-md">
       <div className="relative aspect-[4/3] overflow-hidden">
         <img
           src={image}

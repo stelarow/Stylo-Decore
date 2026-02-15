@@ -3,6 +3,8 @@ import { Manrope, Playfair_Display } from "next/font/google";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import WhatsAppButton from "@/components/ui/WhatsAppButton";
+import JsonLd from "@/components/seo/JsonLd";
+import { getOrganizationJsonLd, getLocalBusinessJsonLd, SITE_URL } from "@/lib/seo";
 import "./globals.css";
 
 const manrope = Manrope({
@@ -16,6 +18,7 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: {
     default: "Stylo Decore | Cortinas, Persianas e Papéis de Parede - Florianópolis e Região",
     template: "%s | Stylo Decore",
@@ -40,6 +43,19 @@ export const metadata: Metadata = {
     locale: "pt_BR",
     type: "website",
     siteName: "Stylo Decore",
+    url: SITE_URL,
+    images: [
+      {
+        url: "/images/og-default.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Stylo Decore - Cortinas, Persianas e Papéis de Parede em Florianópolis",
+      },
+    ],
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 
@@ -50,6 +66,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
+      <head>
+        <JsonLd data={getOrganizationJsonLd()} />
+        <JsonLd data={getLocalBusinessJsonLd()} />
+      </head>
       <body className={`${manrope.variable} ${playfair.variable} font-sans antialiased`}>
         <Header />
         <main className="min-h-screen">{children}</main>

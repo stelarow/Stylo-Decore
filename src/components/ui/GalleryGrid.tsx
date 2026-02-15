@@ -18,7 +18,7 @@ export default function GalleryGrid({ items }: GalleryGridProps) {
         <Link
           key={item.href}
           href={item.href}
-          className="group relative overflow-hidden rounded-2xl"
+          className="group relative overflow-hidden"
         >
           <div className="aspect-[4/5]">
             <img

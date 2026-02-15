@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowRight, Check } from "lucide-react";
 import { getWhatsAppUrl } from "@/lib/constants";
+import { DEFAULT_FAQ } from "@/lib/seo";
 import FAQAccordion from "@/components/ui/FAQAccordion";
 
 interface SubcategoryItem {
@@ -18,29 +19,6 @@ interface CategoryPageProps {
   subcategories: SubcategoryItem[];
   faqItems?: { question: string; answer: string }[];
 }
-
-const DEFAULT_FAQ = [
-  {
-    question: "Como funciona a medição?",
-    answer:
-      "Nossa especialista vai até o seu endereço para realizar a medição técnica sem custo. Garantimos precisão milimétrica para que o resultado fique perfeito.",
-  },
-  {
-    question: "Qual o prazo de entrega e instalação?",
-    answer:
-      "O prazo varia conforme o produto e a complexidade do projeto. Em geral, de 15 a 30 dias úteis após a aprovação do orçamento. A instalação é inclusa.",
-  },
-  {
-    question: "Vocês atendem toda Florianópolis e região?",
-    answer:
-      "Sim! Atendemos Florianópolis, São José, Palhoça, Biguaçu e toda a Grande Florianópolis.",
-  },
-  {
-    question: "Posso solicitar amostras de tecido ou material?",
-    answer:
-      "Claro! Durante a consultoria, levamos amostras para você visualizar cores, texturas e caimento diretamente no seu ambiente.",
-  },
-];
 
 export default function CategoryPage({
   title,
@@ -95,7 +73,7 @@ export default function CategoryPage({
             {/* Card grande - primeiro item */}
             <Link
               href={subcategories[0].href}
-              className="group relative overflow-hidden rounded-2xl sm:row-span-2"
+              className="group relative overflow-hidden sm:row-span-2"
             >
               {/* Spacer: dá altura no mobile via aspect-ratio, no desktop o grid row-span define */}
               <div className="aspect-[4/5] lg:aspect-auto" />
@@ -124,7 +102,7 @@ export default function CategoryPage({
               <Link
                 key={item.href}
                 href={item.href}
-                className="group relative overflow-hidden rounded-2xl"
+                className="group relative overflow-hidden"
               >
                 <div className="aspect-[3/4]">
                   <img

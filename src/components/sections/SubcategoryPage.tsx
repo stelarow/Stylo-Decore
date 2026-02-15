@@ -105,7 +105,7 @@ export default function SubcategoryPage({
               )}
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative overflow-hidden rounded-2xl"
+              className="group relative overflow-hidden"
             >
               <img
                 src={product.image}

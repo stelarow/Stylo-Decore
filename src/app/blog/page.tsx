@@ -1,10 +1,18 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import JsonLd from "@/components/seo/JsonLd";
+import { getBreadcrumbJsonLd } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Blog - Dicas da Especialista | Stylo Decore",
+  title: "Blog - Dicas de Decoração em Florianópolis",
   description:
-    "Dicas de decoração, tendências e inspirações para cortinas, persianas, papéis de parede e tapetes. Blog da Stylo Decore.",
+    "Dicas de decoração, tendências e inspirações para cortinas, persianas, papéis de parede e tapetes em Florianópolis. Blog da Stylo Decore.",
+  alternates: { canonical: "/blog" },
+  openGraph: {
+    title: "Blog - Dicas da Especialista | Stylo Decore",
+    description: "Dicas de decoração, tendências e inspirações para transformar seus ambientes em Florianópolis.",
+    url: "/blog",
+  },
 };
 
 const BLOG_POSTS = [
@@ -40,6 +48,10 @@ const BLOG_POSTS = [
 export default function BlogPage() {
   return (
     <div className="pt-20">
+      <JsonLd data={getBreadcrumbJsonLd([
+        { name: "Home", href: "/" },
+        { name: "Blog", href: "/blog" },
+      ])} />
       <div className="mx-auto max-w-7xl px-6 py-12">
         <div className="mb-12 text-center">
           <p className="mb-2 text-sm font-medium uppercase tracking-[0.2em] text-primary">
@@ -59,7 +71,7 @@ export default function BlogPage() {
             <Link
               key={post.slug}
               href={`/blog/${post.slug}`}
-              className="group overflow-hidden rounded-2xl bg-white shadow-sm transition-shadow hover:shadow-md"
+              className="group overflow-hidden bg-white shadow-sm transition-shadow hover:shadow-md"
             >
               <div className="aspect-[3/2] overflow-hidden">
                 <img

@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { getWhatsAppUrl } from "@/lib/constants";
+import JsonLd from "@/components/seo/JsonLd";
+import { getBreadcrumbJsonLd, getArticleJsonLd } from "@/lib/seo";
 
 const POSTS: Record<
   string,
@@ -104,6 +106,22 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: `${post.title} | Blog Stylo Decore`,
     description: post.content.slice(0, 160),
+    alternates: { canonical: `/blog/${slug}` },
+    openGraph: {
+      title: post.title,
+      description: post.content.slice(0, 160),
+      url: `/blog/${slug}`,
+      type: "article",
+      publishedTime: post.date,
+      images: [
+        {
+          url: post.image,
+          width: 1200,
+          height: 630,
+          alt: post.title,
+        },
+      ],
+    },
   };
 }
 
@@ -126,6 +144,18 @@ export default async function BlogPostPage({ params }: PageProps) {
 
   return (
     <article className="pt-20">
+      <JsonLd data={getBreadcrumbJsonLd([
+        { name: "Home", href: "/" },
+        { name: "Blog", href: "/blog" },
+        { name: post.title, href: `/blog/${slug}` },
+      ])} />
+      <JsonLd data={getArticleJsonLd({
+        title: post.title,
+        description: post.content.slice(0, 160),
+        date: post.date,
+        image: post.image,
+        slug,
+      })} />
       <div className="mx-auto max-w-3xl px-6 py-12">
         <Link
           href="/blog"
@@ -135,7 +165,7 @@ export default async function BlogPostPage({ params }: PageProps) {
           Voltar ao Blog
         </Link>
 
-        <div className="mb-8 overflow-hidden rounded-2xl">
+        <div className="mb-8 overflow-hidden">
           <img
             src={post.image}
             alt={post.title}

@@ -7,11 +7,18 @@ export default function Home() {
     <>
       {/* Hero Section */}
       <section className="relative flex min-h-[85vh] items-center justify-center">
+        {/* Mobile: imagem atual */}
         <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat md:hidden"
           style={{
-            backgroundImage:
-              "url('/images/hero-home.jpg')",
+            backgroundImage: "url('/images/hero-home.jpg')",
+          }}
+        />
+        {/* Desktop: nova imagem */}
+        <div
+          className="absolute inset-0 hidden bg-cover bg-center bg-no-repeat md:block"
+          style={{
+            backgroundImage: "url('/images/hero-home-desktop.jpg')",
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/60" />
@@ -47,54 +54,41 @@ export default function Home() {
 
       {/* Nossas Coleções */}
       <section id="colecoes" className="relative -mt-10 rounded-t-[2.5rem] bg-background pt-20 md:pt-28">
-        <div className="mx-auto max-w-7xl px-6 mb-12 flex items-end justify-between">
-          <div>
-            <h2 className="font-serif text-3xl font-bold text-foreground md:text-4xl">
-              Nossas Coleções
-            </h2>
-            <div className="mt-3 h-1 w-16 rounded-full bg-primary" />
-          </div>
-          <Link
-            href="/cortinas"
-            className="hidden items-center gap-2 text-sm font-medium uppercase tracking-wider text-mahogany-light transition-colors hover:text-primary md:flex"
-          >
-            Galeria
-            <ArrowRight className="h-4 w-4" />
-          </Link>
+        <div className="mx-auto max-w-7xl px-6 mb-12">
+          <h2 className="font-serif text-3xl font-bold text-foreground md:text-4xl">
+            Nossas Coleções
+          </h2>
+          <div className="mt-3 h-1 w-16 rounded-full bg-primary" />
         </div>
 
-        <div className="mx-auto max-w-7xl px-6 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {CATEGORIES.map((cat, index) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 md:gap-1">
+          {CATEGORIES.map((cat) => (
             <Link
               key={cat.href}
               href={cat.href}
-              className={`group relative overflow-hidden rounded-2xl ${index === 0 ? "lg:col-span-2 lg:row-span-2" : ""}`}
+              className="group relative overflow-hidden"
             >
-              <div
-                style={{ aspectRatio: index === 0 ? undefined : '16/9' }}
-                className={`relative overflow-hidden ${index === 0 ? "aspect-[16/9] lg:aspect-auto lg:h-full" : ""}`}
-              >
+              <div className="relative aspect-[4/3] overflow-hidden">
                 <img
                   src={cat.image}
                   alt={cat.name}
-                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  className={`absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105${"imageDesktop" in cat ? " md:hidden" : ""}`}
                   style={{ objectPosition: cat.imagePosition }}
                 />
+                {"imageDesktop" in cat && (
+                  <img
+                    src={cat.imageDesktop}
+                    alt={cat.name}
+                    className="absolute inset-0 hidden h-full w-full object-cover transition-transform duration-700 group-hover:scale-105 md:block"
+                    style={{ objectPosition: cat.imagePosition }}
+                  />
+                )}
               </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-              <div className="absolute inset-x-0 bottom-0 flex items-end justify-between p-6 md:p-8 lg:p-10">
-                <div>
-                  <span className="mb-2 inline-block text-xs font-semibold uppercase tracking-[0.2em] text-primary">
-                    {cat.tag}
-                  </span>
-                  <h3 className={`font-bold text-white ${index === 0 ? "text-2xl md:text-3xl lg:text-4xl" : "text-2xl md:text-3xl"}`}>
-                    {cat.name}
-                  </h3>
-                  <p className="mt-1 text-sm text-white/70">{cat.description}</p>
-                </div>
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary text-background-dark opacity-0 transition-all duration-300 group-hover:opacity-100">
-                  <ArrowRight className="h-5 w-5" />
-                </div>
+              <div className="absolute inset-0 bg-black/30 transition-colors duration-300 group-hover:bg-black/40" />
+              <div className="absolute inset-0 flex items-center justify-center">
+                <h3 className="font-serif text-2xl font-bold uppercase tracking-wide text-white md:text-3xl lg:text-4xl">
+                  {cat.name}
+                </h3>
               </div>
             </Link>
           ))}

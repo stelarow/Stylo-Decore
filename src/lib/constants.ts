@@ -80,6 +80,7 @@ export const CATEGORIES = [
     description: "Tecidos nobres que transformam ambientes",
     tag: "TEXTURAS",
     image: "/images/cortinas-hero.jpeg",
+    imageDesktop: "/images/cortinas-hero-desktop.png",
     imagePosition: "center 30%",
   },
   {
@@ -96,6 +97,7 @@ export const CATEGORIES = [
     description: "Texturas e padrões que criam personalidade",
     tag: "DESIGN",
     image: "/images/papeis-hero.jpeg",
+    imageDesktop: "/images/papeis-hero-desktop.jpeg",
     imagePosition: "center 25%",
   },
   {
@@ -104,6 +106,7 @@ export const CATEGORIES = [
     description: "Conforto e estilo para seus ambientes",
     tag: "CONFORTO",
     image: "/images/tapetes-hero.jpeg",
+    imageDesktop: "/images/tapetes-hero-desktop.png",
     imagePosition: "center 65%",
   },
 ] as const;

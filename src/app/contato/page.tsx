@@ -1,16 +1,28 @@
 import type { Metadata } from "next";
 import { Phone, Mail, MapPin, Clock, MessageCircle } from "lucide-react";
 import { CONTACT, getWhatsAppUrl } from "@/lib/constants";
+import JsonLd from "@/components/seo/JsonLd";
+import { getBreadcrumbJsonLd } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Contato | Stylo Decore - Florianópolis e Região",
   description:
     "Entre em contato com a Stylo Decore. Solicite um orçamento gratuito para cortinas, persianas, papéis de parede e tapetes em Florianópolis e Região.",
+  alternates: { canonical: "/contato" },
+  openGraph: {
+    title: "Contato | Stylo Decore - Florianópolis e Região",
+    description: "Solicite um orçamento gratuito para cortinas, persianas, papéis de parede e tapetes em Florianópolis.",
+    url: "/contato",
+  },
 };
 
 export default function ContatoPage() {
   return (
     <div className="pt-20">
+      <JsonLd data={getBreadcrumbJsonLd([
+        { name: "Home", href: "/" },
+        { name: "Contato", href: "/contato" },
+      ])} />
       <div className="mx-auto max-w-7xl px-6 py-12">
         <div className="mb-12 text-center">
           <p className="mb-2 text-sm font-medium uppercase tracking-[0.2em] text-primary">
