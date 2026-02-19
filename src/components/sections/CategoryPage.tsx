@@ -8,6 +8,8 @@ interface SubcategoryItem {
   name: string;
   href: string;
   image: string;
+  desktopImage?: string;
+  cardImage?: string;
   description: string;
 }
 
@@ -35,11 +37,26 @@ export default function CategoryPage({
       {/* Hero */}
       {subcategories[0] && (
         <div className="relative w-full min-h-[50vh] md:min-h-[65vh] lg:min-h-[70vh]">
-          <img
-            src={subcategories[0].image}
-            alt={title}
-            className="absolute inset-0 h-full w-full object-cover"
-          />
+          {subcategories[0].desktopImage ? (
+            <>
+              <img
+                src={subcategories[0].desktopImage}
+                alt={title}
+                className="absolute inset-0 hidden h-full w-full object-cover lg:block"
+              />
+              <img
+                src={subcategories[0].image}
+                alt={title}
+                className="absolute inset-0 h-full w-full object-cover lg:hidden"
+              />
+            </>
+          ) : (
+            <img
+              src={subcategories[0].image}
+              alt={title}
+              className="absolute inset-0 h-full w-full object-cover"
+            />
+          )}
           <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
           <div className="relative flex h-full min-h-[50vh] md:min-h-[65vh] lg:min-h-[70vh] items-end">
             <div className="mx-auto w-full max-w-7xl px-6 pb-12 md:pb-16 lg:pb-20">
@@ -77,11 +94,28 @@ export default function CategoryPage({
             >
               {/* Spacer: dá altura no mobile via aspect-ratio, no desktop o grid row-span define */}
               <div className="aspect-[4/5] lg:aspect-auto" />
-              <img
-                src={subcategories[0].image}
-                alt={subcategories[0].name}
-                className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-              />
+              {subcategories[0].cardImage ? (
+                <>
+                  {/* Desktop: mostra cardImage (bambu) */}
+                  <img
+                    src={subcategories[0].cardImage}
+                    alt={subcategories[0].name}
+                    className="absolute inset-0 hidden h-full w-full object-cover transition-transform duration-500 group-hover:scale-105 lg:block"
+                  />
+                  {/* Mobile: mostra image original */}
+                  <img
+                    src={subcategories[0].image}
+                    alt={subcategories[0].name}
+                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105 lg:hidden"
+                  />
+                </>
+              ) : (
+                <img
+                  src={subcategories[0].image}
+                  alt={subcategories[0].name}
+                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+              )}
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
               <div className="absolute inset-x-0 bottom-0 p-6 md:p-8">
                 <span className="mb-2 inline-block rounded-full bg-primary px-3 py-1 text-xs font-semibold text-background-dark">

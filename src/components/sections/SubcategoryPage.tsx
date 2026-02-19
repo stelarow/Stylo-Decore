@@ -6,6 +6,7 @@ import { getWhatsAppUrl } from "@/lib/constants";
 interface ProductItem {
   name: string;
   image: string;
+  desktopImage?: string;
   category: string;
 }
 
@@ -55,15 +56,34 @@ export default function SubcategoryPage({
     <div>
       {/* Hero - Imagem principal grande */}
       <div className="relative w-full min-h-[70vh] md:min-h-[80vh]">
-        <img
-          src={
-            heroImage ||
-            products[0]?.image ||
-            "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=1920&q=80"
-          }
-          alt={title}
-          className="absolute inset-0 h-full w-full object-cover"
-        />
+        {products[0]?.desktopImage ? (
+          <>
+            <img
+              src={heroImage || products[0]?.desktopImage}
+              alt={title}
+              className="absolute inset-0 hidden h-full w-full object-cover object-top lg:block"
+            />
+            <img
+              src={
+                heroImage ||
+                products[0]?.image ||
+                "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=1920&q=80"
+              }
+              alt={title}
+              className="absolute inset-0 h-full w-full object-cover object-top lg:hidden"
+            />
+          </>
+        ) : (
+          <img
+            src={
+              heroImage ||
+              products[0]?.image ||
+              "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=1920&q=80"
+            }
+            alt={title}
+            className="absolute inset-0 h-full w-full object-cover object-top"
+          />
+        )}
         <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent" />
 
         {/* Glass panel overlay */}
@@ -107,11 +127,26 @@ export default function SubcategoryPage({
               rel="noopener noreferrer"
               className="group relative overflow-hidden"
             >
-              <img
-                src={product.image}
-                alt={product.name}
-                className="w-full aspect-[4/3] object-cover transition-transform duration-500 group-hover:scale-[1.02]"
-              />
+              {product.desktopImage ? (
+                <>
+                  <img
+                    src={product.desktopImage}
+                    alt={product.name}
+                    className="hidden lg:block w-full aspect-[4/3] object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+                  />
+                  <img
+                    src={product.image}
+                    alt={product.name}
+                    className="lg:hidden w-full aspect-[4/3] object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+                  />
+                </>
+              ) : (
+                <img
+                  src={product.image}
+                  alt={product.name}
+                  className="w-full aspect-[4/3] object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+                />
+              )}
               {/* Overlay com info */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
               <div className="absolute bottom-0 left-0 right-0 p-5 translate-y-4 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">

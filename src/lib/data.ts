@@ -5,6 +5,8 @@ export const CORTINAS_SUBCATEGORIES = [
     name: "Cortinas de Tecido",
     href: "/cortinas/tecido",
     image: "/images/cortinas-tecido.jpg",
+    desktopImage: "/images/cortinas-hero-desktop.png",
+    cardImage: "/images/cortinas-tecido-card.jpg",
     description: "Elegância e sofisticação com tecidos nobres sob medida",
   },
   {
@@ -28,15 +30,15 @@ export const CORTINAS_SUBCATEGORIES = [
   {
     name: "Blackout & Acústicas",
     href: "/cortinas/blackout-acusticas",
-    image: "/images/cortinas-blackout.jpg",
+    image: "/images/cortinas-blackout.png",
     description: "Bloqueio total de luz e isolamento acústico para conforto máximo",
   },
 ];
 
 // Produtos de Cortinas por subcategoria
-export const CORTINA_PRODUCTS: Record<string, { name: string; image: string; category: string }[]> = {
+export const CORTINA_PRODUCTS: Record<string, { name: string; image: string; desktopImage?: string; category: string }[]> = {
   tecido: [
-    { name: "Cortina de Tecido - Modelo 1", image: "/images/cortinas/cortina-01.jpg", category: "Cortinas" },
+    { name: "Cortina de Tecido - Modelo 1", image: "/images/cortinas/cortina-01.jpg", desktopImage: "/images/cortinas/cortina-tecido-hero-desktop.png", category: "Cortinas" },
     { name: "Cortina de Tecido - Modelo 2", image: "/images/cortinas/cortina-02.jpg", category: "Cortinas" },
     { name: "Cortina de Tecido - Modelo 3", image: "/images/cortinas/cortina-03.jpg", category: "Cortinas" },
     { name: "Cortina de Tecido - Modelo 4", image: "/images/cortinas/cortina-04.jpg", category: "Cortinas" },
@@ -44,7 +46,7 @@ export const CORTINA_PRODUCTS: Record<string, { name: string; image: string; cat
     { name: "Cortina de Tecido - Modelo 6", image: "/images/cortinas/cortina-06.jpg", category: "Cortinas" },
   ],
   "prega-americana": [
-    { name: "Prega Americana - Modelo 1", image: "/images/cortinas/cortina-07.jpg", category: "Cortinas" },
+    { name: "Prega Americana - Modelo 1", image: "/images/cortinas/cortina-07.jpg", desktopImage: "/images/cortinas/cortina-prega-hero-desktop.png", category: "Cortinas" },
     { name: "Prega Americana - Modelo 2", image: "/images/cortinas/cortina-08.jpg", category: "Cortinas" },
     { name: "Prega Americana - Modelo 3", image: "/images/cortinas/cortina-09.jpg", category: "Cortinas" },
     { name: "Prega Americana - Modelo 4", image: "/images/cortinas/cortina-10.jpg", category: "Cortinas" },
@@ -52,7 +54,7 @@ export const CORTINA_PRODUCTS: Record<string, { name: string; image: string; cat
     { name: "Prega Americana - Modelo 6", image: "/images/cortinas/cortina-12.jpg", category: "Cortinas" },
   ],
   ilhos: [
-    { name: "Cortina com Ilhós - Modelo 1", image: "/images/cortinas/cortina-13.jpg", category: "Cortinas" },
+    { name: "Cortina com Ilhós - Modelo 1", image: "/images/cortinas/cortina-13.jpg", desktopImage: "/images/cortinas/cortina-ilhos-hero-desktop.png", category: "Cortinas" },
     { name: "Cortina com Ilhós - Modelo 2", image: "/images/cortinas/cortina-14.jpg", category: "Cortinas" },
     { name: "Cortina com Ilhós - Modelo 3", image: "/images/cortinas/cortina-15.jpg", category: "Cortinas" },
     { name: "Cortina com Ilhós - Modelo 4", image: "/images/cortinas/cortina-16.jpg", category: "Cortinas" },
@@ -60,7 +62,7 @@ export const CORTINA_PRODUCTS: Record<string, { name: string; image: string; cat
     { name: "Cortina com Ilhós - Modelo 6", image: "/images/cortinas/cortina-18.jpg", category: "Cortinas" },
   ],
   wave: [
-    { name: "Cortina Wave - Modelo 1", image: "/images/cortinas/cortina-19.jpg", category: "Cortinas" },
+    { name: "Cortina Wave - Modelo 1", image: "/images/cortinas/cortina-19.jpg", desktopImage: "/images/cortinas/cortina-wave-hero-desktop.png", category: "Cortinas" },
     { name: "Cortina Wave - Modelo 2", image: "/images/cortinas/cortina-20.jpg", category: "Cortinas" },
     { name: "Cortina Wave - Modelo 3", image: "/images/cortinas/cortina-21.jpg", category: "Cortinas" },
     { name: "Cortina Wave - Modelo 4", image: "/images/cortinas/cortina-22.jpg", category: "Cortinas" },
@@ -68,7 +70,7 @@ export const CORTINA_PRODUCTS: Record<string, { name: string; image: string; cat
     { name: "Cortina Wave - Modelo 6", image: "/images/cortinas/cortina-24.jpg", category: "Cortinas" },
   ],
   "blackout-acusticas": [
-    { name: "Blackout & Acústica - Modelo 1", image: "/images/cortinas/cortina-25.jpg", category: "Cortinas" },
+    { name: "Blackout & Acústica - Modelo 1", image: "/images/cortinas/cortina-25.jpg", desktopImage: "/images/cortinas/cortina-blackout-hero-desktop.png", category: "Cortinas" },
     { name: "Blackout & Acústica - Modelo 2", image: "/images/cortinas/cortina-26.jpg", category: "Cortinas" },
     { name: "Blackout & Acústica - Modelo 3", image: "/images/cortinas/cortina-27.jpg", category: "Cortinas" },
     { name: "Blackout & Acústica - Modelo 4", image: "/images/cortinas/cortina-28.jpg", category: "Cortinas" },
