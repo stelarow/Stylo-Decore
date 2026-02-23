@@ -5,7 +5,7 @@ export const CORTINAS_SUBCATEGORIES = [
     name: "Cortinas de Tecido",
     href: "/cortinas/tecido",
     image: "/images/cortinas-tecido.jpg",
-    desktopImage: "/images/cortinas-hero-desktop.png",
+    desktopImage: "/images/cortinas-hero-room.jpeg",
     cardImage: "/images/cortinas-tecido-card.jpg",
     description: "Elegância e sofisticação com tecidos nobres sob medida",
   },
@@ -87,6 +87,7 @@ export const PERSIANAS_SUBCATEGORIES = [
     name: "Horizontais",
     href: "/persianas/horizontais",
     image: "/images/persianas/persiana-02.jpg",
+    desktopImage: "/images/persianas/persiana-hero-desktop.jpeg",
     description: "Versatilidade e durabilidade em alumínio ou madeira",
   },
   {
