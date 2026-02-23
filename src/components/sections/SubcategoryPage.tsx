@@ -19,6 +19,8 @@ interface SubcategoryPageProps {
   heroImage?: string;
   collectionTag?: string;
   specs?: { title: string; description: string }[];
+  desktopImageClass?: string;
+  mobileImageClass?: string;
 }
 
 export default function SubcategoryPage({
@@ -30,6 +32,8 @@ export default function SubcategoryPage({
   heroImage,
   collectionTag,
   specs,
+  desktopImageClass,
+  mobileImageClass,
 }: SubcategoryPageProps) {
   const defaultSpecs = [
     {
@@ -132,12 +136,12 @@ export default function SubcategoryPage({
                   <img
                     src={product.desktopImage}
                     alt={product.name}
-                    className="hidden lg:block w-full aspect-[4/3] object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+                    className={desktopImageClass ?? "hidden lg:block w-full aspect-[4/3] object-cover transition-transform duration-500 group-hover:scale-[1.02]"}
                   />
                   <img
                     src={product.image}
                     alt={product.name}
-                    className="lg:hidden w-full aspect-[4/3] object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+                    className={mobileImageClass ?? "lg:hidden w-full aspect-[4/3] object-cover transition-transform duration-500 group-hover:scale-[1.02]"}
                   />
                 </>
               ) : (

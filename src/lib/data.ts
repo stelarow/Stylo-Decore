@@ -30,7 +30,7 @@ export const CORTINAS_SUBCATEGORIES = [
   {
     name: "Blackout & Acústicas",
     href: "/cortinas/blackout-acusticas",
-    image: "/images/cortinas-blackout.png",
+    image: "/images/cortinas/blackout-03.jpg",
     description: "Bloqueio total de luz e isolamento acústico para conforto máximo",
   },
 ];
@@ -46,35 +46,39 @@ export const CORTINA_PRODUCTS: Record<string, { name: string; image: string; des
     { name: "Cortina de Tecido - Modelo 6", image: "/images/cortinas/cortina-06.jpg", category: "Cortinas" },
   ],
   "prega-americana": [
-    { name: "Prega Americana - Modelo 1", image: "/images/cortinas/cortina-07.jpg", desktopImage: "/images/cortinas/cortina-prega-hero-desktop.png", category: "Cortinas" },
-    { name: "Prega Americana - Modelo 2", image: "/images/cortinas/cortina-08.jpg", category: "Cortinas" },
-    { name: "Prega Americana - Modelo 3", image: "/images/cortinas/cortina-09.jpg", category: "Cortinas" },
-    { name: "Prega Americana - Modelo 4", image: "/images/cortinas/cortina-10.jpg", category: "Cortinas" },
-    { name: "Prega Americana - Modelo 5", image: "/images/cortinas/cortina-11.jpg", category: "Cortinas" },
-    { name: "Prega Americana - Modelo 6", image: "/images/cortinas/cortina-12.jpg", category: "Cortinas" },
+    { name: "Prega Americana - Modelo 1", image: "/images/cortinas/prega-americana-desktop-01.jpg", desktopImage: "/images/cortinas/prega-americana-desktop-01.jpg", category: "Cortinas" },
+    { name: "Prega Americana - Modelo 2", image: "/images/cortinas/prega-americana-desktop-02.jpg", desktopImage: "/images/cortinas/prega-americana-desktop-02.jpg", category: "Cortinas" },
+    { name: "Prega Americana - Modelo 3", image: "/images/cortinas/prega-americana-desktop-03.jpg", desktopImage: "/images/cortinas/prega-americana-desktop-03.jpg", category: "Cortinas" },
+    { name: "Prega Americana - Modelo 4", image: "/images/cortinas/prega-americana-desktop-04.jpg", desktopImage: "/images/cortinas/prega-americana-desktop-04.jpg", category: "Cortinas" },
+    { name: "Prega Americana - Modelo 5", image: "/images/cortinas/prega-americana-desktop-05.jpg", desktopImage: "/images/cortinas/prega-americana-desktop-05.jpg", category: "Cortinas" },
+    { name: "Prega Americana - Modelo 6", image: "/images/cortinas/prega-americana-desktop-06.jpg", desktopImage: "/images/cortinas/prega-americana-desktop-06.jpg", category: "Cortinas" },
   ],
   ilhos: [
-    { name: "Cortina com Ilhós - Modelo 1", image: "/images/cortinas/cortina-13.jpg", desktopImage: "/images/cortinas/cortina-ilhos-hero-desktop.png", category: "Cortinas" },
-    { name: "Cortina com Ilhós - Modelo 2", image: "/images/cortinas/cortina-14.jpg", category: "Cortinas" },
-    { name: "Cortina com Ilhós - Modelo 3", image: "/images/cortinas/cortina-15.jpg", category: "Cortinas" },
-    { name: "Cortina com Ilhós - Modelo 4", image: "/images/cortinas/cortina-16.jpg", category: "Cortinas" },
-    { name: "Cortina com Ilhós - Modelo 5", image: "/images/cortinas/cortina-17.jpg", category: "Cortinas" },
-    { name: "Cortina com Ilhós - Modelo 6", image: "/images/cortinas/cortina-18.jpg", category: "Cortinas" },
+    { name: "Cortina com Ilhós - Modelo 1", image: "/images/cortinas/ilhos-01.jpg", category: "Cortinas" },
+    { name: "Cortina com Ilhós - Modelo 2", image: "/images/cortinas/ilhos-02.jpg", category: "Cortinas" },
+    { name: "Cortina com Ilhós - Modelo 3", image: "/images/cortinas/ilhos-03.jpg", category: "Cortinas" },
+    { name: "Cortina com Ilhós - Modelo 4", image: "/images/cortinas/ilhos-04.jpg", category: "Cortinas" },
+    { name: "Cortina com Ilhós - Modelo 5", image: "/images/cortinas/ilhos-05.jpg", category: "Cortinas" },
+    { name: "Cortina com Ilhós - Modelo 6", image: "/images/cortinas/ilhos-06.jpg", category: "Cortinas" },
   ],
   wave: [
     { name: "Cortina Wave - Modelo 1", image: "/images/cortinas/cortina-19.jpg", desktopImage: "/images/cortinas/cortina-wave-hero-desktop.png", category: "Cortinas" },
-    { name: "Cortina Wave - Modelo 2", image: "/images/cortinas/cortina-20.jpg", category: "Cortinas" },
-    { name: "Cortina Wave - Modelo 3", image: "/images/cortinas/cortina-21.jpg", category: "Cortinas" },
-    { name: "Cortina Wave - Modelo 4", image: "/images/cortinas/cortina-22.jpg", category: "Cortinas" },
-    { name: "Cortina Wave - Modelo 5", image: "/images/cortinas/cortina-23.jpg", category: "Cortinas" },
-    { name: "Cortina Wave - Modelo 6", image: "/images/cortinas/cortina-24.jpg", category: "Cortinas" },
+    { name: "Cortina Wave - Modelo 2", image: "/images/cortinas/wave-01.jpg", category: "Cortinas" },
+    { name: "Cortina Wave - Modelo 3", image: "/images/cortinas/wave-02.jpg", category: "Cortinas" },
+    { name: "Cortina Wave - Modelo 4", image: "/images/cortinas/wave-03.jpg", category: "Cortinas" },
+    { name: "Cortina Wave - Modelo 5", image: "/images/cortinas/wave-04.jpg", category: "Cortinas" },
+    { name: "Cortina Wave - Modelo 6", image: "/images/cortinas/wave-05.jpg", category: "Cortinas" },
+    { name: "Cortina Wave - Modelo 7", image: "/images/cortinas/wave-06.jpg", category: "Cortinas" },
+    { name: "Cortina Wave - Modelo 8", image: "/images/cortinas/wave-07.jpg", category: "Cortinas" },
   ],
   "blackout-acusticas": [
     { name: "Blackout & Acústica - Modelo 1", image: "/images/cortinas/cortina-25.jpg", desktopImage: "/images/cortinas/cortina-blackout-hero-desktop.png", category: "Cortinas" },
-    { name: "Blackout & Acústica - Modelo 2", image: "/images/cortinas/cortina-26.jpg", category: "Cortinas" },
-    { name: "Blackout & Acústica - Modelo 3", image: "/images/cortinas/cortina-27.jpg", category: "Cortinas" },
-    { name: "Blackout & Acústica - Modelo 4", image: "/images/cortinas/cortina-28.jpg", category: "Cortinas" },
-    { name: "Blackout & Acústica - Modelo 5", image: "/images/cortinas/cortina-29.jpg", category: "Cortinas" },
+    { name: "Blackout & Acústica - Modelo 2", image: "/images/cortinas/blackout-01.jpg", category: "Cortinas" },
+    { name: "Blackout & Acústica - Modelo 3", image: "/images/cortinas/blackout-02.jpg", category: "Cortinas" },
+    { name: "Blackout & Acústica - Modelo 4", image: "/images/cortinas/blackout-03.jpg", category: "Cortinas" },
+    { name: "Blackout & Acústica - Modelo 5", image: "/images/cortinas/blackout-04.jpg", category: "Cortinas" },
+    { name: "Blackout & Acústica - Modelo 6", image: "/images/cortinas/blackout-05.jpg", category: "Cortinas" },
+    { name: "Blackout & Acústica - Modelo 7", image: "/images/cortinas/blackout-06.jpg", category: "Cortinas" },
   ],
 };
 
@@ -101,15 +105,11 @@ export const PERSIANAS_SUBCATEGORIES = [
 
 export const PAPEIS_SUBCATEGORIES = [
   {
-    name: "Artesania",
-    href: "/papeis-de-parede/artesania",
-    image: "/images/papel-artesania.jpg",
-    description: "Texturas artesanais com acabamento natural",
-  },
-  {
     name: "Breeze",
     href: "/papeis-de-parede/breeze",
-    image: "/images/papel-breeze.jpg",
+    image: "/images/papeis-hero-mobile.jpeg",
+    desktopImage: "/images/papel-de-parede-hero.png",
+    cardImage: "/images/papel-breeze.jpg",
     description: "Leveza e frescor para ambientes contemporâneos",
   },
   {
@@ -117,18 +117,6 @@ export const PAPEIS_SUBCATEGORIES = [
     href: "/papeis-de-parede/carving",
     image: "/images/papel-carving.jpg",
     description: "Relevos tridimensionais que criam profundidade",
-  },
-  {
-    name: "Dali",
-    href: "/papeis-de-parede/dali",
-    image: "/images/papel-dali.jpg",
-    description: "Padrões artísticos inspirados em grandes mestres",
-  },
-  {
-    name: "Ecletic",
-    href: "/papeis-de-parede/ecletic",
-    image: "/images/papel-ecletic.jpg",
-    description: "Mix de estilos para composições únicas",
   },
   {
     name: "Elegant",
@@ -143,6 +131,7 @@ export const TAPETES_SUBCATEGORIES = [
     name: "Tapete Sob Medida",
     href: "/tapetes/sob-medida",
     image: "/images/tapetes/tapete-10.jpg",
+    desktopImage: "/images/tapetes-hero-desktop.png",
     description: "Tamanho e formato personalizados para o seu espaço",
   },
   {
@@ -184,25 +173,8 @@ export const TAPETE_PRODUCTS: Record<string, { name: string; image: string; cate
   ],
 };
 
-// Produtos de Papel de Parede por subcategoria (mix de imagens reais + placeholders)
-const unsplash = {
-  u1: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=600&h=450&fit=crop",
-  u2: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&h=450&fit=crop",
-  u3: "https://images.unsplash.com/photo-1513694203232-719a280e022f?w=600&h=450&fit=crop",
-  u4: "https://images.unsplash.com/photo-1560448204-603b3fc33ddc?w=600&h=450&fit=crop",
-  u5: "https://images.unsplash.com/photo-1631679706909-1844bbd07221?w=600&h=450&fit=crop",
-  u6: "https://images.unsplash.com/photo-1615529328331-f8917597711f?w=600&h=450&fit=crop",
-};
-
+// Produtos de Papel de Parede por subcategoria
 export const PAPEL_PRODUCTS: Record<string, { name: string; image: string; category: string }[]> = {
-  artesania: [
-    { name: "Artesania - Modelo 1", image: "/images/papel/papel-14.jpg", category: "Papéis de Parede" },
-    { name: "Artesania - Modelo 2", image: "/images/papel/papel-18.jpg", category: "Papéis de Parede" },
-    { name: "Artesania - Modelo 3", image: "/images/papel/papel-01.jpg", category: "Papéis de Parede" },
-    { name: "Artesania - Modelo 4", image: "/images/papel/papel-02.jpg", category: "Papéis de Parede" },
-    { name: "Artesania - Modelo 5", image: "/images/papel/papel-30.jpg", category: "Papéis de Parede" },
-    { name: "Artesania - Modelo 6", image: "/images/papel/papel-24.jpg", category: "Papéis de Parede" },
-  ],
   breeze: [
     { name: "Breeze - Modelo 1", image: "/images/papel/papel-17.jpg", category: "Papéis de Parede" },
     { name: "Breeze - Modelo 2", image: "/images/papel/papel-20.jpg", category: "Papéis de Parede" },
@@ -210,6 +182,12 @@ export const PAPEL_PRODUCTS: Record<string, { name: string; image: string; categ
     { name: "Breeze - Modelo 4", image: "/images/papel/papel-11.jpg", category: "Papéis de Parede" },
     { name: "Breeze - Modelo 5", image: "/images/papel/papel-26.jpg", category: "Papéis de Parede" },
     { name: "Breeze - Modelo 6", image: "/images/papel/papel-33.jpg", category: "Papéis de Parede" },
+    { name: "Breeze - Modelo 7", image: "/images/papel/papel-14.jpg", category: "Papéis de Parede" },
+    { name: "Breeze - Modelo 8", image: "/images/papel/papel-18.jpg", category: "Papéis de Parede" },
+    { name: "Breeze - Modelo 9", image: "/images/papel/papel-15.jpg", category: "Papéis de Parede" },
+    { name: "Breeze - Modelo 10", image: "/images/papel/papel-22.jpg", category: "Papéis de Parede" },
+    { name: "Breeze - Modelo 11", image: "/images/papel/papel-04.jpg", category: "Papéis de Parede" },
+    { name: "Breeze - Modelo 12", image: "/images/papel/papel-05.jpg", category: "Papéis de Parede" },
   ],
   carving: [
     { name: "Carving - Modelo 1", image: "/images/papel/papel-16.jpg", category: "Papéis de Parede" },
@@ -218,22 +196,12 @@ export const PAPEL_PRODUCTS: Record<string, { name: string; image: string; categ
     { name: "Carving - Modelo 4", image: "/images/papel/papel-03.jpg", category: "Papéis de Parede" },
     { name: "Carving - Modelo 5", image: "/images/papel/papel-27.jpg", category: "Papéis de Parede" },
     { name: "Carving - Modelo 6", image: "/images/papel/papel-32.jpg", category: "Papéis de Parede" },
-  ],
-  dali: [
-    { name: "Dali - Modelo 1", image: "/images/papel/papel-15.jpg", category: "Papéis de Parede" },
-    { name: "Dali - Modelo 2", image: "/images/papel/papel-22.jpg", category: "Papéis de Parede" },
-    { name: "Dali - Modelo 3", image: "/images/papel/papel-09.jpg", category: "Papéis de Parede" },
-    { name: "Dali - Modelo 4", image: "/images/papel/papel-10.jpg", category: "Papéis de Parede" },
-    { name: "Dali - Modelo 5", image: "/images/papel/papel-28.jpg", category: "Papéis de Parede" },
-    { name: "Dali - Modelo 6", image: "/images/papel/papel-31.jpg", category: "Papéis de Parede" },
-  ],
-  ecletic: [
-    { name: "Ecletic - Modelo 1", image: "/images/papel/papel-04.jpg", category: "Papéis de Parede" },
-    { name: "Ecletic - Modelo 2", image: "/images/papel/papel-05.jpg", category: "Papéis de Parede" },
-    { name: "Ecletic - Modelo 3", image: "/images/papel/papel-13.jpg", category: "Papéis de Parede" },
-    { name: "Ecletic - Modelo 4", image: "/images/papel/papel-25.jpg", category: "Papéis de Parede" },
-    { name: "Ecletic - Modelo 5", image: "/images/papel/papel-29.jpg", category: "Papéis de Parede" },
-    { name: "Ecletic - Modelo 6", image: "/images/papel/papel-34.jpg", category: "Papéis de Parede" },
+    { name: "Carving - Modelo 7", image: "/images/papel/papel-01.jpg", category: "Papéis de Parede" },
+    { name: "Carving - Modelo 8", image: "/images/papel/papel-02.jpg", category: "Papéis de Parede" },
+    { name: "Carving - Modelo 9", image: "/images/papel/papel-09.jpg", category: "Papéis de Parede" },
+    { name: "Carving - Modelo 10", image: "/images/papel/papel-10.jpg", category: "Papéis de Parede" },
+    { name: "Carving - Modelo 11", image: "/images/papel/papel-13.jpg", category: "Papéis de Parede" },
+    { name: "Carving - Modelo 12", image: "/images/papel/papel-25.jpg", category: "Papéis de Parede" },
   ],
   elegant: [
     { name: "Elegant - Modelo 1", image: "/images/papel/papel-19.jpg", category: "Papéis de Parede" },
@@ -242,6 +210,12 @@ export const PAPEL_PRODUCTS: Record<string, { name: string; image: string; categ
     { name: "Elegant - Modelo 4", image: "/images/papel/papel-23.jpg", category: "Papéis de Parede" },
     { name: "Elegant - Modelo 5", image: "/images/papel/papel-35.jpg", category: "Papéis de Parede" },
     { name: "Elegant - Modelo 6", image: "/images/papel/papel-36.jpg", category: "Papéis de Parede" },
+    { name: "Elegant - Modelo 7", image: "/images/papel/papel-30.jpg", category: "Papéis de Parede" },
+    { name: "Elegant - Modelo 8", image: "/images/papel/papel-24.jpg", category: "Papéis de Parede" },
+    { name: "Elegant - Modelo 9", image: "/images/papel/papel-28.jpg", category: "Papéis de Parede" },
+    { name: "Elegant - Modelo 10", image: "/images/papel/papel-31.jpg", category: "Papéis de Parede" },
+    { name: "Elegant - Modelo 11", image: "/images/papel/papel-29.jpg", category: "Papéis de Parede" },
+    { name: "Elegant - Modelo 12", image: "/images/papel/papel-34.jpg", category: "Papéis de Parede" },
   ],
 };
 
@@ -250,25 +224,25 @@ export const PERSIANA_PRODUCTS: Record<string, { name: string; image: string; ca
   horizontais: [
     { name: "Horizontal - Modelo 1", image: "/images/persianas/persiana-02.jpg", category: "Persianas" },
     { name: "Horizontal - Modelo 2", image: "/images/persianas/persiana-14.jpg", category: "Persianas" },
-    { name: "Horizontal - Modelo 3", image: "/images/persianas/persiana-09.jpg", category: "Persianas" },
-    { name: "Horizontal - Modelo 4", image: "/images/persianas/persiana-15.jpg", category: "Persianas" },
-    { name: "Horizontal - Modelo 5", image: "/images/persianas/persiana-05.jpg", category: "Persianas" },
-    { name: "Horizontal - Modelo 6", image: "/images/persianas/persiana-03.jpg", category: "Persianas" },
+    { name: "Horizontal - Modelo 3", image: "/images/persianas/persiana-h-sala.jpg", category: "Persianas" },
+    { name: "Horizontal - Modelo 4", image: "/images/persianas/persiana-h-cinza.jpg", category: "Persianas" },
+    { name: "Horizontal - Modelo 5", image: "/images/persianas/persiana-h-close.jpg", category: "Persianas" },
+    { name: "Horizontal - Modelo 6", image: "/images/persianas/persiana-h-unilux.jpg", category: "Persianas" },
   ],
   verticais: [
     { name: "Vertical - Modelo 1", image: "/images/persianas/persiana-13.jpg", category: "Persianas" },
     { name: "Vertical - Modelo 2", image: "/images/persianas/persiana-07.jpg", category: "Persianas" },
-    { name: "Vertical - Modelo 3", image: "/images/persianas/persiana-08.jpg", category: "Persianas" },
+    { name: "Vertical - Modelo 3", image: "/images/persianas/persiana-vertical.jpg", category: "Persianas" },
     { name: "Vertical - Modelo 4", image: "/images/persianas/persiana-17.jpg", category: "Persianas" },
     { name: "Vertical - Modelo 5", image: "/images/persianas/persiana-11.jpg", category: "Persianas" },
     { name: "Vertical - Modelo 6", image: "/images/persianas/persiana-04.jpg", category: "Persianas" },
   ],
   "rolo-double-vision": [
-    { name: "Rolô - Modelo 1", image: "/images/persianas/persiana-16.jpg", category: "Persianas" },
-    { name: "Rolô - Modelo 2", image: "/images/persianas/persiana-10.jpg", category: "Persianas" },
-    { name: "Rolô - Modelo 3", image: "/images/persianas/persiana-01.jpg", category: "Persianas" },
-    { name: "Double Vision - Modelo 1", image: "/images/persianas/persiana-06.jpg", category: "Persianas" },
-    { name: "Double Vision - Modelo 2", image: "/images/persianas/persiana-12.jpg", category: "Persianas" },
+    { name: "Rolô - Modelo 1", image: "/images/persianas/rolo-01.jpg", category: "Persianas" },
+    { name: "Rolô - Modelo 2", image: "/images/persianas/rolo-02.jpg", category: "Persianas" },
+    { name: "Rolô - Modelo 3", image: "/images/persianas/rolo-03.jpg", category: "Persianas" },
+    { name: "Double Vision - Modelo 1", image: "/images/persianas/rolo-04.jpg", category: "Persianas" },
+    { name: "Double Vision - Modelo 2", image: "/images/persianas/rolo-05.jpg", category: "Persianas" },
   ],
 };
 

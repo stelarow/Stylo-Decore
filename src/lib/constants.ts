@@ -52,11 +52,8 @@ export const NAVIGATION: NavItem[] = [
     label: "Papel de Parede",
     href: "/papeis-de-parede",
     children: [
-      { label: "Artesania", href: "/papeis-de-parede/artesania" },
       { label: "Breeze", href: "/papeis-de-parede/breeze" },
       { label: "Carving", href: "/papeis-de-parede/carving" },
-      { label: "Dali", href: "/papeis-de-parede/dali" },
-      { label: "Ecletic", href: "/papeis-de-parede/ecletic" },
       { label: "Elegant", href: "/papeis-de-parede/elegant" },
     ],
   },

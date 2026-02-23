@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, Sparkles, Ruler, Award, Wrench } from "lucide-react";
+import { ArrowRight, Sparkles, Ruler, Award, Wrench, BookOpen } from "lucide-react";
 import { CATEGORIES, getWhatsAppUrl } from "@/lib/constants";
 
 export default function Home() {
@@ -21,16 +21,16 @@ export default function Home() {
             backgroundImage: "url('/images/hero-home-desktop.jpg')",
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/60" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/40 to-black/70" />
 
         <div className="relative z-10 mx-auto max-w-4xl px-6 text-center">
-          <p className="mb-4 text-sm font-medium uppercase tracking-[0.3em] text-primary">
+          <p className="mb-4 text-sm font-medium uppercase tracking-[0.3em] text-primary drop-shadow-md">
             Stylo Decore
           </p>
-          <h1 className="mb-6 font-serif text-4xl font-bold leading-tight text-white md:text-5xl lg:text-6xl xl:text-7xl">
+          <h1 className="mb-6 font-serif text-4xl font-bold leading-tight text-white drop-shadow-[0_2px_12px_rgba(0,0,0,0.6)] md:text-5xl lg:text-6xl xl:text-7xl">
             20 anos de experiência transformando ambientes
           </h1>
-          <p className="mx-auto mb-10 max-w-2xl text-lg text-white/80 md:text-xl xl:text-2xl">
+          <p className="mx-auto mb-10 max-w-2xl text-lg text-white drop-shadow-[0_1px_6px_rgba(0,0,0,0.7)] md:text-xl xl:text-2xl">
             Sofisticação e conforto em cada detalhe da sua casa.
           </p>
           <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
@@ -44,7 +44,7 @@ export default function Home() {
             </a>
             <a
               href="#colecoes"
-              className="inline-flex items-center rounded-full border-2 border-white/70 px-8 py-3.5 text-sm font-semibold uppercase tracking-wider text-white transition-colors hover:border-white hover:bg-white/10"
+              className="inline-flex items-center rounded-full border-2 border-primary/80 bg-black/20 px-8 py-3.5 text-sm font-semibold uppercase tracking-wider text-primary backdrop-blur-sm transition-all hover:border-primary hover:bg-primary/10"
             >
               Ver Coleções
             </a>
@@ -127,7 +127,7 @@ export default function Home() {
       </section>
 
       {/* Projeto Personalizado */}
-      <section className="mx-auto max-w-7xl px-6 pb-20 md:pb-28">
+      <section className="mx-auto max-w-7xl px-6 pb-10 md:pb-14">
         <div className="rounded-2xl bg-white p-10 text-center shadow-sm md:p-16 lg:flex lg:items-center lg:gap-12 lg:p-20 lg:text-left">
           <div className="lg:flex-1">
             <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 lg:mx-0">
@@ -152,6 +152,59 @@ export default function Home() {
             </a>
           </div>
         </div>
+      </section>
+
+      {/* Blog Banner */}
+      <section className="mx-auto max-w-7xl px-6 pb-20 md:pb-28">
+        <Link
+          href="/blog"
+          className="group relative block overflow-hidden rounded-2xl bg-gradient-to-br from-[#3a2618] to-[#1e1509] transition-all duration-300 hover:shadow-2xl hover:shadow-black/40"
+        >
+          {/* Gold top accent */}
+          <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-primary/20 via-primary to-primary/20" />
+
+          {/* Mobile: horizontal compacto */}
+          <div className="relative flex items-center justify-between gap-4 px-6 py-7 md:hidden">
+            <div className="flex items-center gap-4">
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/15">
+                <BookOpen className="h-5 w-5 text-primary" />
+              </div>
+              <div>
+                <h3 className="font-serif text-lg font-bold leading-tight text-white">
+                  Blog & Inspirações
+                </h3>
+                <p className="mt-0.5 text-xs leading-relaxed text-white/45">
+                  Dicas e tendências para seus ambientes
+                </p>
+              </div>
+            </div>
+            <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-primary/40 bg-primary/10 transition-all duration-300 group-hover:border-primary group-hover:bg-primary/20">
+              <ArrowRight className="h-4 w-4 text-primary transition-transform duration-300 group-hover:translate-x-0.5" />
+            </div>
+          </div>
+
+          {/* Desktop: editorial */}
+          <div className="relative hidden md:flex md:items-center md:justify-between md:px-14 md:py-12">
+            <div>
+              <div className="mb-4 flex items-center gap-2.5">
+                <BookOpen className="h-4 w-4 text-primary/70" />
+                <span className="text-xs font-semibold uppercase tracking-[0.22em] text-white/35">
+                  Blog
+                </span>
+              </div>
+              <h3 className="font-serif text-4xl font-bold leading-snug text-white">
+                Blog & Inspirações
+              </h3>
+              <p className="mt-3 max-w-sm text-base leading-relaxed text-white/45">
+                Dicas de decoração e tendências para seus ambientes
+              </p>
+            </div>
+            <div className="flex shrink-0 items-center gap-2.5 rounded-full border border-primary/40 px-6 py-3 text-sm font-semibold text-primary transition-all duration-300 group-hover:border-primary group-hover:bg-primary/10">
+              Ver artigos
+              <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+            </div>
+          </div>
+        </Link>
       </section>
     </>
   );
