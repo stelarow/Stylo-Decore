@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { NAVIGATION, getWhatsAppUrl } from "@/lib/constants";
 import { cn } from "@/lib/utils";
@@ -40,8 +41,15 @@ export default function Header() {
       >
         <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 lg:px-6">
           {/* Logo */}
-          <Link href="/" className="font-serif text-2xl lg:text-3xl font-bold tracking-wide text-foreground shrink-0">
-            Stylo <span className="text-primary">Decore</span>
+          <Link href="/" className="shrink-0">
+            <Image
+              src="/images/logo.png"
+              alt="Stylo Decore"
+              width={309}
+              height={173}
+              className="h-16 w-auto object-contain"
+              priority
+            />
           </Link>
 
           {/* Desktop Nav — right-aligned */}

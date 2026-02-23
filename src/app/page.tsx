@@ -61,7 +61,7 @@ export default function Home() {
           <div className="mt-3 h-1 w-16 rounded-full bg-primary" />
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 md:gap-1">
+        <div className="grid grid-cols-1 md:grid-cols-2">
           {CATEGORIES.map((cat) => (
             <Link
               key={cat.href}
