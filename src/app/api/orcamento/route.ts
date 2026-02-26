@@ -24,6 +24,15 @@ const ANSWER_LABELS: Record<string, string> = {
   tamanho: "Tamanho",
   colecao: "Coleção",
   area: "Área",
+  prioridade: "Prioridade",
+  estilo: "Estilo",
+  prazo: "Prazo",
+  luz: "Controle de luz",
+  acionamento: "Acionamento",
+  visual: "Visual desejado",
+  estadoParede: "Estado da parede",
+  uso: "Uso principal",
+  material: "Material",
 };
 
 function buildEmailHtml(
@@ -85,7 +94,7 @@ export async function POST(req: NextRequest) {
     const emailHtml = buildEmailHtml(answers, selectedProducts, contact);
 
     await resend.emails.send({
-      from: "Stylo Decore <no-reply@stylodecore.com.br>",
+      from: "Stylo Decore <onboarding@resend.dev>",
       to: process.env.EMAIL_TO!,
       subject: `Novo orçamento — ${contact.nome}`,
       html: emailHtml,

@@ -13,7 +13,7 @@ export function getWhatsAppUrl(message?: string) {
 export const CONTACT: ContactInfo = {
   phone: "(48) 9673-3626",
   whatsapp: WHATSAPP_NUMBER,
-  email: "contato@stylodecore.com.br",
+  email: "sstylodecore@gmail.com",
   address: "Rua Example, 123 - Centro",
   city: "Florianópolis",
   state: "SC",

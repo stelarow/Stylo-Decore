@@ -3,6 +3,7 @@ import { ArrowRight, Check } from "lucide-react";
 import { getWhatsAppUrl } from "@/lib/constants";
 import { DEFAULT_FAQ } from "@/lib/seo";
 import FAQAccordion from "@/components/ui/FAQAccordion";
+import ScrollReveal from "@/components/ui/ScrollReveal";
 
 interface SubcategoryItem {
   name: string;
@@ -76,119 +77,125 @@ export default function CategoryPage({
 
       {/* Texto introdutório */}
       {intro && (
-        <div className="mx-auto max-w-7xl px-6 py-16 md:py-20">
-          <p className="mx-auto max-w-3xl text-center text-xl leading-relaxed text-mahogany-light md:text-2xl">
-            {intro}
-          </p>
-        </div>
+        <ScrollReveal animation="up">
+          <div className="mx-auto max-w-7xl px-6 py-16 md:py-20">
+            <p className="mx-auto max-w-3xl text-center text-xl leading-relaxed text-mahogany-light md:text-2xl">
+              {intro}
+            </p>
+          </div>
+        </ScrollReveal>
       )}
 
       {/* Grid masonry-style */}
       {subcategories.length > 0 && (
-        <div className="mx-auto max-w-7xl px-6 py-12">
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {/* Card grande - primeiro item */}
-            <Link
-              href={subcategories[0].href}
-              className="group relative overflow-hidden sm:row-span-2"
-            >
-              {/* Spacer: dá altura no mobile via aspect-ratio, no desktop o grid row-span define */}
-              <div className="aspect-[4/5] lg:aspect-auto" />
-              {subcategories[0].cardImage ? (
-                <>
-                  {/* Desktop: mostra cardImage (bambu) */}
-                  <img
-                    src={subcategories[0].cardImage}
-                    alt={subcategories[0].name}
-                    className="absolute inset-0 hidden h-full w-full object-cover transition-transform duration-500 group-hover:scale-105 lg:block"
-                  />
-                  {/* Mobile: mostra image original */}
+        <ScrollReveal animation="up" threshold={0.05}>
+          <div className="mx-auto max-w-7xl px-6 py-12">
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {/* Card grande - primeiro item */}
+              <Link
+                href={subcategories[0].href}
+                className="group relative overflow-hidden sm:row-span-2"
+              >
+                {/* Spacer: dá altura no mobile via aspect-ratio, no desktop o grid row-span define */}
+                <div className="aspect-[4/5] lg:aspect-auto" />
+                {subcategories[0].cardImage ? (
+                  <>
+                    {/* Desktop: mostra cardImage (bambu) */}
+                    <img
+                      src={subcategories[0].cardImage}
+                      alt={subcategories[0].name}
+                      className="absolute inset-0 hidden h-full w-full object-cover transition-transform duration-500 group-hover:scale-105 lg:block"
+                    />
+                    {/* Mobile: mostra image original */}
+                    <img
+                      src={subcategories[0].image}
+                      alt={subcategories[0].name}
+                      className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105 lg:hidden"
+                    />
+                  </>
+                ) : (
                   <img
                     src={subcategories[0].image}
                     alt={subcategories[0].name}
-                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105 lg:hidden"
+                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
-                </>
-              ) : (
-                <img
-                  src={subcategories[0].image}
-                  alt={subcategories[0].name}
-                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-              )}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
-              <div className="absolute inset-x-0 bottom-0 p-6 md:p-8">
-                <span className="mb-2 inline-block rounded-full bg-primary px-3 py-1 text-xs font-semibold text-background-dark">
-                  Premium
-                </span>
-                <h3 className="mb-1 text-2xl font-bold text-white">
-                  {subcategories[0].name}
-                </h3>
-                <p className="text-sm text-white/70">{subcategories[0].description}</p>
-                <div className="mt-4 flex h-10 w-10 items-center justify-center rounded-full bg-primary text-background-dark opacity-0 transition-all duration-300 group-hover:opacity-100">
-                  <ArrowRight className="h-5 w-5" />
-                </div>
-              </div>
-            </Link>
-
-            {/* Cards menores */}
-            {subcategories.slice(1).map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="group relative overflow-hidden"
-              >
-                <div className="aspect-[3/4]">
-                  <img
-                    src={item.image}
-                    alt={item.name}
-                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                <div className="absolute inset-x-0 bottom-0 p-6">
-                  <h3 className="mb-1 text-xl font-bold text-white">
-                    {item.name}
+                )}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+                <div className="absolute inset-x-0 bottom-0 p-6 md:p-8">
+                  <span className="mb-2 inline-block rounded-full bg-primary px-3 py-1 text-xs font-semibold text-background-dark">
+                    Premium
+                  </span>
+                  <h3 className="mb-1 text-2xl font-bold text-white">
+                    {subcategories[0].name}
                   </h3>
-                  <p className="text-sm text-white/70">{item.description}</p>
-                  <div className="mt-3 flex h-9 w-9 items-center justify-center rounded-full bg-primary text-background-dark opacity-0 transition-all duration-300 group-hover:opacity-100">
-                    <ArrowRight className="h-4 w-4" />
+                  <p className="text-sm text-white/70">{subcategories[0].description}</p>
+                  <div className="mt-4 flex h-10 w-10 items-center justify-center rounded-full bg-primary text-background-dark opacity-0 transition-all duration-300 group-hover:opacity-100">
+                    <ArrowRight className="h-5 w-5" />
                   </div>
                 </div>
               </Link>
-            ))}
 
-            {/* Card CTA - Consultoria */}
-            <div className="flex flex-col items-center justify-center rounded-2xl bg-foreground p-8 text-center shadow-sm">
-              <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-primary/20">
-                <Check className="h-7 w-7 text-primary" />
+              {/* Cards menores */}
+              {subcategories.slice(1).map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="group relative overflow-hidden"
+                >
+                  <div className="aspect-[3/4]">
+                    <img
+                      src={item.image}
+                      alt={item.name}
+                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                  </div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                  <div className="absolute inset-x-0 bottom-0 p-6">
+                    <h3 className="mb-1 text-xl font-bold text-white">
+                      {item.name}
+                    </h3>
+                    <p className="text-sm text-white/70">{item.description}</p>
+                    <div className="mt-3 flex h-9 w-9 items-center justify-center rounded-full bg-primary text-background-dark opacity-0 transition-all duration-300 group-hover:opacity-100">
+                      <ArrowRight className="h-4 w-4" />
+                    </div>
+                  </div>
+                </Link>
+              ))}
+
+              {/* Card CTA - Consultoria */}
+              <div className="flex flex-col items-center justify-center rounded-2xl bg-foreground p-8 text-center shadow-sm">
+                <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-primary/20">
+                  <Check className="h-7 w-7 text-primary" />
+                </div>
+                <h3 className="mb-2 font-serif text-xl font-bold text-white">
+                  Consultoria Personalizada
+                </h3>
+                <p className="mb-6 text-sm text-white/70">
+                  Nossa especialista vai até você para medição e consultoria gratuita.
+                </p>
+                <a
+                  href={getWhatsAppUrl(
+                    `Olá! Gostaria de agendar uma consultoria para ${title.toLowerCase()}.`
+                  )}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="brushed-gold inline-flex items-center rounded-full px-6 py-2.5 text-sm font-semibold text-background-dark transition-all hover:shadow-lg active:scale-95"
+                >
+                  Agendar Agora
+                </a>
               </div>
-              <h3 className="mb-2 font-serif text-xl font-bold text-white">
-                Consultoria Personalizada
-              </h3>
-              <p className="mb-6 text-sm text-white/70">
-                Nossa especialista vai até você para medição e consultoria gratuita.
-              </p>
-              <a
-                href={getWhatsAppUrl(
-                  `Olá! Gostaria de agendar uma consultoria para ${title.toLowerCase()}.`
-                )}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="brushed-gold inline-flex items-center rounded-full px-6 py-2.5 text-sm font-semibold text-background-dark transition-all hover:shadow-lg active:scale-95"
-              >
-                Agendar Agora
-              </a>
-            </div>
 
+            </div>
           </div>
-        </div>
+        </ScrollReveal>
       )}
 
       {/* FAQ Accordion */}
-      <div className="mx-auto max-w-7xl px-6 py-16 md:py-20">
-        <FAQAccordion items={faq} />
-      </div>
+      <ScrollReveal animation="up">
+        <div className="mx-auto max-w-7xl px-6 py-16 md:py-20">
+          <FAQAccordion items={faq} />
+        </div>
+      </ScrollReveal>
     </div>
   );
 }
