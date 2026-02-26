@@ -1,8 +1,6 @@
 import { Resend } from "resend";
 import { NextRequest, NextResponse } from "next/server";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 type ProductKey = "cortinas" | "persianas" | "papelDeParede" | "tapetes";
 
 interface ContactData {
@@ -89,6 +87,7 @@ function buildEmailHtml(
 
 export async function POST(req: NextRequest) {
   try {
+    const resend = new Resend(process.env.RESEND_API_KEY);
     const { answers, selectedProducts, contact } = await req.json();
 
     const emailHtml = buildEmailHtml(answers, selectedProducts, contact);
