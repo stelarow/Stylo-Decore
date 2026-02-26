@@ -1,8 +1,6 @@
 import { Resend } from "resend";
 import { NextRequest, NextResponse } from "next/server";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 interface ContactPayload {
   name: string;
   phone: string;
@@ -71,6 +69,7 @@ function buildEmailHtml(data: ContactPayload): string {
 
 export async function POST(req: NextRequest) {
   try {
+    const resend = new Resend(process.env.RESEND_API_KEY);
     const data: ContactPayload = await req.json();
 
     if (!data.name?.trim() || !data.phone?.trim()) {

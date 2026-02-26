@@ -375,10 +375,6 @@ export default function Home() {
                     alt={post.title}
                     className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
-                  {/* Número decorativo */}
-                  <span className="absolute left-4 top-3 font-serif text-5xl font-bold leading-none text-white/20 select-none">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
                   {/* Tag */}
                   <span className="absolute bottom-4 left-4 bg-primary/90 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-[#221e10]">
                     {post.tags[0]}
