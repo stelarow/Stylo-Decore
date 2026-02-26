@@ -1,6 +1,8 @@
 import Link from "next/link";
-import { ArrowRight, Sparkles, Ruler, Award, Wrench, BookOpen } from "lucide-react";
+import { ArrowRight, Sparkles, Ruler, Award, Wrench, BookOpen, Clock, Check, Smartphone } from "lucide-react";
 import { CATEGORIES, getWhatsAppUrl } from "@/lib/constants";
+import { BLOG_POSTS } from "@/lib/data";
+import ContactSection from "@/components/sections/ContactSection";
 
 export default function Home() {
   return (
@@ -44,7 +46,7 @@ export default function Home() {
             </a>
             <a
               href="#colecoes"
-              className="inline-flex items-center rounded-full border-2 border-primary/80 bg-black/20 px-8 py-3.5 text-sm font-semibold uppercase tracking-wider text-primary backdrop-blur-sm transition-all hover:border-primary hover:bg-primary/10"
+              className="inline-flex items-center rounded-full bg-white px-8 py-3.5 text-sm font-semibold uppercase tracking-wider text-background-dark transition-all hover:bg-background"
             >
               Ver Coleções
             </a>
@@ -95,9 +97,170 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Como Atendemos */}
+      <section className="bg-background py-16 md:py-24">
+        <div className="mx-auto max-w-7xl px-6">
+          {/* Header */}
+          <div className="mb-14 text-center">
+            <p className="mb-3 text-xs font-bold uppercase tracking-[0.35em] text-primary">
+              Formas de Atendimento
+            </p>
+            <h2 className="font-serif text-4xl font-bold text-foreground md:text-5xl">
+              Escolha como começar
+            </h2>
+            <div className="mx-auto mt-4 h-px w-32 bg-gradient-to-r from-transparent via-primary to-transparent" />
+            <p className="mx-auto mt-5 max-w-lg text-sm leading-relaxed text-foreground/60">
+              Duas opções pensadas para se adaptar ao seu momento — da praticidade
+              do digital ao atendimento exclusivo em casa.
+            </p>
+          </div>
+
+          {/* Cards */}
+          <div className="grid gap-6 md:grid-cols-2 md:items-stretch">
+
+            {/* Card 1 — Orçamento Online */}
+            <div className="group flex flex-col rounded-2xl border border-[#B59E7D]/25 bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md">
+              {/* Top row */}
+              <div className="mb-6 flex items-start justify-between">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10">
+                  <Smartphone className="h-6 w-6 text-primary" />
+                </div>
+                <span className="rounded-full border border-[#B59E7D]/30 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-foreground/40">
+                  Online · Gratuito
+                </span>
+              </div>
+
+              <h3 className="mb-3 font-serif text-2xl font-bold text-foreground">
+                Orçamento Online Gratuito
+              </h3>
+              <p className="mb-7 text-sm leading-relaxed text-foreground/60">
+                Envie fotos e medidas do seu ambiente pelo WhatsApp e receba uma
+                estimativa rápida, sem sair de casa e sem compromisso.
+              </p>
+
+              {/* Steps */}
+              <ol className="mb-8 flex-1 space-y-4">
+                {[
+                  "Tire fotos do ambiente e anote as medidas",
+                  "Envie pelo WhatsApp com suas preferências de estilo",
+                  "Receba uma estimativa detalhada rapidamente",
+                ].map((step, i) => (
+                  <li key={step} className="flex items-start gap-3">
+                    <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-[10px] font-bold text-primary">
+                      {i + 1}
+                    </span>
+                    <p className="text-sm leading-relaxed text-foreground/65">
+                      {step}
+                    </p>
+                  </li>
+                ))}
+              </ol>
+
+              <a
+                href={getWhatsAppUrl(
+                  "Olá! Gostaria de solicitar um orçamento online. Vou enviar as fotos e medidas do ambiente.",
+                )}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group/btn inline-flex h-12 w-full items-center justify-center gap-2 rounded-full border-2 border-foreground/20 text-sm font-semibold text-foreground transition-all duration-300 hover:border-primary hover:text-primary"
+              >
+                Quero uma estimativa agora
+                <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover/btn:translate-x-1" />
+              </a>
+            </div>
+
+            {/* Card 2 — Consultoria Premium (destaque branco) */}
+            <div className="group relative flex flex-col rounded-2xl border-2 border-primary/40 bg-white p-8 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+              {/* Linha dourada no topo */}
+              <div className="absolute left-0 right-0 top-0 h-[3px] rounded-t-2xl bg-primary" />
+
+              {/* Badge centralizado acima */}
+              <div className="absolute -top-[18px] left-1/2 -translate-x-1/2">
+                <span className="inline-flex items-center gap-1.5 whitespace-nowrap rounded-full bg-primary px-5 py-1.5 text-xs font-bold uppercase tracking-wider text-[#221e10] shadow-lg">
+                  <Sparkles className="h-3 w-3" />
+                  Mais Recomendado
+                </span>
+              </div>
+
+              {/* Top row */}
+              <div className="mb-6 flex items-start justify-between">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/15">
+                  <Award className="h-6 w-6 text-primary" />
+                </div>
+                <span className="rounded-full border border-primary/30 bg-primary/5 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-primary/70">
+                  Premium · Presencial
+                </span>
+              </div>
+
+              <h3 className="mb-3 font-serif text-2xl font-bold text-foreground">
+                Consultoria Presencial Premium
+              </h3>
+              <p className="mb-7 text-sm leading-relaxed text-foreground/60">
+                Nossa especialista vai até você com mostruário exclusivo,
+                orienta na escolha de cores e tecidos, e realiza a medição com
+                precisão milimétrica.
+              </p>
+
+              {/* Features */}
+              <ul className="mb-8 flex-1 space-y-3">
+                {[
+                  "Visita técnica no seu ambiente",
+                  "Mostruário exclusivo levado até você",
+                  "Orientação profissional de cores e tecidos",
+                  "Medição precisa garantida",
+                ].map((feature) => (
+                  <li key={feature} className="flex items-center gap-3">
+                    <Check className="h-4 w-4 shrink-0 text-primary" />
+                    <span className="text-sm text-foreground/70">{feature}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <a
+                href={getWhatsAppUrl(
+                  "Olá! Gostaria de agendar uma Consultoria Presencial Premium da Stylo Decore.",
+                )}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="brushed-gold inline-flex h-12 w-full items-center justify-center gap-2 rounded-full text-sm font-semibold text-[#221e10] transition-all hover:opacity-90 hover:shadow-lg active:scale-95"
+              >
+                Agendar Consultoria Profissional
+                <ArrowRight className="h-4 w-4" />
+              </a>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Questionário */}
+      <section className="bg-background py-12 md:py-16">
+        <div className="mx-auto max-w-3xl px-6 text-center">
+          <p className="mb-3 text-xs font-bold uppercase tracking-[0.35em] text-primary lg:text-sm">
+            Atendimento Personalizado
+          </p>
+          <h2 className="font-serif text-3xl font-bold text-foreground md:text-4xl lg:text-5xl">
+            Qual é o seu projeto?
+          </h2>
+          <div className="mx-auto mt-4 h-px w-32 bg-gradient-to-r from-transparent via-primary to-transparent" />
+          <p className="mx-auto mt-4 max-w-md text-sm leading-relaxed text-foreground/60">
+            Responda algumas perguntas rápidas e montamos uma mensagem personalizada para o WhatsApp.
+          </p>
+          <div className="mt-7">
+            <Link
+              href="/questionario"
+              className="brushed-gold inline-flex items-center gap-2 rounded-full px-8 py-3.5 text-sm font-semibold text-[#221e10] transition-all hover:opacity-90 hover:shadow-lg active:scale-95"
+            >
+              Começar questionário
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* Diferenciais */}
-      <section className="mx-auto max-w-7xl px-6 py-20 md:py-28">
-        <div className="grid gap-10 md:grid-cols-3">
+      <section className="mx-auto max-w-7xl px-6 py-12 md:py-16">
+        <div className="grid gap-6 md:grid-cols-3">
           {[
             {
               icon: Ruler,
@@ -154,58 +317,88 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Blog Banner */}
+      {/* Blog Preview */}
       <section className="mx-auto max-w-7xl px-6 pb-20 md:pb-28">
-        <Link
-          href="/blog"
-          className="group relative block overflow-hidden rounded-2xl bg-gradient-to-br from-[#3a2618] to-[#1e1509] transition-all duration-300 hover:shadow-2xl hover:shadow-black/40"
-        >
-          {/* Gold top accent */}
-          <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-primary/20 via-primary to-primary/20" />
-
-          {/* Mobile: horizontal compacto */}
-          <div className="relative flex items-center justify-between gap-4 px-6 py-7 md:hidden">
-            <div className="flex items-center gap-4">
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/15">
-                <BookOpen className="h-5 w-5 text-primary" />
-              </div>
-              <div>
-                <h3 className="font-serif text-lg font-bold leading-tight text-white">
-                  Blog & Inspirações
-                </h3>
-                <p className="mt-0.5 text-xs leading-relaxed text-white/45">
-                  Dicas e tendências para seus ambientes
-                </p>
-              </div>
-            </div>
-            <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-primary/40 bg-primary/10 transition-all duration-300 group-hover:border-primary group-hover:bg-primary/20">
-              <ArrowRight className="h-4 w-4 text-primary transition-transform duration-300 group-hover:translate-x-0.5" />
-            </div>
+        {/* Cabeçalho editorial */}
+        <div className="mb-10 flex items-end justify-between border-b border-[#B59E7D]/30 pb-6">
+          <div>
+            <p className="mb-2 text-xs font-bold uppercase tracking-[0.35em] text-primary">
+              Blog
+            </p>
+            <h2 className="font-serif text-3xl font-bold text-foreground md:text-4xl">
+              Dicas & Inspirações
+            </h2>
           </div>
+          <Link
+            href="/blog"
+            className="hidden items-center gap-2 text-sm font-semibold text-foreground/60 transition-colors hover:text-primary md:flex"
+          >
+            Ver todos os artigos
+            <ArrowRight className="h-4 w-4" />
+          </Link>
+        </div>
 
-          {/* Desktop: editorial */}
-          <div className="relative hidden md:flex md:items-center md:justify-between md:px-14 md:py-12">
-            <div>
-              <div className="mb-4 flex items-center gap-2.5">
-                <BookOpen className="h-4 w-4 text-primary/70" />
-                <span className="text-xs font-semibold uppercase tracking-[0.22em] text-white/35">
-                  Blog
+        {/* Grid de cards — 3 colunas iguais */}
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {BLOG_POSTS.map((post, i) => (
+            <Link
+              key={post.slug}
+              href={`/blog/${post.slug}`}
+              className="group flex flex-col"
+            >
+              {/* Imagem com número decorativo */}
+              <div className="relative overflow-hidden rounded-xl" style={{ aspectRatio: "4/3" }}>
+                <img
+                  src={post.image}
+                  alt={post.title}
+                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                {/* Número decorativo */}
+                <span className="absolute left-4 top-3 font-serif text-5xl font-bold leading-none text-white/20 select-none">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                {/* Tag */}
+                <span className="absolute bottom-4 left-4 bg-primary/90 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-[#221e10]">
+                  {post.tags[0]}
                 </span>
               </div>
-              <h3 className="font-serif text-4xl font-bold leading-snug text-white">
-                Blog & Inspirações
-              </h3>
-              <p className="mt-3 max-w-sm text-base leading-relaxed text-white/45">
-                Dicas de decoração e tendências para seus ambientes
-              </p>
-            </div>
-            <div className="flex shrink-0 items-center gap-2.5 rounded-full border border-primary/40 px-6 py-3 text-sm font-semibold text-primary transition-all duration-300 group-hover:border-primary group-hover:bg-primary/10">
-              Ver artigos
-              <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-            </div>
-          </div>
-        </Link>
+
+              {/* Conteúdo */}
+              <div className="flex flex-1 flex-col pt-5">
+                <h3 className="mb-2 font-serif text-lg font-bold leading-snug text-foreground transition-colors group-hover:text-primary">
+                  {post.title}
+                </h3>
+                <p className="mb-4 flex-1 text-sm leading-relaxed text-foreground/60 line-clamp-2">
+                  {post.excerpt}
+                </p>
+                {/* Footer do card */}
+                <div className="flex items-center justify-between border-t border-[#B59E7D]/20 pt-4">
+                  <span className="flex items-center gap-1.5 text-xs text-foreground/40">
+                    <Clock className="h-3 w-3" />
+                    {post.readingTime} min de leitura
+                  </span>
+                  <span className="flex items-center gap-1 text-xs font-bold text-primary opacity-0 transition-all duration-300 group-hover:translate-x-0.5 group-hover:opacity-100">
+                    Ler artigo <ArrowRight className="h-3.5 w-3.5" />
+                  </span>
+                </div>
+              </div>
+            </Link>
+          ))}
+        </div>
+
+        {/* Mobile CTA */}
+        <div className="mt-10 flex justify-center md:hidden">
+          <Link
+            href="/blog"
+            className="inline-flex items-center gap-2 text-sm font-semibold text-foreground/60"
+          >
+            Ver todos os artigos <ArrowRight className="h-4 w-4" />
+          </Link>
+        </div>
       </section>
+
+      {/* Entre em Contato */}
+      <ContactSection />
     </>
   );
 }

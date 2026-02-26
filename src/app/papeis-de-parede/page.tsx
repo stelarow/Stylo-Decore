@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import CategoryPage from "@/components/sections/CategoryPage";
 import JsonLd from "@/components/seo/JsonLd";
-import { getBreadcrumbJsonLd, getFaqJsonLd, DEFAULT_FAQ } from "@/lib/seo";
+import { getBreadcrumbJsonLd, getFaqJsonLd, PAPEIS_FAQ } from "@/lib/seo";
 import { PAPEIS_SUBCATEGORIES } from "@/lib/data";
 
 export const metadata: Metadata = {
@@ -25,13 +25,14 @@ export default function PapeisDeParedePage() {
         { name: "Home", href: "/" },
         { name: "Papéis de Parede", href: "/papeis-de-parede" },
       ])} />
-      <JsonLd data={getFaqJsonLd(DEFAULT_FAQ)} />
+      <JsonLd data={getFaqJsonLd(PAPEIS_FAQ)} />
       <CategoryPage
         title="Papéis de Parede"
         headline="Arte nas Paredes"
         description="Texturas e padrões que criam personalidade. Explore nossas coleções exclusivas de papéis de parede."
         intro="Papéis de parede são uma forma sofisticada de personalizar ambientes. Trabalhamos com coleções exclusivas que vão do artesanal ao contemporâneo, sempre com aplicação profissional."
         subcategories={PAPEIS_SUBCATEGORIES}
+        faqItems={PAPEIS_FAQ}
       />
     </>
   );

@@ -1,5 +1,39 @@
 // Dados centralizados de subcategorias para cada categoria
 
+export const BLOG_POSTS = [
+  {
+    slug: "como-escolher-tecido-cortina",
+    title: "Como Escolher o Tecido Ideal para sua Cortina",
+    excerpt:
+      "Linho, voil, blackout ou seda? Descubra qual tecido é ideal para cada ambiente da sua casa e como cada um influencia a iluminação e privacidade.",
+    date: "2026-02-01",
+    image: "/images/blog/tecidos-cortina.jpg",
+    tags: ["Cortinas", "Tecidos", "Dicas"],
+    readingTime: 4,
+  },
+  {
+    slug: "motorizacao-persianas-vale-a-pena",
+    title: "Motorização de Persianas: Vale a Pena?",
+    excerpt:
+      "Entenda as vantagens da motorização, como funciona a integração com assistentes virtuais e quando investir em automação para suas persianas.",
+    date: "2026-01-20",
+    image: "/images/blog/persianas-motorizacao.jpg",
+    tags: ["Persianas", "Motorização", "Automação"],
+    readingTime: 3,
+  },
+  {
+    slug: "tendencias-decoracao-2026",
+    title: "Tendências de Decoração 2026: O que Esperar",
+    excerpt:
+      "Cores terrosas, materiais naturais e texturas táteis dominam as tendências. Veja como aplicar essas novidades na sua casa.",
+    date: "2026-01-10",
+    image:
+      "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=900&h=600&fit=crop",
+    tags: ["Tendências", "Decoração", "2026"],
+    readingTime: 5,
+  },
+];
+
 export const CORTINAS_SUBCATEGORIES = [
   {
     name: "Cortinas de Tecido",

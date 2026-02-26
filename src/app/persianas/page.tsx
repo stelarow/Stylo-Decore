@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import CategoryPage from "@/components/sections/CategoryPage";
 import JsonLd from "@/components/seo/JsonLd";
-import { getBreadcrumbJsonLd, getFaqJsonLd, DEFAULT_FAQ } from "@/lib/seo";
+import { getBreadcrumbJsonLd, getFaqJsonLd, PERSIANAS_FAQ } from "@/lib/seo";
 import { PERSIANAS_SUBCATEGORIES } from "@/lib/data";
 
 export const metadata: Metadata = {
@@ -25,13 +25,14 @@ export default function PersianasPage() {
         { name: "Home", href: "/" },
         { name: "Persianas", href: "/persianas" },
       ])} />
-      <JsonLd data={getFaqJsonLd(DEFAULT_FAQ)} />
+      <JsonLd data={getFaqJsonLd(PERSIANAS_FAQ)} />
       <CategoryPage
         title="Persianas"
         headline="Controle de Luz"
         description="Controle de luz com elegância e praticidade. Descubra nossas persianas sob medida para cada ambiente."
         intro="Persianas são a solução ideal para quem busca controle de luminosidade com design sofisticado. Oferecemos modelos em diversos materiais e acabamentos, sempre com medição e instalação profissional."
         subcategories={PERSIANAS_SUBCATEGORIES}
+        faqItems={PERSIANAS_FAQ}
       />
     </>
   );

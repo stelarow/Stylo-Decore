@@ -3,6 +3,8 @@ import Link from "next/link";
 import { ArrowRight, Clock } from "lucide-react";
 import JsonLd from "@/components/seo/JsonLd";
 import { getBreadcrumbJsonLd } from "@/lib/seo";
+import { BLOG_POSTS } from "@/lib/data";
+import BlogContactForm from "@/components/blog/BlogContactForm";
 
 export const metadata: Metadata = {
   title: "Blog - Dicas de Decoração em Florianópolis",
@@ -16,40 +18,6 @@ export const metadata: Metadata = {
     url: "/blog",
   },
 };
-
-const BLOG_POSTS = [
-  {
-    slug: "como-escolher-tecido-cortina",
-    title: "Como Escolher o Tecido Ideal para sua Cortina",
-    excerpt:
-      "Linho, voil, blackout ou seda? Descubra qual tecido é ideal para cada ambiente da sua casa e como cada um influencia a iluminação e privacidade.",
-    date: "2026-02-01",
-    image: "/images/blog/tecidos-cortina.jpg",
-    tags: ["Cortinas", "Tecidos", "Dicas"],
-    readingTime: 4,
-  },
-  {
-    slug: "motorizacao-persianas-vale-a-pena",
-    title: "Motorização de Persianas: Vale a Pena?",
-    excerpt:
-      "Entenda as vantagens da motorização, como funciona a integração com assistentes virtuais e quando investir em automação para suas persianas.",
-    date: "2026-01-20",
-    image: "/images/blog/persianas-motorizacao.jpg",
-    tags: ["Persianas", "Motorização", "Automação"],
-    readingTime: 3,
-  },
-  {
-    slug: "tendencias-decoracao-2026",
-    title: "Tendências de Decoração 2026: O que Esperar",
-    excerpt:
-      "Cores terrosas, materiais naturais e texturas táteis dominam as tendências. Veja como aplicar essas novidades na sua casa.",
-    date: "2026-01-10",
-    image:
-      "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=900&h=600&fit=crop",
-    tags: ["Tendências", "Decoração", "2026"],
-    readingTime: 5,
-  },
-];
 
 function formatDate(dateStr: string) {
   return new Date(dateStr).toLocaleDateString("pt-BR", {
@@ -195,29 +163,9 @@ export default function BlogPage() {
           ))}
         </div>
 
-        {/* CTA consultoria */}
-        <div className="mt-16 bg-[#584738] px-8 py-12 text-center md:px-16">
-          <p className="mb-2 text-xs font-bold uppercase tracking-[0.35em] text-primary">
-            Consultoria gratuita
-          </p>
-          <h3 className="mb-4 font-serif text-2xl font-bold text-white md:text-3xl">
-            Tem dúvidas sobre decoração?
-          </h3>
-          <p className="mx-auto mb-8 max-w-md text-sm leading-relaxed text-white/65">
-            Nilza tem mais de 20 anos de experiência em design de interiores.
-            Converse diretamente com ela pelo WhatsApp.
-          </p>
-          <a
-            href="https://wa.me/5548999999999?text=Olá! Vi o blog da Stylo Decore e gostaria de tirar uma dúvida."
-            target="_blank"
-            rel="noopener noreferrer"
-            className="brushed-gold inline-flex items-center gap-2 px-8 py-3 text-sm font-bold uppercase tracking-wide text-[#221e10]"
-          >
-            Falar com Nilza
-            <ArrowRight className="h-4 w-4" />
-          </a>
-        </div>
       </div>
+
+      <BlogContactForm />
     </div>
   );
 }
