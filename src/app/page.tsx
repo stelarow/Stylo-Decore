@@ -9,19 +9,23 @@ export default function Home() {
     <>
       {/* Hero Section */}
       <section className="relative flex min-h-[85vh] items-center justify-center">
-        {/* Mobile: imagem atual */}
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat md:hidden"
-          style={{
-            backgroundImage: "url('/images/hero-home.jpg')",
-          }}
+        {/* Mobile: vídeo de fundo */}
+        <video
+          className="absolute inset-0 h-full w-full object-cover md:hidden"
+          src="/videos/Curtain_sways_sea_moves_wind_delpmaspu_.mp4"
+          autoPlay
+          muted
+          loop
+          playsInline
         />
-        {/* Desktop: nova imagem */}
-        <div
-          className="absolute inset-0 hidden bg-cover bg-center bg-no-repeat md:block"
-          style={{
-            backgroundImage: "url('/images/hero-home-desktop.jpg')",
-          }}
+        {/* Desktop: vídeo de fundo */}
+        <video
+          className="absolute inset-0 hidden h-full w-full object-cover md:block"
+          src="/videos/Whisk_gto5i2y0cdolrgm30sojfgotcdn4qtlkrdn40iz.mp4"
+          autoPlay
+          muted
+          loop
+          playsInline
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/40 to-black/70" />
 
