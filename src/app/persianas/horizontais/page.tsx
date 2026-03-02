@@ -27,6 +27,7 @@ export default function PersianasHorizontaisPage() {
         title="Persianas Horizontais"
         category="Persianas"
         heroImage="/images/persianas/persiana-02.jpg"
+        desktopHeroImage="/images/persianas/persiana-horizontais-hero-desktop.png"
         description="Versatilidade e durabilidade em alumínio ou madeira. As persianas horizontais oferecem controle preciso de luz e privacidade, adaptando-se a qualquer estilo de decoração."
         products={PERSIANA_PRODUCTS.horizontais}
       />

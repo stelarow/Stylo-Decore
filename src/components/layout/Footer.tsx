@@ -1,8 +1,14 @@
+"use client";
+
 import Link from "next/link";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
+import { usePathname } from "next/navigation";
 import { CONTACT, PRODUCT_CATEGORIES, getWhatsAppUrl } from "@/lib/constants";
 
 export default function Footer() {
+  const pathname = usePathname();
+  if (pathname.startsWith("/questionario")) return null;
+
   return (
     <footer className="bg-background-dark text-white">
       <div className="mx-auto max-w-7xl px-6 py-16">

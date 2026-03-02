@@ -14,7 +14,8 @@ type Block =
   | { type: "tip"; text: string }
   | { type: "divider" }
   | { type: "specs"; rows: { label: string; value: string }[] }
-  | { type: "room-guide"; items: { room: string; fabric: string; why: string }[] };
+  | { type: "room-guide"; items: { room: string; fabric: string; why: string }[] }
+  | { type: "image"; src: string; alt: string; caption?: string };
 
 interface Post {
   title: string;
@@ -85,6 +86,12 @@ const POSTS: Record<string, Post> = {
         text: "Voil funciona muito bem em **dupla com blackout**: o blackout na face interna garante privacidade à noite, e o voil na frente suaviza a luz durante o dia. É a combinação mais pedida em projetos de quarto de casal.",
       },
       {
+        type: "image",
+        src: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=900&h=506&fit=crop",
+        alt: "Sala de estar com cortinas de voil branco filtrando a luz natural",
+        caption: "Cortinas de voil transformam a luz solar direta em claridade difusa e aconchegante.",
+      },
+      {
         type: "h2",
         id: "linho",
         text: "Linho — Sofisticação Natural",
@@ -137,6 +144,12 @@ const POSTS: Record<string, Post> = {
       {
         type: "p",
         text: "O blackout também cresce muito em **home theaters domésticos** e em salas de reunião, onde o controle de reflexo em telas de TV e projetores é essencial para o conforto visual.",
+      },
+      {
+        type: "image",
+        src: "https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=900&h=506&fit=crop",
+        alt: "Quarto de casal com cortinas blackout, ambiente escuro e aconchegante",
+        caption: "Blackout não significa escuridão pesada — em tons claros, cria um quarto sereno e com privacidade total.",
       },
       {
         type: "h2",
@@ -252,6 +265,12 @@ const POSTS: Record<string, Post> = {
         ],
       },
       {
+        type: "image",
+        src: "https://images.unsplash.com/photo-1631679706909-1844bbd07221?w=900&h=506&fit=crop",
+        alt: "Sala de estar moderna com persianas motorizadas em ambiente clean e contemporâneo",
+        caption: "Persianas motorizadas se integram perfeitamente a ambientes modernos — sem cordões visíveis, sem mecanismos aparentes.",
+      },
+      {
         type: "h2",
         id: "vantagens",
         text: "Vantagens que fazem diferença no dia a dia",
@@ -270,6 +289,12 @@ const POSTS: Record<string, Post> = {
       {
         type: "tip",
         text: "Persianas programadas para abrir **gradualmente entre 6h e 7h** simulam o nascer do sol dentro do quarto — um despertar muito mais gentil do que qualquer alarme, e aprovado por especialistas do sono.",
+      },
+      {
+        type: "image",
+        src: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&h=506&fit=crop",
+        alt: "Ambiente residencial inteligente com controle de iluminação e persianas via aplicativo",
+        caption: "Integração com Alexa, Google Home e Apple HomeKit transforma persianas em parte do ecossistema da casa inteligente.",
       },
       {
         type: "h2",
@@ -381,6 +406,12 @@ const POSTS: Record<string, Post> = {
         text: "Cortinas em **terracota ou areia** na frente de paredes brancas criam um contraste quente que aquece o ambiente sem sobrecarregar. Deixe a cortina ser a peça de destaque — e simplifique o restante.",
       },
       {
+        type: "image",
+        src: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=900&h=506&fit=crop",
+        alt: "Sala de estar com paleta de cores terrosas, sofá verde e iluminação quente",
+        caption: "Tons terrosos criam profundidade e calor sem competir com os móveis — a paleta que define 2026.",
+      },
+      {
         type: "h2",
         id: "materiais-naturais",
         text: "Materiais Naturais em Alta",
@@ -443,6 +474,12 @@ const POSTS: Record<string, Post> = {
       {
         type: "tip",
         text: "Para parede com papel expressivo, escolha cortinas em **tom análogo ao papel, mas neutro** — se o papel é verde-floresta, vá para o linho cru ou cinza quente. Evite estampas na cortina: o papel já é a estrela.",
+      },
+      {
+        type: "image",
+        src: "https://images.unsplash.com/photo-1615529328331-f8917597711f?w=900&h=506&fit=crop",
+        alt: "Quarto com parede de papel de parede expressivo em padrão botânico e cortina em tom neutro",
+        caption: "Uma parede com papel expressivo redefine todo o ambiente — o segredo é deixá-la respirar sem competição.",
       },
       { type: "divider" },
       {
@@ -605,6 +642,25 @@ function renderBlock(block: Block, i: number) {
             </div>
           ))}
         </div>
+      );
+
+    case "image":
+      return (
+        <figure key={i} className="my-12">
+          <div className="relative overflow-hidden">
+            <img
+              src={block.src}
+              alt={block.alt}
+              className="h-[280px] w-full object-cover sm:h-[400px]"
+            />
+            <span className="absolute bottom-0 left-0 h-[3px] w-16 bg-primary" />
+          </div>
+          {block.caption && (
+            <figcaption className="mt-3 pl-1 text-xs italic tracking-wide text-[#584738]/45">
+              {block.caption}
+            </figcaption>
+          )}
+        </figure>
       );
 
     default:

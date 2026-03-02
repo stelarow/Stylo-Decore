@@ -6,6 +6,8 @@ export const metadata = {
     "Responda algumas perguntas rápidas e montamos uma mensagem personalizada para o WhatsApp com tudo o que você precisa.",
 };
 
-export default function QuestionarioPage() {
-  return <QuestionarioAtendimento />;
+export default async function QuestionarioPage({ searchParams }: { searchParams: Promise<{ tipo?: string }> }) {
+  const { tipo } = await searchParams;
+  const tipoAtendimento = tipo === "premium" ? "premium" : "online";
+  return <QuestionarioAtendimento tipo={tipoAtendimento} />;
 }

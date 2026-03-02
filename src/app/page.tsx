@@ -1,9 +1,11 @@
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import { ArrowRight, Sparkles, Ruler, Award, Wrench, Clock, Check, Smartphone } from "lucide-react";
 import { CATEGORIES, getWhatsAppUrl } from "@/lib/constants";
 import { BLOG_POSTS } from "@/lib/data";
-import ContactSection from "@/components/sections/ContactSection";
 import ScrollReveal from "@/components/ui/ScrollReveal";
+
+const ContactSection = dynamic(() => import("@/components/sections/ContactSection"));
 
 export default function Home() {
   return (
@@ -83,13 +85,15 @@ export default function Home() {
                     alt={cat.name}
                     className={`absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105${"imageDesktop" in cat ? " md:hidden" : ""}`}
                     style={{ objectPosition: cat.imagePosition }}
+                    loading="lazy"
                   />
                   {"imageDesktop" in cat && (
                     <img
                       src={cat.imageDesktop}
                       alt={cat.name}
                       className="absolute inset-0 hidden h-full w-full object-cover transition-transform duration-700 group-hover:scale-105 md:block"
-                      style={{ objectPosition: cat.imagePosition }}
+                      style={{ objectPosition: "imagePositionDesktop" in cat ? cat.imagePositionDesktop : cat.imagePosition }}
+                      loading="lazy"
                     />
                   )}
                 </div>
@@ -153,8 +157,8 @@ export default function Home() {
                 <ol className="mb-8 flex-1 space-y-4">
                   {[
                     "Tire fotos do ambiente e anote as medidas",
-                    "Envie pelo WhatsApp com suas preferências de estilo",
-                    "Receba uma estimativa detalhada rapidamente",
+                    "Envie pelo WhatsApp — recebemos e te enviamos opções de tecidos e acabamentos para escolher",
+                    "Receba a estimativa de custo rapidamente",
                   ].map((step, i) => (
                     <li key={step} className="flex items-start gap-3">
                       <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-[10px] font-bold text-primary">
@@ -167,17 +171,13 @@ export default function Home() {
                   ))}
                 </ol>
 
-                <a
-                  href={getWhatsAppUrl(
-                    "Olá! Gostaria de solicitar um orçamento online. Vou enviar as fotos e medidas do ambiente.",
-                  )}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <Link
+                  href="/questionario?tipo=online"
                   className="group/btn inline-flex h-12 w-full items-center justify-center gap-2 rounded-full border-2 border-foreground/20 text-sm font-semibold text-foreground transition-all duration-300 hover:border-primary hover:text-primary"
                 >
                   Quero uma estimativa agora
                   <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover/btn:translate-x-1" />
-                </a>
+                </Link>
               </div>
             </ScrollReveal>
 
@@ -221,6 +221,7 @@ export default function Home() {
                     "Mostruário exclusivo levado até você",
                     "Orientação profissional de cores e tecidos",
                     "Medição precisa garantida",
+                    "Valor da consultoria 100% revertido nos produtos adquiridos",
                   ].map((feature) => (
                     <li key={feature} className="flex items-center gap-3">
                       <Check className="h-4 w-4 shrink-0 text-primary" />
@@ -229,17 +230,13 @@ export default function Home() {
                   ))}
                 </ul>
 
-                <a
-                  href={getWhatsAppUrl(
-                    "Olá! Gostaria de agendar uma Consultoria Presencial Premium da Stylo Decore.",
-                  )}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <Link
+                  href="/questionario?tipo=premium"
                   className="brushed-gold inline-flex h-12 w-full items-center justify-center gap-2 rounded-full text-sm font-semibold text-[#221e10] transition-all hover:opacity-90 hover:shadow-lg active:scale-95"
                 >
                   Agendar Consultoria Profissional
                   <ArrowRight className="h-4 w-4" />
-                </a>
+                </Link>
               </div>
             </ScrollReveal>
 
@@ -247,35 +244,17 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CTA Questionário */}
-      <section className="bg-background py-12 md:py-16">
-        <ScrollReveal animation="up">
-          <div className="mx-auto max-w-3xl px-6 text-center">
-            <p className="mb-3 text-xs font-bold uppercase tracking-[0.35em] text-primary lg:text-sm">
-              Atendimento Personalizado
-            </p>
-            <h2 className="font-serif text-3xl font-bold text-foreground md:text-4xl lg:text-5xl">
-              Qual é o seu projeto?
-            </h2>
-            <div className="mx-auto mt-4 h-px w-32 bg-gradient-to-r from-transparent via-primary to-transparent" />
-            <p className="mx-auto mt-4 max-w-md text-sm leading-relaxed text-foreground/60">
-              Responda algumas perguntas rápidas e montamos uma mensagem personalizada para o WhatsApp.
-            </p>
-            <div className="mt-7">
-              <Link
-                href="/questionario"
-                className="brushed-gold inline-flex items-center gap-2 rounded-full px-8 py-3.5 text-sm font-semibold text-[#221e10] transition-all hover:opacity-90 hover:shadow-lg active:scale-95"
-              >
-                Começar questionário
-                <ArrowRight className="h-4 w-4" />
-              </Link>
-            </div>
-          </div>
-        </ScrollReveal>
-      </section>
-
       {/* Diferenciais */}
       <section className="mx-auto max-w-7xl px-6 py-12 md:py-16">
+        <ScrollReveal animation="up" className="mb-10 text-center">
+          <p className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-primary">
+            Incluso em cada projeto
+          </p>
+          <h2 className="font-playfair text-3xl font-bold text-foreground md:text-4xl">
+            Comprando, você recebe
+          </h2>
+          <div className="mx-auto mt-4 h-px w-16 bg-primary" />
+        </ScrollReveal>
         <div className="grid gap-6 md:grid-cols-3">
           {[
             {
@@ -305,36 +284,6 @@ export default function Home() {
             </ScrollReveal>
           ))}
         </div>
-      </section>
-
-      {/* Projeto Personalizado */}
-      <section className="mx-auto max-w-7xl px-6 pb-10 md:pb-14">
-        <ScrollReveal animation="scale">
-          <div className="rounded-2xl bg-white p-10 text-center shadow-sm md:p-16 lg:flex lg:items-center lg:gap-12 lg:p-20 lg:text-left">
-            <div className="lg:flex-1">
-              <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 lg:mx-0">
-                <Sparkles className="h-8 w-8 text-primary" />
-              </div>
-              <h2 className="mb-4 font-serif text-2xl font-bold text-foreground md:text-3xl lg:text-4xl">
-                Projeto Personalizado
-              </h2>
-              <p className="mx-auto mb-8 max-w-xl text-mahogany-light lg:mx-0 lg:mb-0 lg:max-w-none">
-                Nossos especialistas vão até você. Realizamos medição, consultoria de
-                design e instalação completa para garantir o resultado perfeito.
-              </p>
-            </div>
-            <div className="lg:shrink-0">
-              <a
-                href={getWhatsAppUrl("Olá! Gostaria de solicitar um orçamento personalizado.")}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="brushed-gold inline-flex items-center rounded-full px-8 py-3.5 text-sm font-semibold uppercase tracking-wider text-background-dark transition-all hover:shadow-lg active:scale-95 lg:px-10 lg:py-4 lg:text-base"
-              >
-                Solicitar Orçamento
-              </a>
-            </div>
-          </div>
-        </ScrollReveal>
       </section>
 
       {/* Blog Preview */}
@@ -374,6 +323,7 @@ export default function Home() {
                     src={post.image}
                     alt={post.title}
                     className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    loading="lazy"
                   />
                   {/* Tag */}
                   <span className="absolute bottom-4 left-4 bg-primary/90 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-[#221e10]">

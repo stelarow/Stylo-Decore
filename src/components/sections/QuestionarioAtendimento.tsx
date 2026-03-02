@@ -159,7 +159,7 @@ const STEP_BAR_H = 69; // px: py-5 (40) + h-7 (28) + border (1)
 
 // ─── Component ────────────────────────────────────────────────────────────────
 
-export default function QuestionarioAtendimento() {
+export default function QuestionarioAtendimento({ tipo = "online" }: { tipo?: "online" | "premium" }) {
   const [state, setState] = useState<QuizState>(INITIAL_STATE);
   const [measurementInput, setMeasurementInput] = useState("");
   const [contact, setContact] = useState<ContactData>({ nome: "", whatsapp: "", email: "" });
@@ -297,9 +297,13 @@ export default function QuestionarioAtendimento() {
       const res = await fetch("/api/orcamento", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ answers: state.answers, selectedProducts: state.selectedProducts, contact }),
+        body: JSON.stringify({ answers: state.answers, selectedProducts: state.selectedProducts, contact, tipo }),
       });
-      if (!res.ok) throw new Error();
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        console.error("[orcamento] Erro da API:", data);
+        throw new Error(data.error ?? "Erro desconhecido");
+      }
       setSubmitStatus("success");
     } catch {
       setSubmitStatus("error");
@@ -588,19 +592,19 @@ export default function QuestionarioAtendimento() {
             {/* ── Phase 0: Product selection ────────────────────────────── */}
             {state.phase === "produtos" && (
               <div>
-                <div className="mb-6 sm:mb-10">
-                  <p className="text-[#f1bf27] font-semibold text-[11px] tracking-[0.25em] uppercase mb-3">
+                <div className="mb-8 sm:mb-12">
+                  <p className="text-[#f1bf27] font-semibold text-xs sm:text-sm tracking-[0.25em] uppercase mb-4">
                     Passo 1 de 4
                   </p>
-                  <h1 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-[#584738] leading-snug mb-2">
+                  <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#584738] leading-snug mb-3">
                     O que você está buscando?
                   </h1>
-                  <p className="text-[#584738]/50 text-sm sm:text-base lg:text-[1.0625rem]">
+                  <p className="text-[#584738]/50 text-base sm:text-lg lg:text-xl">
                     Selecione um ou mais produtos para personalizar sua consulta.
                   </p>
                 </div>
 
-                <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-5">
+                <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 lg:gap-6">
                   {PRODUCTS.map(product => {
                     const isSelected = state.selectedProducts.includes(product.key);
                     return (
@@ -627,27 +631,27 @@ export default function QuestionarioAtendimento() {
                             : "bg-gradient-to-t from-[#221e10]/90 via-[#221e10]/30 to-transparent"
                         }`} />
                         {isSelected && (
-                          <div className="absolute top-4 right-4 w-8 h-8 rounded-full bg-[#f1bf27] flex items-center justify-center shadow-lg">
-                            <Check className="w-4 h-4 text-[#221e10]" />
+                          <div className="absolute top-4 right-4 w-9 h-9 rounded-full bg-[#f1bf27] flex items-center justify-center shadow-lg">
+                            <Check className="w-5 h-5 text-[#221e10]" />
                           </div>
                         )}
-                        <div className="absolute bottom-0 left-0 right-0 p-6">
-                          <p className="font-semibold text-white text-lg leading-tight">{product.name}</p>
-                          <p className="text-white/50 text-sm mt-1.5">{product.desc}</p>
+                        <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8">
+                          <p className="font-semibold text-white text-xl sm:text-2xl leading-tight">{product.name}</p>
+                          <p className="text-white/55 text-sm sm:text-base mt-2">{product.desc}</p>
                         </div>
                       </button>
                     );
                   })}
                 </div>
 
-                <div className="mt-7 sm:mt-10 flex justify-end">
+                <div className="mt-8 sm:mt-12 flex justify-end">
                   <button
                     onClick={goToDetails}
                     disabled={state.selectedProducts.length === 0}
-                    className="brushed-gold inline-flex items-center gap-2 sm:gap-2.5 rounded-full px-6 sm:px-10 py-3.5 sm:py-4 text-sm sm:text-base font-semibold text-[#221e10] transition-all hover:opacity-90 hover:shadow-lg disabled:cursor-not-allowed disabled:opacity-30"
+                    className="brushed-gold inline-flex items-center gap-2.5 sm:gap-3 rounded-full px-8 sm:px-12 py-4 sm:py-5 text-base sm:text-lg font-semibold text-[#221e10] transition-all hover:opacity-90 hover:shadow-lg disabled:cursor-not-allowed disabled:opacity-30"
                   >
                     Continuar
-                    <ArrowRight className="h-4 w-4" />
+                    <ArrowRight className="h-5 w-5" />
                   </button>
                 </div>
               </div>

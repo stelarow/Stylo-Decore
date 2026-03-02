@@ -18,6 +18,7 @@ interface SubcategoryPageProps {
   products: ProductItem[];
   headline?: string;
   heroImage?: string;
+  desktopHeroImage?: string;
   collectionTag?: string;
   specs?: { title: string; description: string }[];
   desktopImageClass?: string;
@@ -31,6 +32,7 @@ export default function SubcategoryPage({
   products,
   headline,
   heroImage,
+  desktopHeroImage,
   collectionTag,
   specs,
   desktopImageClass,
@@ -61,7 +63,24 @@ export default function SubcategoryPage({
     <div>
       {/* Hero - Imagem principal grande */}
       <div className="relative w-full min-h-[70vh] md:min-h-[80vh]">
-        {products[0]?.desktopImage ? (
+        {desktopHeroImage ? (
+          <>
+            <img
+              src={desktopHeroImage}
+              alt={title}
+              className="absolute inset-0 hidden h-full w-full object-cover object-top lg:block"
+            />
+            <img
+              src={
+                heroImage ||
+                products[0]?.image ||
+                "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=1920&q=80"
+              }
+              alt={title}
+              className="absolute inset-0 h-full w-full object-cover object-top lg:hidden"
+            />
+          </>
+        ) : products[0]?.desktopImage ? (
           <>
             <img
               src={heroImage || products[0]?.desktopImage}

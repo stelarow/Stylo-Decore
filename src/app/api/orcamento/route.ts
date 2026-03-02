@@ -36,7 +36,8 @@ const ANSWER_LABELS: Record<string, string> = {
 function buildEmailHtml(
   answers: Partial<Record<ProductKey, Record<string, string>>>,
   selectedProducts: ProductKey[],
-  contact: ContactData
+  contact: ContactData,
+  tipo: "online" | "premium"
 ): string {
   const now = new Date().toLocaleString("pt-BR", { timeZone: "America/Sao_Paulo" });
 
@@ -72,6 +73,7 @@ function buildEmailHtml(
         <tr><td style="padding:4px 12px 4px 0;color:#584738;font-weight:600">Nome:</td><td style="padding:4px 0;color:#333">${contact.nome}</td></tr>
         <tr><td style="padding:4px 12px 4px 0;color:#584738;font-weight:600">WhatsApp:</td><td style="padding:4px 0;color:#333">${contact.whatsapp}</td></tr>
         <tr><td style="padding:4px 12px 4px 0;color:#584738;font-weight:600">E-mail:</td><td style="padding:4px 0;color:#333">${contact.email}</td></tr>
+        <tr><td style="padding:4px 12px 4px 0;color:#584738;font-weight:600">Tipo de Atendimento:</td><td style="padding:4px 0;color:#333">${tipo === "premium" ? "Consultoria Presencial Premium" : "Orçamento Online Gratuito"}</td></tr>
       </table>
 
       <h2 style="margin:0 0 16px;font-size:16px;color:#584738;text-transform:uppercase;letter-spacing:.08em">Produtos de Interesse</h2>
@@ -88,9 +90,10 @@ function buildEmailHtml(
 export async function POST(req: NextRequest) {
   try {
     const resend = new Resend(process.env.RESEND_API_KEY);
-    const { answers, selectedProducts, contact } = await req.json();
+    const { answers, selectedProducts, contact, tipo } = await req.json();
+    const tipoAtendimento: "online" | "premium" = tipo === "premium" ? "premium" : "online";
 
-    const emailHtml = buildEmailHtml(answers, selectedProducts, contact);
+    const emailHtml = buildEmailHtml(answers, selectedProducts, contact, tipoAtendimento);
 
     await resend.emails.send({
       from: "Stylo Decore <onboarding@resend.dev>",
@@ -101,7 +104,8 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json({ ok: true });
   } catch (error) {
-    console.error("[orcamento] Falha ao enviar email:", error);
-    return NextResponse.json({ ok: false }, { status: 500 });
+    const msg = error instanceof Error ? error.message : String(error);
+    console.error("[orcamento] Falha ao enviar email:", msg);
+    return NextResponse.json({ ok: false, error: msg }, { status: 500 });
   }
 }

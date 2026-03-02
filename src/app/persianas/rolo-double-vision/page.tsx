@@ -27,6 +27,7 @@ export default function RoloDoubleVisionPage() {
         title="Rolô & Double Vision"
         category="Persianas"
         heroImage="/images/persianas/persiana-15.jpg"
+        desktopHeroImage="/images/persianas/persiana-rolo-hero-desktop.jpg"
         description="Controle preciso de luminosidade com design moderno. As persianas rolô e double vision oferecem versatilidade única, alternando entre privacidade total e entrada de luz natural."
         products={PERSIANA_PRODUCTS["rolo-double-vision"]}
       />

@@ -14,10 +14,10 @@ export const CONTACT: ContactInfo = {
   phone: "(48) 9673-3626",
   whatsapp: WHATSAPP_NUMBER,
   email: "sstylodecore@gmail.com",
-  address: "Rua Example, 123 - Centro",
+  address: "Servidão Nova Esperança, 173 B - Campeche",
   city: "Florianópolis",
   state: "SC",
-  workingHours: "Seg a Sex: 9h às 18h | Sáb: 9h às 13h",
+  workingHours: "Seg a Sex: 8h às 18h | Sáb: 8h às 12h",
 };
 
 export const PRODUCT_CATEGORIES: NavItem[] = [
@@ -76,9 +76,10 @@ export const CATEGORIES = [
     href: "/cortinas",
     description: "Tecidos nobres que transformam ambientes",
     tag: "TEXTURAS",
-    image: "/images/cortinas-hero.jpeg",
-    imageDesktop: "/images/cortinas-hero-desktop.png",
-    imagePosition: "center 30%",
+    image: "/images/cortinas-colecoes.png",
+    imageDesktop: "/images/cortinas-colecoes.png",
+    imagePosition: "75% center",
+    imagePositionDesktop: "center center",
   },
   {
     name: "Persianas",
