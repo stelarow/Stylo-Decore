@@ -4,6 +4,8 @@ import { ArrowRight, Sparkles, Ruler, Award, Wrench, Clock, Check, Smartphone } 
 import { CATEGORIES, getWhatsAppUrl } from "@/lib/constants";
 import { BLOG_POSTS } from "@/lib/data";
 import ScrollReveal from "@/components/ui/ScrollReveal";
+import { TestimonialsSection } from "@/components/ui/TestimonialsSection";
+import { FAQSection } from "@/components/ui/FAQSection";
 
 const ContactSection = dynamic(() => import("@/components/sections/ContactSection"));
 
@@ -372,6 +374,12 @@ export default function Home() {
 
       {/* Entre em Contato */}
       <ContactSection />
+
+      {/* Depoimentos */}
+      <TestimonialsSection />
+
+      {/* FAQ */}
+      <FAQSection />
     </>
   );
 }
