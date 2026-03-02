@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Phone, Mail, MapPin, Clock, MessageCircle } from "lucide-react";
-import { CONTACT, getWhatsAppUrl } from "@/lib/constants";
+import { CONTACT, getWhatsAppUrl, getWhatsAppUrl2 } from "@/lib/constants";
 import JsonLd from "@/components/seo/JsonLd";
 import { getBreadcrumbJsonLd } from "@/lib/seo";
 
@@ -40,27 +40,40 @@ export default function ContatoPage() {
         <div className="mx-auto max-w-2xl lg:max-w-4xl">
           <div className="space-y-4 lg:grid lg:grid-cols-2 lg:gap-4 lg:space-y-0">
             {/* WhatsApp - Destaque */}
-            <a
-              href={getWhatsAppUrl()}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-start gap-4 rounded-2xl bg-[#25D366]/10 p-6 transition-colors hover:bg-[#25D366]/20 lg:col-span-2"
-            >
+            <div className="flex items-start gap-4 rounded-2xl bg-[#25D366]/10 p-6 lg:col-span-2">
               <MessageCircle className="mt-0.5 h-6 w-6 shrink-0 text-[#25D366]" />
               <div>
                 <h3 className="mb-1 font-semibold text-foreground">WhatsApp</h3>
-                <p className="text-mahogany-light">{CONTACT.phone}</p>
+                <div className="flex flex-wrap gap-x-4 gap-y-1">
+                  <a
+                    href={getWhatsAppUrl()}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-mahogany-light transition-colors hover:text-[#25D366]"
+                  >
+                    {CONTACT.phone}
+                  </a>
+                  <a
+                    href={getWhatsAppUrl2()}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-mahogany-light transition-colors hover:text-[#25D366]"
+                  >
+                    {CONTACT.phone2}
+                  </a>
+                </div>
                 <p className="mt-1 text-sm font-medium text-primary">
                   Atendimento rápido e personalizado &rarr;
                 </p>
               </div>
-            </a>
+            </div>
 
             <div className="flex items-start gap-4 rounded-2xl bg-white p-6 shadow-sm">
               <Phone className="mt-0.5 h-6 w-6 shrink-0 text-primary" />
               <div>
                 <h3 className="mb-1 font-semibold text-foreground">Telefone</h3>
                 <p className="text-mahogany-light">{CONTACT.phone}</p>
+                <p className="text-mahogany-light">{CONTACT.phone2}</p>
               </div>
             </div>
 

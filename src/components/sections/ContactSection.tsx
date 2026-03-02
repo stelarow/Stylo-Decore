@@ -15,7 +15,7 @@ import {
   CheckCircle2,
   AlertCircle,
 } from "lucide-react";
-import { getWhatsAppUrl, CONTACT } from "@/lib/constants";
+import { getWhatsAppUrl, getWhatsAppUrl2, CONTACT } from "@/lib/constants";
 
 const INTERESTS = [
   "Cortinas",
@@ -117,8 +117,35 @@ export default function ContactSection() {
           {/* Coluna esquerda — informações */}
           <div className="space-y-10">
             <ul className="space-y-6">
+              {/* WhatsApp — dois números */}
+              <li className="flex items-start gap-4">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-primary/25 bg-primary/10">
+                  <Phone className="h-4 w-4 text-primary" />
+                </div>
+                <div>
+                  <p className="text-[10px] font-bold uppercase tracking-widest text-foreground/55">
+                    WhatsApp
+                  </p>
+                  <a
+                    href={getWhatsAppUrl()}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-0.5 block text-sm text-foreground transition-colors hover:text-primary"
+                  >
+                    {CONTACT.phone}
+                  </a>
+                  <a
+                    href={getWhatsAppUrl2()}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block text-sm text-foreground transition-colors hover:text-primary"
+                  >
+                    {CONTACT.phone2}
+                  </a>
+                </div>
+              </li>
+
               {[
-                { Icon: Phone, label: "WhatsApp", value: CONTACT.phone },
                 { Icon: Mail, label: "E-mail", value: CONTACT.email },
                 {
                   Icon: MapPin,

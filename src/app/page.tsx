@@ -230,13 +230,15 @@ export default function Home() {
                   ))}
                 </ul>
 
-                <Link
-                  href="/questionario?tipo=premium"
+                <a
+                  href={getWhatsAppUrl("Olá! Gostaria de agendar uma Consultoria Presencial Premium com a Stylo Decore.")}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="brushed-gold inline-flex h-12 w-full items-center justify-center gap-2 rounded-full text-sm font-semibold text-[#221e10] transition-all hover:opacity-90 hover:shadow-lg active:scale-95"
                 >
                   Agendar Consultoria Profissional
                   <ArrowRight className="h-4 w-4" />
-                </Link>
+                </a>
               </div>
             </ScrollReveal>
 

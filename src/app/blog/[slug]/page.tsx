@@ -706,9 +706,6 @@ function SidebarCTA({ title }: { title: string }) {
       <h4 className="mb-3 font-serif text-lg font-bold leading-snug text-white">
         Dúvidas sobre qual escolher?
       </h4>
-      <p className="mb-5 text-xs leading-relaxed text-white/55">
-        Fale com Nilza e receba orientação personalizada para o seu ambiente.
-      </p>
       <a
         href={getWhatsAppUrl(
           `Olá! Li o artigo "${title}" e gostaria de ajuda para escolher.`
@@ -717,7 +714,7 @@ function SidebarCTA({ title }: { title: string }) {
         rel="noopener noreferrer"
         className="brushed-gold block py-2.5 text-center text-xs font-bold uppercase tracking-wide text-[#221e10]"
       >
-        Falar com Nilza →
+        Entre em contato →
       </a>
     </div>
   );
@@ -826,15 +823,6 @@ export default async function BlogPostPage({ params }: PageProps) {
                 <ArrowLeft className="h-4 w-4" />
                 Voltar ao Blog
               </Link>
-              <div className="flex items-center gap-3">
-                <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#584738] text-xs font-bold text-white">
-                  N
-                </div>
-                <div>
-                  <p className="text-sm font-semibold text-[#584738]">Nilza</p>
-                  <p className="text-xs text-[#584738]/50">Especialista em Design</p>
-                </div>
-              </div>
             </div>
 
             {/* Lead */}
@@ -860,10 +848,6 @@ export default async function BlogPostPage({ params }: PageProps) {
               <h3 className="mb-3 font-serif text-2xl font-bold text-white">
                 Gostou deste artigo?
               </h3>
-              <p className="mx-auto mb-8 max-w-sm text-sm leading-relaxed text-white/65">
-                Fale com Nilza diretamente pelo WhatsApp e receba orientação
-                personalizada para o seu ambiente.
-              </p>
               <a
                 href={getWhatsAppUrl(
                   `Olá! Li o artigo "${post.title}" no blog e gostaria de mais informações.`
@@ -872,7 +856,7 @@ export default async function BlogPostPage({ params }: PageProps) {
                 rel="noopener noreferrer"
                 className="brushed-gold inline-flex items-center gap-2 px-8 py-3 text-sm font-bold uppercase tracking-wide text-[#221e10]"
               >
-                Falar com Nilza
+                Entre em contato
                 <ArrowRight className="h-4 w-4" />
               </a>
             </div>

@@ -47,7 +47,9 @@ export interface Category {
 
 export interface ContactInfo {
   phone: string;
+  phone2?: string;
   whatsapp: string;
+  whatsapp2?: string;
   email: string;
   address: string;
   city: string;

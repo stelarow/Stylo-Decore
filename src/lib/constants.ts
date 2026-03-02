@@ -1,6 +1,7 @@
 import type { NavItem, ContactInfo } from "@/types";
 
 export const WHATSAPP_NUMBER = "554896733626";
+export const WHATSAPP_NUMBER_2 = "554891074707";
 
 export const WHATSAPP_DEFAULT_MESSAGE =
   "Olá! Vim pelo site da Stylo Decore e gostaria de mais informações.";
@@ -10,9 +11,16 @@ export function getWhatsAppUrl(message?: string) {
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`;
 }
 
+export function getWhatsAppUrl2(message?: string) {
+  const msg = encodeURIComponent(message || WHATSAPP_DEFAULT_MESSAGE);
+  return `https://wa.me/${WHATSAPP_NUMBER_2}?text=${msg}`;
+}
+
 export const CONTACT: ContactInfo = {
   phone: "(48) 9673-3626",
+  phone2: "(48) 9107-4707",
   whatsapp: WHATSAPP_NUMBER,
+  whatsapp2: WHATSAPP_NUMBER_2,
   email: "sstylodecore@gmail.com",
   address: "Servidão Nova Esperança, 173 B - Campeche",
   city: "Florianópolis",

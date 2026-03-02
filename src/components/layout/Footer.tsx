@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
 import { usePathname } from "next/navigation";
-import { CONTACT, PRODUCT_CATEGORIES, getWhatsAppUrl } from "@/lib/constants";
+import { CONTACT, PRODUCT_CATEGORIES, getWhatsAppUrl, getWhatsAppUrl2 } from "@/lib/constants";
 
 export default function Footer() {
   const pathname = usePathname();
@@ -81,14 +81,24 @@ export default function Footer() {
             <ul className="space-y-3">
               <li className="flex items-start gap-3">
                 <Phone className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
-                <a
-                  href={getWhatsAppUrl()}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-sm text-white/60 transition-colors hover:text-primary"
-                >
-                  {CONTACT.phone}
-                </a>
+                <div className="flex flex-col gap-0.5">
+                  <a
+                    href={getWhatsAppUrl()}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm text-white/60 transition-colors hover:text-primary"
+                  >
+                    {CONTACT.phone}
+                  </a>
+                  <a
+                    href={getWhatsAppUrl2()}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm text-white/60 transition-colors hover:text-primary"
+                  >
+                    {CONTACT.phone2}
+                  </a>
+                </div>
               </li>
               <li className="flex items-start gap-3">
                 <Mail className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
