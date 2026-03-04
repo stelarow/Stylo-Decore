@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { NAVIGATION, getWhatsAppUrl } from "@/lib/constants";
 import { cn } from "@/lib/utils";
@@ -11,6 +12,14 @@ export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const pathname = usePathname();
+
+  function handleHomeClick(e: React.MouseEvent<HTMLAnchorElement>, href: string) {
+    if (href === "/" && pathname === "/") {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  }
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -41,7 +50,7 @@ export default function Header() {
       >
         <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 lg:px-6">
           {/* Logo */}
-          <Link href="/" className="shrink-0">
+          <Link href="/" onClick={(e) => handleHomeClick(e, "/")} className="shrink-0">
             <Image
               src="/images/logo.png"
               alt="Stylo Decore"
@@ -97,6 +106,7 @@ export default function Header() {
                 <Link
                   key={item.label}
                   href={item.href}
+                  onClick={(e) => handleHomeClick(e, item.href)}
                   className="flex items-center gap-1 px-3 py-2 text-sm font-medium uppercase tracking-wider text-foreground transition-colors hover:text-primary"
                 >
                   {item.label}
@@ -207,7 +217,7 @@ export default function Header() {
               <div key={item.label} className="border-b border-tobacco-light">
                 <Link
                   href={item.href}
-                  onClick={() => setMobileOpen(false)}
+                  onClick={(e) => { handleHomeClick(e, item.href); setMobileOpen(false); }}
                   className="block py-4 text-base font-medium uppercase tracking-wider text-foreground"
                 >
                   {item.label}
