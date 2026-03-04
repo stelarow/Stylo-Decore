@@ -28,6 +28,7 @@ export default function BreezePage() {
         category="Papéis de Parede"
         description="Leveza e frescor para ambientes contemporâneos. A coleção Breeze traz tons suaves e padrões delicados que criam uma atmosfera leve e arejada."
         products={PAPEL_PRODUCTS.breeze}
+        desktopHeroImage="/images/papel/breeze-hero-desktop.png"
       />
     </>
   );

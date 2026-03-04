@@ -36,6 +36,7 @@ export const PRODUCT_CATEGORIES: NavItem[] = [
 ];
 
 export const NAVIGATION: NavItem[] = [
+  { label: "Home", href: "/" },
   {
     label: "Cortinas",
     href: "/cortinas",

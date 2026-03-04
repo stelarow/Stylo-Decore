@@ -17,7 +17,7 @@ export const BLOG_POSTS = [
     excerpt:
       "Entenda as vantagens da motorização, como funciona a integração com assistentes virtuais e quando investir em automação para suas persianas.",
     date: "2026-01-20",
-    image: "/images/blog/persianas-motorizacao.jpg",
+    image: "/images/persianas/persiana-hero-desktop.jpeg",
     tags: ["Persianas", "Motorização", "Automação"],
     readingTime: 3,
   },
@@ -143,7 +143,7 @@ export const PAPEIS_SUBCATEGORIES = [
     name: "Breeze",
     href: "/papeis-de-parede/breeze",
     image: "/images/papeis-hero-mobile.jpeg",
-    desktopImage: "/images/papel-de-parede-hero.png",
+    desktopImage: "/images/papel/papeis-hero-desktop.png",
     cardImage: "/images/papel-breeze.jpg",
     description: "Leveza e frescor para ambientes contemporâneos",
   },

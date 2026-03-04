@@ -22,6 +22,7 @@ interface Post {
   description: string;
   date: string;
   image: string;
+  desktopImage?: string;
   tags: string[];
   readingTime: number;
   toc?: { id: string; label: string }[];
@@ -34,9 +35,10 @@ const POSTS: Record<string, Post> = {
   "como-escolher-tecido-cortina": {
     title: "Como Escolher o Tecido Ideal para sua Cortina",
     description:
-      "Voil, linho, blackout, seda ou veludo? Descubra como cada tecido influencia a luz, a privacidade e a estética do seu ambiente — com dicas práticas da especialista Nilza.",
+      "Voil, linho, blackout, seda ou veludo? Descubra como cada tecido influencia a luz, a privacidade e a estética do seu ambiente — com dicas práticas da nossa especialista.",
     date: "2026-02-01",
     image: "/images/blog/tecidos-cortina.jpg",
+    desktopImage: "/images/blog/tecidos-cortina-desktop.png",
     tags: ["Cortinas", "Tecidos", "Dicas"],
     readingTime: 6,
     toc: [
@@ -87,7 +89,7 @@ const POSTS: Record<string, Post> = {
       },
       {
         type: "image",
-        src: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=900&h=506&fit=crop",
+        src: "/images/blog/tecidos-voil.png",
         alt: "Sala de estar com cortinas de voil branco filtrando a luz natural",
         caption: "Cortinas de voil transformam a luz solar direta em claridade difusa e aconchegante.",
       },
@@ -147,7 +149,7 @@ const POSTS: Record<string, Post> = {
       },
       {
         type: "image",
-        src: "https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=900&h=506&fit=crop",
+        src: "/images/blog/tecidos-blackout.png",
         alt: "Quarto de casal com cortinas blackout, ambiente escuro e aconchegante",
         caption: "Blackout não significa escuridão pesada — em tons claros, cria um quarto sereno e com privacidade total.",
       },
@@ -230,7 +232,8 @@ const POSTS: Record<string, Post> = {
     description:
       "Praticidade, segurança e automação residencial: descubra quando investir em persianas motorizadas, quais tipos de motor existem e o que considerar antes de decidir.",
     date: "2026-01-20",
-    image: "/images/blog/persianas-motorizacao.jpg",
+    image: "/images/persianas/persiana-02.jpg",
+    desktopImage: "/images/persianas/persiana-hero-desktop.jpeg",
     tags: ["Persianas", "Motorização", "Automação"],
     readingTime: 5,
     toc: [
@@ -266,8 +269,8 @@ const POSTS: Record<string, Post> = {
       },
       {
         type: "image",
-        src: "https://images.unsplash.com/photo-1631679706909-1844bbd07221?w=900&h=506&fit=crop",
-        alt: "Sala de estar moderna com persianas motorizadas em ambiente clean e contemporâneo",
+        src: "/images/blog/persianas-motorizadas-controle.jpg",
+        alt: "Persiana rolô motorizada sendo controlada por controle remoto em ambiente residencial",
         caption: "Persianas motorizadas se integram perfeitamente a ambientes modernos — sem cordões visíveis, sem mecanismos aparentes.",
       },
       {
@@ -292,8 +295,8 @@ const POSTS: Record<string, Post> = {
       },
       {
         type: "image",
-        src: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&h=506&fit=crop",
-        alt: "Ambiente residencial inteligente com controle de iluminação e persianas via aplicativo",
+        src: "/images/blog/persianas-app-controle.jpg",
+        alt: "Pessoa controlando persiana motorizada pelo aplicativo no smartphone",
         caption: "Integração com Alexa, Google Home e Apple HomeKit transforma persianas em parte do ecossistema da casa inteligente.",
       },
       {
@@ -355,7 +358,7 @@ const POSTS: Record<string, Post> = {
       { type: "divider" },
       {
         type: "p",
-        text: "Quer saber se a motorização faz sentido para o seu projeto? Nilza avalia o ambiente, o tipo de persiana e o seu orçamento para indicar a solução mais eficiente.",
+        text: "Quer saber se a motorização faz sentido para o seu projeto? Nossa equipe avalia o ambiente, o tipo de persiana e o seu orçamento para indicar a solução mais eficiente.",
       },
     ],
   },
@@ -407,8 +410,8 @@ const POSTS: Record<string, Post> = {
       },
       {
         type: "image",
-        src: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=900&h=506&fit=crop",
-        alt: "Sala de estar com paleta de cores terrosas, sofá verde e iluminação quente",
+        src: "/images/blog/sala-tons-terrosos.jpg",
+        alt: "Sala de estar com paleta de cores terrosas, cadeiras terracota e iluminação quente",
         caption: "Tons terrosos criam profundidade e calor sem competir com os móveis — a paleta que define 2026.",
       },
       {
@@ -477,8 +480,8 @@ const POSTS: Record<string, Post> = {
       },
       {
         type: "image",
-        src: "https://images.unsplash.com/photo-1615529328331-f8917597711f?w=900&h=506&fit=crop",
-        alt: "Quarto com parede de papel de parede expressivo em padrão botânico e cortina em tom neutro",
+        src: "/images/blog/papel-parede-listrado.jpg",
+        alt: "Ambiente com papel de parede listrado e móveis rústicos em madeira",
         caption: "Uma parede com papel expressivo redefine todo o ambiente — o segredo é deixá-la respirar sem competição.",
       },
       { type: "divider" },
@@ -599,7 +602,7 @@ function renderBlock(block: Block, i: number) {
           <div className="mb-2 flex items-center gap-2">
             <Lightbulb className="h-4 w-4 flex-shrink-0 text-primary" />
             <span className="text-xs font-bold uppercase tracking-[0.2em] text-primary">
-              Dica da Nilza
+              Dica da Especialista
             </span>
           </div>
           <p className="text-sm leading-7 text-[#584738]/75">{parseBold(block.text)}</p>
@@ -706,6 +709,9 @@ function SidebarCTA({ title }: { title: string }) {
       <h4 className="mb-3 font-serif text-lg font-bold leading-snug text-white">
         Dúvidas sobre qual escolher?
       </h4>
+      <p className="mb-5 text-xs leading-relaxed text-white/55">
+        Entre em contato e receba orientação personalizada para o seu ambiente.
+      </p>
       <a
         href={getWhatsAppUrl(
           `Olá! Li o artigo "${title}" e gostaria de ajuda para escolher.`
@@ -714,7 +720,7 @@ function SidebarCTA({ title }: { title: string }) {
         rel="noopener noreferrer"
         className="brushed-gold block py-2.5 text-center text-xs font-bold uppercase tracking-wide text-[#221e10]"
       >
-        Entre em contato →
+        Fale com a gente →
       </a>
     </div>
   );
@@ -766,11 +772,26 @@ export default async function BlogPostPage({ params }: PageProps) {
       {/* ── Hero ── */}
       <div className="relative pt-20">
         <div className="relative h-[420px] overflow-hidden md:h-[520px]">
-          <img
-            src={post.image}
-            alt={post.title}
-            className="h-full w-full object-cover"
-          />
+          {post.desktopImage ? (
+            <>
+              <img
+                src={post.desktopImage}
+                alt={post.title}
+                className="hidden h-full w-full object-cover lg:block"
+              />
+              <img
+                src={post.image}
+                alt={post.title}
+                className="h-full w-full object-cover lg:hidden"
+              />
+            </>
+          ) : (
+            <img
+              src={post.image}
+              alt={post.title}
+              className="h-full w-full object-cover"
+            />
+          )}
           <div className="absolute inset-0 bg-gradient-to-t from-[#221e10]/85 via-[#221e10]/35 to-transparent" />
           <div className="absolute bottom-0 left-0 right-0 p-6 md:p-10">
             <div className="mx-auto max-w-7xl">
@@ -823,6 +844,15 @@ export default async function BlogPostPage({ params }: PageProps) {
                 <ArrowLeft className="h-4 w-4" />
                 Voltar ao Blog
               </Link>
+              <div className="flex items-center gap-3">
+                <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#584738] text-xs font-bold text-white">
+                  N
+                </div>
+                <div>
+                  <p className="text-sm font-semibold text-[#584738]">Stylo Decore</p>
+                  <p className="text-xs text-[#584738]/50">Especialista em Design</p>
+                </div>
+              </div>
             </div>
 
             {/* Lead */}
@@ -848,6 +878,10 @@ export default async function BlogPostPage({ params }: PageProps) {
               <h3 className="mb-3 font-serif text-2xl font-bold text-white">
                 Gostou deste artigo?
               </h3>
+              <p className="mx-auto mb-8 max-w-sm text-sm leading-relaxed text-white/65">
+                Fale com a gente diretamente pelo WhatsApp e receba orientação
+                personalizada para o seu ambiente.
+              </p>
               <a
                 href={getWhatsAppUrl(
                   `Olá! Li o artigo "${post.title}" no blog e gostaria de mais informações.`

@@ -28,6 +28,7 @@ export default function TapeteSobMedidaPage() {
         category="Tapetes"
         description="Tamanho e formato personalizados para o seu espaço. Tapetes sob medida que se encaixam perfeitamente em qualquer ambiente."
         products={TAPETE_PRODUCTS["sob-medida"]}
+        desktopHeroImage="/images/tapetes/tapete-sob-medida-hero-desktop.png"
       />
     </>
   );

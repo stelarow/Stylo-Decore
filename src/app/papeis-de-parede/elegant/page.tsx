@@ -28,6 +28,7 @@ export default function ElegantPage() {
         category="Papéis de Parede"
         description="Sofisticação e requinte para ambientes clássicos e atemporais. A coleção Elegant traz padrões tradicionais com acabamento impecável."
         products={PAPEL_PRODUCTS.elegant}
+        desktopHeroImage="/images/papel-elegant-desktop.png"
       />
     </>
   );

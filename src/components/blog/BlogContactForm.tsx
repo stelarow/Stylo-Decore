@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { ArrowRight, User, Phone, Layers, Mail, Loader2, CheckCircle2, AlertCircle } from "lucide-react";
+import { ArrowRight, MessageCircle, User, Phone, Layers } from "lucide-react";
+import { getWhatsAppUrl } from "@/lib/constants";
 
 const PRODUTOS = [
   "Cortinas",
@@ -11,8 +12,6 @@ const PRODUTOS = [
   "Mais de um produto",
 ];
 
-type Status = "idle" | "loading" | "success" | "error";
-
 export default function BlogContactForm() {
   const [form, setForm] = useState({
     nome: "",
@@ -21,7 +20,6 @@ export default function BlogContactForm() {
     mensagem: "",
   });
   const [focused, setFocused] = useState<string | null>(null);
-  const [status, setStatus] = useState<Status>("idle");
 
   const handleChange = (
     e: React.ChangeEvent<
@@ -31,33 +29,18 @@ export default function BlogContactForm() {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const buildMessage = () => {
+    const parts = [`Olá! Me chamo *${form.nome || "um visitante"}*.`];
+    if (form.telefone) parts.push(`Meu telefone: ${form.telefone}.`);
+    if (form.produto) parts.push(`Tenho interesse em: *${form.produto}*.`);
+    if (form.mensagem) parts.push(`Mensagem: ${form.mensagem}`);
+    parts.push("Vi pelo blog da Stylo Decore.");
+    return parts.join(" ");
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setStatus("loading");
-
-    try {
-      const res = await fetch("/api/contato", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: form.nome,
-          phone: form.telefone,
-          interests: form.produto ? [form.produto] : [],
-          message: form.mensagem,
-        }),
-      });
-
-      if (!res.ok) throw new Error("Falha no envio");
-
-      setStatus("success");
-      setTimeout(() => {
-        setForm({ nome: "", telefone: "", produto: "", mensagem: "" });
-        setStatus("idle");
-      }, 4000);
-    } catch {
-      setStatus("error");
-      setTimeout(() => setStatus("idle"), 4000);
-    }
+    window.open(getWhatsAppUrl(buildMessage()), "_blank", "noopener,noreferrer");
   };
 
   const inputBase =
@@ -90,7 +73,7 @@ export default function BlogContactForm() {
             Transforme seu
             <br />
             <span className="text-primary">ambiente</span> com
-            <br />a Stylo Decore
+            <br />a gente
           </h2>
 
           <div className="mb-8 h-px w-12 bg-primary/40" />
@@ -119,33 +102,6 @@ export default function BlogContactForm() {
 
         {/* Right column — form */}
         <div className="md:col-span-3">
-
-          {/* Feedback de sucesso */}
-          {status === "success" && (
-            <div className="mb-8 flex items-start gap-3 rounded-xl border border-green-700/40 bg-green-900/30 px-4 py-3.5">
-              <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-green-400" />
-              <div>
-                <p className="text-sm font-semibold text-green-300">Mensagem enviada!</p>
-                <p className="mt-0.5 text-xs text-green-400/70">
-                  Recebemos seu contato e entraremos em breve pelo WhatsApp.
-                </p>
-              </div>
-            </div>
-          )}
-
-          {/* Feedback de erro */}
-          {status === "error" && (
-            <div className="mb-8 flex items-start gap-3 rounded-xl border border-red-700/40 bg-red-900/30 px-4 py-3.5">
-              <AlertCircle className="mt-0.5 h-4 w-4 shrink-0 text-red-400" />
-              <div>
-                <p className="text-sm font-semibold text-red-300">Erro ao enviar</p>
-                <p className="mt-0.5 text-xs text-red-400/70">
-                  Não foi possível enviar. Fale conosco diretamente pelo WhatsApp.
-                </p>
-              </div>
-            </div>
-          )}
-
           <form onSubmit={handleSubmit} className="space-y-0">
 
             {/* Row 1 */}
@@ -165,14 +121,12 @@ export default function BlogContactForm() {
                   id="nome"
                   name="nome"
                   type="text"
-                  required
                   value={form.nome}
                   onChange={handleChange}
                   onFocus={() => setFocused("nome")}
                   onBlur={() => setFocused(null)}
                   className={inputBase + " pt-6"}
                   placeholder={isActive("nome") ? "Seu nome" : ""}
-                  disabled={status === "loading" || status === "success"}
                 />
               </div>
 
@@ -191,14 +145,12 @@ export default function BlogContactForm() {
                   id="telefone"
                   name="telefone"
                   type="tel"
-                  required
                   value={form.telefone}
                   onChange={handleChange}
                   onFocus={() => setFocused("telefone")}
                   onBlur={() => setFocused(null)}
                   className={inputBase + " pt-6"}
                   placeholder={isActive("telefone") ? "(48) 9 9999-9999" : ""}
-                  disabled={status === "loading" || status === "success"}
                 />
               </div>
             </div>
@@ -221,7 +173,6 @@ export default function BlogContactForm() {
                 onChange={handleChange}
                 onFocus={() => setFocused("produto")}
                 onBlur={() => setFocused(null)}
-                disabled={status === "loading" || status === "success"}
                 className={
                   inputBase +
                   " pt-6 appearance-none cursor-pointer " +
@@ -257,7 +208,6 @@ export default function BlogContactForm() {
                 onFocus={() => setFocused("mensagem")}
                 onBlur={() => setFocused(null)}
                 rows={3}
-                disabled={status === "loading" || status === "success"}
                 className={inputBase + " resize-none pt-6"}
                 placeholder={
                   isActive("mensagem") ? "Conte um pouco sobre seu ambiente..." : ""
@@ -265,31 +215,25 @@ export default function BlogContactForm() {
               />
             </div>
 
-            {/* Button */}
-            <div className="pt-10">
+            {/* Buttons */}
+            <div className="flex flex-col gap-3 pt-10 sm:flex-row sm:items-center">
               <button
                 type="submit"
-                disabled={status === "loading" || status === "success"}
-                className="brushed-gold group flex w-full items-center justify-center gap-3 px-8 py-4 text-sm font-bold uppercase tracking-widest text-[#221e10] transition-all hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-70"
+                className="brushed-gold group flex flex-1 items-center justify-center gap-3 px-8 py-4 text-sm font-bold uppercase tracking-widest text-[#221e10] transition-all hover:opacity-90"
               >
-                {status === "loading" ? (
-                  <>
-                    <Loader2 className="h-4 w-4 animate-spin" />
-                    Enviando...
-                  </>
-                ) : status === "success" ? (
-                  <>
-                    <CheckCircle2 className="h-4 w-4" />
-                    Enviado!
-                  </>
-                ) : (
-                  <>
-                    <Mail className="h-4 w-4 transition-transform group-hover:scale-110" />
-                    Enviar mensagem
-                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                  </>
-                )}
+                <MessageCircle className="h-4 w-4 transition-transform group-hover:scale-110" />
+                Enviar pelo WhatsApp
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </button>
+
+              <a
+                href={getWhatsAppUrl()}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2 border border-white/10 px-6 py-4 text-sm font-semibold text-white/50 transition-all hover:border-primary/40 hover:text-white sm:flex-none"
+              >
+                Conversa direta
+              </a>
             </div>
 
             <p className="pt-5 text-center text-[11px] text-white/25">

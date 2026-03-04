@@ -5,6 +5,7 @@ import { CATEGORIES, getWhatsAppUrl } from "@/lib/constants";
 import { BLOG_POSTS } from "@/lib/data";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import { TestimonialsSection } from "@/components/ui/TestimonialsSection";
+import { MapSection } from "@/components/sections/MapSection";
 import { FAQSection } from "@/components/ui/FAQSection";
 
 const ContactSection = dynamic(() => import("@/components/sections/ContactSection"));
@@ -377,6 +378,9 @@ export default function Home() {
 
       {/* Depoimentos */}
       <TestimonialsSection />
+
+      {/* Como Chegar */}
+      <MapSection />
 
       {/* FAQ */}
       <FAQSection />

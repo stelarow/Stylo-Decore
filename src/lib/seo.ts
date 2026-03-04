@@ -223,8 +223,8 @@ export function getArticleJsonLd(article: {
     datePublished: article.date,
     dateModified: article.date,
     author: {
-      "@type": "Person",
-      name: "Nilza",
+      "@type": "Organization",
+      name: "Stylo Decore",
       jobTitle: "Especialista em Design de Interiores",
     },
     publisher: {

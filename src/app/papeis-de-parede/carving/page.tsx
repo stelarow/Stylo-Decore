@@ -28,6 +28,7 @@ export default function CarvingPage() {
         category="Papéis de Parede"
         description="Relevos tridimensionais que criam profundidade e textura. A coleção Carving utiliza técnicas de alto-relevo para paredes com personalidade e movimento."
         products={PAPEL_PRODUCTS.carving}
+        desktopHeroImage="/images/papel/carving-hero-desktop.png"
       />
     </>
   );

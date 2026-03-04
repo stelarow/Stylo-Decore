@@ -28,6 +28,7 @@ export default function TapeteDecorativoPage() {
         category="Tapetes"
         description="Peças que agregam estilo e personalidade ao ambiente. Tapetes decorativos em diversas texturas, cores e padrões para compor o seu espaço."
         products={TAPETE_PRODUCTS["decorativo"]}
+        desktopHeroImage="/images/tapetes/tapete-decorativo-hero-desktop.png"
       />
     </>
   );

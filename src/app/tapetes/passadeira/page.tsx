@@ -28,6 +28,7 @@ export default function TapetePassadeiraPage() {
         category="Tapetes"
         description="Ideal para corredores, halls e áreas de circulação. Passadeiras que unem funcionalidade e beleza, disponíveis em diversos tamanhos e acabamentos."
         products={TAPETE_PRODUCTS["passadeira"]}
+        desktopHeroImage="/images/tapetes/tapete-passadeira-hero-desktop.png"
       />
     </>
   );

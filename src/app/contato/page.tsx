@@ -3,6 +3,9 @@ import { Phone, Mail, MapPin, Clock, MessageCircle } from "lucide-react";
 import { CONTACT, getWhatsAppUrl, getWhatsAppUrl2 } from "@/lib/constants";
 import JsonLd from "@/components/seo/JsonLd";
 import { getBreadcrumbJsonLd } from "@/lib/seo";
+import { TestimonialsSection } from "@/components/ui/TestimonialsSection";
+import { MapSection } from "@/components/sections/MapSection";
+import { FAQSection } from "@/components/ui/FAQSection";
 
 export const metadata: Metadata = {
   title: "Contato | Stylo Decore - Florianópolis e Região",
@@ -18,6 +21,7 @@ export const metadata: Metadata = {
 
 export default function ContatoPage() {
   return (
+    <>
     <div className="pt-20">
       <JsonLd data={getBreadcrumbJsonLd([
         { name: "Home", href: "/" },
@@ -116,5 +120,15 @@ export default function ContatoPage() {
       </div>
 
     </div>
+
+    {/* Depoimentos */}
+    <TestimonialsSection />
+
+    {/* Como Chegar */}
+    <MapSection />
+
+    {/* FAQ */}
+    <FAQSection />
+    </>
   );
 }
