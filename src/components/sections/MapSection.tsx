@@ -107,6 +107,7 @@ export function MapSection() {
                     Telefone / WhatsApp
                   </p>
                   <p className="mt-0.5 text-sm text-foreground">{CONTACT.phone}</p>
+                  <p className="text-sm text-foreground">{CONTACT.phone2}</p>
                 </div>
               </div>
             </div>

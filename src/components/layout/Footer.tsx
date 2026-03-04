@@ -15,9 +15,9 @@ export default function Footer() {
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
           {/* Brand */}
           <div>
-            <h3 className="mb-4 font-serif text-2xl font-bold">
+            <Link href="/" className="mb-4 inline-block font-serif text-2xl font-bold hover:opacity-80 transition-opacity">
               Stylo <span className="text-primary">Decore</span>
-            </h3>
+            </Link>
             <p className="mb-6 text-sm leading-relaxed text-white/60">
               Há mais de 20 anos transformando ambientes com cortinas, persianas,
               papéis de parede e tapetes sob medida.
@@ -54,6 +54,14 @@ export default function Footer() {
               Institucional
             </h4>
             <ul className="space-y-2">
+              <li>
+                <Link
+                  href="/"
+                  className="text-sm text-white/60 transition-colors hover:text-primary"
+                >
+                  Início
+                </Link>
+              </li>
               <li>
                 <Link
                   href="/contato"
