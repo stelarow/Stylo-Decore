@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import CategoryPage from "@/components/sections/CategoryPage";
 import JsonLd from "@/components/seo/JsonLd";
-import { getBreadcrumbJsonLd, getFaqJsonLd, TAPETES_FAQ } from "@/lib/seo";
+import { getBreadcrumbJsonLd, getFaqJsonLd, TAPETES_FAQ, TAPETES_FAQ_KEYS } from "@/lib/seo";
 import { TAPETES_SUBCATEGORIES } from "@/lib/data";
 
 export const metadata: Metadata = {
@@ -32,7 +32,7 @@ export default function TapetesPage() {
         description="Conforto e estilo para seus ambientes. Descubra nossos tapetes sob medida, decorativos e passadeiras."
         intro="Tapetes são peças fundamentais na composição de ambientes, trazendo conforto, delimitação de espaços e personalidade. Trabalhamos com formatos, tamanhos e materiais sob medida para cada projeto."
         subcategories={TAPETES_SUBCATEGORIES}
-        faqItems={TAPETES_FAQ}
+        faqItems={TAPETES_FAQ_KEYS}
       />
     </>
   );

@@ -61,9 +61,9 @@ export const NAVIGATION: NavItem[] = [
     label: "Papel de Parede",
     href: "/papeis-de-parede",
     children: [
-      { label: "Breeze", href: "/papeis-de-parede/breeze" },
-      { label: "Carving", href: "/papeis-de-parede/carving" },
-      { label: "Elegant", href: "/papeis-de-parede/elegant" },
+      { label: "Geométricos", href: "/papeis-de-parede/geometricos" },
+      { label: "Infantil", href: "/papeis-de-parede/infantil" },
+      { label: "Cozinha", href: "/papeis-de-parede/cozinha" },
     ],
   },
   {

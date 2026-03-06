@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, ArrowLeft, Check, Loader2, CheckCircle2, AlertCircle } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -29,44 +30,44 @@ interface ContactData {
 const PRODUCTS: { key: ProductKey; image: string; name: string; desc: string }[] = [
   { key: "cortinas",      image: "/images/cortinas/cortina-01.jpg",   name: "Cortinas",        desc: "Tecido, wave, blackout e mais" },
   { key: "persianas",     image: "/images/persianas/persiana-01.jpg", name: "Persianas",       desc: "Horizontal, vertical, rolô"   },
-  { key: "papelDeParede", image: "/images/papel/papel-01.jpg",        name: "Papel de Parede", desc: "Breeze, Carving, Elegant"     },
+  { key: "papelDeParede", image: "/images/papel/papel-01.jpg",        name: "Papel de Parede", desc: "Breeze, Geométricos, Infantil, Cozinha"    },
   { key: "tapetes",       image: "/images/tapetes/tapete-01.jpg",     name: "Tapetes",         desc: "Sob medida, decorativo"       },
 ];
 
-type Question = { label: string; key: string; options: string[]; isMeasurement?: boolean };
+type Question = { label: string; labelKey: string; key: string; options: string[]; isMeasurement?: boolean };
 
 const QUESTIONS: Record<ProductKey, Question[]> = {
   cortinas: [
-    { label: "Que tipo de cortina você busca?",          key: "tipo",       options: ["Tecido", "Prega Americana", "Ilhós", "Wave", "Blackout & Acústicas", "Não sei"] },
-    { label: "Qual é o ambiente?",                        key: "ambiente",   options: ["Sala", "Quarto", "Escritório", "Varanda", "Outro", "Não sei"] },
-    { label: "Qual é a prioridade principal?",            key: "prioridade", options: ["Privacidade", "Controle de luz", "Estética e decoração", "Isolamento acústico", "Não sei"] },
-    { label: "Qual estilo combina com o seu espaço?",     key: "estilo",     options: ["Moderno / Contemporâneo", "Clássico / Tradicional", "Rústico / Natural", "Minimalista", "Não sei"] },
-    { label: "Qual é o tamanho aproximado da janela?",    key: "tamanho",    options: ["Pequena (até 2m)", "Média (2–4m)", "Grande (acima de 4m)", "Não sei ainda"], isMeasurement: true },
-    { label: "Qual é o seu prazo para este projeto?",     key: "prazo",      options: ["Urgente (menos de 1 mês)", "1 a 3 meses", "Mais de 3 meses", "Ainda não definido"] },
+    { label: "Que tipo de cortina você busca?",          labelKey: "q.ql.tipoC",       key: "tipo",       options: ["Tecido", "Prega Americana", "Ilhós", "Wave", "Blackout & Acústicas", "Não sei"] },
+    { label: "Qual é o ambiente?",                        labelKey: "q.ql.ambiente",    key: "ambiente",   options: ["Sala", "Quarto", "Escritório", "Varanda", "Outro", "Não sei"] },
+    { label: "Qual é a prioridade principal?",            labelKey: "q.ql.prioridade",  key: "prioridade", options: ["Privacidade", "Controle de luz", "Estética e decoração", "Isolamento acústico", "Não sei"] },
+    { label: "Qual estilo combina com o seu espaço?",     labelKey: "q.ql.estilo",      key: "estilo",     options: ["Moderno / Contemporâneo", "Clássico / Tradicional", "Rústico / Natural", "Minimalista", "Não sei"] },
+    { label: "Qual é o tamanho aproximado da janela?",    labelKey: "q.ql.tamanhoJ",    key: "tamanho",    options: ["Pequena (até 2m)", "Média (2–4m)", "Grande (acima de 4m)", "Não sei ainda"], isMeasurement: true },
+    { label: "Qual é o seu prazo para este projeto?",     labelKey: "q.ql.prazo",       key: "prazo",      options: ["Urgente (menos de 1 mês)", "1 a 3 meses", "Mais de 3 meses", "Ainda não definido"] },
   ],
   persianas: [
-    { label: "Que tipo de persiana você prefere?",        key: "tipo",        options: ["Horizontal", "Vertical", "Rolô", "Double Vision", "Não sei"] },
-    { label: "Qual é o ambiente?",                        key: "ambiente",    options: ["Sala", "Quarto", "Escritório", "Banheiro", "Outro", "Não sei"] },
-    { label: "Como prefere o controle de luz?",           key: "luz",         options: ["Bloqueio total (blackout)", "Meia-luz suave", "Difusão clara", "Depende do horário", "Não sei"] },
-    { label: "Qual acionamento prefere?",                 key: "acionamento", options: ["Manual", "Motorizado", "Tanto faz", "Não sei ainda"] },
-    { label: "Qual é o tamanho aproximado?",              key: "tamanho",     options: ["Pequena (até 1,5m)", "Média (1,5–3m)", "Grande (acima de 3m)", "Não sei ainda"], isMeasurement: true },
-    { label: "Qual é o seu prazo para este projeto?",     key: "prazo",       options: ["Urgente (menos de 1 mês)", "1 a 3 meses", "Mais de 3 meses", "Ainda não definido"] },
+    { label: "Que tipo de persiana você prefere?",        labelKey: "q.ql.tipoP",       key: "tipo",        options: ["Horizontal", "Vertical", "Rolô", "Double Vision", "Não sei"] },
+    { label: "Qual é o ambiente?",                        labelKey: "q.ql.ambiente",    key: "ambiente",    options: ["Sala", "Quarto", "Escritório", "Banheiro", "Outro", "Não sei"] },
+    { label: "Como prefere o controle de luz?",           labelKey: "q.ql.luz",         key: "luz",         options: ["Bloqueio total (blackout)", "Meia-luz suave", "Difusão clara", "Depende do horário", "Não sei"] },
+    { label: "Qual acionamento prefere?",                 labelKey: "q.ql.acionamento", key: "acionamento", options: ["Manual", "Motorizado", "Tanto faz", "Não sei ainda"] },
+    { label: "Qual é o tamanho aproximado?",              labelKey: "q.ql.tamanhoP",    key: "tamanho",     options: ["Pequena (até 1,5m)", "Média (1,5–3m)", "Grande (acima de 3m)", "Não sei ainda"], isMeasurement: true },
+    { label: "Qual é o seu prazo para este projeto?",     labelKey: "q.ql.prazo",       key: "prazo",       options: ["Urgente (menos de 1 mês)", "1 a 3 meses", "Mais de 3 meses", "Ainda não definido"] },
   ],
   papelDeParede: [
-    { label: "Qual coleção te interessa?",                key: "colecao",     options: ["Breeze", "Carving", "Elegant", "Ainda não sei"] },
-    { label: "Qual é o ambiente?",                        key: "ambiente",    options: ["Sala", "Quarto", "Escritório", "Corredor", "Outro", "Não sei"] },
-    { label: "Que visual você busca?",                    key: "visual",      options: ["Texturizado / Relevo", "Liso e sofisticado", "Estampado / Padrão", "Geométrico", "Não sei"] },
-    { label: "A parede já possui papel de parede?",       key: "estadoParede",options: ["Sim, precisa remover", "Não, parede limpa", "Não sei", "Preciso de orientação"] },
-    { label: "Qual é a área aproximada?",                 key: "area",        options: ["Até 10m²", "10–25m²", "Acima de 25m²", "Não sei ainda"], isMeasurement: true },
-    { label: "Qual é o seu prazo para este projeto?",     key: "prazo",       options: ["Urgente (menos de 1 mês)", "1 a 3 meses", "Mais de 3 meses", "Ainda não definido"] },
+    { label: "Qual coleção te interessa?",                labelKey: "q.ql.colecao",     key: "colecao",     options: ["Geométricos", "Infantil", "Cozinha", "Ainda não sei"] },
+    { label: "Qual é o ambiente?",                        labelKey: "q.ql.ambiente",    key: "ambiente",    options: ["Sala", "Quarto", "Escritório", "Corredor", "Outro", "Não sei"] },
+    { label: "Que visual você busca?",                    labelKey: "q.ql.visual",      key: "visual",      options: ["Texturizado / Relevo", "Liso e sofisticado", "Estampado / Padrão", "Geométrico", "Não sei"] },
+    { label: "A parede já possui papel de parede?",       labelKey: "q.ql.estadoParede",key: "estadoParede",options: ["Sim, precisa remover", "Não, parede limpa", "Não sei", "Preciso de orientação"] },
+    { label: "Qual é a área aproximada?",                 labelKey: "q.ql.area",        key: "area",        options: ["Até 10m²", "10–25m²", "Acima de 25m²", "Não sei ainda"], isMeasurement: true },
+    { label: "Qual é o seu prazo para este projeto?",     labelKey: "q.ql.prazo",       key: "prazo",       options: ["Urgente (menos de 1 mês)", "1 a 3 meses", "Mais de 3 meses", "Ainda não definido"] },
   ],
   tapetes: [
-    { label: "Que tipo de tapete você procura?",          key: "tipo",     options: ["Sob Medida", "Decorativo", "Passadeira", "Não sei"] },
-    { label: "Qual é o ambiente?",                        key: "ambiente", options: ["Sala", "Quarto", "Corredor", "Área Externa", "Outro", "Não sei"] },
-    { label: "Qual é o uso principal?",                   key: "uso",      options: ["Decorativo / Estético", "Conforto térmico", "Proteção do piso", "Delimitação do ambiente", "Não sei"] },
-    { label: "Material preferido?",                       key: "material", options: ["Lã / Natural", "Sintético / Fácil limpeza", "Sisal / Fibra", "Sem preferência"] },
-    { label: "Qual é o tamanho aproximado?",              key: "tamanho",  options: ["Pequeno (até 2m²)", "Médio (2–6m²)", "Grande (acima de 6m²)", "Não sei ainda"], isMeasurement: true },
-    { label: "Qual é o seu prazo para este projeto?",     key: "prazo",    options: ["Urgente (menos de 1 mês)", "1 a 3 meses", "Mais de 3 meses", "Ainda não definido"] },
+    { label: "Que tipo de tapete você procura?",          labelKey: "q.ql.tipoT",    key: "tipo",     options: ["Sob Medida", "Decorativo", "Passadeira", "Não sei"] },
+    { label: "Qual é o ambiente?",                        labelKey: "q.ql.ambiente", key: "ambiente", options: ["Sala", "Quarto", "Corredor", "Área Externa", "Outro", "Não sei"] },
+    { label: "Qual é o uso principal?",                   labelKey: "q.ql.uso",      key: "uso",      options: ["Decorativo / Estético", "Conforto térmico", "Proteção do piso", "Delimitação do ambiente", "Não sei"] },
+    { label: "Material preferido?",                       labelKey: "q.ql.material", key: "material", options: ["Lã / Natural", "Sintético / Fácil limpeza", "Sisal / Fibra", "Sem preferência"] },
+    { label: "Qual é o tamanho aproximado?",              labelKey: "q.ql.tamanhoP", key: "tamanho",  options: ["Pequeno (até 2m²)", "Médio (2–6m²)", "Grande (acima de 6m²)", "Não sei ainda"], isMeasurement: true },
+    { label: "Qual é o seu prazo para este projeto?",     labelKey: "q.ql.prazo",    key: "prazo",    options: ["Urgente (menos de 1 mês)", "1 a 3 meses", "Mais de 3 meses", "Ainda não definido"] },
   ],
 };
 
@@ -75,9 +76,9 @@ const QUESTIONS: Record<ProductKey, Question[]> = {
 
 const OPTION_IMAGES: Record<string, Record<string, string>> = {
   colecao: {
-    "Breeze":  "/images/papel-breeze.jpg",
-    "Carving": "/images/papel-carving.jpg",
-    "Elegant": "/images/papel-elegant.jpg",
+    "Geométricos": "/images/papel-geometricos.jpg",
+    "Infantil": "/images/papel-infantil.jpg",
+    "Cozinha": "/images/papel/cozinha/cozinha-marmore-calacata-dourado.jpg",
     // "Ainda não sei" → text card
   },
   tipo: {
@@ -134,12 +135,8 @@ function formatWhatsApp(raw: string): string {
 
 // ─── Step indicator ───────────────────────────────────────────────────────────
 
-const STEPS = [
-  { id: 1, label: "Produtos"     },
-  { id: 2, label: "Preferências" },
-  { id: 3, label: "Resumo"       },
-  { id: 4, label: "Contato"      },
-];
+const STEP_IDS = [1, 2, 3, 4] as const;
+const STEP_LABEL_KEYS = ["q.step1", "q.step2", "q.step3", "q.step4"] as const;
 
 function phaseToStep(phase: Phase): number {
   const map: Record<Phase, number> = { produtos: 1, detalhes: 2, resumo: 3, contato: 4 };
@@ -159,7 +156,22 @@ const STEP_BAR_H = 69; // px: py-5 (40) + h-7 (28) + border (1)
 
 // ─── Component ────────────────────────────────────────────────────────────────
 
+const PRODUCT_NAV_KEYS: Record<ProductKey, string> = {
+  cortinas: "/cortinas",
+  persianas: "/persianas",
+  papelDeParede: "/papeis-de-parede",
+  tapetes: "/tapetes",
+};
+
+const PRODUCT_DESC_KEYS: Record<ProductKey, string> = {
+  cortinas: "q.p.curtains.desc",
+  persianas: "q.p.blinds.desc",
+  papelDeParede: "q.p.wallpaper.desc",
+  tapetes: "q.p.rugs.desc",
+};
+
 export default function QuestionarioAtendimento({ tipo = "online" }: { tipo?: "online" | "premium" }) {
+  const { t } = useLanguage();
   const [state, setState] = useState<QuizState>(INITIAL_STATE);
   const [measurementInput, setMeasurementInput] = useState("");
   const [contact, setContact] = useState<ContactData>({ nome: "", whatsapp: "", email: "" });
@@ -329,13 +341,13 @@ export default function QuestionarioAtendimento({ tipo = "online" }: { tipo?: "o
       <div className="sm:hidden sticky top-20 z-20 w-full bg-[#F1EADA]/96 backdrop-blur-sm border-b border-[#B59E7D]/18">
         <div className="mx-auto max-w-5xl px-4 sm:px-8 py-3.5 sm:py-5">
           <div className="flex items-center gap-1">
-            {STEPS.map((step, idx) => {
+            {STEP_IDS.map((stepId, idx) => {
               const displayStep = submitStatus === "success" ? 5 : currentStep;
-              const isCompleted = displayStep > step.id;
-              const isCurrent   = displayStep === step.id;
-              const isLast      = idx === STEPS.length - 1;
+              const isCompleted = displayStep > stepId;
+              const isCurrent   = displayStep === stepId;
+              const isLast      = idx === STEP_IDS.length - 1;
               return (
-                <div key={step.id} className="flex items-center flex-1 last:flex-none">
+                <div key={stepId} className="flex items-center flex-1 last:flex-none">
                   <div className="flex items-center gap-2.5">
                     <div className={`w-7 h-7 rounded-full flex items-center justify-center text-[11px] font-bold border-[1.5px] transition-all duration-300 ${
                       isCompleted
@@ -344,12 +356,12 @@ export default function QuestionarioAtendimento({ tipo = "online" }: { tipo?: "o
                         ? "bg-transparent border-[#f1bf27] text-[#584738]"
                         : "bg-transparent border-[#B59E7D]/25 text-[#B59E7D]/40"
                     }`}>
-                      {isCompleted ? <Check className="w-3.5 h-3.5" /> : step.id}
+                      {isCompleted ? <Check className="w-3.5 h-3.5" /> : stepId}
                     </div>
                     <span className={`text-[11px] font-semibold uppercase tracking-widest transition-colors hidden sm:block ${
                       isCurrent ? "text-[#584738]" : isCompleted ? "text-[#f1bf27]" : "text-[#B59E7D]/35"
                     }`}>
-                      {step.label}
+                      {t(STEP_LABEL_KEYS[idx])}
                     </span>
                   </div>
                   {!isLast && (
@@ -394,7 +406,7 @@ export default function QuestionarioAtendimento({ tipo = "online" }: { tipo?: "o
                       <span className="relative w-4 h-4 rounded-sm overflow-hidden inline-block shrink-0">
                         <Image src={PRODUCT_META[key].image} alt="" fill className="object-cover" sizes="16px" />
                       </span>
-                      {PRODUCT_META[key].name}
+                      {t(PRODUCT_NAV_KEYS[key])}
                     </span>
                   );
                 })}
@@ -403,7 +415,7 @@ export default function QuestionarioAtendimento({ tipo = "online" }: { tipo?: "o
                     <span className="relative w-4 h-4 rounded-sm overflow-hidden inline-block shrink-0">
                       <Image src={PRODUCT_META[currentProductKey].image} alt="" fill className="object-cover" sizes="16px" />
                     </span>
-                    {PRODUCT_META[currentProductKey].name}
+                    {t(PRODUCT_NAV_KEYS[currentProductKey])}
                   </span>
                 )}
                 <span className="text-[#B59E7D]/40 text-xs font-semibold ml-auto shrink-0">
@@ -421,7 +433,7 @@ export default function QuestionarioAtendimento({ tipo = "online" }: { tipo?: "o
 
               {/* Question */}
               <h2 className="font-serif text-[1.625rem] sm:text-3xl lg:text-[2.25rem] xl:text-[2.625rem] font-bold text-[#584738] leading-snug mb-5 sm:mb-8">
-                {currentQuestion.label}
+                {t(currentQuestion.labelKey)}
               </h2>
 
               {/* ── Options: image grid (mixed image + text cards) ── */}
@@ -541,7 +553,7 @@ export default function QuestionarioAtendimento({ tipo = "online" }: { tipo?: "o
                     type="text"
                     value={measurementInput}
                     onChange={e => handleMeasurementInput(e.target.value)}
-                    placeholder="Ou informe a medida exata (ex: 2,40 × 1,80 m)"
+                    placeholder={t("q.measurePlaceholder")}
                     className={`w-full rounded-2xl border-[1.5px] bg-white px-4 sm:px-6 py-4 sm:py-5 text-base text-[#584738] placeholder:text-[#584738]/30 outline-none transition-all duration-150 ${
                       measurementInput
                         ? "border-[#f1bf27]"
@@ -558,7 +570,7 @@ export default function QuestionarioAtendimento({ tipo = "online" }: { tipo?: "o
                   className="inline-flex items-center gap-2 text-sm sm:text-base font-medium text-[#584738]/35 hover:text-[#584738] transition-colors"
                 >
                   <ArrowLeft className="h-4 w-4" />
-                  Voltar
+                  {t("q.back")}
                 </button>
                 <button
                   onClick={() => { setPendingAdvance(false); goNext(); }}
@@ -568,11 +580,11 @@ export default function QuestionarioAtendimento({ tipo = "online" }: { tipo?: "o
                   {pendingAdvance ? (
                     <>
                       <span className="w-4 h-4 rounded-full border-2 border-[#221e10]/30 border-t-[#221e10] animate-spin" />
-                      {isLastQuestion ? "Ver resumo" : "Próximo"}
+                      {isLastQuestion ? t("q.seeSummary") : t("q.next")}
                     </>
                   ) : (
                     <>
-                      {isLastQuestion ? "Ver resumo" : "Continuar"}
+                      {isLastQuestion ? t("q.seeSummary") : t("q.continue")}
                       <ArrowRight className="h-4 w-4" />
                     </>
                   )}
@@ -594,13 +606,13 @@ export default function QuestionarioAtendimento({ tipo = "online" }: { tipo?: "o
               <div>
                 <div className="mb-8 sm:mb-12">
                   <p className="text-[#f1bf27] font-semibold text-xs sm:text-sm tracking-[0.25em] uppercase mb-4">
-                    Passo 1 de 4
+                    {t("q.step1of4")}
                   </p>
                   <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#584738] leading-snug mb-3">
-                    O que você está buscando?
+                    {t("q.title")}
                   </h1>
                   <p className="text-[#584738]/50 text-base sm:text-lg lg:text-xl">
-                    Selecione um ou mais produtos para personalizar sua consulta.
+                    {t("q.subtitle")}
                   </p>
                 </div>
 
@@ -636,8 +648,8 @@ export default function QuestionarioAtendimento({ tipo = "online" }: { tipo?: "o
                           </div>
                         )}
                         <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8">
-                          <p className="font-semibold text-white text-xl sm:text-2xl leading-tight">{product.name}</p>
-                          <p className="text-white/55 text-sm sm:text-base mt-2">{product.desc}</p>
+                          <p className="font-semibold text-white text-xl sm:text-2xl leading-tight">{t(PRODUCT_NAV_KEYS[product.key])}</p>
+                          <p className="text-white/55 text-sm sm:text-base mt-2">{t(PRODUCT_DESC_KEYS[product.key])}</p>
                         </div>
                       </button>
                     );
@@ -650,7 +662,7 @@ export default function QuestionarioAtendimento({ tipo = "online" }: { tipo?: "o
                     disabled={state.selectedProducts.length === 0}
                     className="brushed-gold inline-flex items-center gap-2.5 sm:gap-3 rounded-full px-8 sm:px-12 py-4 sm:py-5 text-base sm:text-lg font-semibold text-[#221e10] transition-all hover:opacity-90 hover:shadow-lg disabled:cursor-not-allowed disabled:opacity-30"
                   >
-                    Continuar
+                    {t("q.continue")}
                     <ArrowRight className="h-5 w-5" />
                   </button>
                 </div>
@@ -664,17 +676,17 @@ export default function QuestionarioAtendimento({ tipo = "online" }: { tipo?: "o
                 <div className="mb-7 sm:mb-10 flex items-end justify-between gap-4">
                   <div>
                     <p className="text-[#f1bf27] font-semibold text-[11px] tracking-[0.25em] uppercase mb-3">
-                      Passo 3 de 4
+                      {t("q.step3of4")}
                     </p>
                     <h1 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-[#584738] leading-snug">
-                      Seu resumo
+                      {t("q.summaryTitle")}
                     </h1>
                     <p className="text-[#584738]/45 text-sm sm:text-base mt-2">
-                      Tudo pronto. Confira antes de continuar.
+                      {t("q.summarySubtitle")}
                     </p>
                   </div>
                   <span className="shrink-0 text-[#B59E7D]/40 text-sm font-medium hidden sm:block">
-                    {state.selectedProducts.length} {state.selectedProducts.length === 1 ? "produto" : "produtos"}
+                    {state.selectedProducts.length} {state.selectedProducts.length === 1 ? t("q.product") : t("q.products")}
                   </span>
                 </div>
 
@@ -699,11 +711,11 @@ export default function QuestionarioAtendimento({ tipo = "online" }: { tipo?: "o
                           {/* Pill count */}
                           <div className="absolute top-4 right-4 bg-white/15 backdrop-blur-sm border border-white/20 rounded-full px-3 py-1">
                             <span className="text-white text-[11px] font-semibold">
-                              {filledAnswers.length} respostas
+                              {filledAnswers.length} {t("q.answers")}
                             </span>
                           </div>
                           <div className="absolute bottom-0 left-0 right-0 px-7 pb-5">
-                            <p className="font-serif text-xl font-bold text-white leading-tight">{name}</p>
+                            <p className="font-serif text-xl font-bold text-white leading-tight">{t(PRODUCT_NAV_KEYS[key])}</p>
                           </div>
                         </div>
 
@@ -717,7 +729,7 @@ export default function QuestionarioAtendimento({ tipo = "online" }: { tipo?: "o
                               return (
                                 <div key={q.key} className="flex flex-col gap-1.5 min-w-0">
                                   <dt className="text-[#584738]/38 text-[9.5px] font-bold uppercase tracking-[0.12em]">
-                                    {ANSWER_LABELS[q.key] ?? q.key}
+                                    {t(`q.l.${q.key}`) || (ANSWER_LABELS[q.key] ?? q.key)}
                                   </dt>
                                   <dd className="flex items-center gap-2 min-w-0">
                                     {optionImg && (
@@ -741,7 +753,7 @@ export default function QuestionarioAtendimento({ tipo = "online" }: { tipo?: "o
                             onClick={goBack}
                             className="text-[11px] font-semibold text-[#B59E7D] hover:text-[#584738] uppercase tracking-wider transition-colors"
                           >
-                            Editar respostas
+                            {t("q.editAnswers")}
                           </button>
                         </div>
                       </div>
@@ -755,13 +767,13 @@ export default function QuestionarioAtendimento({ tipo = "online" }: { tipo?: "o
                     className="inline-flex items-center gap-2 text-sm sm:text-base font-medium text-[#584738]/35 hover:text-[#584738] transition-colors"
                   >
                     <ArrowLeft className="h-4 w-4" />
-                    Voltar
+                    {t("q.back")}
                   </button>
                   <button
                     onClick={() => setState(prev => ({ ...prev, phase: "contato" }))}
                     className="brushed-gold inline-flex items-center gap-2 sm:gap-2.5 rounded-full px-6 sm:px-10 py-3.5 sm:py-4 text-sm sm:text-base font-semibold text-[#221e10] transition-all hover:opacity-90 hover:shadow-lg"
                   >
-                    Continuar
+                    {t("q.continue")}
                     <ArrowRight className="h-4 w-4" />
                   </button>
                 </div>
@@ -780,12 +792,10 @@ export default function QuestionarioAtendimento({ tipo = "online" }: { tipo?: "o
                     </div>
                     <div>
                       <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#584738] mb-2">
-                        Mensagem enviada!
+                        {t("q.successTitle")}
                       </h2>
                       <p className="text-[#584738]/55 text-sm sm:text-base leading-relaxed max-w-xs mx-auto">
-                        Recebemos sua solicitação, {contact.nome.split(" ")[0]}.<br />
-                        Em breve entraremos em contato pelo WhatsApp ou{" "}
-                        <span className="whitespace-nowrap">e-mail.</span>
+                        {t("q.successDesc")}
                       </p>
                     </div>
                     <Link
@@ -793,20 +803,20 @@ export default function QuestionarioAtendimento({ tipo = "online" }: { tipo?: "o
                       className="mt-2 inline-flex items-center gap-2 rounded-full border border-[#B59E7D]/40 px-6 py-2.5 text-sm font-semibold text-[#584738] transition-all hover:border-[#f1bf27] hover:text-[#f1bf27]"
                     >
                       <ArrowLeft className="h-4 w-4" />
-                      Voltar à página inicial
+                      {t("q.backHome")}
                     </Link>
                   </div>
                 ) : (
                   <>
                     <div className="mb-6 sm:mb-8">
                       <p className="text-[#f1bf27] font-semibold text-[11px] tracking-[0.25em] uppercase mb-3">
-                        Passo 4 de 4
+                        {t("q.step4of4")}
                       </p>
                       <h1 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-[#584738] leading-snug mb-2">
-                        Quase lá!
+                        {t("q.almostTitle")}
                       </h1>
                       <p className="text-[#584738]/50 text-sm sm:text-base">
-                        Como podemos te contatar para continuar o atendimento?
+                        {t("q.almostSubtitle")}
                       </p>
                     </div>
 
@@ -815,9 +825,9 @@ export default function QuestionarioAtendimento({ tipo = "online" }: { tipo?: "o
                       <div className="mb-5 flex items-start gap-3 rounded-2xl border border-red-200 bg-red-50 px-4 py-3.5">
                         <AlertCircle className="mt-0.5 h-4 w-4 shrink-0 text-red-500" />
                         <div>
-                          <p className="text-sm font-semibold text-red-800">Erro ao enviar</p>
+                          <p className="text-sm font-semibold text-red-800">{t("q.errorTitle")}</p>
                           <p className="mt-0.5 text-xs text-red-700">
-                            Não foi possível enviar. Tente novamente ou fale pelo WhatsApp.
+                            {t("q.errorText")}
                           </p>
                         </div>
                       </div>
@@ -826,13 +836,13 @@ export default function QuestionarioAtendimento({ tipo = "online" }: { tipo?: "o
                     <div className="space-y-5">
                       <div>
                         <label className="block text-xs font-semibold uppercase tracking-wider text-[#584738]/45 mb-2.5">
-                          Nome completo <span className="text-[#f1bf27]">*</span>
+                          {t("q.nameLabel")} <span className="text-[#f1bf27]">*</span>
                         </label>
                         <input
                           type="text"
                           value={contact.nome}
                           onChange={e => setContact(p => ({ ...p, nome: e.target.value }))}
-                          placeholder="Seu nome"
+                          placeholder={t("q.namePlaceholder")}
                           disabled={isSubmitting}
                           className={`w-full rounded-2xl border-[1.5px] bg-white px-5 sm:px-7 py-4 sm:py-5 text-base text-[#584738] placeholder:text-[#584738]/30 outline-none transition-all duration-150 disabled:opacity-60 ${
                             contact.nome
@@ -844,7 +854,7 @@ export default function QuestionarioAtendimento({ tipo = "online" }: { tipo?: "o
 
                       <div>
                         <label className="block text-xs font-semibold uppercase tracking-wider text-[#584738]/45 mb-2.5">
-                          WhatsApp com DDD <span className="text-[#f1bf27]">*</span>
+                          {t("q.waLabel")} <span className="text-[#f1bf27]">*</span>
                         </label>
                         <input
                           type="tel"
@@ -862,7 +872,7 @@ export default function QuestionarioAtendimento({ tipo = "online" }: { tipo?: "o
 
                       <div>
                         <label className="block text-xs font-semibold uppercase tracking-wider text-[#584738]/45 mb-2.5">
-                          E-mail <span className="text-[#f1bf27]">*</span>
+                          {t("q.emailLabel")} <span className="text-[#f1bf27]">*</span>
                         </label>
                         <input
                           type="email"
@@ -879,7 +889,7 @@ export default function QuestionarioAtendimento({ tipo = "online" }: { tipo?: "o
                           }`}
                         />
                         {contact.email && !emailValid && (
-                          <p className="mt-1.5 text-sm text-red-500">Digite um e-mail válido</p>
+                          <p className="mt-1.5 text-sm text-red-500">{t("q.emailInvalid")}</p>
                         )}
                       </div>
                     </div>
@@ -891,7 +901,7 @@ export default function QuestionarioAtendimento({ tipo = "online" }: { tipo?: "o
                         className="inline-flex items-center gap-2 text-sm sm:text-base font-medium text-[#584738]/35 hover:text-[#584738] transition-colors disabled:opacity-40"
                       >
                         <ArrowLeft className="h-4 w-4" />
-                        Voltar
+                        {t("q.back")}
                       </button>
                       <button
                         onClick={handleSubmit}
@@ -899,9 +909,9 @@ export default function QuestionarioAtendimento({ tipo = "online" }: { tipo?: "o
                         className="brushed-gold inline-flex items-center justify-center gap-2 sm:gap-2.5 rounded-full px-5 sm:px-10 py-3.5 sm:py-4 text-sm sm:text-base font-semibold text-[#221e10] transition-all hover:opacity-90 hover:shadow-lg disabled:cursor-not-allowed disabled:opacity-40"
                       >
                         {isSubmitting ? (
-                          <><Loader2 className="h-4 w-4 animate-spin" /> Enviando…</>
+                          <><Loader2 className="h-4 w-4 animate-spin" /> {t("q.sending")}</>
                         ) : (
-                          <>Enviar <ArrowRight className="h-4 w-4" /></>
+                          <>{t("q.send")} <ArrowRight className="h-4 w-4" /></>
                         )}
                       </button>
                     </div>

@@ -5,16 +5,19 @@ import Footer from "@/components/layout/Footer";
 import WhatsAppButton from "@/components/ui/WhatsAppButton";
 import JsonLd from "@/components/seo/JsonLd";
 import { getOrganizationJsonLd, getLocalBusinessJsonLd, SITE_URL } from "@/lib/seo";
+import { LanguageProvider } from "@/context/LanguageContext";
 import "./globals.css";
 
 const manrope = Manrope({
   variable: "--font-manrope",
   subsets: ["latin"],
+  display: "swap",
 });
 
 const playfair = Playfair_Display({
   variable: "--font-playfair",
   subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -24,7 +27,7 @@ export const metadata: Metadata = {
     template: "%s | Stylo Decore",
   },
   description:
-    "Showroom digital de cortinas, persianas, papéis de parede e tapetes sob medida. Mais de 20 anos de experiência em Florianópolis e Região. Atendimento consultivo e personalizado.",
+    "Especialistas em cortinas, persianas, papéis de parede e tapetes sob medida. Mais de 20 anos de experiência em Florianópolis e Região. Atendimento consultivo e personalizado.",
   keywords: [
     "cortinas sob medida Florianópolis",
     "persianas sob medida Florianópolis",
@@ -71,10 +74,12 @@ export default function RootLayout({
         <JsonLd data={getLocalBusinessJsonLd()} />
       </head>
       <body className={`${manrope.variable} ${playfair.variable} font-sans antialiased`}>
-        <Header />
-        <main className="min-h-screen">{children}</main>
-        <Footer />
-        <WhatsAppButton />
+        <LanguageProvider>
+          <Header />
+          <main className="min-h-screen">{children}</main>
+          <Footer />
+          <WhatsAppButton />
+        </LanguageProvider>
       </body>
     </html>
   );

@@ -10,6 +10,18 @@ export const BLOG_POSTS = [
     image: "/images/blog/tecidos-cortina.jpg",
     tags: ["Cortinas", "Tecidos", "Dicas"],
     readingTime: 4,
+    i18n: {
+      en: {
+        title: "How to Choose the Ideal Fabric for Your Curtain",
+        excerpt:
+          "Linen, voile, blackout or silk? Discover which fabric is ideal for each room and how each one influences lighting and privacy.",
+      },
+      es: {
+        title: "Cómo Elegir la Tela Ideal para su Cortina",
+        excerpt:
+          "¿Lino, voile, blackout o seda? Descubra qué tela es ideal para cada ambiente y cómo cada una influye en la iluminación y privacidad.",
+      },
+    },
   },
   {
     slug: "motorizacao-persianas-vale-a-pena",
@@ -20,6 +32,18 @@ export const BLOG_POSTS = [
     image: "/images/persianas/persiana-hero-desktop.jpeg",
     tags: ["Persianas", "Motorização", "Automação"],
     readingTime: 3,
+    i18n: {
+      en: {
+        title: "Motorized Blinds: Is It Worth It?",
+        excerpt:
+          "Understand the advantages of motorization, how virtual assistant integration works and when to invest in automation for your blinds.",
+      },
+      es: {
+        title: "Persianas Motorizadas: ¿Vale la Pena?",
+        excerpt:
+          "Comprenda las ventajas de la motorización, cómo funciona la integración con asistentes virtuales y cuándo invertir en automatización.",
+      },
+    },
   },
   {
     slug: "tendencias-decoracao-2026",
@@ -31,6 +55,18 @@ export const BLOG_POSTS = [
       "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=900&h=600&fit=crop",
     tags: ["Tendências", "Decoração", "2026"],
     readingTime: 5,
+    i18n: {
+      en: {
+        title: "2026 Décor Trends: What to Expect",
+        excerpt:
+          "Earthy tones, natural materials and tactile textures dominate the trends. See how to apply these novelties in your home.",
+      },
+      es: {
+        title: "Tendencias de Decoración 2026: Qué Esperar",
+        excerpt:
+          "Tonos terrosos, materiales naturales y texturas táctiles dominan las tendencias. Vea cómo aplicar estas novedades en su hogar.",
+      },
+    },
   },
 ];
 
@@ -140,24 +176,22 @@ export const PERSIANAS_SUBCATEGORIES = [
 
 export const PAPEIS_SUBCATEGORIES = [
   {
-    name: "Breeze",
-    href: "/papeis-de-parede/breeze",
-    image: "/images/papeis-hero-mobile.jpeg",
-    desktopImage: "/images/papel/papeis-hero-desktop.png",
-    cardImage: "/images/papel-breeze.jpg",
-    description: "Leveza e frescor para ambientes contemporâneos",
+    name: "Geométricos",
+    href: "/papeis-de-parede/geometricos",
+    image: "/images/papel-geometricos.jpg",
+    description: "Padrões geométricos e abstratos para ambientes modernos",
   },
   {
-    name: "Carving",
-    href: "/papeis-de-parede/carving",
-    image: "/images/papel-carving.jpg",
-    description: "Relevos tridimensionais que criam profundidade",
+    name: "Infantil",
+    href: "/papeis-de-parede/infantil",
+    image: "/images/papel-infantil.jpg",
+    description: "Estampas encantadoras para o quarto dos pequenos",
   },
   {
-    name: "Elegant",
-    href: "/papeis-de-parede/elegant",
-    image: "/images/papel-elegant.jpg",
-    description: "Sofisticação e requinte para ambientes clássicos",
+    name: "Cozinha",
+    href: "/papeis-de-parede/cozinha",
+    image: "/images/papel/cozinha/cozinha-marmore-calacata-dourado.jpg",
+    description: "Revestimentos e estampas exclusivas para cozinhas sofisticadas",
   },
 ];
 
@@ -224,33 +258,47 @@ export const PAPEL_PRODUCTS: Record<string, { name: string; image: string; categ
     { name: "Breeze - Modelo 11", image: "/images/papel/papel-04.jpg", category: "Papéis de Parede" },
     { name: "Breeze - Modelo 12", image: "/images/papel/papel-05.jpg", category: "Papéis de Parede" },
   ],
-  carving: [
-    { name: "Carving - Modelo 1", image: "/images/papel/papel-16.jpg", category: "Papéis de Parede" },
-    { name: "Carving - Modelo 2", image: "/images/papel/papel-21.jpg", category: "Papéis de Parede" },
-    { name: "Carving - Modelo 3", image: "/images/papel/papel-12.jpg", category: "Papéis de Parede" },
-    { name: "Carving - Modelo 4", image: "/images/papel/papel-03.jpg", category: "Papéis de Parede" },
-    { name: "Carving - Modelo 5", image: "/images/papel/papel-27.jpg", category: "Papéis de Parede" },
-    { name: "Carving - Modelo 6", image: "/images/papel/papel-32.jpg", category: "Papéis de Parede" },
-    { name: "Carving - Modelo 7", image: "/images/papel/papel-01.jpg", category: "Papéis de Parede" },
-    { name: "Carving - Modelo 8", image: "/images/papel/papel-02.jpg", category: "Papéis de Parede" },
-    { name: "Carving - Modelo 9", image: "/images/papel/papel-09.jpg", category: "Papéis de Parede" },
-    { name: "Carving - Modelo 10", image: "/images/papel/papel-10.jpg", category: "Papéis de Parede" },
-    { name: "Carving - Modelo 11", image: "/images/papel/papel-13.jpg", category: "Papéis de Parede" },
-    { name: "Carving - Modelo 12", image: "/images/papel/papel-25.jpg", category: "Papéis de Parede" },
+  geometricos: [
+    { name: "Abstrato Cinza e Rose", image: "/images/papel/geometrico-01.jpg", category: "Papéis de Parede" },
+    { name: "Abstrato Folhagem Areia", image: "/images/papel/geometrico-02.jpg", category: "Papéis de Parede" },
+    { name: "Abstrato Maze Areia", image: "/images/papel/geometrico-03.jpg", category: "Papéis de Parede" },
+    { name: "City Areia", image: "/images/papel/geometrico-04.jpg", category: "Papéis de Parede" },
+    { name: "Escandinavo Leaves Areia", image: "/images/papel/geometrico-05.jpg", category: "Papéis de Parede" },
+    { name: "Etternity Cinza", image: "/images/papel/geometrico-06.jpg", category: "Papéis de Parede" },
+    { name: "Etternity Marrom", image: "/images/papel/geometrico-07.jpg", category: "Papéis de Parede" },
+    { name: "Geométrico Maya Azul", image: "/images/papel/geometrico-08.jpg", category: "Papéis de Parede" },
+    { name: "Linen Folhas Verde", image: "/images/papel/geometrico-09.jpg", category: "Papéis de Parede" },
+    { name: "Mix Folhagem Grayscale Camurça", image: "/images/papel/geometrico-10.jpg", category: "Papéis de Parede" },
+    { name: "Mix Folhagem Grayscale Mocha", image: "/images/papel/geometrico-11.jpg", category: "Papéis de Parede" },
+    { name: "Toras Abstratas Camurça", image: "/images/papel/geometrico-12.jpg", category: "Papéis de Parede" },
   ],
-  elegant: [
-    { name: "Elegant - Modelo 1", image: "/images/papel/papel-19.jpg", category: "Papéis de Parede" },
-    { name: "Elegant - Modelo 2", image: "/images/papel/papel-08.jpg", category: "Papéis de Parede" },
-    { name: "Elegant - Modelo 3", image: "/images/papel/papel-06.jpg", category: "Papéis de Parede" },
-    { name: "Elegant - Modelo 4", image: "/images/papel/papel-23.jpg", category: "Papéis de Parede" },
-    { name: "Elegant - Modelo 5", image: "/images/papel/papel-35.jpg", category: "Papéis de Parede" },
-    { name: "Elegant - Modelo 6", image: "/images/papel/papel-36.jpg", category: "Papéis de Parede" },
-    { name: "Elegant - Modelo 7", image: "/images/papel/papel-30.jpg", category: "Papéis de Parede" },
-    { name: "Elegant - Modelo 8", image: "/images/papel/papel-24.jpg", category: "Papéis de Parede" },
-    { name: "Elegant - Modelo 9", image: "/images/papel/papel-28.jpg", category: "Papéis de Parede" },
-    { name: "Elegant - Modelo 10", image: "/images/papel/papel-31.jpg", category: "Papéis de Parede" },
-    { name: "Elegant - Modelo 11", image: "/images/papel/papel-29.jpg", category: "Papéis de Parede" },
-    { name: "Elegant - Modelo 12", image: "/images/papel/papel-34.jpg", category: "Papéis de Parede" },
+  infantil: [
+    { name: "Aquarela Pendente", image: "/images/papel/papel-infantil-aquarela-pendente.jpg", category: "Papéis de Parede" },
+    { name: "Arco-Íris e Bolinhas Aquarela", image: "/images/papel/papel-infantil-arco-iris-bolinhas.jpg", category: "Papéis de Parede" },
+    { name: "Boiserie Verde Água", image: "/images/papel/papel-infantil-boiserie-verde-agua.jpg", category: "Papéis de Parede" },
+    { name: "Bolas de Esportes Cinza", image: "/images/papel/papel-infantil-bolas-esportes-cinza.jpg", category: "Papéis de Parede" },
+    { name: "Borboletas em Jardim Suspenso", image: "/images/papel/papel-infantil-borboletas-jardim.jpg", category: "Papéis de Parede" },
+    { name: "Carimbos de Viagem", image: "/images/papel/papel-infantil-carimbos-viagem.jpg", category: "Papéis de Parede" },
+    { name: "Carrinhos Infantil Aquarela", image: "/images/papel/papel-infantil-carrinhos-aquarela.jpg", category: "Papéis de Parede" },
+    { name: "Cute Arco-Íris e Corações", image: "/images/papel/papel-infantil-cute-arco-iris-coracoes.jpg", category: "Papéis de Parede" },
+    { name: "Dinos Areia", image: "/images/papel/papel-infantil-dinos-areia.jpg", category: "Papéis de Parede" },
+    { name: "Dinossauros", image: "/images/papel/papel-infantil-dinossauros.jpg", category: "Papéis de Parede" },
+    { name: "Infantil Bolas e Estrelas", image: "/images/papel/papel-infantil-bolas-estrelas.jpg", category: "Papéis de Parede" },
+    { name: "Planetas e Naves Cinza", image: "/images/papel/papel-infantil-planetas-naves.jpg", category: "Papéis de Parede" },
+  ],
+  cozinha: [
+    { name: "Azulejos Portugueses Azul", image: "/images/papel/cozinha/cozinha-azulejos-portugueses-azul.jpg", category: "Papéis de Parede" },
+    { name: "3D Cubic Azul", image: "/images/papel/cozinha/cozinha-3d-cubic-azul.jpg", category: "Papéis de Parede" },
+    { name: "Cozinhando com Palavras", image: "/images/papel/cozinha/cozinha-cozinhando-palavras.jpg", category: "Papéis de Parede" },
+    { name: "Hora do Churrasco Latte", image: "/images/papel/cozinha/cozinha-hora-churrasco-latte.jpg", category: "Papéis de Parede" },
+    { name: "Ladrilhos Chevron Cinza Escuro", image: "/images/papel/cozinha/cozinha-ladrilhos-chevron-cinza.jpg", category: "Papéis de Parede" },
+    { name: "Ladrilhos Chevron Verde Escuro", image: "/images/papel/cozinha/cozinha-ladrilhos-chevron-verde.jpg", category: "Papéis de Parede" },
+    { name: "Mármore Carrara", image: "/images/papel/cozinha/cozinha-marmore-carrara.jpg", category: "Papéis de Parede" },
+    { name: "Mata Monocromática", image: "/images/papel/cozinha/cozinha-mata-monocromatica.jpg", category: "Papéis de Parede" },
+    { name: "Mata Oriental", image: "/images/papel/cozinha/cozinha-mata-oriental.jpg", category: "Papéis de Parede" },
+    { name: "Mármore Calacata Dourado", image: "/images/papel/cozinha/cozinha-marmore-calacata-dourado.jpg", category: "Papéis de Parede" },
+    { name: "Parede Verde", image: "/images/papel/cozinha/cozinha-parede-verde.jpg", category: "Papéis de Parede" },
+    { name: "Pedra Canjiquinha", image: "/images/papel/cozinha/cozinha-pedra-canjiquinha.jpg", category: "Papéis de Parede" },
   ],
 };
 

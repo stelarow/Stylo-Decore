@@ -4,9 +4,12 @@ import Link from "next/link";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { CONTACT, PRODUCT_CATEGORIES, getWhatsAppUrl, getWhatsAppUrl2 } from "@/lib/constants";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function Footer() {
   const pathname = usePathname();
+  const { t } = useLanguage();
+
   if (pathname.startsWith("/questionario")) return null;
 
   return (
@@ -19,12 +22,11 @@ export default function Footer() {
               Stylo <span className="text-primary">Decore</span>
             </Link>
             <p className="mb-6 text-sm leading-relaxed text-white/60">
-              Há mais de 20 anos transformando ambientes com cortinas, persianas,
-              papéis de parede e tapetes sob medida.
+              {t("footer.desc")}
             </p>
             <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 px-4 py-2">
               <span className="text-xs font-semibold uppercase tracking-wider text-primary">
-                20 anos de excelência
+                {t("footer.excellence")}
               </span>
             </div>
           </div>
@@ -32,7 +34,7 @@ export default function Footer() {
           {/* Produtos */}
           <div>
             <h4 className="mb-4 text-sm font-semibold uppercase tracking-wider text-primary">
-              Produtos
+              {t("footer.products")}
             </h4>
             <ul className="space-y-2">
               {PRODUCT_CATEGORIES.map((item) => (
@@ -41,7 +43,7 @@ export default function Footer() {
                     href={item.href}
                     className="text-sm text-white/60 transition-colors hover:text-primary"
                   >
-                    {item.label}
+                    {t(item.href)}
                   </Link>
                 </li>
               ))}
@@ -51,7 +53,7 @@ export default function Footer() {
           {/* Institucional */}
           <div>
             <h4 className="mb-4 text-sm font-semibold uppercase tracking-wider text-primary">
-              Institucional
+              {t("footer.institutional")}
             </h4>
             <ul className="space-y-2">
               <li>
@@ -59,7 +61,7 @@ export default function Footer() {
                   href="/"
                   className="text-sm text-white/60 transition-colors hover:text-primary"
                 >
-                  Início
+                  {t("footer.home")}
                 </Link>
               </li>
               <li>
@@ -67,7 +69,7 @@ export default function Footer() {
                   href="/contato"
                   className="text-sm text-white/60 transition-colors hover:text-primary"
                 >
-                  Contato
+                  {t("/contato")}
                 </Link>
               </li>
               <li>
@@ -75,7 +77,7 @@ export default function Footer() {
                   href="/blog"
                   className="text-sm text-white/60 transition-colors hover:text-primary"
                 >
-                  Blog
+                  {t("/blog")}
                 </Link>
               </li>
             </ul>
@@ -84,7 +86,7 @@ export default function Footer() {
           {/* Contato */}
           <div>
             <h4 className="mb-4 text-sm font-semibold uppercase tracking-wider text-primary">
-              Contato
+              {t("/contato")}
             </h4>
             <ul className="space-y-3">
               <li className="flex items-start gap-3">
@@ -136,7 +138,7 @@ export default function Footer() {
         {/* Bottom */}
         <div className="mt-12 border-t border-white/10 pt-8 text-center">
           <p className="text-sm text-white/40">
-            &copy; {new Date().getFullYear()} Stylo Decore. Todos os direitos reservados.
+            &copy; {new Date().getFullYear()} Stylo Decore. {t("footer.rights")}
           </p>
         </div>
       </div>

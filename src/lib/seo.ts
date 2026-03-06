@@ -84,9 +84,9 @@ export const PAPEIS_FAQ = [
       "Paredes com umidade ativa precisam ser tratadas antes da aplicação para garantir a durabilidade. Pequenas irregularidades podem ser corrigidas com massa corrida. Fazemos uma vistoria técnica antes de confirmar o projeto para evitar surpresas e garantir o melhor resultado.",
   },
   {
-    question: "Qual a diferença entre as coleções Breeze, Carving e Elegant?",
+    question: "Qual a diferença entre as coleções Geométricos, Infantil e Cozinha?",
     answer:
-      "São linhas com propostas distintas: o Breeze tem padrões leves e frescos, ideal para quartos e salas com decoração delicada. O Carving destaca-se pelas texturas em relevo, que criam profundidade e sofisticação. O Elegant é a linha de maior refinamento, com estampas clássicas e acabamentos premium para projetos de alto padrão.",
+      "São linhas com propostas distintas: os Geométricos destacam-se por padrões modernos e abstratos que criam dinamismo e sofisticação, ideais para salas e escritórios. O Infantil é dedicado aos quartos das crianças, com estampas divertidas, personagens e padrões encantadores. A Cozinha traz revestimentos e estampas exclusivas — de azulejos portugueses a mármores — que transformam esse ambiente em um espaço de design único.",
   },
   {
     question: "É possível remover o papel de parede depois sem danificar a parede?",
@@ -116,6 +116,41 @@ export const TAPETES_FAQ = [
     answer:
       "Em geral, aspiração semanal e remoção imediata de manchas com pano úmido e produto neutro são suficientes para o cuidado diário. Para limpeza mais profunda, recomendamos lavagem especializada a cada 6 a 12 meses. Fornecemos orientações específicas para cada material no momento da entrega.",
   },
+];
+
+export const DEFAULT_FAQ_KEYS = [
+  { question: "faq.default.q1", answer: "faq.default.a1" },
+  { question: "faq.default.q2", answer: "faq.default.a2" },
+  { question: "faq.default.q3", answer: "faq.default.a3" },
+  { question: "faq.default.q4", answer: "faq.default.a4" },
+];
+
+export const CORTINAS_FAQ_KEYS = [
+  { question: "faq.cortinas.q1", answer: "faq.cortinas.a1" },
+  { question: "faq.cortinas.q2", answer: "faq.cortinas.a2" },
+  { question: "faq.cortinas.q3", answer: "faq.cortinas.a3" },
+  { question: "faq.cortinas.q4", answer: "faq.cortinas.a4" },
+];
+
+export const PERSIANAS_FAQ_KEYS = [
+  { question: "faq.persianas.q1", answer: "faq.persianas.a1" },
+  { question: "faq.persianas.q2", answer: "faq.persianas.a2" },
+  { question: "faq.persianas.q3", answer: "faq.persianas.a3" },
+  { question: "faq.persianas.q4", answer: "faq.persianas.a4" },
+];
+
+export const PAPEIS_FAQ_KEYS = [
+  { question: "faq.papeis.q1", answer: "faq.papeis.a1" },
+  { question: "faq.papeis.q2", answer: "faq.papeis.a2" },
+  { question: "faq.papeis.q3", answer: "faq.papeis.a3" },
+  { question: "faq.papeis.q4", answer: "faq.papeis.a4" },
+];
+
+export const TAPETES_FAQ_KEYS = [
+  { question: "faq.tapetes.q1", answer: "faq.tapetes.a1" },
+  { question: "faq.tapetes.q2", answer: "faq.tapetes.a2" },
+  { question: "faq.tapetes.q3", answer: "faq.tapetes.a3" },
+  { question: "faq.tapetes.q4", answer: "faq.tapetes.a4" },
 ];
 
 export function getOrganizationJsonLd() {
@@ -169,7 +204,7 @@ export function getLocalBusinessJsonLd() {
       geoRadius: "50000",
     },
     description:
-      "Showroom digital de cortinas, persianas, papéis de parede e tapetes sob medida. Mais de 20 anos de experiência em Florianópolis e Região.",
+      "Especialistas em cortinas, persianas, papéis de parede e tapetes sob medida. Mais de 20 anos de experiência em Florianópolis e Região.",
   };
 }
 

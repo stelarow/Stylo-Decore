@@ -1,8 +1,9 @@
 "use client";
 
-import { Check, MapPin, ArrowRight } from "lucide-react";
+import { Check, ClipboardList, ArrowRight } from "lucide-react";
 import { getWhatsAppUrl } from "@/lib/constants";
 import ScrollReveal from "@/components/ui/ScrollReveal";
+import { useLanguage } from "@/context/LanguageContext";
 
 interface ProductItem {
   name: string;
@@ -21,8 +22,10 @@ interface SubcategoryPageProps {
   desktopHeroImage?: string;
   collectionTag?: string;
   specs?: { title: string; description: string }[];
+  descriptionKey?: string;
   desktopImageClass?: string;
   mobileImageClass?: string;
+  heroImageStyle?: React.CSSProperties;
 }
 
 export default function SubcategoryPage({
@@ -35,24 +38,25 @@ export default function SubcategoryPage({
   desktopHeroImage,
   collectionTag,
   specs,
+  descriptionKey,
   desktopImageClass,
   mobileImageClass,
+  heroImageStyle,
 }: SubcategoryPageProps) {
+  const { t } = useLanguage();
+
   const defaultSpecs = [
     {
-      title: "Confecção Artesanal",
-      description:
-        "Cada peça é costurada e finalizada por nossos artesãos experientes.",
+      title: t("sub.specs.spec1.title"),
+      description: t("sub.specs.spec1.desc"),
     },
     {
-      title: "Barra Dupla de 20cm",
-      description:
-        "Garante o caimento pesado e elegante típico de hotéis de luxo.",
+      title: t("sub.specs.spec2.title"),
+      description: t("sub.specs.spec2.desc"),
     },
     {
-      title: "Forro Blackout Opcional",
-      description:
-        "Tecnologia soft-touch que não compromete a estética da cortina.",
+      title: t("sub.specs.spec3.title"),
+      description: t("sub.specs.spec3.desc"),
     },
   ];
 
@@ -69,6 +73,7 @@ export default function SubcategoryPage({
               src={desktopHeroImage}
               alt={title}
               className="absolute inset-0 hidden h-full w-full object-cover object-top lg:block"
+              style={heroImageStyle}
             />
             <img
               src={
@@ -120,7 +125,7 @@ export default function SubcategoryPage({
               {title}
             </h1>
             <p className="mt-1.5 text-xs text-mahogany-light">
-              Design Autoral
+              {t("sub.designAutoral")}
             </p>
           </div>
         </div>
@@ -135,7 +140,7 @@ export default function SubcategoryPage({
             </h2>
           )}
           <p className="text-base leading-relaxed text-mahogany-light md:text-lg">
-            {description}
+            {descriptionKey ? t(descriptionKey) : description}
           </p>
         </div>
       </ScrollReveal>
@@ -147,7 +152,7 @@ export default function SubcategoryPage({
             <ScrollReveal key={product.name} animation="up" delay={i * 90}>
               <a
                 href={getWhatsAppUrl(
-                  `Olá! Tenho interesse neste modelo de ${category}: ${product.name}. Gostaria de mais informações.`
+                  `${t("sub.whatsapp.interest")} ${category}: ${product.name}. ${t("sub.whatsapp.info")}`
                 )}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -178,7 +183,7 @@ export default function SubcategoryPage({
                 <div className="absolute bottom-0 left-0 right-0 p-5 translate-y-4 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
                   <p className="text-sm font-semibold text-white mb-2">{product.name}</p>
                   <span className="inline-flex items-center gap-2 rounded-full bg-white/90 px-5 py-2 text-xs font-semibold text-foreground backdrop-blur-sm transition-colors group-hover:bg-white">
-                    Tenho interesse neste modelo
+                    {t("sub.interest")}
                     <ArrowRight className="h-3.5 w-3.5" />
                   </span>
                 </div>
@@ -194,13 +199,13 @@ export default function SubcategoryPage({
           <div className="text-center">
             <a
               href={getWhatsAppUrl(
-                `Olá! Estou interessado(a) em ${title} e gostaria de solicitar um projeto sob medida.`
+                `${t("sub.whatsapp.project")} ${title} ${t("sub.whatsapp.projectEnd")}`
               )}
               target="_blank"
               rel="noopener noreferrer"
               className="brushed-gold inline-flex items-center rounded-full px-10 py-4 text-sm font-semibold uppercase tracking-wider transition-all hover:shadow-lg"
             >
-              Solicite Seu Projeto Sob Medida
+              {t("sub.customProject")}
             </a>
           </div>
         </div>
@@ -211,7 +216,7 @@ export default function SubcategoryPage({
         <div className="mx-auto max-w-3xl lg:max-w-5xl px-6 py-10">
           <div className="rounded-2xl border border-tobacco-light bg-white p-8">
             <h3 className="mb-6 font-serif text-xl font-bold text-foreground">
-              Especificações Premium
+              {t("sub.specs.title")}
             </h3>
             <ul className="space-y-5 lg:grid lg:grid-cols-3 lg:gap-6 lg:space-y-0">
               {finalSpecs.map((spec) => (
@@ -239,28 +244,27 @@ export default function SubcategoryPage({
         <div className="mx-auto max-w-3xl lg:max-w-5xl px-6 pb-16">
           <div className="rounded-2xl bg-foreground p-8 text-center text-white">
             <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-primary/20">
-              <MapPin className="h-7 w-7 text-primary" />
+              <ClipboardList className="h-7 w-7 text-primary" />
             </div>
             <h3 className="mb-2 font-serif text-xl font-bold">
-              Visite Nosso Showroom
+              {t("sub.showroom.title")}
             </h3>
             <p className="mx-auto mb-6 max-w-sm text-sm text-white/70">
-              Venha conhecer nossos produtos pessoalmente. Nosso showroom conta com
-              amostras e ambientações para você visualizar o resultado final.
+              {t("sub.showroom.desc")}
             </p>
             <a
               href={getWhatsAppUrl(
-                `Olá! Gostaria de agendar uma visita ao showroom para conhecer ${title}.`
+                `${t("sub.whatsapp.showroom")} ${title}.`
               )}
               target="_blank"
               rel="noopener noreferrer"
               className="mb-6 inline-flex items-center rounded-full bg-primary px-8 py-3 text-sm font-semibold uppercase tracking-wider text-background-dark transition-colors hover:bg-primary-dark"
             >
-              Agendar Visita
+              {t("sub.showroom.cta")}
             </a>
             <div className="mx-auto mt-4 inline-flex items-center gap-2 rounded-full border border-primary/30 px-5 py-2">
               <span className="text-xs font-semibold uppercase tracking-wider text-primary">
-                20 anos de excelência
+                {t("sub.excellence")}
               </span>
             </div>
           </div>
@@ -271,7 +275,7 @@ export default function SubcategoryPage({
       <ScrollReveal animation="fade">
         <div className="border-t border-tobacco-light/40 py-6 text-center">
           <p className="text-xs tracking-wide text-mahogany-light">
-            Design de Interiores &bull; Tecidos Nobres &bull; Acabamentos
+            {t("sub.footer")}
           </p>
         </div>
       </ScrollReveal>

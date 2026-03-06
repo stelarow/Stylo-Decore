@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 import CategoryPage from "@/components/sections/CategoryPage";
 import JsonLd from "@/components/seo/JsonLd";
-import { getBreadcrumbJsonLd, getFaqJsonLd, PAPEIS_FAQ } from "@/lib/seo";
+import { getBreadcrumbJsonLd, getFaqJsonLd, PAPEIS_FAQ, PAPEIS_FAQ_KEYS } from "@/lib/seo";
 import { PAPEIS_SUBCATEGORIES } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "Papéis de Parede em Florianópolis | Stylo Decore",
   description:
-    "Coleções exclusivas de papéis de parede: Artesania, Breeze, Carving, Dali, Ecletic e Elegant. Texturas e padrões que criam personalidade. Aplicação profissional em Florianópolis e Região.",
+    "Coleções exclusivas de papéis de parede: Geométricos, Infantil e Cozinha. Texturas e padrões que criam personalidade. Aplicação profissional em Florianópolis e Região.",
   keywords: ["papel de parede Florianópolis", "papel de parede texturizado", "papel de parede 3D", "decoração de parede Florianópolis"],
   alternates: { canonical: "/papeis-de-parede" },
   openGraph: {
@@ -32,7 +32,7 @@ export default function PapeisDeParedePage() {
         description="Texturas e padrões que criam personalidade. Explore nossas coleções exclusivas de papéis de parede."
         intro="Papéis de parede são uma forma sofisticada de personalizar ambientes. Trabalhamos com coleções exclusivas que vão do artesanal ao contemporâneo, sempre com aplicação profissional."
         subcategories={PAPEIS_SUBCATEGORIES}
-        faqItems={PAPEIS_FAQ}
+        faqItems={PAPEIS_FAQ_KEYS}
       />
     </>
   );

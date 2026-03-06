@@ -28,8 +28,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     // Papéis de Parede - subcategorias
     { url: `${SITE_URL}/papeis-de-parede/artesania`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
-    { url: `${SITE_URL}/papeis-de-parede/breeze`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
-    { url: `${SITE_URL}/papeis-de-parede/carving`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${SITE_URL}/papeis-de-parede/geometricos`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${SITE_URL}/papeis-de-parede/cozinha`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
     { url: `${SITE_URL}/papeis-de-parede/dali`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
     { url: `${SITE_URL}/papeis-de-parede/ecletic`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
     { url: `${SITE_URL}/papeis-de-parede/elegant`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },

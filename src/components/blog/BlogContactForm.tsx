@@ -3,16 +3,10 @@
 import { useState } from "react";
 import { ArrowRight, MessageCircle, User, Phone, Layers } from "lucide-react";
 import { getWhatsAppUrl } from "@/lib/constants";
-
-const PRODUTOS = [
-  "Cortinas",
-  "Persianas",
-  "Papel de Parede",
-  "Tapetes",
-  "Mais de um produto",
-];
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function BlogContactForm() {
+  const { t } = useLanguage();
   const [form, setForm] = useState({
     nome: "",
     telefone: "",
@@ -20,6 +14,14 @@ export default function BlogContactForm() {
     mensagem: "",
   });
   const [focused, setFocused] = useState<string | null>(null);
+
+  const PRODUTO_OPTIONS = [
+    { label: t("/cortinas"),         value: "Cortinas" },
+    { label: t("/persianas"),        value: "Persianas" },
+    { label: t("/papeis-de-parede"), value: "Papel de Parede" },
+    { label: t("/tapetes"),          value: "Tapetes" },
+    { label: t("bcf.p.multiple"),    value: "Mais de um produto" },
+  ];
 
   const handleChange = (
     e: React.ChangeEvent<
@@ -67,31 +69,23 @@ export default function BlogContactForm() {
         {/* Left column — editorial */}
         <div className="mb-12 md:col-span-2 md:mb-0 md:pr-8 flex flex-col justify-center">
           <p className="mb-4 text-xs font-bold uppercase tracking-[0.35em] text-primary">
-            Fale com a especialista
+            {t("bcf.eyebrow")}
           </p>
           <h2 className="mb-6 font-serif text-3xl font-bold leading-tight text-white md:text-4xl lg:text-5xl">
-            Transforme seu
+            {t("bcf.title1")}
             <br />
-            <span className="text-primary">ambiente</span> com
-            <br />a gente
+            <span className="text-primary">{t("bcf.titleHighlight")}</span> {t("bcf.title2")}
           </h2>
 
           <div className="mb-8 h-px w-12 bg-primary/40" />
 
           <p className="text-sm leading-relaxed text-white/50">
-            Mais de 20 anos de experiência em design de
-            interiores. Descreva o seu espaço e receba
-            orientações personalizadas diretamente pelo
-            WhatsApp.
+            {t("bcf.desc")}
           </p>
 
           {/* Trust badges */}
           <div className="mt-10 space-y-4">
-            {[
-              "Atendimento em Florianópolis e região",
-              "Resposta em até 2 horas úteis",
-              "Orçamento sem compromisso",
-            ].map((item) => (
+            {[t("bcf.trust1"), t("bcf.trust2"), t("bcf.trust3")].map((item) => (
               <div key={item} className="flex items-center gap-3">
                 <div className="h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
                 <span className="text-xs text-white/45">{item}</span>
@@ -115,7 +109,7 @@ export default function BlogContactForm() {
                   }`}
                 >
                   <User className="h-3 w-3" />
-                  Nome completo
+                  {t("bcf.nameLabel")}
                 </label>
                 <input
                   id="nome"
@@ -126,7 +120,7 @@ export default function BlogContactForm() {
                   onFocus={() => setFocused("nome")}
                   onBlur={() => setFocused(null)}
                   className={inputBase + " pt-6"}
-                  placeholder={isActive("nome") ? "Seu nome" : ""}
+                  placeholder={isActive("nome") ? t("q.namePlaceholder") : ""}
                 />
               </div>
 
@@ -139,7 +133,7 @@ export default function BlogContactForm() {
                   }`}
                 >
                   <Phone className="h-3 w-3" />
-                  Telefone
+                  {t("bcf.phoneLabel")}
                 </label>
                 <input
                   id="telefone"
@@ -164,7 +158,7 @@ export default function BlogContactForm() {
                 }`}
               >
                 <Layers className="h-3 w-3" />
-                Produto de interesse
+                {t("bcf.productLabel")}
               </label>
               <select
                 id="produto"
@@ -180,11 +174,11 @@ export default function BlogContactForm() {
                 }
               >
                 <option value="" disabled hidden>
-                  Selecione uma categoria
+                  {t("bcf.selectCategory")}
                 </option>
-                {PRODUTOS.map((p) => (
-                  <option key={p} value={p} className="bg-[#221e10] text-white">
-                    {p}
+                {PRODUTO_OPTIONS.map((p) => (
+                  <option key={p.value} value={p.value} className="bg-[#221e10] text-white">
+                    {p.label}
                   </option>
                 ))}
               </select>
@@ -198,7 +192,7 @@ export default function BlogContactForm() {
                   isActive("mensagem") ? "top-5 text-primary text-[10px]" : "top-[52px] text-white/30"
                 }`}
               >
-                Mensagem (opcional)
+                {t("bcf.messageLabel")}
               </label>
               <textarea
                 id="mensagem"
@@ -210,7 +204,7 @@ export default function BlogContactForm() {
                 rows={3}
                 className={inputBase + " resize-none pt-6"}
                 placeholder={
-                  isActive("mensagem") ? "Conte um pouco sobre seu ambiente..." : ""
+                  isActive("mensagem") ? t("bcf.messagePlaceholder") : ""
                 }
               />
             </div>
@@ -222,7 +216,7 @@ export default function BlogContactForm() {
                 className="brushed-gold group flex flex-1 items-center justify-center gap-3 px-8 py-4 text-sm font-bold uppercase tracking-widest text-[#221e10] transition-all hover:opacity-90"
               >
                 <MessageCircle className="h-4 w-4 transition-transform group-hover:scale-110" />
-                Enviar pelo WhatsApp
+                {t("bcf.sendWhatsapp")}
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </button>
 
@@ -232,7 +226,7 @@ export default function BlogContactForm() {
                 rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2 border border-white/10 px-6 py-4 text-sm font-semibold text-white/50 transition-all hover:border-primary/40 hover:text-white sm:flex-none"
               >
-                Conversa direta
+                {t("bcf.directChat")}
               </a>
             </div>
 

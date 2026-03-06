@@ -1,9 +1,12 @@
+"use client";
+
 import Link from "next/link";
 import { ArrowRight, Check } from "lucide-react";
 import { getWhatsAppUrl } from "@/lib/constants";
-import { DEFAULT_FAQ } from "@/lib/seo";
+import { DEFAULT_FAQ_KEYS } from "@/lib/seo";
 import FAQAccordion from "@/components/ui/FAQAccordion";
 import ScrollReveal from "@/components/ui/ScrollReveal";
+import { useLanguage } from "@/context/LanguageContext";
 
 interface SubcategoryItem {
   name: string;
@@ -31,7 +34,8 @@ export default function CategoryPage({
   subcategories,
   faqItems,
 }: CategoryPageProps) {
-  const faq = faqItems || DEFAULT_FAQ;
+  const { t } = useLanguage();
+  const faq = faqItems || DEFAULT_FAQ_KEYS;
 
   return (
     <div>
@@ -96,17 +100,14 @@ export default function CategoryPage({
                 href={subcategories[0].href}
                 className="group relative overflow-hidden sm:row-span-2"
               >
-                {/* Spacer: dá altura no mobile via aspect-ratio, no desktop o grid row-span define */}
                 <div className="aspect-[4/5] lg:aspect-auto" />
                 {subcategories[0].cardImage ? (
                   <>
-                    {/* Desktop: mostra cardImage (bambu) */}
                     <img
                       src={subcategories[0].cardImage}
                       alt={subcategories[0].name}
                       className="absolute inset-0 hidden h-full w-full object-cover transition-transform duration-500 group-hover:scale-105 lg:block"
                     />
-                    {/* Mobile: mostra image original */}
                     <img
                       src={subcategories[0].image}
                       alt={subcategories[0].name}
@@ -168,20 +169,20 @@ export default function CategoryPage({
                   <Check className="h-7 w-7 text-primary" />
                 </div>
                 <h3 className="mb-2 font-serif text-xl font-bold text-white">
-                  Consultoria Personalizada
+                  {t("cat.consultancy.title")}
                 </h3>
                 <p className="mb-6 text-sm text-white/70">
-                  Nossa especialista vai até você para medição e consultoria gratuita.
+                  {t("cat.consultancy.desc")}
                 </p>
                 <a
                   href={getWhatsAppUrl(
-                    `Olá! Gostaria de agendar uma consultoria para ${title.toLowerCase()}.`
+                    `${t("cat.consultancy.whatsapp")}${title.toLowerCase()}.`
                   )}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="brushed-gold inline-flex items-center rounded-full px-6 py-2.5 text-sm font-semibold text-background-dark transition-all hover:shadow-lg active:scale-95"
                 >
-                  Agendar Agora
+                  {t("cat.consultancy.cta")}
                 </a>
               </div>
 

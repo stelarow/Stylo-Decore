@@ -1,9 +1,12 @@
 "use client";
 import { motion } from "motion/react";
-import { MapPin, Clock, Navigation, Phone } from "lucide-react";
+import { MapPin, Clock, Phone } from "lucide-react";
 import { CONTACT, getWhatsAppUrl } from "@/lib/constants";
+import { useLanguage } from "@/context/LanguageContext";
 
 export function MapSection() {
+  const { t } = useLanguage();
+
   return (
     <section className="bg-background py-20 md:py-28">
       <div className="mx-auto max-w-7xl px-6">
@@ -17,15 +20,14 @@ export function MapSection() {
           className="mb-12 text-center"
         >
           <p className="mb-3 text-xs font-bold uppercase tracking-[0.35em] text-primary">
-            Localização
+            {t("map.label")}
           </p>
           <h2 className="font-serif text-3xl font-bold text-foreground md:text-4xl">
-            Como Chegar até Nós
+            {t("map.title")}
           </h2>
           <div className="mx-auto mt-4 h-px w-24 bg-gradient-to-r from-transparent via-primary to-transparent" />
           <p className="mx-auto mt-5 max-w-lg text-sm leading-relaxed text-foreground/55">
-            Nosso showroom fica em Campeche, Florianópolis. Agende uma visita e venha
-            conhecer pessoalmente nossos tecidos e acabamentos.
+            {t("map.desc")}
           </p>
         </motion.div>
 
@@ -68,7 +70,7 @@ export function MapSection() {
                 </div>
                 <div>
                   <p className="text-[10px] font-bold uppercase tracking-widest text-foreground/55">
-                    Endereço
+                    {t("map.address")}
                   </p>
                   <p className="mt-0.5 text-sm leading-relaxed text-foreground">
                     {CONTACT.address}
@@ -87,7 +89,7 @@ export function MapSection() {
                 </div>
                 <div>
                   <p className="text-[10px] font-bold uppercase tracking-widest text-foreground/55">
-                    Horários
+                    {t("map.hours")}
                   </p>
                   <p className="mt-0.5 text-sm leading-relaxed text-foreground">
                     {CONTACT.workingHours}
@@ -104,7 +106,7 @@ export function MapSection() {
                 </div>
                 <div>
                   <p className="text-[10px] font-bold uppercase tracking-widest text-foreground/55">
-                    Telefone / WhatsApp
+                    {t("map.phone")}
                   </p>
                   <p className="mt-0.5 text-sm text-foreground">{CONTACT.phone}</p>
                   <p className="text-sm text-foreground">{CONTACT.phone2}</p>
@@ -112,24 +114,14 @@ export function MapSection() {
               </div>
             </div>
 
-            {/* CTAs */}
+            {/* CTA */}
             <a
-              href="https://www.google.com/maps/dir/?api=1&destination=Servidão+Nova+Esperança+173+B+Campeche+Florianópolis+SC+Brasil"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 rounded-full border-2 border-foreground/20 py-3 text-sm font-semibold text-foreground transition-all hover:border-primary hover:text-primary"
-            >
-              <Navigation className="h-4 w-4" />
-              Traçar rota
-            </a>
-
-            <a
-              href={getWhatsAppUrl("Olá! Gostaria de agendar uma visita ao showroom.")}
+              href={getWhatsAppUrl(t("map.waMsg"))}
               target="_blank"
               rel="noopener noreferrer"
               className="brushed-gold flex items-center justify-center gap-2 rounded-full py-3 text-sm font-semibold text-[#221e10] transition-all hover:opacity-90"
             >
-              Agendar visita ao showroom
+              {t("map.schedule")}
             </a>
           </motion.div>
 

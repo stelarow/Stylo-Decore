@@ -1,16 +1,23 @@
+"use client";
+
 import Link from "next/link";
 import dynamic from "next/dynamic";
-import { ArrowRight, Sparkles, Ruler, Award, Wrench, Clock, Check, Smartphone } from "lucide-react";
+import { ArrowRight, Sparkles, Ruler, Award, Wrench, Check, Smartphone } from "lucide-react";
 import { CATEGORIES, getWhatsAppUrl } from "@/lib/constants";
 import { BLOG_POSTS } from "@/lib/data";
 import ScrollReveal from "@/components/ui/ScrollReveal";
-import { TestimonialsSection } from "@/components/ui/TestimonialsSection";
-import { MapSection } from "@/components/sections/MapSection";
-import { FAQSection } from "@/components/ui/FAQSection";
+const TestimonialsSection = dynamic(() => import("@/components/ui/TestimonialsSection").then(m => ({ default: m.TestimonialsSection })), { ssr: false });
+const MapSection = dynamic(() => import("@/components/sections/MapSection").then(m => ({ default: m.MapSection })), { ssr: false });
+const FAQSection = dynamic(() => import("@/components/ui/FAQSection").then(m => ({ default: m.FAQSection })), { ssr: false });
+import { useLanguage } from "@/context/LanguageContext";
+import { Clock } from "lucide-react";
 
 const ContactSection = dynamic(() => import("@/components/sections/ContactSection"));
+import AboutSection from "@/components/sections/AboutSection";
 
 export default function Home() {
+  const { t } = useLanguage();
+
   return (
     <>
       {/* Hero Section */}
@@ -40,25 +47,25 @@ export default function Home() {
             Stylo Decore
           </p>
           <h1 className="mb-6 font-serif text-4xl font-bold leading-tight text-white drop-shadow-[0_2px_12px_rgba(0,0,0,0.6)] md:text-5xl lg:text-6xl xl:text-7xl">
-            20 anos de experiência transformando ambientes
+            {t("hero.title")}
           </h1>
           <p className="mx-auto mb-10 max-w-2xl text-lg text-white drop-shadow-[0_1px_6px_rgba(0,0,0,0.7)] md:text-xl xl:text-2xl">
-            Sofisticação e conforto em cada detalhe da sua casa.
+            {t("hero.subtitle")}
           </p>
           <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <a
-              href={getWhatsAppUrl("Olá! Gostaria de solicitar um orçamento.")}
+              href={getWhatsAppUrl(t("hero.whatsapp"))}
               target="_blank"
               rel="noopener noreferrer"
               className="brushed-gold inline-flex items-center rounded-full px-8 py-3.5 text-sm font-semibold uppercase tracking-wider text-background-dark transition-opacity hover:opacity-90"
             >
-              Solicitar Orçamento
+              {t("hero.ctaPrimary")}
             </a>
             <a
               href="#colecoes"
               className="inline-flex items-center rounded-full bg-white px-8 py-3.5 text-sm font-semibold uppercase tracking-wider text-background-dark transition-all hover:bg-background"
             >
-              Ver Coleções
+              {t("hero.ctaSecondary")}
             </a>
           </div>
         </div>
@@ -69,7 +76,7 @@ export default function Home() {
         <ScrollReveal animation="up">
           <div className="mx-auto max-w-7xl px-6 mb-12">
             <h2 className="font-serif text-3xl font-bold text-foreground md:text-4xl">
-              Nossas Coleções
+              {t("home.collections")}
             </h2>
             <div className="mt-3 h-1 w-16 rounded-full bg-primary" />
           </div>
@@ -77,37 +84,36 @@ export default function Home() {
 
         <div className="grid grid-cols-1 md:grid-cols-2">
           {CATEGORIES.map((cat, i) => (
-            <ScrollReveal key={cat.href} animation="fade" delay={i * 80}>
-              <Link
-                href={cat.href}
-                className="group relative block overflow-hidden"
-              >
-                <div className="relative aspect-[4/3] overflow-hidden">
+            <Link
+              key={cat.href}
+              href={cat.href}
+              className="group relative block overflow-hidden"
+            >
+              <div className="relative aspect-[4/3] overflow-hidden">
+                <img
+                  src={cat.image}
+                  alt={t(cat.href)}
+                  className={`absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105${"imageDesktop" in cat ? " md:hidden" : ""}`}
+                  style={{ objectPosition: cat.imagePosition }}
+                  loading="lazy"
+                />
+                {"imageDesktop" in cat && (
                   <img
-                    src={cat.image}
-                    alt={cat.name}
-                    className={`absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105${"imageDesktop" in cat ? " md:hidden" : ""}`}
-                    style={{ objectPosition: cat.imagePosition }}
+                    src={cat.imageDesktop}
+                    alt={t(cat.href)}
+                    className="absolute inset-0 hidden h-full w-full object-cover transition-transform duration-700 group-hover:scale-105 md:block"
+                    style={{ objectPosition: "imagePositionDesktop" in cat ? cat.imagePositionDesktop : cat.imagePosition }}
                     loading="lazy"
                   />
-                  {"imageDesktop" in cat && (
-                    <img
-                      src={cat.imageDesktop}
-                      alt={cat.name}
-                      className="absolute inset-0 hidden h-full w-full object-cover transition-transform duration-700 group-hover:scale-105 md:block"
-                      style={{ objectPosition: "imagePositionDesktop" in cat ? cat.imagePositionDesktop : cat.imagePosition }}
-                      loading="lazy"
-                    />
-                  )}
-                </div>
-                <div className="absolute inset-0 bg-black/30 transition-colors duration-300 group-hover:bg-black/40" />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <h3 className="font-serif text-2xl font-bold uppercase tracking-wide text-white md:text-3xl lg:text-4xl">
-                    {cat.name}
-                  </h3>
-                </div>
-              </Link>
-            </ScrollReveal>
+                )}
+              </div>
+              <div className="absolute inset-0 bg-black/30 transition-colors duration-300 group-hover:bg-black/40" />
+              <div className="absolute inset-0 flex items-center justify-center">
+                <h3 className="font-serif text-2xl font-bold uppercase tracking-wide text-white md:text-3xl lg:text-4xl">
+                  {t(cat.href)}
+                </h3>
+              </div>
+            </Link>
           ))}
         </div>
       </section>
@@ -119,15 +125,14 @@ export default function Home() {
           <ScrollReveal animation="up">
             <div className="mb-14 text-center">
               <p className="mb-3 text-xs font-bold uppercase tracking-[0.35em] text-primary">
-                Formas de Atendimento
+                {t("home.service.eyebrow")}
               </p>
               <h2 className="font-serif text-4xl font-bold text-foreground md:text-5xl">
-                Escolha como começar
+                {t("home.service.title")}
               </h2>
               <div className="mx-auto mt-4 h-px w-32 bg-gradient-to-r from-transparent via-primary to-transparent" />
               <p className="mx-auto mt-5 max-w-lg text-sm leading-relaxed text-foreground/60">
-                Duas opções pensadas para se adaptar ao seu momento — da praticidade
-                do digital ao atendimento exclusivo em casa.
+                {t("home.service.subtitle")}
               </p>
             </div>
           </ScrollReveal>
@@ -144,26 +149,25 @@ export default function Home() {
                     <Smartphone className="h-6 w-6 text-primary" />
                   </div>
                   <span className="rounded-full border border-[#B59E7D]/30 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-foreground/40">
-                    Online · Gratuito
+                    {t("home.online.badge")}
                   </span>
                 </div>
 
                 <h3 className="mb-3 font-serif text-2xl font-bold text-foreground">
-                  Orçamento Online Gratuito
+                  {t("home.online.title")}
                 </h3>
                 <p className="mb-7 text-sm leading-relaxed text-foreground/60">
-                  Envie fotos e medidas do seu ambiente pelo WhatsApp e receba uma
-                  estimativa rápida, sem sair de casa e sem compromisso.
+                  {t("home.online.desc")}
                 </p>
 
                 {/* Steps */}
                 <ol className="mb-8 flex-1 space-y-4">
                   {[
-                    "Tire fotos do ambiente e anote as medidas",
-                    "Envie pelo WhatsApp — recebemos e te enviamos opções de tecidos e acabamentos para escolher",
-                    "Receba a estimativa de custo rapidamente",
+                    t("home.online.step1"),
+                    t("home.online.step2"),
+                    t("home.online.step3"),
                   ].map((step, i) => (
-                    <li key={step} className="flex items-start gap-3">
+                    <li key={i} className="flex items-start gap-3">
                       <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-[10px] font-bold text-primary">
                         {i + 1}
                       </span>
@@ -178,7 +182,7 @@ export default function Home() {
                   href="/questionario?tipo=online"
                   className="group/btn inline-flex h-12 w-full items-center justify-center gap-2 rounded-full border-2 border-foreground/20 text-sm font-semibold text-foreground transition-all duration-300 hover:border-primary hover:text-primary"
                 >
-                  Quero uma estimativa agora
+                  {t("home.online.cta")}
                   <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover/btn:translate-x-1" />
                 </Link>
               </div>
@@ -194,7 +198,7 @@ export default function Home() {
                 <div className="absolute -top-[18px] left-1/2 -translate-x-1/2">
                   <span className="inline-flex items-center gap-1.5 whitespace-nowrap rounded-full bg-primary px-5 py-1.5 text-xs font-bold uppercase tracking-wider text-[#221e10] shadow-lg">
                     <Sparkles className="h-3 w-3" />
-                    Mais Recomendado
+                    {t("home.premium.badge")}
                   </span>
                 </div>
 
@@ -204,27 +208,25 @@ export default function Home() {
                     <Award className="h-6 w-6 text-primary" />
                   </div>
                   <span className="rounded-full border border-primary/30 bg-primary/5 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-primary/70">
-                    Premium · Presencial
+                    {t("home.premium.label")}
                   </span>
                 </div>
 
                 <h3 className="mb-3 font-serif text-2xl font-bold text-foreground">
-                  Consultoria Presencial Premium
+                  {t("home.premium.title")}
                 </h3>
                 <p className="mb-7 text-sm leading-relaxed text-foreground/60">
-                  Nossa especialista vai até você com mostruário exclusivo,
-                  orienta na escolha de cores e tecidos, e realiza a medição com
-                  precisão milimétrica.
+                  {t("home.premium.desc")}
                 </p>
 
                 {/* Features */}
                 <ul className="mb-8 flex-1 space-y-3">
                   {[
-                    "Visita técnica no seu ambiente",
-                    "Mostruário exclusivo levado até você",
-                    "Orientação profissional de cores e tecidos",
-                    "Medição precisa garantida",
-                    "Valor da consultoria 100% revertido nos produtos adquiridos",
+                    t("home.premium.f1"),
+                    t("home.premium.f2"),
+                    t("home.premium.f3"),
+                    t("home.premium.f4"),
+                    t("home.premium.f5"),
                   ].map((feature) => (
                     <li key={feature} className="flex items-center gap-3">
                       <Check className="h-4 w-4 shrink-0 text-primary" />
@@ -234,12 +236,12 @@ export default function Home() {
                 </ul>
 
                 <a
-                  href={getWhatsAppUrl("Olá! Gostaria de agendar uma Consultoria Presencial Premium com a Stylo Decore.")}
+                  href={getWhatsAppUrl(t("home.premium.whatsapp"))}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="brushed-gold inline-flex h-12 w-full items-center justify-center gap-2 rounded-full text-sm font-semibold text-[#221e10] transition-all hover:opacity-90 hover:shadow-lg active:scale-95"
                 >
-                  Agendar Consultoria Profissional
+                  {t("home.premium.cta")}
                   <ArrowRight className="h-4 w-4" />
                 </a>
               </div>
@@ -253,10 +255,10 @@ export default function Home() {
       <section className="mx-auto max-w-7xl px-6 py-12 md:py-16">
         <ScrollReveal animation="up" className="mb-10 text-center">
           <p className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-primary">
-            Incluso em cada projeto
+            {t("home.diff.eyebrow")}
           </p>
           <h2 className="font-playfair text-3xl font-bold text-foreground md:text-4xl">
-            Comprando, você recebe
+            {t("home.diff.title")}
           </h2>
           <div className="mx-auto mt-4 h-px w-16 bg-primary" />
         </ScrollReveal>
@@ -264,27 +266,27 @@ export default function Home() {
           {[
             {
               icon: Ruler,
-              title: "Medição Gratuita",
-              text: "Nossos consultores vão até você sem custo para garantir medidas perfeitas.",
+              titleKey: "home.diff.d1.title",
+              textKey: "home.diff.d1.text",
             },
             {
               icon: Award,
-              title: "20 Anos de Experiência",
-              text: "Duas décadas transformando ambientes com qualidade e sofisticação.",
+              titleKey: "home.diff.d2.title",
+              textKey: "home.diff.d2.text",
             },
             {
               icon: Wrench,
-              title: "Instalação Inclusa",
-              text: "Instalação profissional inclusa em todos os projetos sob medida.",
+              titleKey: "home.diff.d3.title",
+              textKey: "home.diff.d3.text",
             },
           ].map((item, i) => (
-            <ScrollReveal key={item.title} animation="up" delay={i * 110}>
+            <ScrollReveal key={item.titleKey} animation="up" delay={i * 110}>
               <div className="text-center">
                 <div className="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-full bg-primary/10">
                   <item.icon className="h-7 w-7 text-primary" />
                 </div>
-                <h3 className="mb-2 text-lg font-bold text-foreground">{item.title}</h3>
-                <p className="text-sm text-mahogany-light">{item.text}</p>
+                <h3 className="mb-2 text-lg font-bold text-foreground">{t(item.titleKey)}</h3>
+                <p className="text-sm text-mahogany-light">{t(item.textKey)}</p>
               </div>
             </ScrollReveal>
           ))}
@@ -298,17 +300,17 @@ export default function Home() {
           <div className="mb-10 flex items-end justify-between border-b border-[#B59E7D]/30 pb-6">
             <div>
               <p className="mb-2 text-xs font-bold uppercase tracking-[0.35em] text-primary">
-                Blog
+                {t("home.blog.eyebrow")}
               </p>
               <h2 className="font-serif text-3xl font-bold text-foreground md:text-4xl">
-                Dicas & Inspirações
+                {t("home.blog.title")}
               </h2>
             </div>
             <Link
               href="/blog"
               className="hidden items-center gap-2 text-sm font-semibold text-foreground/60 transition-colors hover:text-primary md:flex"
             >
-              Ver todos os artigos
+              {t("home.blog.viewAll")}
               <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
@@ -348,10 +350,10 @@ export default function Home() {
                   <div className="flex items-center justify-between border-t border-[#B59E7D]/20 pt-4">
                     <span className="flex items-center gap-1.5 text-xs text-foreground/40">
                       <Clock className="h-3 w-3" />
-                      {post.readingTime} min de leitura
+                      {post.readingTime} {t("home.blog.readingTime")}
                     </span>
                     <span className="flex items-center gap-1 text-xs font-bold text-primary opacity-0 transition-all duration-300 group-hover:translate-x-0.5 group-hover:opacity-100">
-                      Ler artigo <ArrowRight className="h-3.5 w-3.5" />
+                      {t("home.blog.readArticle")} <ArrowRight className="h-3.5 w-3.5" />
                     </span>
                   </div>
                 </div>
@@ -367,7 +369,7 @@ export default function Home() {
               href="/blog"
               className="inline-flex items-center gap-2 text-sm font-semibold text-foreground/60"
             >
-              Ver todos os artigos <ArrowRight className="h-4 w-4" />
+              {t("home.blog.viewAll")} <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
         </ScrollReveal>
@@ -378,6 +380,9 @@ export default function Home() {
 
       {/* Depoimentos */}
       <TestimonialsSection />
+
+      {/* Sobre Nós */}
+      <AboutSection />
 
       {/* Como Chegar */}
       <MapSection />
