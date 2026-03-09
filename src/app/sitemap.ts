@@ -35,8 +35,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE_URL}/papeis-de-parede/elegant`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
 
     // Tapetes - subcategorias
-    { url: `${SITE_URL}/tapetes/sob-medida`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
-    { url: `${SITE_URL}/tapetes/decorativo`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${SITE_URL}/tapetes/carving-organic`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${SITE_URL}/tapetes/nativa`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
     { url: `${SITE_URL}/tapetes/passadeira`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
 
     // Blog

@@ -30,8 +30,6 @@ export default function Home() {
     return post.excerpt;
   }
   function getPostTag(post: BlogPost) {
-    if (language !== "pt" && post.i18n?.[language as "en" | "es"]?.tags?.[0])
-      return post.i18n[language as "en" | "es"]!.tags![0];
     return post.tags[0];
   }
 

@@ -70,8 +70,8 @@ export const NAVIGATION: NavItem[] = [
     label: "Tapetes",
     href: "/tapetes",
     children: [
-      { label: "Sob Medida", href: "/tapetes/sob-medida" },
-      { label: "Decorativo", href: "/tapetes/decorativo" },
+      { label: "Carving Organic", href: "/tapetes/carving-organic" },
+      { label: "Nativa", href: "/tapetes/nativa" },
       { label: "Passadeira", href: "/tapetes/passadeira" },
     ],
   },

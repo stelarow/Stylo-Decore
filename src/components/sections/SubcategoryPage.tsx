@@ -20,6 +20,7 @@ interface SubcategoryPageProps {
   headline?: string;
   heroImage?: string;
   desktopHeroImage?: string;
+  mobileHeroImage?: string;
   collectionTag?: string;
   specs?: { title: string; description: string }[];
   descriptionKey?: string;
@@ -36,6 +37,7 @@ export default function SubcategoryPage({
   headline,
   heroImage,
   desktopHeroImage,
+  mobileHeroImage,
   collectionTag,
   specs,
   descriptionKey,
@@ -77,6 +79,7 @@ export default function SubcategoryPage({
             />
             <img
               src={
+                mobileHeroImage ||
                 heroImage ||
                 products[0]?.image ||
                 "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=1920&q=80"

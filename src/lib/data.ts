@@ -197,15 +197,15 @@ export const PAPEIS_SUBCATEGORIES = [
 
 export const TAPETES_SUBCATEGORIES = [
   {
-    name: "Tapete Sob Medida",
-    href: "/tapetes/sob-medida",
-    image: "/images/tapetes/tapete-10.jpg",
+    name: "Carving Organic",
+    href: "/tapetes/carving-organic",
+    image: "/images/tapetes/tapete-sob-medida-01.png",
     desktopImage: "/images/tapetes-hero-desktop.png",
-    description: "Tamanho e formato personalizados para o seu espaço",
+    description: "Design autoral com formas orgânicas e acabamento artesanal",
   },
   {
-    name: "Tapete Decorativo",
-    href: "/tapetes/decorativo",
+    name: "Nativa",
+    href: "/tapetes/nativa",
     image: "/images/tapetes/tapete-03.jpg",
     description: "Peças que agregam estilo e personalidade ao ambiente",
   },
@@ -219,19 +219,15 @@ export const TAPETES_SUBCATEGORIES = [
 
 // Produtos de Tapetes por subcategoria
 export const TAPETE_PRODUCTS: Record<string, { name: string; image: string; category: string }[]> = {
-  "sob-medida": [
-    { name: "Sob Medida - Modelo 1", image: "/images/tapetes/tapete-10.jpg", category: "Tapetes" },
-    { name: "Sob Medida - Modelo 2", image: "/images/tapetes/tapete-07.jpg", category: "Tapetes" },
-    { name: "Sob Medida - Modelo 3", image: "/images/tapetes/tapete-09.jpg", category: "Tapetes" },
-    { name: "Sob Medida - Modelo 4", image: "/images/tapetes/tapete-01.jpg", category: "Tapetes" },
-    { name: "Sob Medida - Modelo 5", image: "/images/tapetes/tapete-08.jpg", category: "Tapetes" },
+  "carving-organic": [
+    { name: "Carving Organic - Modelo 1", image: "/images/tapetes/tapete-sob-medida-01.png", category: "Tapetes" },
+    { name: "Carving Organic - Modelo 2", image: "/images/tapetes/tapete-sob-medida-02.png", category: "Tapetes" },
+    { name: "Carving Organic - Modelo 3", image: "/images/tapetes/tapete-sob-medida-03.png", category: "Tapetes" },
   ],
-  decorativo: [
-    { name: "Decorativo - Modelo 1", image: "/images/tapetes/tapete-03.jpg", category: "Tapetes" },
-    { name: "Decorativo - Modelo 2", image: "/images/tapetes/tapete-02.jpg", category: "Tapetes" },
-    { name: "Decorativo - Modelo 3", image: "/images/tapetes/tapete-06.jpg", category: "Tapetes" },
-    { name: "Decorativo - Modelo 4", image: "/images/tapetes/tapete-15.jpg", category: "Tapetes" },
-    { name: "Decorativo - Modelo 5", image: "/images/tapetes/tapete-11.jpg", category: "Tapetes" },
+  nativa: [
+    { name: "Nativa - Modelo 1", image: "/images/tapetes/tapete-decorativo-01.png", category: "Tapetes" },
+    { name: "Nativa - Modelo 2", image: "/images/tapetes/tapete-decorativo-02.png", category: "Tapetes" },
+    { name: "Nativa - Modelo 3", image: "/images/tapetes/tapete-decorativo-03.png", category: "Tapetes" },
   ],
   passadeira: [
     { name: "Passadeira - Modelo 1", image: "/images/tapetes/tapete-14.jpg", category: "Tapetes" },
