@@ -73,7 +73,7 @@ export default function RootLayout({
         <JsonLd data={getOrganizationJsonLd()} />
         <JsonLd data={getLocalBusinessJsonLd()} />
       </head>
-      <body className={`${manrope.variable} ${playfair.variable} font-sans antialiased`}>
+      <body className={`${manrope.variable} ${playfair.variable} font-sans antialiased overflow-x-hidden`}>
         <LanguageProvider>
           <Header />
           <main className="min-h-screen">{children}</main>

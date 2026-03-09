@@ -51,8 +51,7 @@ export const BLOG_POSTS = [
     excerpt:
       "Cores terrosas, materiais naturais e texturas táteis dominam as tendências. Veja como aplicar essas novidades na sua casa.",
     date: "2026-01-10",
-    image:
-      "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=900&h=600&fit=crop",
+    image: "/images/blog/tendencias-2026-mobile.jpg",
     tags: ["Tendências", "Decoração", "2026"],
     readingTime: 5,
     i18n: {
@@ -342,3 +341,43 @@ export function getPlaceholderProducts(category: string, subcategory: string, co
     category,
   }));
 }
+
+export const ALMOFADAS_SUBCATEGORIES = [
+  {
+    name: "Almofadas Decorativas",
+    href: "/almofadas/decorativas",
+    image: "/images/tapetes-hero.jpeg", // TODO: imagem real
+    description: "Almofadas decorativas sob medida para todos os ambientes",
+  },
+];
+
+export const ALMOFADA_PRODUCTS: Record<string, { name: string; image: string; category: string }[]> = {
+  decorativas: getPlaceholderProducts("Almofadas", "Almofada Decorativa", 6),
+};
+
+export const MOVEIS_SUBCATEGORIES = [
+  {
+    name: "Estantes",
+    href: "/moveis-sob-medida/estantes",
+    image: "/images/cortinas-hero-room.jpeg", // TODO: imagem real
+    description: "Estantes planejadas que combinam função e sofisticação",
+  },
+  {
+    name: "Armários",
+    href: "/moveis-sob-medida/armarios",
+    image: "/images/persianas-hero.jpeg", // TODO: imagem real
+    description: "Armários sob medida para quarto, sala e closet",
+  },
+  {
+    name: "Home Office",
+    href: "/moveis-sob-medida/home-office",
+    image: "/images/papeis-hero.jpeg", // TODO: imagem real
+    description: "Móveis planejados para seu escritório em casa",
+  },
+];
+
+export const MOVEL_PRODUCTS: Record<string, { name: string; image: string; category: string }[]> = {
+  estantes: getPlaceholderProducts("Móveis Sob Medida", "Estante", 6),
+  armarios: getPlaceholderProducts("Móveis Sob Medida", "Armário", 6),
+  "home-office": getPlaceholderProducts("Móveis Sob Medida", "Home Office", 6),
+};

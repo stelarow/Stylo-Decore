@@ -22,6 +22,9 @@ interface CategoryPageProps {
   description: string;
   headline?: string;
   intro?: string;
+  headlineKey?: string;
+  descriptionKey?: string;
+  introKey?: string;
   subcategories: SubcategoryItem[];
   faqItems?: { question: string; answer: string }[];
 }
@@ -31,10 +34,16 @@ export default function CategoryPage({
   description,
   headline,
   intro,
+  headlineKey,
+  descriptionKey,
+  introKey,
   subcategories,
   faqItems,
 }: CategoryPageProps) {
   const { t } = useLanguage();
+  const resolvedHeadline = headlineKey ? t(headlineKey) : headline;
+  const resolvedDescription = descriptionKey ? t(descriptionKey) : description;
+  const resolvedIntro = introKey ? t(introKey) : intro;
   const faq = faqItems || DEFAULT_FAQ_KEYS;
 
   return (
@@ -66,13 +75,13 @@ export default function CategoryPage({
           <div className="relative flex h-full min-h-[50vh] md:min-h-[65vh] lg:min-h-[70vh] items-end">
             <div className="mx-auto w-full max-w-7xl px-6 pb-12 md:pb-16 lg:pb-20">
               <p className="mb-3 text-sm font-medium uppercase tracking-[0.2em] text-primary">
-                {headline || title}
+                {resolvedHeadline || title}
               </p>
               <h1 className="mb-3 font-serif text-4xl font-bold text-white md:text-5xl lg:text-6xl">
                 {title}
               </h1>
               <p className="max-w-xl text-lg text-white/80 lg:text-2xl">
-                {description}
+                {resolvedDescription}
               </p>
             </div>
           </div>
@@ -80,11 +89,11 @@ export default function CategoryPage({
       )}
 
       {/* Texto introdutório */}
-      {intro && (
+      {resolvedIntro && (
         <ScrollReveal animation="up">
           <div className="mx-auto max-w-7xl px-6 py-16 md:py-20">
             <p className="mx-auto max-w-3xl text-center text-xl leading-relaxed text-mahogany-light md:text-2xl">
-              {intro}
+              {resolvedIntro}
             </p>
           </div>
         </ScrollReveal>

@@ -41,6 +41,8 @@ const INTEREST_KEYS = [
   { key: "contact.i.blinds", value: "Persianas" },
   { key: "contact.i.wallpaper", value: "Papéis de Parede" },
   { key: "contact.i.rugs", value: "Tapetes" },
+  { key: "contact.i.cushions", value: "Almofadas" },
+  { key: "contact.i.furniture", value: "Móveis Sob Medida" },
   { key: "contact.i.full", value: "Projeto completo" },
 ];
 

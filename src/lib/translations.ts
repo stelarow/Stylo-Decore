@@ -28,6 +28,12 @@ export const NAV_TRANSLATIONS: Record<Language, Record<string, string>> = {
     "/tapetes/carving-organic": "Carving Organic",
     "/tapetes/nativa": "Nativa",
     "/tapetes/passadeira": "Passadeira",
+    "/almofadas": "Almofadas",
+    "/almofadas/decorativas": "Decorativas",
+    "/moveis-sob-medida": "Móveis Sob Medida",
+    "/moveis-sob-medida/estantes": "Estantes",
+    "/moveis-sob-medida/armarios": "Armários",
+    "/moveis-sob-medida/home-office": "Home Office",
     "/blog": "Blog",
     "/contato": "Contato",
     viewAll: "Ver todos",
@@ -126,6 +132,8 @@ export const NAV_TRANSLATIONS: Record<Language, Record<string, string>> = {
     "contact.i.blinds": "Persianas",
     "contact.i.wallpaper": "Papéis de Parede",
     "contact.i.rugs": "Tapetes",
+    "contact.i.cushions": "Almofadas",
+    "contact.i.furniture": "Móveis Sob Medida",
     "contact.i.full": "Projeto completo",
     "contact.desc":
       "Estamos prontos para ajudar você a transformar seus ambientes. O atendimento é feito diretamente pelo WhatsApp para mais agilidade.",
@@ -164,6 +172,22 @@ export const NAV_TRANSLATIONS: Record<Language, Record<string, string>> = {
     "sub.specs.spec3.desc": "Tecnologia soft-touch que não compromete a estética da cortina.",
     "page.geometricos.desc": "Padrões modernos e abstratos que criam dinamismo e sofisticação. A coleção Geométricos traz formas, linhas e texturas que transformam paredes em elementos de design.",
     "page.cozinha.desc": "Revestimentos e estampas exclusivas para cozinhas sofisticadas. De azulejos portugueses a mármores calacata, transforme sua cozinha em um ambiente de design único.",
+
+    // Category — Almofadas
+    "cat.almofadas.headline": "Conforto & Charme",
+    "cat.almofadas.description": "Almofadas decorativas que completam e elevam qualquer ambiente. Descubra nossas coleções sob medida.",
+    "cat.almofadas.intro": "Almofadas são detalhes que fazem toda a diferença na composição de ambientes — trazendo cor, textura e conforto. Trabalhamos com formatos, tamanhos e tecidos sob medida para cada projeto.",
+
+    // Category — Móveis Sob Medida
+    "cat.moveis.headline": "Design & Funcionalidade",
+    "cat.moveis.description": "Estantes, armários e home office planejados que unem design sofisticado e máxima funcionalidade. Cada projeto pensado para o seu espaço.",
+    "cat.moveis.intro": "Móveis planejados transformam qualquer ambiente — aproveitando cada centímetro com inteligência e elegância. Desenvolvemos projetos completos de estantes, armários e home office sob medida para a sua casa.",
+
+    // Subcategory descriptions — Almofadas & Móveis
+    "page.almofadas.decorativas.desc": "Almofadas decorativas sob medida que completam e elevam qualquer ambiente com estilo e conforto.",
+    "page.moveis.estantes.desc": "Estantes planejadas que combinam função e sofisticação. Projetos exclusivos desenvolvidos para cada ambiente.",
+    "page.moveis.armarios.desc": "Armários sob medida para quarto, sala e closet. Design elegante com aproveitamento máximo do seu espaço.",
+    "page.moveis.homeoffice.desc": "Móveis planejados para seu escritório em casa. Ambientes funcionais e elegantes que elevam a sua produtividade.",
     "sub.showroom.title": "Solicite um Orçamento",
     "sub.showroom.desc":
       "Receba uma proposta personalizada para o seu projeto. Nossa equipe vai te ajudar a escolher a solução ideal para o seu espaço.",
@@ -418,6 +442,26 @@ export const NAV_TRANSLATIONS: Record<Language, Record<string, string>> = {
     "faq.tapetes.a3": "Sim, a passadeira é ideal para ambas as aplicações. Para escadas, é fundamental um corte preciso e fixação adequada para evitar dobras ou deslizamento. Produzimos passadeiras com as medidas exatas de cada degrau e corredor, com acabamento nas bordas para um resultado limpo e profissional.",
     "faq.tapetes.q4": "Como cuidar e limpar o tapete no dia a dia?",
     "faq.tapetes.a4": "Em geral, aspiração semanal e remoção imediata de manchas com pano úmido e produto neutro são suficientes para o cuidado diário. Para limpeza mais profunda, recomendamos lavagem especializada a cada 6 a 12 meses. Fornecemos orientações específicas para cada material no momento da entrega.",
+
+    // FAQ — Almofadas
+    "faq.almofadas.q1": "Vocês fazem almofadas em qualquer tamanho e formato?",
+    "faq.almofadas.a1": "Sim! Trabalhamos com almofadas sob medida em diversos formatos — quadradas, retangulares, redondas e cilíndricas. Na consultoria apresentamos as opções de tamanho e forma mais adequadas para cada ambiente e sofá.",
+    "faq.almofadas.q2": "Quais tecidos estão disponíveis para as almofadas?",
+    "faq.almofadas.a2": "Trabalhamos com uma ampla seleção de tecidos: veludo, linho, algodão, jacquard e tecidos com tratamento anti-manchas. Cada tecido tem características distintas de toque, durabilidade e manutenção — ajudamos você a escolher o ideal para o seu projeto.",
+    "faq.almofadas.q3": "O enchimento das almofadas é incluso?",
+    "faq.almofadas.a3": "Sim! Oferecemos opções de enchimento de alta qualidade: silicone siliconado, fibra antialérgica e espuma de alta densidade. O enchimento é escolhido conforme o uso e o nível de conforto desejado para cada ambiente.",
+    "faq.almofadas.q4": "Como cuidar das almofadas decorativas no dia a dia?",
+    "faq.almofadas.a4": "A maioria das capas pode ser removida e lavada conforme as instruções do tecido. Recomendamos aspiração regular e arejamento periódico do enchimento. Fornecemos orientações específicas de cuidado para cada material no momento da entrega.",
+
+    // FAQ — Móveis Sob Medida
+    "faq.moveis.q1": "Vocês fabricam móveis sob medida para qualquer ambiente?",
+    "faq.moveis.a1": "Sim! Projetamos e fabricamos móveis sob medida para sala, quarto, closet, escritório e home office. Cada projeto é desenvolvido para aproveitar ao máximo o espaço disponível e refletir o estilo do cliente.",
+    "faq.moveis.q2": "Qual é o prazo de fabricação e instalação dos móveis?",
+    "faq.moveis.a2": "O prazo médio é de 30 a 45 dias úteis após a aprovação do projeto e confirmação do pedido. Projetos maiores ou com materiais especiais podem ter prazos diferentes, sempre informados com antecedência. A instalação é inclusa.",
+    "faq.moveis.q3": "Quais materiais vocês utilizam nos móveis planejados?",
+    "faq.moveis.a3": "Trabalhamos com MDF de alta qualidade, MDP, madeira maciça e acabamentos em laminado, melamínico, laca e revestimentos especiais. Todos os materiais seguem normas de qualidade e durabilidade para garantir móveis bonitos e resistentes.",
+    "faq.moveis.q4": "É possível integrar iluminação LED nos móveis planejados?",
+    "faq.moveis.a4": "Sim! Oferecemos integração de iluminação LED embutida em estantes, armários e painéis, criando ambientes sofisticados e funcionais. A iluminação pode ser com acionamento por sensor, dimmer ou integrada à automação residencial.",
   },
 
   en: {
@@ -441,6 +485,12 @@ export const NAV_TRANSLATIONS: Record<Language, Record<string, string>> = {
     "/tapetes/carving-organic": "Carving Organic",
     "/tapetes/nativa": "Nativa",
     "/tapetes/passadeira": "Runner",
+    "/almofadas": "Cushions",
+    "/almofadas/decorativas": "Decorative",
+    "/moveis-sob-medida": "Custom Furniture",
+    "/moveis-sob-medida/estantes": "Shelving Units",
+    "/moveis-sob-medida/armarios": "Wardrobes",
+    "/moveis-sob-medida/home-office": "Home Office",
     "/blog": "Blog",
     "/contato": "Contact",
     viewAll: "View all",
@@ -539,6 +589,8 @@ export const NAV_TRANSLATIONS: Record<Language, Record<string, string>> = {
     "contact.i.blinds": "Blinds",
     "contact.i.wallpaper": "Wallpaper",
     "contact.i.rugs": "Rugs",
+    "contact.i.cushions": "Cushions",
+    "contact.i.furniture": "Custom Furniture",
     "contact.i.full": "Full project",
     "contact.desc":
       "We're ready to help you transform your spaces. Service is done directly via WhatsApp for faster response.",
@@ -577,6 +629,22 @@ export const NAV_TRANSLATIONS: Record<Language, Record<string, string>> = {
     "sub.specs.spec3.desc": "Soft-touch technology that doesn't compromise the curtain's aesthetics.",
     "page.geometricos.desc": "Modern and abstract patterns that create dynamism and sophistication. The Geométricos collection brings shapes, lines and textures that transform walls into design elements.",
     "page.cozinha.desc": "Exclusive coverings and prints for sophisticated kitchens. From Portuguese tiles to Calacata marble, transform your kitchen into a unique design space.",
+
+    // Category — Cushions
+    "cat.almofadas.headline": "Comfort & Charm",
+    "cat.almofadas.description": "Decorative cushions that complete and elevate any space. Discover our custom-made collections.",
+    "cat.almofadas.intro": "Cushions are details that make all the difference in interior composition — bringing color, texture and comfort. We work with custom shapes, sizes and fabrics for each project.",
+
+    // Category — Custom Furniture
+    "cat.moveis.headline": "Design & Functionality",
+    "cat.moveis.description": "Shelving units, wardrobes and home office furniture that combine sophisticated design and maximum functionality. Each project tailored to your space.",
+    "cat.moveis.intro": "Custom furniture transforms any space — making the most of every centimetre with intelligence and elegance. We develop complete projects for shelving, wardrobes and home offices tailored to your home.",
+
+    // Subcategory descriptions — Cushions & Furniture
+    "page.almofadas.decorativas.desc": "Custom decorative cushions that complete and elevate any space with style and comfort.",
+    "page.moveis.estantes.desc": "Custom shelving units that combine function and sophistication. Exclusive designs developed for each space.",
+    "page.moveis.armarios.desc": "Custom wardrobes for bedroom, living room and walk-in closet. Elegant design with maximum use of your space.",
+    "page.moveis.homeoffice.desc": "Custom furniture for your home office. Functional and elegant spaces that elevate your productivity.",
     "sub.showroom.title": "Request a Quote",
     "sub.showroom.desc":
       "Receive a personalized proposal for your project. Our team will help you choose the ideal solution for your space.",
@@ -830,6 +898,26 @@ export const NAV_TRANSLATIONS: Record<Language, Record<string, string>> = {
     "faq.tapetes.a3": "Yes, runners are ideal for both applications. For stairs, precise cutting and proper fastening are essential to prevent folding or slipping. We produce runners with the exact measurements of each step and hallway, with edge finishing for a clean and professional result.",
     "faq.tapetes.q4": "How do I care for and clean the rug day-to-day?",
     "faq.tapetes.a4": "Generally, weekly vacuuming and immediate stain removal with a damp cloth and mild cleaner are sufficient for daily care. For deeper cleaning, we recommend professional washing every 6 to 12 months. We provide specific care instructions for each material at the time of delivery.",
+
+    // FAQ — Cushions
+    "faq.almofadas.q1": "Do you make cushions in any size and shape?",
+    "faq.almofadas.a1": "Yes! We work with custom cushions in various shapes — square, rectangular, round and cylindrical. During the consultation we present the size and shape options best suited for each space and sofa.",
+    "faq.almofadas.q2": "What fabrics are available for the cushions?",
+    "faq.almofadas.a2": "We work with a wide selection of fabrics: velvet, linen, cotton, jacquard and stain-resistant treated fabrics. Each fabric has distinct characteristics of feel, durability and maintenance — we help you choose the ideal one for your project.",
+    "faq.almofadas.q3": "Is the cushion filling included?",
+    "faq.almofadas.a3": "Yes! We offer high-quality filling options: siliconized fiber, hypoallergenic fiber and high-density foam. The filling is chosen according to the use and desired comfort level for each environment.",
+    "faq.almofadas.q4": "How do I care for decorative cushions day-to-day?",
+    "faq.almofadas.a4": "Most covers can be removed and washed according to the fabric's instructions. We recommend regular vacuuming and periodic airing of the filling. We provide specific care instructions for each material at the time of delivery.",
+
+    // FAQ — Custom Furniture
+    "faq.moveis.q1": "Do you make custom furniture for any space?",
+    "faq.moveis.a1": "Yes! We design and manufacture custom furniture for living rooms, bedrooms, closets, offices and home offices. Each project is developed to make the most of the available space and reflect the client's style.",
+    "faq.moveis.q2": "What is the lead time for manufacturing and installing the furniture?",
+    "faq.moveis.a2": "The average lead time is 30 to 45 business days after project approval and order confirmation. Larger projects or special materials may have different timelines, always communicated in advance. Installation is included.",
+    "faq.moveis.q3": "What materials do you use in planned furniture?",
+    "faq.moveis.a3": "We work with high-quality MDF, MDP, solid wood and finishes in laminate, melamine, lacquer and special coatings. All materials meet quality and durability standards to ensure beautiful and resistant furniture.",
+    "faq.moveis.q4": "Is it possible to integrate LED lighting into planned furniture?",
+    "faq.moveis.a4": "Yes! We offer integrated LED lighting in shelving units, wardrobes and panels, creating sophisticated and functional environments. Lighting can be sensor-activated, dimmer-controlled or integrated into home automation systems.",
   },
 
   es: {
@@ -853,6 +941,12 @@ export const NAV_TRANSLATIONS: Record<Language, Record<string, string>> = {
     "/tapetes/carving-organic": "Carving Organic",
     "/tapetes/nativa": "Nativa",
     "/tapetes/passadeira": "Pasillo",
+    "/almofadas": "Cojines",
+    "/almofadas/decorativas": "Decorativos",
+    "/moveis-sob-medida": "Muebles a Medida",
+    "/moveis-sob-medida/estantes": "Estanterías",
+    "/moveis-sob-medida/armarios": "Armarios",
+    "/moveis-sob-medida/home-office": "Home Office",
     "/blog": "Blog",
     "/contato": "Contacto",
     viewAll: "Ver todos",
@@ -952,6 +1046,8 @@ export const NAV_TRANSLATIONS: Record<Language, Record<string, string>> = {
     "contact.i.blinds": "Persianas",
     "contact.i.wallpaper": "Papel Tapiz",
     "contact.i.rugs": "Alfombras",
+    "contact.i.cushions": "Cojines",
+    "contact.i.furniture": "Muebles a Medida",
     "contact.i.full": "Proyecto completo",
     "contact.desc":
       "Estamos listos para ayudarle a transformar sus ambientes. La atención es directamente por WhatsApp para mayor agilidad.",
@@ -990,6 +1086,22 @@ export const NAV_TRANSLATIONS: Record<Language, Record<string, string>> = {
     "sub.specs.spec3.desc": "Tecnología soft-touch que no compromete la estética de la cortina.",
     "page.geometricos.desc": "Patrones modernos y abstractos que crean dinamismo y sofisticación. La colección Geométricos trae formas, líneas y texturas que transforman paredes en elementos de diseño.",
     "page.cozinha.desc": "Revestimientos y estampados exclusivos para cocinas sofisticadas. De azulejos portugueses a mármoles calacata, transforma tu cocina en un ambiente de diseño único.",
+
+    // Category — Cojines
+    "cat.almofadas.headline": "Confort & Encanto",
+    "cat.almofadas.description": "Cojines decorativos que completan y elevan cualquier ambiente. Descubra nuestras colecciones a medida.",
+    "cat.almofadas.intro": "Los cojines son detalles que marcan la diferencia en la composición de ambientes — aportando color, textura y confort. Trabajamos con formatos, tamaños y telas a medida para cada proyecto.",
+
+    // Category — Muebles a Medida
+    "cat.moveis.headline": "Diseño & Funcionalidad",
+    "cat.moveis.description": "Estanterías, armarios y home office que unen diseño sofisticado y máxima funcionalidad. Cada proyecto pensado para su espacio.",
+    "cat.moveis.intro": "Los muebles a medida transforman cualquier ambiente — aprovechando cada centímetro con inteligencia y elegancia. Desarrollamos proyectos completos de estanterías, armarios y home office a medida para su hogar.",
+
+    // Subcategory descriptions — Cojines & Muebles
+    "page.almofadas.decorativas.desc": "Cojines decorativos a medida que completan y elevan cualquier ambiente con estilo y confort.",
+    "page.moveis.estantes.desc": "Estanterías a medida que combinan función y sofisticación. Diseños exclusivos desarrollados para cada ambiente.",
+    "page.moveis.armarios.desc": "Armarios a medida para dormitorio, sala y vestidor. Diseño elegante con máximo aprovechamiento del espacio.",
+    "page.moveis.homeoffice.desc": "Muebles a medida para su oficina en casa. Ambientes funcionales y elegantes que elevan su productividad.",
     "sub.showroom.title": "Solicite un Presupuesto",
     "sub.showroom.desc":
       "Reciba una propuesta personalizada para su proyecto. Nuestro equipo le ayudará a elegir la solución ideal para su espacio.",
@@ -1244,5 +1356,25 @@ export const NAV_TRANSLATIONS: Record<Language, Record<string, string>> = {
     "faq.tapetes.a3": "Sí, el pasillo es ideal para ambas aplicaciones. Para las escaleras, es fundamental un corte preciso y una fijación adecuada para evitar dobleces o deslizamientos. Producimos pasillos con las medidas exactas de cada escalón y corredor, con acabado en los bordes para un resultado limpio y profesional.",
     "faq.tapetes.q4": "¿Cómo cuidar y limpiar la alfombra en el día a día?",
     "faq.tapetes.a4": "En general, la aspiración semanal y la eliminación inmediata de manchas con un paño húmedo y producto neutro son suficientes para el cuidado diario. Para una limpieza más profunda, recomendamos un lavado especializado cada 6 a 12 meses. Proporcionamos instrucciones específicas de cuidado para cada material en el momento de la entrega.",
+
+    // FAQ — Cojines
+    "faq.almofadas.q1": "¿Hacen cojines en cualquier tamaño y forma?",
+    "faq.almofadas.a1": "¡Sí! Trabajamos con cojines a medida en varios formatos — cuadrados, rectangulares, redondos y cilíndricos. En la consultoría presentamos las opciones de tamaño y forma más adecuadas para cada ambiente y sofá.",
+    "faq.almofadas.q2": "¿Qué telas están disponibles para los cojines?",
+    "faq.almofadas.a2": "Trabajamos con una amplia selección de telas: terciopelo, lino, algodón, jacquard y telas con tratamiento antimanchas. Cada tela tiene características distintas de tacto, durabilidad y mantenimiento — le ayudamos a elegir la ideal para su proyecto.",
+    "faq.almofadas.q3": "¿El relleno de los cojines está incluido?",
+    "faq.almofadas.a3": "¡Sí! Ofrecemos opciones de relleno de alta calidad: silicona siliconada, fibra antialérgica y espuma de alta densidad. El relleno se elige según el uso y el nivel de confort deseado para cada ambiente.",
+    "faq.almofadas.q4": "¿Cómo cuidar los cojines decorativos en el día a día?",
+    "faq.almofadas.a4": "La mayoría de las fundas se pueden quitar y lavar según las instrucciones de la tela. Recomendamos aspiración regular y aireación periódica del relleno. Proporcionamos instrucciones específicas de cuidado para cada material en el momento de la entrega.",
+
+    // FAQ — Muebles a Medida
+    "faq.moveis.q1": "¿Fabrican muebles a medida para cualquier ambiente?",
+    "faq.moveis.a1": "¡Sí! Diseñamos y fabricamos muebles a medida para sala, dormitorio, vestidor, oficina y home office. Cada proyecto se desarrolla para aprovechar al máximo el espacio disponible y reflejar el estilo del cliente.",
+    "faq.moveis.q2": "¿Cuál es el plazo de fabricación e instalación de los muebles?",
+    "faq.moveis.a2": "El plazo medio es de 30 a 45 días hábiles tras la aprobación del proyecto y confirmación del pedido. Proyectos más grandes o con materiales especiales pueden tener plazos diferentes, siempre informados con antelación. La instalación está incluida.",
+    "faq.moveis.q3": "¿Qué materiales utilizan en los muebles a medida?",
+    "faq.moveis.a3": "Trabajamos con MDF de alta calidad, MDP, madera maciza y acabados en laminado, melamínico, laca y revestimientos especiales. Todos los materiales cumplen normas de calidad y durabilidad para garantizar muebles bonitos y resistentes.",
+    "faq.moveis.q4": "¿Es posible integrar iluminación LED en los muebles a medida?",
+    "faq.moveis.a4": "¡Sí! Ofrecemos integración de iluminación LED empotrada en estanterías, armarios y paneles, creando ambientes sofisticados y funcionales. La iluminación puede ser con activación por sensor, regulador de intensidad o integrada en sistemas de domótica.",
   },
 };

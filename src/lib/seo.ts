@@ -153,6 +153,66 @@ export const TAPETES_FAQ_KEYS = [
   { question: "faq.tapetes.q4", answer: "faq.tapetes.a4" },
 ];
 
+export const ALMOFADAS_FAQ = [
+  {
+    question: "Vocês fazem almofadas em qualquer tamanho e formato?",
+    answer:
+      "Sim! Trabalhamos com almofadas sob medida em diversos formatos — quadradas, retangulares, redondas e cilíndricas. Na consultoria apresentamos as opções de tamanho e forma mais adequadas para cada ambiente e sofá.",
+  },
+  {
+    question: "Quais tecidos estão disponíveis para as almofadas?",
+    answer:
+      "Trabalhamos com uma ampla seleção de tecidos: veludo, linho, algodão, jacquard e tecidos com tratamento anti-manchas. Cada tecido tem características distintas de toque, durabilidade e manutenção — ajudamos você a escolher o ideal para o seu projeto.",
+  },
+  {
+    question: "O enchimento das almofadas é incluso?",
+    answer:
+      "Sim! Oferecemos opções de enchimento de alta qualidade: silicone siliconado, fibra antialérgica e espuma de alta densidade. O enchimento é escolhido conforme o uso e o nível de conforto desejado para cada ambiente.",
+  },
+  {
+    question: "Como cuidar das almofadas decorativas no dia a dia?",
+    answer:
+      "A maioria das capas pode ser removida e lavada conforme as instruções do tecido. Recomendamos aspiração regular e arejamento periódico do enchimento. Fornecemos orientações específicas de cuidado para cada material no momento da entrega.",
+  },
+];
+
+export const ALMOFADAS_FAQ_KEYS = [
+  { question: "faq.almofadas.q1", answer: "faq.almofadas.a1" },
+  { question: "faq.almofadas.q2", answer: "faq.almofadas.a2" },
+  { question: "faq.almofadas.q3", answer: "faq.almofadas.a3" },
+  { question: "faq.almofadas.q4", answer: "faq.almofadas.a4" },
+];
+
+export const MOVEIS_FAQ = [
+  {
+    question: "Vocês fabricam móveis sob medida para qualquer ambiente?",
+    answer:
+      "Sim! Projetamos e fabricamos móveis sob medida para sala, quarto, closet, escritório e home office. Cada projeto é desenvolvido para aproveitar ao máximo o espaço disponível e refletir o estilo do cliente.",
+  },
+  {
+    question: "Qual é o prazo de fabricação e instalação dos móveis?",
+    answer:
+      "O prazo médio é de 30 a 45 dias úteis após a aprovação do projeto e confirmação do pedido. Projetos maiores ou com materiais especiais podem ter prazos diferentes, sempre informados com antecedência. A instalação é inclusa.",
+  },
+  {
+    question: "Quais materiais vocês utilizam nos móveis planejados?",
+    answer:
+      "Trabalhamos com MDF de alta qualidade, MDP, madeira maciça e acabamentos em laminado, melamínico, laca e revestimentos especiais. Todos os materiais seguem normas de qualidade e durabilidade para garantir móveis bonitos e resistentes.",
+  },
+  {
+    question: "É possível integrar iluminação LED nos móveis planejados?",
+    answer:
+      "Sim! Oferecemos integração de iluminação LED embutida em estantes, armários e painéis, criando ambientes sofisticados e funcionais. A iluminação pode ser com acionamento por sensor, dimmer ou integrada à automação residencial.",
+  },
+];
+
+export const MOVEIS_FAQ_KEYS = [
+  { question: "faq.moveis.q1", answer: "faq.moveis.a1" },
+  { question: "faq.moveis.q2", answer: "faq.moveis.a2" },
+  { question: "faq.moveis.q3", answer: "faq.moveis.a3" },
+  { question: "faq.moveis.q4", answer: "faq.moveis.a4" },
+];
+
 export function getOrganizationJsonLd() {
   return {
     "@context": "https://schema.org",

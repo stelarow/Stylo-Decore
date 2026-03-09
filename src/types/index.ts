@@ -11,7 +11,7 @@ export interface NavItem {
 export interface Product {
   id: string;
   name: string;
-  category: "cortinas" | "persianas" | "papeis-de-parede" | "tapetes";
+  category: "cortinas" | "persianas" | "papeis-de-parede" | "tapetes" | "almofadas" | "moveis-sob-medida";
   description: string;
   image: string;
   features?: string[];

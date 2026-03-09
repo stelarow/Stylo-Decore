@@ -33,6 +33,8 @@ export const PRODUCT_CATEGORIES: NavItem[] = [
   { label: "Persianas", href: "/persianas" },
   { label: "Papel de Parede", href: "/papeis-de-parede" },
   { label: "Tapetes", href: "/tapetes" },
+  { label: "Almofadas", href: "/almofadas" },
+  { label: "Móveis Sob Medida", href: "/moveis-sob-medida" },
 ];
 
 export const NAVIGATION: NavItem[] = [
@@ -75,6 +77,22 @@ export const NAVIGATION: NavItem[] = [
       { label: "Passadeira", href: "/tapetes/passadeira" },
     ],
   },
+  {
+    label: "Almofadas",
+    href: "/almofadas",
+    children: [
+      { label: "Decorativas", href: "/almofadas/decorativas" },
+    ],
+  },
+  {
+    label: "Móveis Sob Medida",
+    href: "/moveis-sob-medida",
+    children: [
+      { label: "Estantes", href: "/moveis-sob-medida/estantes" },
+      { label: "Armários", href: "/moveis-sob-medida/armarios" },
+      { label: "Home Office", href: "/moveis-sob-medida/home-office" },
+    ],
+  },
   { label: "Blog", href: "/blog" },
   { label: "Contato", href: "/contato" },
 ];
@@ -115,5 +133,21 @@ export const CATEGORIES = [
     image: "/images/tapetes-hero.jpeg",
     imageDesktop: "/images/tapetes-hero-desktop.png",
     imagePosition: "center 65%",
+  },
+  {
+    name: "Almofadas",
+    href: "/almofadas",
+    description: "Almofadas decorativas que completam o ambiente",
+    tag: "EM BREVE",
+    image: "/images/tapetes-hero.jpeg", // TODO: imagem real
+    imagePosition: "center center",
+  },
+  {
+    name: "Móveis Sob Medida",
+    href: "/moveis-sob-medida",
+    description: "Estantes, armários e home office planejados",
+    tag: "PLANEJADO",
+    image: "/images/cortinas-hero-room.jpeg", // TODO: imagem real
+    imagePosition: "center center",
   },
 ] as const;

@@ -65,7 +65,7 @@ export default function Header() {
           </Link>
 
           {/* Desktop Nav — right-aligned */}
-          <nav className="hidden items-center gap-0 lg:flex lg:flex-1 lg:justify-end">
+          <nav className="hidden items-center lg:flex lg:flex-1 lg:justify-end">
             {NAVIGATION.map((item) => {
               if (item.children) {
                 return (
@@ -77,7 +77,7 @@ export default function Header() {
                   >
                     <Link
                       href={item.href}
-                      className="flex items-center gap-1 px-3 py-2 text-sm font-medium uppercase tracking-wider text-foreground transition-colors hover:text-primary"
+                      className="flex items-center gap-0.5 whitespace-nowrap px-2 py-2 text-xs font-semibold uppercase tracking-wide text-foreground transition-colors hover:text-primary"
                     >
                       {t(item.href)}
                       <ChevronDown className="h-3.5 w-3.5 transition-transform group-hover:rotate-180" />
@@ -110,7 +110,7 @@ export default function Header() {
                   key={item.label}
                   href={item.href}
                   onClick={(e) => handleHomeClick(e, item.href)}
-                  className="flex items-center gap-1 px-3 py-2 text-sm font-medium uppercase tracking-wider text-foreground transition-colors hover:text-primary"
+                  className="flex items-center gap-0.5 whitespace-nowrap px-2 py-2 text-xs font-semibold uppercase tracking-wide text-foreground transition-colors hover:text-primary"
                 >
                   {t(item.href)}
                 </Link>
@@ -139,7 +139,7 @@ export default function Header() {
           <div className="flex items-center gap-2 lg:hidden">
             <LanguageSwitcher />
           <button
-            className="relative z-50"
+            className="relative z-50 p-2"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label={mobileOpen ? "Fechar menu" : "Abrir menu"}
           >

@@ -367,8 +367,8 @@ const POSTS: Record<string, Post> = {
     description:
       "Cores terrosas, materiais naturais, texturas táteis e minimalismo aconchegante: veja como aplicar as principais tendências de decoração de 2026 com cortinas, persianas e papéis de parede.",
     date: "2026-01-10",
-    image:
-      "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=1200&h=600&fit=crop",
+    image: "/images/blog/tendencias-2026-mobile.jpg",
+    desktopImage: "/images/blog/tendencias-2026-desktop.jpg",
     tags: ["Tendências", "Decoração", "2026"],
     readingTime: 6,
     toc: [
