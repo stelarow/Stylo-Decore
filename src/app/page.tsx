@@ -16,7 +16,24 @@ const ContactSection = dynamic(() => import("@/components/sections/ContactSectio
 import AboutSection from "@/components/sections/AboutSection";
 
 export default function Home() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+
+  type BlogPost = (typeof BLOG_POSTS)[number];
+  function getPostTitle(post: BlogPost) {
+    if (language !== "pt" && post.i18n?.[language as "en" | "es"]?.title)
+      return post.i18n[language as "en" | "es"]!.title;
+    return post.title;
+  }
+  function getPostExcerpt(post: BlogPost) {
+    if (language !== "pt" && post.i18n?.[language as "en" | "es"]?.excerpt)
+      return post.i18n[language as "en" | "es"]!.excerpt;
+    return post.excerpt;
+  }
+  function getPostTag(post: BlogPost) {
+    if (language !== "pt" && post.i18n?.[language as "en" | "es"]?.tags?.[0])
+      return post.i18n[language as "en" | "es"]!.tags![0];
+    return post.tags[0];
+  }
 
   return (
     <>
@@ -334,17 +351,17 @@ export default function Home() {
                   />
                   {/* Tag */}
                   <span className="absolute bottom-4 left-4 bg-primary/90 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-[#221e10]">
-                    {post.tags[0]}
+                    {getPostTag(post)}
                   </span>
                 </div>
 
                 {/* Conteúdo */}
                 <div className="flex flex-1 flex-col pt-5">
                   <h3 className="mb-2 font-serif text-lg font-bold leading-snug text-foreground transition-colors group-hover:text-primary">
-                    {post.title}
+                    {getPostTitle(post)}
                   </h3>
                   <p className="mb-4 flex-1 text-sm leading-relaxed text-foreground/60 line-clamp-2">
-                    {post.excerpt}
+                    {getPostExcerpt(post)}
                   </p>
                   {/* Footer do card */}
                   <div className="flex items-center justify-between border-t border-[#B59E7D]/20 pt-4">

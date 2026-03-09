@@ -257,7 +257,7 @@ export const NAV_TRANSLATIONS: Record<Language, Record<string, string>> = {
     "blog.continueReading": "Continue lendo",
     "blog.otherArticles": "Outros Artigos",
     "blog.notFound": "Post não encontrado",
-    "blog.company": "Stylo Decore",
+    "blog.company": "Nilza Terezinha Duarte Bueno",
     "blog.waMessage": "Olá! Li o artigo no blog e gostaria de mais informações.",
     "blog.waSidebar": "Olá! Li o artigo e gostaria de ajuda para escolher.",
 
@@ -669,7 +669,7 @@ export const NAV_TRANSLATIONS: Record<Language, Record<string, string>> = {
     "blog.continueReading": "Keep reading",
     "blog.otherArticles": "More Articles",
     "blog.notFound": "Post not found",
-    "blog.company": "Stylo Decore",
+    "blog.company": "Nilza Terezinha Duarte Bueno",
     "blog.waMessage": "Hello! I read the article on the blog and would like more information.",
     "blog.waSidebar": "Hello! I read the article and would like help choosing.",
 
@@ -1083,7 +1083,7 @@ export const NAV_TRANSLATIONS: Record<Language, Record<string, string>> = {
     "blog.continueReading": "Seguir leyendo",
     "blog.otherArticles": "Más Artículos",
     "blog.notFound": "Artículo no encontrado",
-    "blog.company": "Stylo Decore",
+    "blog.company": "Nilza Terezinha Duarte Bueno",
     "blog.waMessage": "¡Hola! Leí el artículo en el blog y me gustaría más información.",
     "blog.waSidebar": "¡Hola! Leí el artículo y me gustaría ayuda para elegir.",
 

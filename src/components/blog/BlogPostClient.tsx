@@ -262,9 +262,11 @@ export function BlogPostClient({ post, slug, relatedPosts }: Props) {
                 {t("blog.backToBlog")}
               </Link>
               <div className="flex items-center gap-3">
-                <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#584738] text-xs font-bold text-white">
-                  N
-                </div>
+                <img
+                  src="/images/nilza-profile.jpg"
+                  alt="Nilza Terezinha Duarte Bueno"
+                  className="h-9 w-9 rounded-full object-cover object-top"
+                />
                 <div>
                   <p className="text-sm font-semibold text-[#584738]">{t("blog.company")}</p>
                   <p className="text-xs text-[#584738]/50">{t("blog.expertRole")}</p>

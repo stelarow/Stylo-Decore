@@ -8,147 +8,144 @@ export default function AboutSection() {
   const { t } = useLanguage();
 
   return (
-    <section
-      className="py-24 px-4"
-      style={{ background: "#F1EADA" }}
-    >
-      <div className="max-w-5xl mx-auto">
-        {/* Header */}
+    <section className="bg-[#F1EADA]">
+
+      {/* ── Header ── */}
+      <div className="py-20 px-6 text-center">
         <ScrollReveal animation="up">
-          <div className="text-center mb-12">
-            {/* Ornamento superior */}
-            <div className="flex items-center justify-center gap-4 mb-6">
-              <span className="block h-px w-14 bg-[#f1bf27]" />
-              <span
-                className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#f1bf27]"
-                style={{ fontFamily: "Manrope, sans-serif" }}
-              >
-                {t("about.eyebrow")}
-              </span>
-              <span className="block h-px w-14 bg-[#f1bf27]" />
-            </div>
-
-            <h2
-              className="text-4xl md:text-5xl text-[#584738] mb-5"
-              style={{
-                fontFamily: "'Playfair Display', serif",
-                fontStyle: "italic",
-              }}
-            >
-              {t("about.title")}
-            </h2>
-
-            <p
-              className="text-[#584738] text-base leading-relaxed max-w-lg mx-auto"
+          <div className="flex items-center justify-center gap-4 mb-6">
+            <span className="block h-px w-14 bg-[#f1bf27]" />
+            <span
+              className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#f1bf27]"
               style={{ fontFamily: "Manrope, sans-serif" }}
             >
-              {t("about.subtitle")}
+              {t("about.eyebrow")}
+            </span>
+            <span className="block h-px w-14 bg-[#f1bf27]" />
+          </div>
+          <h2
+            className="text-4xl md:text-5xl text-[#584738] mb-5"
+            style={{ fontFamily: "'Playfair Display', serif", fontStyle: "italic" }}
+          >
+            {t("about.title")}
+          </h2>
+          <p
+            className="text-[#584738]/70 text-base leading-relaxed max-w-xl mx-auto"
+            style={{ fontFamily: "Manrope, sans-serif" }}
+          >
+            {t("about.subtitle")}
+          </p>
+        </ScrollReveal>
+      </div>
+
+      {/* ── Nilza — texto esquerda, foto direita ── */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[600px]">
+
+        {/* Texto */}
+        <ScrollReveal animation="left" className="flex items-center">
+          <div className="px-10 py-16 lg:px-20 lg:py-24 max-w-lg">
+            <p
+              className="text-[10px] font-bold uppercase tracking-[0.35em] text-[#f1bf27] mb-4"
+              style={{ fontFamily: "Manrope, sans-serif" }}
+            >
+              {t("about.nilza.role")}
+            </p>
+            <h3
+              className="text-3xl md:text-4xl lg:text-5xl text-[#584738] leading-tight mb-6"
+              style={{ fontFamily: "'Playfair Display', serif" }}
+            >
+              Nilza Terezinha<br />
+              <span className="italic">Duarte Bueno</span>
+            </h3>
+            <div className="w-10 h-px bg-[#f1bf27] mb-6" />
+            <p
+              className="text-[#584738]/70 text-base leading-[1.85] max-w-sm"
+              style={{ fontFamily: "Manrope, sans-serif" }}
+            >
+              {t("about.nilza.bio")}
             </p>
           </div>
         </ScrollReveal>
 
-        {/* Divisor ornamental */}
-        <ScrollReveal animation="fade" delay={100}>
-          <div className="flex items-center justify-center gap-4 mb-16">
-            <span className="block h-px w-20 bg-[#B59E7D]/40" />
-            <span className="text-[#f1bf27] text-sm">◆</span>
-            <span className="block h-px w-20 bg-[#B59E7D]/40" />
-          </div>
+        {/* Foto */}
+        <ScrollReveal animation="right" className="relative overflow-hidden min-h-[480px] lg:min-h-0">
+          <Image
+            src="/images/sobre/nilza.jpeg"
+            alt="Nilza Terezinha Duarte Bueno"
+            fill
+            className="object-cover object-[center_20%]"
+            sizes="(max-width: 1024px) 100vw, 50vw"
+          />
+          {/* Overlay sutil nas bordas */}
+          <div className="absolute inset-0 pointer-events-none"
+            style={{
+              background:
+                "linear-gradient(to right, #F1EADA 0%, transparent 8%, transparent 92%, #F1EADA 100%)",
+            }}
+          />
+        </ScrollReveal>
+      </div>
+
+      {/* Divisor */}
+      <div className="flex items-center justify-center gap-4 py-2 px-6">
+        <span className="block h-px flex-1 max-w-xs bg-[#B59E7D]/30" />
+        <span className="text-[#f1bf27] text-xs">◆</span>
+        <span className="block h-px flex-1 max-w-xs bg-[#B59E7D]/30" />
+      </div>
+
+      {/* ── Clarice — foto esquerda, texto direita ── */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[600px]">
+
+        {/* Foto (ordem invertida no mobile: vai abaixo do texto) */}
+        <ScrollReveal
+          animation="left"
+          className="relative overflow-hidden min-h-[480px] lg:min-h-0 order-2 lg:order-1"
+        >
+          <Image
+            src="/images/sobre/clarice.jpeg"
+            alt="Clarice Fontoura"
+            fill
+            className="object-cover object-[center_15%]"
+            sizes="(max-width: 1024px) 100vw, 50vw"
+          />
+          <div className="absolute inset-0 pointer-events-none"
+            style={{
+              background:
+                "linear-gradient(to left, #F1EADA 0%, transparent 8%, transparent 92%, #F1EADA 100%)",
+            }}
+          />
         </ScrollReveal>
 
-        {/* Cards das designers */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-14 md:gap-24">
-          {/* Nilza */}
-          <ScrollReveal animation="left" delay={150}>
-            <div className="flex flex-col items-center text-center gap-6">
-              {/* Anel dourado em gradiente */}
-              <div
-                className="w-48 h-48 rounded-full p-[3px] shadow-lg"
-                style={{
-                  background:
-                    "linear-gradient(135deg, #f1bf27 0%, #B59E7D 50%, #f1bf27 100%)",
-                }}
-              >
-                <div className="w-full h-full rounded-full overflow-hidden bg-[#F1EADA]">
-                  <Image
-                    src="/images/sobre/nilza.jpeg"
-                    alt="Nilza Duarte Bueno"
-                    width={192}
-                    height={192}
-                    className="w-full h-full object-cover object-top grayscale"
-                  />
-                </div>
-              </div>
-
-              <div className="space-y-2">
-                <h3
-                  className="text-2xl text-[#584738]"
-                  style={{ fontFamily: "'Playfair Display', serif" }}
-                >
-                  Nilza Duarte Bueno
-                </h3>
-                <p
-                  className="text-[#f1bf27] text-[10px] font-bold uppercase tracking-[0.25em]"
-                  style={{ fontFamily: "Manrope, sans-serif" }}
-                >
-                  {t("about.nilza.role")}
-                </p>
-                <p
-                  className="text-[#584738] text-sm leading-relaxed max-w-xs mx-auto pt-1"
-                  style={{ fontFamily: "Manrope, sans-serif" }}
-                >
-                  {t("about.nilza.bio")}
-                </p>
-              </div>
-            </div>
-          </ScrollReveal>
-
-          {/* Clarice */}
-          <ScrollReveal animation="right" delay={250}>
-            <div className="flex flex-col items-center text-center gap-6">
-              {/* Anel dourado em gradiente */}
-              <div
-                className="w-48 h-48 rounded-full p-[3px] shadow-lg"
-                style={{
-                  background:
-                    "linear-gradient(135deg, #f1bf27 0%, #B59E7D 50%, #f1bf27 100%)",
-                }}
-              >
-                <div className="w-full h-full rounded-full overflow-hidden bg-[#F1EADA]">
-                  <Image
-                    src="/images/sobre/clarice.jpeg"
-                    alt="Clarice Fontoura"
-                    width={192}
-                    height={192}
-                    className="w-full h-full object-cover object-top grayscale"
-                  />
-                </div>
-              </div>
-
-              <div className="space-y-2">
-                <h3
-                  className="text-2xl text-[#584738]"
-                  style={{ fontFamily: "'Playfair Display', serif" }}
-                >
-                  Clarice Fontoura
-                </h3>
-                <p
-                  className="text-[#f1bf27] text-[10px] font-bold uppercase tracking-[0.25em]"
-                  style={{ fontFamily: "Manrope, sans-serif" }}
-                >
-                  {t("about.clarice.role")}
-                </p>
-                <p
-                  className="text-[#584738] text-sm leading-relaxed max-w-xs mx-auto pt-1"
-                  style={{ fontFamily: "Manrope, sans-serif" }}
-                >
-                  {t("about.clarice.bio")}
-                </p>
-              </div>
-            </div>
-          </ScrollReveal>
-        </div>
+        {/* Texto */}
+        <ScrollReveal
+          animation="right"
+          className="flex items-center order-1 lg:order-2"
+        >
+          <div className="px-10 py-16 lg:px-20 lg:py-24 max-w-lg">
+            <p
+              className="text-[10px] font-bold uppercase tracking-[0.35em] text-[#f1bf27] mb-4"
+              style={{ fontFamily: "Manrope, sans-serif" }}
+            >
+              {t("about.clarice.role")}
+            </p>
+            <h3
+              className="text-3xl md:text-4xl lg:text-5xl text-[#584738] leading-tight mb-6"
+              style={{ fontFamily: "'Playfair Display', serif" }}
+            >
+              Clarice<br />
+              <span className="italic">Fontoura</span>
+            </h3>
+            <div className="w-10 h-px bg-[#f1bf27] mb-6" />
+            <p
+              className="text-[#584738]/70 text-base leading-[1.85] max-w-sm"
+              style={{ fontFamily: "Manrope, sans-serif" }}
+            >
+              {t("about.clarice.bio")}
+            </p>
+          </div>
+        </ScrollReveal>
       </div>
+
     </section>
   );
 }
