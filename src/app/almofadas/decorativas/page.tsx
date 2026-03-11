@@ -26,6 +26,8 @@ export default function AlmofadasDecorativasPage() {
       <SubcategoryPage
         title="Almofadas Decorativas"
         category="Almofadas"
+        titleKey="/almofadas/decorativas"
+        categoryKey="/almofadas"
         description="Almofadas decorativas sob medida que completam e elevam qualquer ambiente com estilo e conforto."
         descriptionKey="page.almofadas.decorativas.desc"
         products={ALMOFADA_PRODUCTS["decorativas"]}

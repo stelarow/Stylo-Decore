@@ -15,6 +15,7 @@ interface SubcategoryItem {
   desktopImage?: string;
   cardImage?: string;
   description: string;
+  descriptionKey?: string;
 }
 
 interface CategoryPageProps {
@@ -25,6 +26,7 @@ interface CategoryPageProps {
   headlineKey?: string;
   descriptionKey?: string;
   introKey?: string;
+  titleKey?: string;
   subcategories: SubcategoryItem[];
   faqItems?: { question: string; answer: string }[];
   heroDesktopImageStyle?: React.CSSProperties;
@@ -38,11 +40,13 @@ export default function CategoryPage({
   headlineKey,
   descriptionKey,
   introKey,
+  titleKey,
   subcategories,
   faqItems,
   heroDesktopImageStyle,
 }: CategoryPageProps) {
   const { t } = useLanguage();
+  const resolvedTitle = titleKey ? t(titleKey) : title;
   const resolvedHeadline = headlineKey ? t(headlineKey) : headline;
   const resolvedDescription = descriptionKey ? t(descriptionKey) : description;
   const resolvedIntro = introKey ? t(introKey) : intro;
@@ -88,10 +92,10 @@ export default function CategoryPage({
           <div className="relative flex h-full min-h-[50vh] md:min-h-[65vh] lg:min-h-[70vh] items-end">
             <div className="mx-auto w-full max-w-7xl px-6 pb-12 md:pb-16 lg:pb-20">
               <p className="mb-3 text-sm font-medium uppercase tracking-[0.2em] text-primary">
-                {resolvedHeadline || title}
+                {resolvedHeadline || resolvedTitle}
               </p>
               <h1 className="mb-3 font-serif text-4xl font-bold text-white md:text-5xl lg:text-6xl">
-                {title}
+                {resolvedTitle}
               </h1>
               <p className="max-w-xl text-lg text-white/80 lg:text-2xl">
                 {resolvedDescription}
@@ -149,9 +153,9 @@ export default function CategoryPage({
                     Premium
                   </span>
                   <h3 className="mb-1 text-2xl font-bold text-white">
-                    {subcategories[0].name}
+                    {t(subcategories[0].href) || subcategories[0].name}
                   </h3>
-                  <p className="text-sm text-white/70">{subcategories[0].description}</p>
+                  <p className="text-sm text-white/70">{subcategories[0].descriptionKey ? t(subcategories[0].descriptionKey) : subcategories[0].description}</p>
                   <div className="mt-4 flex h-10 w-10 items-center justify-center rounded-full bg-primary text-background-dark opacity-0 transition-all duration-300 group-hover:opacity-100">
                     <ArrowRight className="h-5 w-5" />
                   </div>
@@ -175,9 +179,9 @@ export default function CategoryPage({
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                   <div className="absolute inset-x-0 bottom-0 p-6">
                     <h3 className="mb-1 text-xl font-bold text-white">
-                      {item.name}
+                      {t(item.href) || item.name}
                     </h3>
-                    <p className="text-sm text-white/70">{item.description}</p>
+                    <p className="text-sm text-white/70">{item.descriptionKey ? t(item.descriptionKey) : item.description}</p>
                     <div className="mt-3 flex h-9 w-9 items-center justify-center rounded-full bg-primary text-background-dark opacity-0 transition-all duration-300 group-hover:opacity-100">
                       <ArrowRight className="h-4 w-4" />
                     </div>
@@ -198,7 +202,7 @@ export default function CategoryPage({
                 </p>
                 <a
                   href={getWhatsAppUrl(
-                    `${t("cat.consultancy.whatsapp")}${title.toLowerCase()}.`
+                    `${t("cat.consultancy.whatsapp")}${resolvedTitle.toLowerCase()}.`
                   )}
                   target="_blank"
                   rel="noopener noreferrer"

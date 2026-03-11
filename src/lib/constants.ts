@@ -90,7 +90,8 @@ export const NAVIGATION: NavItem[] = [
     children: [
       { label: "Estantes", href: "/moveis-sob-medida/estantes" },
       { label: "Armários", href: "/moveis-sob-medida/armarios" },
-      { label: "Home Office", href: "/moveis-sob-medida/home-office" },
+      { label: "Mesa de Centro", href: "/moveis-sob-medida/mesa-de-centro" },
+      { label: "Painel de TV", href: "/moveis-sob-medida/painel-de-tv" },
     ],
   },
   { label: "Blog", href: "/blog" },

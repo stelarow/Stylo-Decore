@@ -26,6 +26,8 @@ export default function BreezePage() {
       <SubcategoryPage
         title="Breeze"
         category="Papéis de Parede"
+        titleKey="/papeis-de-parede/breeze"
+        categoryKey="/papeis-de-parede"
         description="Leveza e frescor para ambientes contemporâneos. A coleção Breeze traz tons suaves e padrões delicados que criam uma atmosfera leve e arejada."
         products={PAPEL_PRODUCTS.breeze}
         desktopHeroImage="/images/papel/breeze-hero-desktop.png"

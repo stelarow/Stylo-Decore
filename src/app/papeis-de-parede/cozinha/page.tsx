@@ -26,6 +26,8 @@ export default function CozinhaPage() {
       <SubcategoryPage
         title="Cozinha"
         category="Papéis de Parede"
+        titleKey="/papeis-de-parede/cozinha"
+        categoryKey="/papeis-de-parede"
         description="Revestimentos e estampas exclusivas para cozinhas sofisticadas. De azulejos portugueses a mármores calacata, transforme sua cozinha em um ambiente de design único."
         descriptionKey="page.cozinha.desc"
         products={PAPEL_PRODUCTS.cozinha}

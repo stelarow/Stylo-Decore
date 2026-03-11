@@ -26,6 +26,8 @@ export default function GeometricosPage() {
       <SubcategoryPage
         title="Geométricos"
         category="Papéis de Parede"
+        titleKey="/papeis-de-parede/geometricos"
+        categoryKey="/papeis-de-parede"
         description="Padrões modernos e abstratos que criam dinamismo e sofisticação. A coleção Geométricos traz formas, linhas e texturas que transformam paredes em elementos de design."
         descriptionKey="page.geometricos.desc"
         products={PAPEL_PRODUCTS.geometricos}

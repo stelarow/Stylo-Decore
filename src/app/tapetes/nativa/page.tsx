@@ -26,6 +26,8 @@ export default function TapeteNativaPage() {
       <SubcategoryPage
         title="Nativa"
         category="Tapetes"
+        titleKey="/tapetes/nativa"
+        categoryKey="/tapetes"
         description="Peças que agregam estilo e personalidade ao ambiente. Tapetes decorativos em diversas texturas, cores e padrões para compor o seu espaço."
         products={TAPETE_PRODUCTS["nativa"]}
         desktopHeroImage="/images/tapetes/tapete-decorativo-hero-desktop.png"

@@ -28,6 +28,7 @@ export default function PapeisDeParedePage() {
       <JsonLd data={getFaqJsonLd(PAPEIS_FAQ)} />
       <CategoryPage
         title="Papéis de Parede"
+        titleKey="/papeis-de-parede"
         headline="Arte nas Paredes"
         description="Texturas e padrões que criam personalidade. Explore nossas coleções exclusivas de papéis de parede."
         intro="Papéis de parede são uma forma sofisticada de personalizar ambientes. Trabalhamos com coleções exclusivas que vão do artesanal ao contemporâneo, sempre com aplicação profissional."

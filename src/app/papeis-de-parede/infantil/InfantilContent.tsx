@@ -78,6 +78,8 @@ export default function InfantilContent() {
     <SubcategoryPage
       title="Infantil"
       category="Papéis de Parede"
+      titleKey="/papeis-de-parede/infantil"
+      categoryKey="/papeis-de-parede"
       description={data.description}
       specs={data.specs}
       products={PAPEL_PRODUCTS.infantil}

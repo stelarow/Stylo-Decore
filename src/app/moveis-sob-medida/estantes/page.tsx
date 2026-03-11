@@ -26,11 +26,14 @@ export default function EstantesPage() {
       <SubcategoryPage
         title="Estantes"
         category="Móveis Sob Medida"
+        titleKey="/moveis-sob-medida/estantes"
+        categoryKey="/moveis-sob-medida"
         description="Estantes planejadas que combinam função e sofisticação. Projetos exclusivos desenvolvidos para cada ambiente."
         descriptionKey="page.moveis.estantes.desc"
         products={MOVEL_PRODUCTS["estantes"]}
-        desktopHeroImage="/images/cortinas-hero-room.jpeg"
-        mobileHeroImage="/images/cortinas-hero-room.jpeg"
+        desktopHeroImage="/images/moveis-estantes-desktop.png"
+        mobileHeroImage="/images/moveis-estantes.png"
+        heroImageStyle={{ objectPosition: "center center" }}
       />
     </>
   );

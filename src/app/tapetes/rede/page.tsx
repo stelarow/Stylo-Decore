@@ -26,7 +26,9 @@ export default function TapeteRedePage() {
       <SubcategoryPage
         title="Tapete Rede"
         category="Tapetes"
-        description="Tapetes em rede com textura natural e design exclusivo. Peças que unem leveza e sofisticação, disponíveis em diversos tamanhos e acabamentos sob medida."
+        titleKey="/tapetes/rede"
+        categoryKey="/tapetes"
+        descriptionKey="page.tapetes.rede.desc"
         products={TAPETE_PRODUCTS["rede"]}
         desktopHeroImage="/images/tapetes/tapete-passadeira-hero-desktop.png"
         mobileHeroImage="/images/tapetes/tapete-passadeira-hero-mobile.png"

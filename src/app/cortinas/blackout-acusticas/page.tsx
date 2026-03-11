@@ -26,8 +26,11 @@ export default function BlackoutAcusticasPage() {
       <SubcategoryPage
         title="Blackout & Acústicas"
         category="Cortinas"
+        titleKey="/cortinas/blackout-acusticas"
+        categoryKey="/cortinas"
         description="Bloqueio total de luz e isolamento acústico para conforto máximo. Ideais para quartos, home theaters e ambientes que exigem privacidade e silêncio."
         products={CORTINA_PRODUCTS["blackout-acusticas"]}
+        videoSrc="/videos/cortinas-0311.mp4"
       />
     </>
   );

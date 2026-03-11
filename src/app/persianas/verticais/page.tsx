@@ -26,6 +26,8 @@ export default function PersianasVerticaisPage() {
       <SubcategoryPage
         title="Persianas Verticais"
         category="Persianas"
+        titleKey="/persianas/verticais"
+        categoryKey="/persianas"
         heroImage="/images/persianas/persiana-13.jpg"
         desktopHeroImage="/images/persianas/persiana-verticais-hero-desktop.png"
         description="Ideal para grandes janelas e portas de vidro. As persianas verticais combinam funcionalidade e elegância, permitindo controle de luminosidade com design clean."

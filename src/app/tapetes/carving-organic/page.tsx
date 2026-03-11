@@ -26,6 +26,8 @@ export default function TapeteCarvingOrganicPage() {
       <SubcategoryPage
         title="Carving Organic"
         category="Tapetes"
+        titleKey="/tapetes/carving-organic"
+        categoryKey="/tapetes"
         description="Design autoral com formas orgânicas e acabamento artesanal. Tapetes exclusivos que transformam qualquer ambiente."
         products={TAPETE_PRODUCTS["carving-organic"]}
         desktopHeroImage="/images/tapetes/carving-organic-hero-desktop.png"

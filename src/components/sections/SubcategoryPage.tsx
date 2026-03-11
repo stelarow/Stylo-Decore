@@ -16,7 +16,7 @@ interface ProductItem {
 
 interface SubcategoryPageProps {
   title: string;
-  description: string;
+  description?: string;
   category: string;
   products: ProductItem[];
   headline?: string;
@@ -29,6 +29,10 @@ interface SubcategoryPageProps {
   desktopImageClass?: string;
   mobileImageClass?: string;
   heroImageStyle?: React.CSSProperties;
+  mobileHeroImageStyle?: React.CSSProperties;
+  titleKey?: string;
+  categoryKey?: string;
+  videoSrc?: string;
 }
 
 export default function SubcategoryPage({
@@ -46,6 +50,10 @@ export default function SubcategoryPage({
   desktopImageClass,
   mobileImageClass,
   heroImageStyle,
+  mobileHeroImageStyle,
+  titleKey,
+  categoryKey,
+  videoSrc,
 }: SubcategoryPageProps) {
   const { t } = useLanguage();
   const [longPressActive, setLongPressActive] = useState<string | null>(null);
@@ -99,6 +107,7 @@ export default function SubcategoryPage({
               }
               alt={title}
               className="absolute inset-0 h-full w-full object-cover object-top lg:hidden"
+              style={mobileHeroImageStyle}
             />
           </>
         ) : products[0]?.desktopImage ? (
@@ -135,10 +144,10 @@ export default function SubcategoryPage({
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 w-[90%] max-w-xl lg:max-w-2xl">
           <div className="glass-panel rounded-2xl px-8 py-6 text-center">
             <p className="mb-1 text-[11px] font-semibold uppercase tracking-[0.25em] text-mahogany-light">
-              {tag}
+              {categoryKey ? t(categoryKey) : tag}
             </p>
             <h1 className="font-serif text-3xl font-bold text-foreground md:text-4xl leading-tight">
-              {title}
+              {titleKey ? t(titleKey) : title}
             </h1>
             <p className="mt-1.5 text-xs text-mahogany-light">
               {t("sub.designAutoral")}
@@ -226,6 +235,25 @@ export default function SubcategoryPage({
           ))}
         </div>
       </div>
+
+      {/* Vídeo opcional */}
+      {videoSrc && (
+        <ScrollReveal animation="fade">
+          <div className="mx-auto max-w-3xl lg:max-w-5xl px-6 pb-10">
+            <div className="relative overflow-hidden rounded-2xl shadow-xl">
+              <video
+                src={videoSrc}
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="w-full aspect-video object-cover"
+              />
+              <div className="absolute inset-0 pointer-events-none rounded-2xl ring-1 ring-inset ring-tobacco-light/30" />
+            </div>
+          </div>
+        </ScrollReveal>
+      )}
 
       {/* CTA Dourado */}
       <ScrollReveal animation="up">

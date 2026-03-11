@@ -28,6 +28,7 @@ export default function TapetesPage() {
       <JsonLd data={getFaqJsonLd(TAPETES_FAQ)} />
       <CategoryPage
         title="Tapetes"
+        titleKey="/tapetes"
         headline="Conforto & Estilo"
         description="Conforto e estilo para seus ambientes. Descubra nossos tapetes sob medida, decorativos e passadeiras."
         intro="Tapetes são peças fundamentais na composição de ambientes, trazendo conforto, delimitação de espaços e personalidade. Trabalhamos com formatos, tamanhos e materiais sob medida para cada projeto."

@@ -28,6 +28,7 @@ export default function AlmofadasPage() {
       <JsonLd data={getFaqJsonLd(ALMOFADAS_FAQ)} />
       <CategoryPage
         title="Almofadas"
+        titleKey="/almofadas"
         headline="Conforto & Charme"
         description="Almofadas decorativas que completam e elevam qualquer ambiente. Descubra nossas coleções sob medida."
         intro="Almofadas são detalhes que fazem toda a diferença na composição de ambientes — trazendo cor, textura e conforto. Trabalhamos com formatos, tamanhos e tecidos sob medida para cada projeto."

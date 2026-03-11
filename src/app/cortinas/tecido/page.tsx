@@ -26,8 +26,11 @@ export default function CortinaTecidoPage() {
       <SubcategoryPage
         title="Cortinas de Tecido"
         category="Cortinas"
+        titleKey="/cortinas/tecido"
+        categoryKey="/cortinas"
         description="Elegância e sofisticação com tecidos nobres sob medida. Cada cortina é confeccionada com materiais selecionados para garantir caimento perfeito e durabilidade."
         products={CORTINA_PRODUCTS["tecido"]}
+        videoSrc="/videos/cortinas-0311.mp4"
       />
     </>
   );

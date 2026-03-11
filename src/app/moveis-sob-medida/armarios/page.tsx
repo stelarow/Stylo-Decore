@@ -26,6 +26,8 @@ export default function ArmariosPage() {
       <SubcategoryPage
         title="Armários"
         category="Móveis Sob Medida"
+        titleKey="/moveis-sob-medida/armarios"
+        categoryKey="/moveis-sob-medida"
         description="Armários sob medida para quarto, sala e closet. Design elegante com aproveitamento máximo do seu espaço."
         descriptionKey="page.moveis.armarios.desc"
         products={MOVEL_PRODUCTS["armarios"]}

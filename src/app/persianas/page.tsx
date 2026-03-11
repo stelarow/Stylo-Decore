@@ -28,6 +28,7 @@ export default function PersianasPage() {
       <JsonLd data={getFaqJsonLd(PERSIANAS_FAQ)} />
       <CategoryPage
         title="Persianas"
+        titleKey="/persianas"
         headline="Controle de Luz"
         description="Controle de luz com elegância e praticidade. Descubra nossas persianas sob medida para cada ambiente."
         intro="Persianas são a solução ideal para quem busca controle de luminosidade com design sofisticado. Oferecemos modelos em diversos materiais e acabamentos, sempre com medição e instalação profissional."

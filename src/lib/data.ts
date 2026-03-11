@@ -77,30 +77,35 @@ export const CORTINAS_SUBCATEGORIES = [
     desktopImage: "/images/cortinas-hero-room.jpeg",
     cardImage: "/images/cortinas-tecido-card.jpg",
     description: "Elegância e sofisticação com tecidos nobres sob medida",
+    descriptionKey: "card.cortinas.tecido",
   },
   {
     name: "Prega Americana",
     href: "/cortinas/prega-americana",
     image: "/images/cortinas-prega-americana.jpg",
     description: "Estilo clássico com pregas elegantes e bem definidas",
+    descriptionKey: "card.cortinas.prega-americana",
   },
   {
     name: "Cortina com Ilhós",
     href: "/cortinas/ilhos",
     image: "/images/cortinas-ilhos.jpg",
     description: "Visual moderno com argolas metálicas e deslizamento suave",
+    descriptionKey: "card.cortinas.ilhos",
   },
   {
     name: "Cortina Wave",
     href: "/cortinas/wave",
     image: "/images/cortinas-wave.jpg",
     description: "Caimento suave em ondas uniformes para um visual contemporâneo",
+    descriptionKey: "card.cortinas.wave",
   },
   {
     name: "Blackout & Acústicas",
     href: "/cortinas/blackout-acusticas",
     image: "/images/cortinas/blackout-03.jpg",
     description: "Bloqueio total de luz e isolamento acústico para conforto máximo",
+    descriptionKey: "card.cortinas.blackout-acusticas",
   },
 ];
 
@@ -158,18 +163,21 @@ export const PERSIANAS_SUBCATEGORIES = [
     image: "/images/persianas/persiana-02.jpg",
     desktopImage: "/images/persianas/persiana-hero-desktop.jpeg",
     description: "Versatilidade e durabilidade em alumínio ou madeira",
+    descriptionKey: "card.persianas.horizontais",
   },
   {
     name: "Verticais",
     href: "/persianas/verticais",
     image: "/images/persianas/persiana-13.jpg",
     description: "Ideal para grandes janelas e portas de vidro",
+    descriptionKey: "card.persianas.verticais",
   },
   {
     name: "Rolô & Double Vision",
     href: "/persianas/rolo-double-vision",
     image: "/images/persianas/persiana-15.jpg",
     description: "Controle preciso de luminosidade com design moderno",
+    descriptionKey: "card.persianas.rolo-double-vision",
   },
 ];
 
@@ -179,18 +187,21 @@ export const PAPEIS_SUBCATEGORIES = [
     href: "/papeis-de-parede/geometricos",
     image: "/images/papel-geometricos.jpg",
     description: "Padrões geométricos e abstratos para ambientes modernos",
+    descriptionKey: "card.papeis.geometricos",
   },
   {
     name: "Infantil",
     href: "/papeis-de-parede/infantil",
     image: "/images/papel-infantil.jpg",
     description: "Estampas encantadoras para o quarto dos pequenos",
+    descriptionKey: "card.papeis.infantil",
   },
   {
     name: "Cozinha",
     href: "/papeis-de-parede/cozinha",
     image: "/images/papel/cozinha/cozinha-marmore-calacata-dourado.jpg",
     description: "Revestimentos e estampas exclusivas para cozinhas sofisticadas",
+    descriptionKey: "card.papeis.cozinha",
   },
 ];
 
@@ -201,18 +212,21 @@ export const TAPETES_SUBCATEGORIES = [
     image: "/images/tapetes/tapete-sob-medida-01.png",
     desktopImage: "/images/tapetes-hero-desktop.png",
     description: "Design autoral com formas orgânicas e acabamento artesanal",
+    descriptionKey: "card.tapetes.carving-organic",
   },
   {
     name: "Nativa",
     href: "/tapetes/nativa",
     image: "/images/tapetes/tapete-nativa-hero.png",
     description: "Peças que agregam estilo e personalidade ao ambiente",
+    descriptionKey: "card.tapetes.nativa",
   },
   {
     name: "Tapete Rede",
     href: "/tapetes/rede",
     image: "/images/tapetes/tapete-14.jpg",
     description: "Tapetes em rede com textura natural e design exclusivo",
+    descriptionKey: "card.tapetes.rede",
   },
 ];
 
@@ -349,6 +363,7 @@ export const ALMOFADAS_SUBCATEGORIES = [
     image: "/images/almofadas-hero.png",
     desktopImage: "/images/almofadas-hero-desktop.png",
     description: "Almofadas decorativas sob medida para todos os ambientes",
+    descriptionKey: "card.almofadas.decorativas",
   },
 ];
 
@@ -364,25 +379,50 @@ export const MOVEIS_SUBCATEGORIES = [
   {
     name: "Estantes",
     href: "/moveis-sob-medida/estantes",
-    image: "/images/cortinas-hero-room.jpeg", // TODO: imagem real
+    image: "/images/moveis-estantes.png",
     description: "Estantes planejadas que combinam função e sofisticação",
+    descriptionKey: "card.moveis.estantes",
   },
   {
-    name: "Armários",
-    href: "/moveis-sob-medida/armarios",
-    image: "/images/persianas-hero.jpeg", // TODO: imagem real
-    description: "Armários sob medida para quarto, sala e closet",
+    name: "Mesa de Centro",
+    href: "/moveis-sob-medida/mesa-de-centro",
+    image: "/images/moveis-mesa-centro.png",
+    description: "Mesas de centro sob medida para sala de estar",
+    descriptionKey: "card.moveis.mesa-de-centro",
   },
   {
-    name: "Home Office",
-    href: "/moveis-sob-medida/home-office",
-    image: "/images/papeis-hero.jpeg", // TODO: imagem real
-    description: "Móveis planejados para seu escritório em casa",
+    name: "Painel de TV",
+    href: "/moveis-sob-medida/painel-de-tv",
+    image: "/images/moveis-painel-tv.png",
+    description: "Painéis sob medida com design sofisticado para sala de estar",
+    descriptionKey: "card.moveis.painel-de-tv",
   },
 ];
 
 export const MOVEL_PRODUCTS: Record<string, { name: string; image: string; category: string }[]> = {
-  estantes: getPlaceholderProducts("Móveis Sob Medida", "Estante", 6),
+  estantes: [
+    { name: "Estante - Modelo 1", image: "/images/moveis/estantes/estante-01.jpg", category: "Móveis Sob Medida" },
+    { name: "Estante - Modelo 2", image: "/images/moveis/estantes/estante-02.jpg", category: "Móveis Sob Medida" },
+    { name: "Estante - Modelo 3", image: "/images/moveis/estantes/estante-03.jpg", category: "Móveis Sob Medida" },
+    { name: "Estante - Modelo 4", image: "/images/moveis/estantes/estante-04.jpg", category: "Móveis Sob Medida" },
+    { name: "Estante - Modelo 5", image: "/images/moveis/estantes/estante-05.jpg", category: "Móveis Sob Medida" },
+    { name: "Estante - Modelo 6", image: "/images/moveis/estantes/estante-06.jpg", category: "Móveis Sob Medida" },
+  ],
   armarios: getPlaceholderProducts("Móveis Sob Medida", "Armário", 6),
-  "home-office": getPlaceholderProducts("Móveis Sob Medida", "Home Office", 6),
+  "painel-de-tv": [
+    { name: "Painel de TV - Modelo 1", image: "/images/moveis/painel-de-tv/painel-01.jpg", category: "Móveis Sob Medida" },
+    { name: "Painel de TV - Modelo 2", image: "/images/moveis/painel-de-tv/painel-02.jpg", category: "Móveis Sob Medida" },
+    { name: "Painel de TV - Modelo 3", image: "/images/moveis/painel-de-tv/painel-03.jpg", category: "Móveis Sob Medida" },
+    { name: "Painel de TV - Modelo 4", image: "/images/moveis/painel-de-tv/painel-04.jpg", category: "Móveis Sob Medida" },
+    { name: "Painel de TV - Modelo 5", image: "/images/moveis/painel-de-tv/painel-05.jpg", category: "Móveis Sob Medida" },
+    { name: "Painel de TV - Modelo 6", image: "/images/moveis/painel-de-tv/painel-06.jpg", category: "Móveis Sob Medida" },
+  ],
+  "mesa-de-centro": [
+    { name: "Mesa de Centro - Modelo 1", image: "/images/moveis/mesa-de-centro/mesa-01.jpg", category: "Móveis Sob Medida" },
+    { name: "Mesa de Centro - Modelo 2", image: "/images/moveis/mesa-de-centro/mesa-02.jpg", category: "Móveis Sob Medida" },
+    { name: "Mesa de Centro - Modelo 3", image: "/images/moveis/mesa-de-centro/mesa-03.jpg", category: "Móveis Sob Medida" },
+    { name: "Mesa de Centro - Modelo 4", image: "/images/moveis/mesa-de-centro/mesa-04.jpg", category: "Móveis Sob Medida" },
+    { name: "Mesa de Centro - Modelo 5", image: "/images/moveis/mesa-de-centro/mesa-05.jpg", category: "Móveis Sob Medida" },
+    { name: "Mesa de Centro - Modelo 6", image: "/images/moveis/mesa-de-centro/mesa-06.jpg", category: "Móveis Sob Medida" },
+  ],
 };

@@ -28,6 +28,7 @@ export default function MoveisSobMedidaPage() {
       <JsonLd data={getFaqJsonLd(MOVEIS_FAQ)} />
       <CategoryPage
         title="Móveis Sob Medida"
+        titleKey="/moveis-sob-medida"
         headline="Design & Funcionalidade"
         description="Estantes, armários e home office planejados que unem design sofisticado e máxima funcionalidade. Cada projeto pensado para o seu espaço."
         intro="Móveis planejados transformam qualquer ambiente — aproveitando cada centímetro com inteligência e elegância. Desenvolvemos projetos completos de estantes, armários e home office sob medida para a sua casa."

@@ -47,7 +47,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE_URL}/moveis-sob-medida`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
     { url: `${SITE_URL}/moveis-sob-medida/estantes`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
     { url: `${SITE_URL}/moveis-sob-medida/armarios`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
-    { url: `${SITE_URL}/moveis-sob-medida/home-office`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${SITE_URL}/moveis-sob-medida/painel-de-tv`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
 
     // Blog
     { url: `${SITE_URL}/blog`, lastModified: now, changeFrequency: "weekly", priority: 0.7 },
