@@ -29,8 +29,8 @@ export default function AlmofadasDecorativasPage() {
         description="Almofadas decorativas sob medida que completam e elevam qualquer ambiente com estilo e conforto."
         descriptionKey="page.almofadas.decorativas.desc"
         products={ALMOFADA_PRODUCTS["decorativas"]}
-        desktopHeroImage="/images/tapetes-hero.jpeg"
-        mobileHeroImage="/images/tapetes-hero.jpeg"
+        desktopHeroImage="/images/almofadas/almofadas-hero.png"
+        mobileHeroImage="/images/almofadas/almofadas-hero.png"
       />
     </>
   );

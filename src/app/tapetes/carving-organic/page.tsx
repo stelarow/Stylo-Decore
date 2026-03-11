@@ -28,8 +28,8 @@ export default function TapeteCarvingOrganicPage() {
         category="Tapetes"
         description="Design autoral com formas orgânicas e acabamento artesanal. Tapetes exclusivos que transformam qualquer ambiente."
         products={TAPETE_PRODUCTS["carving-organic"]}
-        desktopHeroImage="/images/tapetes/tapete-sob-medida-hero-desktop.png"
-        mobileHeroImage="/images/tapetes/tapete-sob-medida-hero-mobile.png"
+        desktopHeroImage="/images/tapetes/carving-organic-hero-desktop.png"
+        mobileHeroImage="/images/tapetes/carving-organic-hero-mobile.png"
       />
     </>
   );

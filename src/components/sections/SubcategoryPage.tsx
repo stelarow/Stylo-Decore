@@ -4,12 +4,14 @@ import { Check, ClipboardList, ArrowRight } from "lucide-react";
 import { getWhatsAppUrl } from "@/lib/constants";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import { useLanguage } from "@/context/LanguageContext";
+import { useRef, useState } from "react";
 
 interface ProductItem {
   name: string;
   image: string;
   desktopImage?: string;
   category: string;
+  descriptionKey?: string;
 }
 
 interface SubcategoryPageProps {
@@ -46,6 +48,17 @@ export default function SubcategoryPage({
   heroImageStyle,
 }: SubcategoryPageProps) {
   const { t } = useLanguage();
+  const [longPressActive, setLongPressActive] = useState<string | null>(null);
+  const longPressTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const handleTouchStart = (name: string) => {
+    longPressTimer.current = setTimeout(() => setLongPressActive(name), 500);
+  };
+
+  const handleTouchEnd = () => {
+    if (longPressTimer.current) clearTimeout(longPressTimer.current);
+    setTimeout(() => setLongPressActive(null), 1500);
+  };
 
   const defaultSpecs = [
     {
@@ -159,36 +172,54 @@ export default function SubcategoryPage({
                 )}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative block overflow-hidden"
+                className="group block"
+                onTouchStart={() => product.descriptionKey && handleTouchStart(product.name)}
+                onTouchEnd={handleTouchEnd}
+                onTouchCancel={handleTouchEnd}
               >
-                {product.desktopImage ? (
-                  <>
-                    <img
-                      src={product.desktopImage}
-                      alt={product.name}
-                      className={desktopImageClass ?? "hidden lg:block w-full aspect-[4/3] object-cover transition-transform duration-500 group-hover:scale-[1.02]"}
-                    />
+                <div className="relative overflow-hidden">
+                  {product.desktopImage ? (
+                    <>
+                      <img
+                        src={product.desktopImage}
+                        alt={product.name}
+                        className={desktopImageClass ?? "hidden lg:block w-full aspect-[4/3] object-cover transition-transform duration-500 group-hover:scale-[1.02]"}
+                      />
+                      <img
+                        src={product.image}
+                        alt={product.name}
+                        className={mobileImageClass ?? "lg:hidden w-full aspect-[4/3] object-cover transition-transform duration-500 group-hover:scale-[1.02]"}
+                      />
+                    </>
+                  ) : (
                     <img
                       src={product.image}
                       alt={product.name}
-                      className={mobileImageClass ?? "lg:hidden w-full aspect-[4/3] object-cover transition-transform duration-500 group-hover:scale-[1.02]"}
+                      className="w-full aspect-[4/3] object-cover transition-transform duration-500 group-hover:scale-[1.02]"
                     />
-                  </>
-                ) : (
-                  <img
-                    src={product.image}
-                    alt={product.name}
-                    className="w-full aspect-[4/3] object-cover transition-transform duration-500 group-hover:scale-[1.02]"
-                  />
-                )}
-                {/* Overlay com info */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-                <div className="absolute bottom-0 left-0 right-0 p-5 translate-y-4 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
-                  <p className="text-sm font-semibold text-white mb-2">{product.name}</p>
-                  <span className="inline-flex items-center gap-2 rounded-full bg-white/90 px-5 py-2 text-xs font-semibold text-foreground backdrop-blur-sm transition-colors group-hover:bg-white">
-                    {t("sub.interest")}
-                    <ArrowRight className="h-3.5 w-3.5" />
-                  </span>
+                  )}
+                  {/* Overlay com info no hover */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                  <div className={`absolute left-0 right-0 p-5 translate-y-4 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 ${product.descriptionKey ? "bottom-[72px]" : "bottom-0"}`}>
+                    <p className="text-sm font-semibold text-white mb-2">{product.name}</p>
+                    <span className="inline-flex items-center gap-2 rounded-full bg-white/90 px-5 py-2 text-xs font-semibold text-foreground backdrop-blur-sm transition-colors group-hover:bg-white">
+                      {t("sub.interest")}
+                      <ArrowRight className="h-3.5 w-3.5" />
+                    </span>
+                  </div>
+                  {/* Faixa glass — aparece no hover (desktop) ou long-press (mobile) */}
+                  {product.descriptionKey && (
+                    <div
+                      className={`absolute bottom-0 left-0 right-0 px-4 py-3 backdrop-blur-md transition-opacity duration-300 ${
+                        longPressActive === product.name ? "opacity-100" : "opacity-0 group-hover:opacity-100"
+                      }`}
+                      style={{ background: "rgba(241,234,218,0.82)" }}
+                    >
+                      <p className="text-xs leading-snug text-mahogany italic">
+                        {t(product.descriptionKey)}
+                      </p>
+                    </div>
+                  )}
                 </div>
               </a>
             </ScrollReveal>

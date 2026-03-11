@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     title: "Almofadas Decorativas em Florianópolis | Stylo Decore",
     description: "Almofadas decorativas sob medida. Conforto e charme para seus ambientes em Florianópolis e Região.",
     url: "/almofadas",
-    images: [{ url: "/images/tapetes-hero.jpeg", width: 1200, height: 630, alt: "Almofadas Decorativas - Stylo Decore" }],
+    images: [{ url: "/images/almofadas-hero.png", width: 1200, height: 630, alt: "Almofadas Decorativas - Stylo Decore" }],
   },
 };
 
@@ -36,6 +36,7 @@ export default function AlmofadasPage() {
         introKey="cat.almofadas.intro"
         subcategories={ALMOFADAS_SUBCATEGORIES}
         faqItems={ALMOFADAS_FAQ_KEYS}
+        heroDesktopImageStyle={{ top: "-10%", left: "-10%", width: "120%", height: "120%" }}
       />
     </>
   );

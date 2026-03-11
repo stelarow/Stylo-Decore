@@ -385,13 +385,13 @@ export const NAV_TRANSLATIONS: Record<Language, Record<string, string>> = {
     "about.eyebrow": "Nossa equipe",
     "about.title": "Sobre Nós",
     "about.subtitle":
-      "Com mais de 20 anos de experiência em design de interiores, transformamos ambientes com soluções sob medida e atendimento consultivo personalizado em Florianópolis e região.",
+      "Duas designers de interiores que unem experiência em projeto e curadoria para oferecer consultoria personalizada de tapetes, cortinas, persianas, almofadas, papéis de parede e mobiliário. Criando ambientes elegantes, funcionais e alinhados ao estilo de vida de cada cliente.",
     "about.nilza.role": "Fundadora & Designer",
     "about.nilza.bio":
-      "Mais de 20 anos dedicados ao design de interiores e decoração. Especialista em criar ambientes que equilibram estética, funcionalidade e a personalidade de cada cliente.",
+      "Designer de interiores com mais de 20 anos de experiência no mercado de decoração. Atuou à frente de uma loja especializada no exterior, desenvolvendo expertise em curadoria de peças, tecidos, revestimentos e mobiliário com olhar apurado.",
     "about.clarice.role": "Designer de Interiores",
     "about.clarice.bio":
-      "Especialista em composição de ambientes e seleção de materiais. Traduz o estilo e as necessidades de cada cliente em projetos únicos, com atenção aos detalhes que fazem a diferença.",
+      "Designer de ambientes, graduada e mestre na área, com mais de 9 anos de experiência em projetos residenciais e comerciais no Brasil e no exterior. Sua pesquisa investiga a relação entre o ambiente e a qualidade de vida, e o seu trabalho dialoga com referências brasileiras e europeias.",
 
     // FAQ — Default
     "faq.default.q1": "Como funciona a medição?",
@@ -462,6 +462,11 @@ export const NAV_TRANSLATIONS: Record<Language, Record<string, string>> = {
     "faq.moveis.a3": "Trabalhamos com MDF de alta qualidade, MDP, madeira maciça e acabamentos em laminado, melamínico, laca e revestimentos especiais. Todos os materiais seguem normas de qualidade e durabilidade para garantir móveis bonitos e resistentes.",
     "faq.moveis.q4": "É possível integrar iluminação LED nos móveis planejados?",
     "faq.moveis.a4": "Sim! Oferecemos integração de iluminação LED embutida em estantes, armários e painéis, criando ambientes sofisticados e funcionais. A iluminação pode ser com acionamento por sensor, dimmer ou integrada à automação residencial.",
+
+    // Descrições de produtos
+    "product.jardimFloralBebe.description": "Projeto de quarto infantil que combina elementos naturais, iluminação suave e formas orgânicas para criar um ambiente acolhedor e afetivo.",
+    "product.motocross.description": "O papel de parede temático dá vida ao quarto e estimula o universo infantil.",
+    "product.mapaMundiRosa.description": "Um quarto lúdico e educativo, onde o mapa-múndi transforma o papel de parede em uma jornada de descobertas.",
   },
 
   en: {
@@ -841,13 +846,13 @@ export const NAV_TRANSLATIONS: Record<Language, Record<string, string>> = {
     "about.eyebrow": "Our team",
     "about.title": "About Us",
     "about.subtitle":
-      "With over 20 years of experience in interior design, we transform spaces with custom solutions and personalized consultative service in Florianópolis and the surrounding region.",
+      "Two interior designers who combine project experience and curation to offer personalized consulting on rugs, curtains, blinds, cushions, wallpaper, and furniture. Creating elegant, functional spaces aligned with each client's lifestyle.",
     "about.nilza.role": "Founder & Designer",
     "about.nilza.bio":
-      "Over 20 years dedicated to interior design and decoration. Specialist in creating spaces that balance aesthetics, functionality, and the personality of each client.",
+      "Interior designer with over 20 years of experience in the decoration market. Led a specialized store abroad, developing expertise in curating pieces, fabrics, finishes, and furniture with a refined eye.",
     "about.clarice.role": "Interior Designer",
     "about.clarice.bio":
-      "Specialist in space composition and material selection. Translates each client's style and needs into unique projects, with attention to the details that make a difference.",
+      "Environment designer with a graduate and master's degree, with over 9 years of experience in residential and commercial projects in Brazil and abroad. Her research explores the relationship between environment and quality of life, with work that bridges Brazilian and European references.",
 
     // FAQ — Default
     "faq.default.q1": "How does the measurement work?",
@@ -918,6 +923,11 @@ export const NAV_TRANSLATIONS: Record<Language, Record<string, string>> = {
     "faq.moveis.a3": "We work with high-quality MDF, MDP, solid wood and finishes in laminate, melamine, lacquer and special coatings. All materials meet quality and durability standards to ensure beautiful and resistant furniture.",
     "faq.moveis.q4": "Is it possible to integrate LED lighting into planned furniture?",
     "faq.moveis.a4": "Yes! We offer integrated LED lighting in shelving units, wardrobes and panels, creating sophisticated and functional environments. Lighting can be sensor-activated, dimmer-controlled or integrated into home automation systems.",
+
+    // Product descriptions
+    "product.jardimFloralBebe.description": "A children's room project that blends natural elements, soft lighting and organic shapes to create a warm and nurturing environment.",
+    "product.motocross.description": "The themed wallpaper brings the room to life and sparks the imagination of little ones.",
+    "product.mapaMundiRosa.description": "A playful and educational room where the world map turns the wallpaper into a journey of discovery.",
   },
 
   es: {
@@ -1299,13 +1309,13 @@ export const NAV_TRANSLATIONS: Record<Language, Record<string, string>> = {
     "about.eyebrow": "Nuestro equipo",
     "about.title": "Sobre Nosotros",
     "about.subtitle":
-      "Con más de 20 años de experiencia en diseño de interiores, transformamos espacios con soluciones a medida y atención consultiva personalizada en Florianópolis y la región.",
+      "Dos diseñadoras de interiores que combinan experiencia en proyectos y curaduría para ofrecer consultoría personalizada en alfombras, cortinas, persianas, cojines, papeles de pared y mobiliario. Creando ambientes elegantes, funcionales y alineados con el estilo de vida de cada cliente.",
     "about.nilza.role": "Fundadora & Diseñadora",
     "about.nilza.bio":
-      "Más de 20 años dedicados al diseño de interiores y decoración. Especialista en crear ambientes que equilibran estética, funcionalidad y la personalidad de cada cliente.",
+      "Diseñadora de interiores con más de 20 años de experiencia en el mercado de la decoración. Dirigió una tienda especializada en el exterior, desarrollando expertise en curaduría de piezas, tejidos, revestimientos y mobiliario con mirada refinada.",
     "about.clarice.role": "Diseñadora de Interiores",
     "about.clarice.bio":
-      "Especialista en composición de ambientes y selección de materiales. Traduce el estilo y las necesidades de cada cliente en proyectos únicos, con atención a los detalles que marcan la diferencia.",
+      "Diseñadora de ambientes, graduada y con maestría en el área, con más de 9 años de experiencia en proyectos residenciales y comerciales en Brasil y en el exterior. Su investigación explora la relación entre el ambiente y la calidad de vida, con un trabajo que dialoga con referencias brasileñas y europeas.",
 
     // FAQ — Default
     "faq.default.q1": "¿Cómo funciona la medición?",
@@ -1376,5 +1386,10 @@ export const NAV_TRANSLATIONS: Record<Language, Record<string, string>> = {
     "faq.moveis.a3": "Trabajamos con MDF de alta calidad, MDP, madera maciza y acabados en laminado, melamínico, laca y revestimientos especiales. Todos los materiales cumplen normas de calidad y durabilidad para garantizar muebles bonitos y resistentes.",
     "faq.moveis.q4": "¿Es posible integrar iluminación LED en los muebles a medida?",
     "faq.moveis.a4": "¡Sí! Ofrecemos integración de iluminación LED empotrada en estanterías, armarios y paneles, creando ambientes sofisticados y funcionales. La iluminación puede ser con activación por sensor, regulador de intensidad o integrada en sistemas de domótica.",
+
+    // Descripciones de productos
+    "product.jardimFloralBebe.description": "Proyecto de cuarto infantil que combina elementos naturales, iluminación suave y formas orgánicas para crear un ambiente acogedor y afectivo.",
+    "product.motocross.description": "El papel tapiz temático da vida al cuarto y estimula el universo infantil.",
+    "product.mapaMundiRosa.description": "Un cuarto lúdico y educativo donde el mapamundi convierte el papel tapiz en un viaje de descubrimientos.",
   },
 };

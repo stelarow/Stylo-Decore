@@ -74,7 +74,7 @@ export const NAVIGATION: NavItem[] = [
     children: [
       { label: "Carving Organic", href: "/tapetes/carving-organic" },
       { label: "Nativa", href: "/tapetes/nativa" },
-      { label: "Passadeira", href: "/tapetes/passadeira" },
+      { label: "Rede", href: "/tapetes/rede" },
     ],
   },
   {
@@ -103,8 +103,8 @@ export const CATEGORIES = [
     href: "/cortinas",
     description: "Tecidos nobres que transformam ambientes",
     tag: "TEXTURAS",
-    image: "/images/cortinas-colecoes.png",
-    imageDesktop: "/images/cortinas-colecoes.png",
+    image: "/images/cortinas-hero-room.jpeg",
+    imageDesktop: "/images/cortinas-hero-room.jpeg",
     imagePosition: "75% center",
     imagePositionDesktop: "center center",
   },
@@ -139,7 +139,7 @@ export const CATEGORIES = [
     href: "/almofadas",
     description: "Almofadas decorativas que completam o ambiente",
     tag: "EM BREVE",
-    image: "/images/tapetes-hero.jpeg", // TODO: imagem real
+    image: "/images/almofadas-hero.png",
     imagePosition: "center center",
   },
   {

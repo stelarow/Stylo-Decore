@@ -63,7 +63,7 @@ export default function HeroSection() {
         {/* Mobile video */}
         <video
           className="absolute inset-0 h-full w-full object-cover md:hidden"
-          src="/videos/Curtain_sways_sea_moves_wind_delpmaspu_.mp4"
+          src="/videos/hero-0310.mp4"
           autoPlay
           muted
           loop
@@ -73,7 +73,7 @@ export default function HeroSection() {
         <video
           ref={desktopVideoRef}
           className="absolute inset-0 hidden h-full w-full object-cover md:block"
-          src="/videos/Whisk_gto5i2y0cdolrgm30sojfgotcdn4qtlkrdn40iz.mp4"
+          src="/videos/hero-0310.mp4"
           autoPlay
           muted
           playsInline

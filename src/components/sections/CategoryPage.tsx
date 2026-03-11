@@ -27,6 +27,7 @@ interface CategoryPageProps {
   introKey?: string;
   subcategories: SubcategoryItem[];
   faqItems?: { question: string; answer: string }[];
+  heroDesktopImageStyle?: React.CSSProperties;
 }
 
 export default function CategoryPage({
@@ -39,6 +40,7 @@ export default function CategoryPage({
   introKey,
   subcategories,
   faqItems,
+  heroDesktopImageStyle,
 }: CategoryPageProps) {
   const { t } = useLanguage();
   const resolvedHeadline = headlineKey ? t(headlineKey) : headline;
@@ -50,13 +52,14 @@ export default function CategoryPage({
     <div>
       {/* Hero */}
       {subcategories[0] && (
-        <div className="relative w-full min-h-[50vh] md:min-h-[65vh] lg:min-h-[70vh]">
+        <div className="relative w-full min-h-[50vh] md:min-h-[65vh] lg:min-h-[70vh] overflow-hidden">
           {subcategories[0].desktopImage ? (
             <>
               <img
                 src={subcategories[0].desktopImage}
                 alt={title}
-                className="absolute inset-0 hidden h-full w-full object-cover lg:block"
+                className="absolute hidden object-cover lg:block"
+                style={heroDesktopImageStyle}
               />
               <img
                 src={subcategories[0].image}
@@ -65,11 +68,21 @@ export default function CategoryPage({
               />
             </>
           ) : (
-            <img
-              src={subcategories[0].image}
-              alt={title}
-              className="absolute inset-0 h-full w-full object-cover"
-            />
+            <>
+              {/* desktop — zoom controlável */}
+              <img
+                src={subcategories[0].image}
+                alt={title}
+                className="absolute hidden object-cover lg:block"
+                style={heroDesktopImageStyle}
+              />
+              {/* mobile — sem zoom extra */}
+              <img
+                src={subcategories[0].image}
+                alt={title}
+                className="absolute inset-0 h-full w-full object-cover lg:hidden"
+              />
+            </>
           )}
           <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
           <div className="relative flex h-full min-h-[50vh] md:min-h-[65vh] lg:min-h-[70vh] items-end">

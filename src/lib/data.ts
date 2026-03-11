@@ -205,40 +205,40 @@ export const TAPETES_SUBCATEGORIES = [
   {
     name: "Nativa",
     href: "/tapetes/nativa",
-    image: "/images/tapetes/tapete-03.jpg",
+    image: "/images/tapetes/tapete-nativa-hero.png",
     description: "Peças que agregam estilo e personalidade ao ambiente",
   },
   {
-    name: "Tapete Passadeira",
-    href: "/tapetes/passadeira",
+    name: "Tapete Rede",
+    href: "/tapetes/rede",
     image: "/images/tapetes/tapete-14.jpg",
-    description: "Ideal para corredores, halls e áreas de circulação",
+    description: "Tapetes em rede com textura natural e design exclusivo",
   },
 ];
 
 // Produtos de Tapetes por subcategoria
 export const TAPETE_PRODUCTS: Record<string, { name: string; image: string; category: string }[]> = {
   "carving-organic": [
-    { name: "Carving Organic - Modelo 1", image: "/images/tapetes/tapete-sob-medida-01.png", category: "Tapetes" },
-    { name: "Carving Organic - Modelo 2", image: "/images/tapetes/tapete-sob-medida-02.png", category: "Tapetes" },
-    { name: "Carving Organic - Modelo 3", image: "/images/tapetes/tapete-sob-medida-03.png", category: "Tapetes" },
+    { name: "Carving Organic - Modelo 1", image: "/images/tapetes/carving-organic-card-1.png", category: "Tapetes" },
+    { name: "Carving Organic - Modelo 2", image: "/images/tapetes/carving-organic-card-2.png", category: "Tapetes" },
+    { name: "Carving Organic - Modelo 3", image: "/images/tapetes/carving-organic-card-3.png", category: "Tapetes" },
   ],
   nativa: [
     { name: "Nativa - Modelo 1", image: "/images/tapetes/tapete-decorativo-01.png", category: "Tapetes" },
     { name: "Nativa - Modelo 2", image: "/images/tapetes/tapete-decorativo-02.png", category: "Tapetes" },
     { name: "Nativa - Modelo 3", image: "/images/tapetes/tapete-decorativo-03.png", category: "Tapetes" },
   ],
-  passadeira: [
-    { name: "Passadeira - Modelo 1", image: "/images/tapetes/tapete-14.jpg", category: "Tapetes" },
-    { name: "Passadeira - Modelo 2", image: "/images/tapetes/tapete-12.jpg", category: "Tapetes" },
-    { name: "Passadeira - Modelo 3", image: "/images/tapetes/tapete-13.jpg", category: "Tapetes" },
-    { name: "Passadeira - Modelo 4", image: "/images/tapetes/tapete-04.jpg", category: "Tapetes" },
-    { name: "Passadeira - Modelo 5", image: "/images/tapetes/tapete-05.jpg", category: "Tapetes" },
+  rede: [
+    { name: "Tapete Rede - Modelo 1", image: "/images/tapetes/tapete-14.jpg", category: "Tapetes" },
+    { name: "Tapete Rede - Modelo 2", image: "/images/tapetes/tapete-12.jpg", category: "Tapetes" },
+    { name: "Tapete Rede - Modelo 3", image: "/images/tapetes/tapete-13.jpg", category: "Tapetes" },
+    { name: "Tapete Rede - Modelo 4", image: "/images/tapetes/tapete-04.jpg", category: "Tapetes" },
+    { name: "Tapete Rede - Modelo 5", image: "/images/tapetes/tapete-05.jpg", category: "Tapetes" },
   ],
 };
 
 // Produtos de Papel de Parede por subcategoria
-export const PAPEL_PRODUCTS: Record<string, { name: string; image: string; category: string }[]> = {
+export const PAPEL_PRODUCTS: Record<string, { name: string; image: string; category: string; descriptionKey?: string }[]> = {
   breeze: [
     { name: "Breeze - Modelo 1", image: "/images/papel/papel-17.jpg", category: "Papéis de Parede" },
     { name: "Breeze - Modelo 2", image: "/images/papel/papel-20.jpg", category: "Papéis de Parede" },
@@ -271,10 +271,10 @@ export const PAPEL_PRODUCTS: Record<string, { name: string; image: string; categ
     { name: "Aquarela Pendente", image: "/images/papel/papel-infantil-aquarela-pendente.jpg", category: "Papéis de Parede" },
     { name: "Arco-Íris e Bolinhas Aquarela", image: "/images/papel/papel-infantil-arco-iris-bolinhas.jpg", category: "Papéis de Parede" },
     { name: "Boiserie Verde Água", image: "/images/papel/papel-infantil-boiserie-verde-agua.jpg", category: "Papéis de Parede" },
-    { name: "Bolas de Esportes Cinza", image: "/images/papel/papel-infantil-bolas-esportes-cinza.jpg", category: "Papéis de Parede" },
-    { name: "Borboletas em Jardim Suspenso", image: "/images/papel/papel-infantil-borboletas-jardim.jpg", category: "Papéis de Parede" },
-    { name: "Carimbos de Viagem", image: "/images/papel/papel-infantil-carimbos-viagem.jpg", category: "Papéis de Parede" },
-    { name: "Carrinhos Infantil Aquarela", image: "/images/papel/papel-infantil-carrinhos-aquarela.jpg", category: "Papéis de Parede" },
+    { name: "Motocross", image: "/images/papel/papel-infantil-motocross.jpg", category: "Papéis de Parede", descriptionKey: "product.motocross.description" },
+    { name: "Jardim Floral Bebê", image: "/images/papel/papel-infantil-jardim-floral-bebe.jpg", category: "Papéis de Parede", descriptionKey: "product.jardimFloralBebe.description" },
+    { name: "Mapa Mundi Rosa", image: "/images/papel/papel-infantil-mapa-mundi-rosa.jpg", category: "Papéis de Parede", descriptionKey: "product.mapaMundiRosa.description" },
+    { name: "Fundo do Mar", image: "/images/papel/papel-infantil-fundo-do-mar.jpg", category: "Papéis de Parede" },
     { name: "Cute Arco-Íris e Corações", image: "/images/papel/papel-infantil-cute-arco-iris-coracoes.jpg", category: "Papéis de Parede" },
     { name: "Dinos Areia", image: "/images/papel/papel-infantil-dinos-areia.jpg", category: "Papéis de Parede" },
     { name: "Dinossauros", image: "/images/papel/papel-infantil-dinossauros.jpg", category: "Papéis de Parede" },
@@ -346,13 +346,17 @@ export const ALMOFADAS_SUBCATEGORIES = [
   {
     name: "Almofadas Decorativas",
     href: "/almofadas/decorativas",
-    image: "/images/tapetes-hero.jpeg", // TODO: imagem real
+    image: "/images/almofadas-hero.png",
     description: "Almofadas decorativas sob medida para todos os ambientes",
   },
 ];
 
 export const ALMOFADA_PRODUCTS: Record<string, { name: string; image: string; category: string }[]> = {
-  decorativas: getPlaceholderProducts("Almofadas", "Almofada Decorativa", 6),
+  decorativas: [
+    { name: "Almofada Decorativa", image: "/images/almofadas/decorativa-1.jpeg", category: "Almofadas" },
+    { name: "Almofada Decorativa", image: "/images/almofadas/decorativa-2.jpeg", category: "Almofadas" },
+    { name: "Almofada Decorativa", image: "/images/almofadas/decorativa-4.jpeg", category: "Almofadas" },
+  ],
 };
 
 export const MOVEIS_SUBCATEGORIES = [
