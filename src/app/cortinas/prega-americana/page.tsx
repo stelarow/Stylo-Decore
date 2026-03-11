@@ -33,7 +33,14 @@ export default function PregaAmericanaPage() {
         products={CORTINA_PRODUCTS["prega-americana"]}
         desktopImageClass="hidden lg:block w-full aspect-[3/4] object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
         mobileImageClass="lg:hidden w-full aspect-[3/4] object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
-        videoSrc="/videos/cortinas-0311.mp4"
+        videoSrc="/videos/processo-cortinas.mp4"
+        videoTitle="video.processo.title"
+        videoCaption="video.processo.caption"
+        videoFeatures={[
+          { icon: "ruler", label: "video.processo.feat.medicao" },
+          { icon: "scissors", label: "video.processo.feat.pontos" },
+          { icon: "shirt", label: "video.processo.feat.caimento" },
+        ]}
       />
     </>
   );

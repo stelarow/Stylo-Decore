@@ -30,7 +30,14 @@ export default function CortinaWavePage() {
         categoryKey="/cortinas"
         description="Caimento suave em ondas uniformes, criando um visual leve e contemporâneo. O trilho especial Wave garante ondas perfeitas e regulares para um acabamento impecável."
         products={CORTINA_PRODUCTS["wave"]}
-        videoSrc="/videos/cortinas-0311.mp4"
+        videoSrc="/videos/processo-cortinas.mp4"
+        videoTitle="video.processo.title"
+        videoCaption="video.processo.caption"
+        videoFeatures={[
+          { icon: "ruler", label: "video.processo.feat.medicao" },
+          { icon: "scissors", label: "video.processo.feat.pontos" },
+          { icon: "shirt", label: "video.processo.feat.caimento" },
+        ]}
       />
     </>
   );

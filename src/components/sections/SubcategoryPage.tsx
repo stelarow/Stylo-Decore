@@ -1,6 +1,6 @@
 "use client";
 
-import { Check, ClipboardList, ArrowRight } from "lucide-react";
+import { Check, ClipboardList, ArrowRight, Ruler, Scissors, Wind, Shirt } from "lucide-react";
 import { getWhatsAppUrl } from "@/lib/constants";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import { useLanguage } from "@/context/LanguageContext";
@@ -33,6 +33,9 @@ interface SubcategoryPageProps {
   titleKey?: string;
   categoryKey?: string;
   videoSrc?: string;
+  videoCaption?: string;
+  videoTitle?: string;
+  videoFeatures?: { icon: "ruler" | "scissors" | "wind" | "shirt"; label: string }[];
 }
 
 export default function SubcategoryPage({
@@ -54,10 +57,26 @@ export default function SubcategoryPage({
   titleKey,
   categoryKey,
   videoSrc,
+  videoCaption,
+  videoTitle,
+  videoFeatures,
 }: SubcategoryPageProps) {
   const { t } = useLanguage();
   const [longPressActive, setLongPressActive] = useState<string | null>(null);
   const longPressTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const [videoIsPortrait, setVideoIsPortrait] = useState<boolean | null>(true);
+
+  const videoIconMap = {
+    ruler: <Ruler size={28} strokeWidth={1.5} />,
+    scissors: <Scissors size={28} strokeWidth={1.5} />,
+    wind: <Wind size={28} strokeWidth={1.5} />,
+    shirt: <Shirt size={28} strokeWidth={1.5} />,
+  };
+
+  const handleVideoLoaded = (e: React.SyntheticEvent<HTMLVideoElement>) => {
+    const v = e.currentTarget;
+    setVideoIsPortrait(v.videoHeight > v.videoWidth);
+  };
 
   const handleTouchStart = (name: string) => {
     longPressTimer.current = setTimeout(() => setLongPressActive(name), 500);
@@ -238,40 +257,138 @@ export default function SubcategoryPage({
 
       {/* Vídeo opcional */}
       {videoSrc && (
-        <ScrollReveal animation="fade">
-          <div className="mx-auto max-w-3xl lg:max-w-5xl px-6 pb-10">
-            <div className="relative overflow-hidden rounded-2xl shadow-xl">
-              <video
-                src={videoSrc}
-                autoPlay
-                muted
-                loop
-                playsInline
-                className="w-full aspect-video object-cover"
-              />
-              <div className="absolute inset-0 pointer-events-none rounded-2xl ring-1 ring-inset ring-tobacco-light/30" />
+        <section className="mt-16 mb-4">
+          {/* Separador visual */}
+          <ScrollReveal animation="fade">
+            <div className="mx-auto max-w-3xl lg:max-w-5xl px-6">
+              <div className="flex items-center gap-4 mb-10">
+                <div className="flex-1 h-px bg-tobacco/30" />
+                <div className="flex items-center gap-2">
+                  <div className="w-1.5 h-1.5 rounded-full bg-primary" />
+                  <span
+                    className="text-xs font-semibold tracking-[0.2em] uppercase"
+                    style={{ color: "var(--color-tobacco)" }}
+                  >
+                    {t("video.processo.label")}
+                  </span>
+                  <div className="w-1.5 h-1.5 rounded-full bg-primary" />
+                </div>
+                <div className="flex-1 h-px bg-tobacco/30" />
+              </div>
             </div>
-          </div>
-        </ScrollReveal>
+          </ScrollReveal>
+
+          <ScrollReveal animation="fade">
+            <div className="mx-auto max-w-3xl lg:max-w-5xl px-6">
+              {/* Layout dinâmico:
+                  portrait  → vídeo à esquerda (lg+), conteúdo à direita; mobile: vídeo em cima
+                  landscape → legenda em cima, vídeo abaixo */}
+              <div
+                className={
+                  videoIsPortrait
+                    ? "flex flex-col md:flex-row gap-8 items-center"
+                    : "flex flex-col gap-6"
+                }
+              >
+                {/* Legenda em cima (landscape / null) */}
+                {!videoIsPortrait && videoCaption && (
+                  <div className="flex items-start gap-3 px-1">
+                    <div
+                      className="mt-1 w-0.5 self-stretch rounded-full flex-shrink-0"
+                      style={{ background: "var(--color-primary)", minHeight: "1.5rem" }}
+                    />
+                    <p
+                      className="text-sm font-medium leading-relaxed italic"
+                      style={{ color: "var(--color-foreground)" }}
+                    >
+                      {t(videoCaption)}
+                    </p>
+                  </div>
+                )}
+
+                {/* Vídeo */}
+                <div
+                  className={
+                    videoIsPortrait
+                      ? "relative overflow-hidden rounded-2xl shadow-lg flex-shrink-0 w-full md:w-auto"
+                      : "relative overflow-hidden rounded-2xl shadow-xl"
+                  }
+                >
+                  <video
+                    src={videoSrc}
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    onLoadedMetadata={handleVideoLoaded}
+                    className={
+                      videoIsPortrait
+                        ? "w-full h-full object-cover rounded-2xl"
+                        : "w-full aspect-video object-cover"
+                    }
+                    style={videoIsPortrait ? { maxHeight: "460px", minHeight: "280px" } : undefined}
+                  />
+                  <div className="absolute inset-0 pointer-events-none rounded-2xl ring-1 ring-inset ring-tobacco/20" />
+                </div>
+
+                {/* Conteúdo ao lado (portrait) */}
+                {videoIsPortrait && (
+                  <div className="flex flex-col justify-center gap-5 flex-1 w-full md:pl-2">
+                    {/* Barra dourada vertical + título */}
+                    {videoTitle && (
+                      <div className="flex items-stretch gap-5">
+                        <div
+                          className="w-[3px] rounded-full flex-shrink-0 self-stretch"
+                          style={{ background: "var(--color-primary)" }}
+                        />
+                        <h3
+                          className="font-serif text-3xl sm:text-4xl font-bold leading-tight"
+                          style={{ color: "var(--color-foreground)" }}
+                        >
+                          {t(videoTitle)}
+                        </h3>
+                      </div>
+                    )}
+
+                    {/* Caption */}
+                    {videoCaption && (
+                      <p
+                        className="text-sm sm:text-base leading-relaxed"
+                        style={{ color: "var(--color-mahogany-light, var(--color-foreground))" }}
+                      >
+                        {t(videoCaption)}
+                      </p>
+                    )}
+
+                    {/* Features — ícone + label, sem bordas */}
+                    {videoFeatures && videoFeatures.length > 0 && (
+                      <div className="flex flex-wrap gap-8 pt-2">
+                        {videoFeatures.map((f, i) => (
+                          <div key={i} className="flex flex-col items-center gap-2 text-center min-w-[72px]">
+                            <div
+                              className="flex items-center justify-center"
+                              style={{ color: "var(--color-primary)" }}
+                            >
+                              {videoIconMap[f.icon]}
+                            </div>
+                            <span
+                              className="text-xs font-semibold leading-tight"
+                              style={{ color: "var(--color-foreground)" }}
+                            >
+                              {t(f.label)}
+                            </span>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                )}
+              </div>
+            </div>
+          </ScrollReveal>
+        </section>
       )}
 
-      {/* CTA Dourado */}
-      <ScrollReveal animation="up">
-        <div className="mx-auto max-w-3xl lg:max-w-5xl px-6 py-8">
-          <div className="text-center">
-            <a
-              href={getWhatsAppUrl(
-                `${t("sub.whatsapp.project")} ${title} ${t("sub.whatsapp.projectEnd")}`
-              )}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="brushed-gold inline-flex items-center rounded-full px-10 py-4 text-sm font-semibold uppercase tracking-wider transition-all hover:shadow-lg"
-            >
-              {t("sub.customProject")}
-            </a>
-          </div>
-        </div>
-      </ScrollReveal>
 
       {/* Especificações Premium */}
       <ScrollReveal animation="up">

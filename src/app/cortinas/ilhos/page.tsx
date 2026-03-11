@@ -31,7 +31,14 @@ export default function CortinaIlhosPage() {
         description="Argolas metálicas que proporcionam um visual moderno e deslizamento suave. Fácil de instalar e prática no dia a dia, ideal para quem busca praticidade com estilo."
         heroImage="/images/cortinas/cortina-ilhos-hero-desktop.png"
         products={CORTINA_PRODUCTS["ilhos"]}
-        videoSrc="/videos/cortinas-0311.mp4"
+        videoSrc="/videos/processo-cortinas.mp4"
+        videoTitle="video.processo.title"
+        videoCaption="video.processo.caption"
+        videoFeatures={[
+          { icon: "ruler", label: "video.processo.feat.medicao" },
+          { icon: "scissors", label: "video.processo.feat.pontos" },
+          { icon: "shirt", label: "video.processo.feat.caimento" },
+        ]}
       />
     </>
   );

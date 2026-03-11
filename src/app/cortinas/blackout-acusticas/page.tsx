@@ -30,7 +30,14 @@ export default function BlackoutAcusticasPage() {
         categoryKey="/cortinas"
         description="Bloqueio total de luz e isolamento acústico para conforto máximo. Ideais para quartos, home theaters e ambientes que exigem privacidade e silêncio."
         products={CORTINA_PRODUCTS["blackout-acusticas"]}
-        videoSrc="/videos/cortinas-0311.mp4"
+        videoSrc="/videos/processo-cortinas.mp4"
+        videoTitle="video.processo.title"
+        videoCaption="video.processo.caption"
+        videoFeatures={[
+          { icon: "ruler", label: "video.processo.feat.medicao" },
+          { icon: "scissors", label: "video.processo.feat.pontos" },
+          { icon: "shirt", label: "video.processo.feat.caimento" },
+        ]}
       />
     </>
   );

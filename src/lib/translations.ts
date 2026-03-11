@@ -207,6 +207,14 @@ export const NAV_TRANSLATIONS: Record<Language, Record<string, string>> = {
     "sub.whatsapp.showroom":
       "Olá! Gostaria de solicitar um orçamento para",
 
+    // Seção Processo (vídeo)
+    "video.processo.label": "Processo",
+    "video.processo.title": "Precisão e Elegância em Cada Barra",
+    "video.processo.caption": "Processo de marcação de barra ou bainhas, desta forma temos precisão nos acabamentos",
+    "video.processo.feat.medicao": "Medição Exata",
+    "video.processo.feat.pontos": "Pontos Perfeitos",
+    "video.processo.feat.caimento": "Caimento Impecável",
+
     // Testimonials
     "testimonials.label": "Depoimentos",
     "testimonials.title": "O que nossos clientes dizem",
@@ -692,6 +700,14 @@ export const NAV_TRANSLATIONS: Record<Language, Record<string, string>> = {
     "sub.whatsapp.projectEnd": "and I'd like to request a custom project.",
     "sub.whatsapp.showroom":
       "Hello! I'd like to request a quote for",
+
+    // Process Section (video)
+    "video.processo.label": "Process",
+    "video.processo.title": "Precision and Elegance in Every Hem",
+    "video.processo.caption": "Our hem marking process ensures precision in every finish",
+    "video.processo.feat.medicao": "Precise Measurement",
+    "video.processo.feat.pontos": "Perfect Stitches",
+    "video.processo.feat.caimento": "Impeccable Drape",
 
     // Testimonials
     "testimonials.label": "Testimonials",
@@ -1180,6 +1196,14 @@ export const NAV_TRANSLATIONS: Record<Language, Record<string, string>> = {
       "y me gustaría solicitar un proyecto a medida.",
     "sub.whatsapp.showroom":
       "¡Hola! Me gustaría solicitar un presupuesto para",
+
+    // Sección Proceso (video)
+    "video.processo.label": "Proceso",
+    "video.processo.title": "Precisión y Elegancia en Cada Dobladillo",
+    "video.processo.caption": "Nuestro proceso de marcado de dobladillos garantiza precisión en cada acabado",
+    "video.processo.feat.medicao": "Medición Exacta",
+    "video.processo.feat.pontos": "Puntos Perfectos",
+    "video.processo.feat.caimento": "Caída Impecable",
 
     // Testimonials
     "testimonials.label": "Testimonios",

@@ -30,7 +30,14 @@ export default function CortinaTecidoPage() {
         categoryKey="/cortinas"
         description="Elegância e sofisticação com tecidos nobres sob medida. Cada cortina é confeccionada com materiais selecionados para garantir caimento perfeito e durabilidade."
         products={CORTINA_PRODUCTS["tecido"]}
-        videoSrc="/videos/cortinas-0311.mp4"
+        videoSrc="/videos/processo-tecido.mp4"
+        videoTitle="video.processo.title"
+        videoCaption="video.processo.caption"
+        videoFeatures={[
+          { icon: "ruler", label: "video.processo.feat.medicao" },
+          { icon: "scissors", label: "video.processo.feat.pontos" },
+          { icon: "shirt", label: "video.processo.feat.caimento" },
+        ]}
       />
     </>
   );
