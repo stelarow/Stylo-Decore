@@ -40,7 +40,7 @@ export default function Home() {
         {/* Mobile: vídeo de fundo */}
         <video
           className="absolute inset-0 h-full w-full object-cover md:hidden"
-          src="/videos/hero-mobile.mp4"
+          src="/videos/hero-0309.mp4"
           autoPlay
           muted
           loop
@@ -49,7 +49,7 @@ export default function Home() {
         {/* Desktop: vídeo de fundo */}
         <video
           className="absolute inset-0 hidden h-full w-full object-cover md:block"
-          src="/videos/hero-desktop.mp4"
+          src="/videos/hero-0310.mp4"
           autoPlay
           muted
           loop

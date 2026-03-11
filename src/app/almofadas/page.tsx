@@ -36,7 +36,6 @@ export default function AlmofadasPage() {
         introKey="cat.almofadas.intro"
         subcategories={ALMOFADAS_SUBCATEGORIES}
         faqItems={ALMOFADAS_FAQ_KEYS}
-        heroDesktopImageStyle={{ top: "-10%", left: "-10%", width: "120%", height: "120%" }}
       />
     </>
   );

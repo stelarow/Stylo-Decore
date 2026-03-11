@@ -347,6 +347,7 @@ export const ALMOFADAS_SUBCATEGORIES = [
     name: "Almofadas Decorativas",
     href: "/almofadas/decorativas",
     image: "/images/almofadas-hero.png",
+    desktopImage: "/images/almofadas-hero-desktop.png",
     description: "Almofadas decorativas sob medida para todos os ambientes",
   },
 ];

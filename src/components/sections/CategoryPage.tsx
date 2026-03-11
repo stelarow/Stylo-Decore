@@ -58,7 +58,7 @@ export default function CategoryPage({
               <img
                 src={subcategories[0].desktopImage}
                 alt={title}
-                className="absolute hidden object-cover lg:block"
+                className="absolute inset-0 hidden h-full w-full object-cover lg:block"
                 style={heroDesktopImageStyle}
               />
               <img
@@ -73,7 +73,7 @@ export default function CategoryPage({
               <img
                 src={subcategories[0].image}
                 alt={title}
-                className="absolute hidden object-cover lg:block"
+                className="absolute inset-0 hidden h-full w-full object-cover lg:block"
                 style={heroDesktopImageStyle}
               />
               {/* mobile — sem zoom extra */}
