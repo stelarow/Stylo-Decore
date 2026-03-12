@@ -71,15 +71,6 @@ export const BLOG_POSTS = [
 
 export const CORTINAS_SUBCATEGORIES = [
   {
-    name: "Cortinas de Tecido",
-    href: "/cortinas/tecido",
-    image: "/images/cortinas-tecido.jpg",
-    desktopImage: "/images/cortinas-hero-room.jpeg",
-    cardImage: "/images/cortinas-tecido-card.jpg",
-    description: "Elegância e sofisticação com tecidos nobres sob medida",
-    descriptionKey: "card.cortinas.tecido",
-  },
-  {
     name: "Prega Americana",
     href: "/cortinas/prega-americana",
     image: "/images/cortinas-prega-americana.jpg",
@@ -107,52 +98,41 @@ export const CORTINAS_SUBCATEGORIES = [
     description: "Bloqueio total de luz e isolamento acústico para conforto máximo",
     descriptionKey: "card.cortinas.blackout-acusticas",
   },
+  {
+    name: "Cortinas com Varão",
+    href: "/cortinas/varao",
+    image: "/images/cortinas/cortina-26.jpg",
+    description: "Visual clássico e elegante com varões decorativos em madeira ou metal",
+    descriptionKey: "card.cortinas.varao",
+  },
 ];
 
 // Produtos de Cortinas por subcategoria
 export const CORTINA_PRODUCTS: Record<string, { name: string; image: string; desktopImage?: string; category: string }[]> = {
-  tecido: [
-    { name: "Cortina de Tecido - Modelo 1", image: "/images/cortinas/cortina-01.jpg", desktopImage: "/images/cortinas/cortina-tecido-hero-desktop.png", category: "Cortinas" },
-    { name: "Cortina de Tecido - Modelo 2", image: "/images/cortinas/cortina-02.jpg", category: "Cortinas" },
-    { name: "Cortina de Tecido - Modelo 3", image: "/images/cortinas/cortina-03.jpg", category: "Cortinas" },
-    { name: "Cortina de Tecido - Modelo 4", image: "/images/cortinas/cortina-04.jpg", category: "Cortinas" },
-    { name: "Cortina de Tecido - Modelo 5", image: "/images/cortinas/cortina-05.jpg", category: "Cortinas" },
-    { name: "Cortina de Tecido - Modelo 6", image: "/images/cortinas/cortina-06.jpg", category: "Cortinas" },
-  ],
   "prega-americana": [
-    { name: "Prega Americana - Modelo 1", image: "/images/cortinas/prega-americana-desktop-01.jpg", desktopImage: "/images/cortinas/prega-americana-desktop-01.jpg", category: "Cortinas" },
-    { name: "Prega Americana - Modelo 2", image: "/images/cortinas/prega-americana-desktop-02.jpg", desktopImage: "/images/cortinas/prega-americana-desktop-02.jpg", category: "Cortinas" },
-    { name: "Prega Americana - Modelo 3", image: "/images/cortinas/prega-americana-desktop-03.jpg", desktopImage: "/images/cortinas/prega-americana-desktop-03.jpg", category: "Cortinas" },
-    { name: "Prega Americana - Modelo 4", image: "/images/cortinas/prega-americana-desktop-04.jpg", desktopImage: "/images/cortinas/prega-americana-desktop-04.jpg", category: "Cortinas" },
-    { name: "Prega Americana - Modelo 5", image: "/images/cortinas/prega-americana-desktop-05.jpg", desktopImage: "/images/cortinas/prega-americana-desktop-05.jpg", category: "Cortinas" },
-    { name: "Prega Americana - Modelo 6", image: "/images/cortinas/prega-americana-desktop-06.jpg", desktopImage: "/images/cortinas/prega-americana-desktop-06.jpg", category: "Cortinas" },
+    { name: "Prega Americana - Modelo 1", image: "/images/cortinas/prega-americana-desktop-01.jpg", desktopImage: "/images/cortinas/prega-americana-portrait-01.jpg", category: "Cortinas" },
+    { name: "Prega Americana - Modelo 2", image: "/images/cortinas/prega-americana-desktop-02.jpg", desktopImage: "/images/cortinas/prega-americana-portrait-02.jpg", category: "Cortinas" },
+    { name: "Prega Americana - Modelo 3", image: "/images/cortinas/prega-americana-desktop-03.jpg", desktopImage: "/images/cortinas/prega-americana-portrait-03.jpg", category: "Cortinas" },
   ],
   ilhos: [
-    { name: "Cortina com Ilhós - Modelo 1", image: "/images/cortinas/ilhos-01.jpg", category: "Cortinas" },
-    { name: "Cortina com Ilhós - Modelo 2", image: "/images/cortinas/ilhos-02.jpg", category: "Cortinas" },
-    { name: "Cortina com Ilhós - Modelo 3", image: "/images/cortinas/ilhos-03.jpg", category: "Cortinas" },
-    { name: "Cortina com Ilhós - Modelo 4", image: "/images/cortinas/ilhos-04.jpg", category: "Cortinas" },
-    { name: "Cortina com Ilhós - Modelo 5", image: "/images/cortinas/ilhos-05.jpg", category: "Cortinas" },
-    { name: "Cortina com Ilhós - Modelo 6", image: "/images/cortinas/ilhos-06.jpg", category: "Cortinas" },
+    { name: "Cortina com Ilhós - Modelo 1", image: "/images/cortinas/ilhos-01.jpg", desktopImage: "/images/cortinas/ilhos-portrait-01.jpg", category: "Cortinas" },
+    { name: "Cortina com Ilhós - Modelo 2", image: "/images/cortinas/ilhos-02.jpg", desktopImage: "/images/cortinas/ilhos-portrait-02.jpg", category: "Cortinas" },
+    { name: "Cortina com Ilhós - Modelo 3", image: "/images/cortinas/ilhos-03.jpg", desktopImage: "/images/cortinas/ilhos-portrait-03.jpg", category: "Cortinas" },
   ],
   wave: [
-    { name: "Cortina Wave - Modelo 1", image: "/images/cortinas/cortina-19.jpg", desktopImage: "/images/cortinas/cortina-wave-hero-desktop.png", category: "Cortinas" },
-    { name: "Cortina Wave - Modelo 2", image: "/images/cortinas/wave-01.jpg", category: "Cortinas" },
-    { name: "Cortina Wave - Modelo 3", image: "/images/cortinas/wave-02.jpg", category: "Cortinas" },
-    { name: "Cortina Wave - Modelo 4", image: "/images/cortinas/wave-03.jpg", category: "Cortinas" },
-    { name: "Cortina Wave - Modelo 5", image: "/images/cortinas/wave-04.jpg", category: "Cortinas" },
-    { name: "Cortina Wave - Modelo 6", image: "/images/cortinas/wave-05.jpg", category: "Cortinas" },
-    { name: "Cortina Wave - Modelo 7", image: "/images/cortinas/wave-06.jpg", category: "Cortinas" },
-    { name: "Cortina Wave - Modelo 8", image: "/images/cortinas/wave-07.jpg", category: "Cortinas" },
+    { name: "Cortina Wave - Modelo 1", image: "/images/cortinas/cortina-19.jpg", desktopImage: "/images/cortinas/wave-portrait-01.jpg", category: "Cortinas" },
+    { name: "Cortina Wave - Modelo 2", image: "/images/cortinas/wave-01.jpg", desktopImage: "/images/cortinas/wave-portrait-02.jpg", category: "Cortinas" },
+    { name: "Cortina Wave - Modelo 3", image: "/images/cortinas/wave-02.jpg", desktopImage: "/images/cortinas/wave-portrait-03.jpg", category: "Cortinas" },
+  ],
+  varao: [
+    { name: "Cortina com Varão - Modelo 1", image: "/images/cortinas/cortina-26.jpg", desktopImage: "/images/cortinas/varao-portrait-01.jpg", category: "Cortinas" },
+    { name: "Cortina com Varão - Modelo 2", image: "/images/cortinas/cortina-27.jpg", desktopImage: "/images/cortinas/varao-portrait-02.jpg", category: "Cortinas" },
+    { name: "Cortina com Varão - Modelo 3", image: "/images/cortinas/cortina-28.jpg", desktopImage: "/images/cortinas/varao-portrait-03.jpg", category: "Cortinas" },
   ],
   "blackout-acusticas": [
-    { name: "Blackout & Acústica - Modelo 1", image: "/images/cortinas/cortina-25.jpg", desktopImage: "/images/cortinas/cortina-blackout-hero-desktop.png", category: "Cortinas" },
-    { name: "Blackout & Acústica - Modelo 2", image: "/images/cortinas/blackout-01.jpg", category: "Cortinas" },
-    { name: "Blackout & Acústica - Modelo 3", image: "/images/cortinas/blackout-02.jpg", category: "Cortinas" },
-    { name: "Blackout & Acústica - Modelo 4", image: "/images/cortinas/blackout-03.jpg", category: "Cortinas" },
-    { name: "Blackout & Acústica - Modelo 5", image: "/images/cortinas/blackout-04.jpg", category: "Cortinas" },
-    { name: "Blackout & Acústica - Modelo 6", image: "/images/cortinas/blackout-05.jpg", category: "Cortinas" },
-    { name: "Blackout & Acústica - Modelo 7", image: "/images/cortinas/blackout-06.jpg", category: "Cortinas" },
+    { name: "Blackout & Acústica - Modelo 1", image: "/images/cortinas/cortina-25.jpg", desktopImage: "/images/cortinas/blackout-portrait-01.jpg", category: "Cortinas" },
+    { name: "Blackout & Acústica - Modelo 2", image: "/images/cortinas/blackout-01.jpg", desktopImage: "/images/cortinas/blackout-portrait-02.jpg", category: "Cortinas" },
+    { name: "Blackout & Acústica - Modelo 3", image: "/images/cortinas/blackout-02.jpg", desktopImage: "/images/cortinas/blackout-portrait-03.jpg", category: "Cortinas" },
   ],
 };
 
@@ -178,6 +158,62 @@ export const PERSIANAS_SUBCATEGORIES = [
     image: "/images/persianas/persiana-15.jpg",
     description: "Controle preciso de luminosidade com design moderno",
     descriptionKey: "card.persianas.rolo-double-vision",
+  },
+  {
+    name: "Rolô Duo",
+    href: "/persianas/rolo-duo",
+    image: "/images/persianas/persiana-16.jpg",
+    description: "Duas camadas de tecido para controle total de luz e privacidade",
+    descriptionKey: "card.persianas.rolo-duo",
+  },
+  {
+    name: "Rolô",
+    href: "/persianas/rolo",
+    image: "/images/persianas/rolo-01.jpg",
+    description: "Simplicidade e funcionalidade em tecidos de alta qualidade",
+    descriptionKey: "card.persianas.rolo",
+  },
+  {
+    name: "Romana",
+    href: "/persianas/romana",
+    image: "/images/persianas/persiana-07.jpg",
+    description: "Dobras horizontais elegantes que valorizam qualquer ambiente",
+    descriptionKey: "card.persianas.romana",
+  },
+  {
+    name: "Romanshine",
+    href: "/persianas/romanshine",
+    image: "/images/persianas/persiana-04.jpg",
+    description: "Acabamento acetinado exclusivo para um visual sofisticado",
+    descriptionKey: "card.persianas.romanshine",
+  },
+  {
+    name: "Miragem",
+    href: "/persianas/miragem",
+    image: "/images/persianas/persiana-11.jpg",
+    description: "Efeito visual único com transparência e privacidade simultâneas",
+    descriptionKey: "card.persianas.miragem",
+  },
+  {
+    name: "VF Romana de Teto",
+    href: "/persianas/vf-romana-de-teto",
+    image: "/images/persianas/persiana-17.jpg",
+    description: "Instalação em teto para ambientes contemporâneos e arrojados",
+    descriptionKey: "card.persianas.vf-romana-de-teto",
+  },
+  {
+    name: "Clássica Supreme",
+    href: "/persianas/classica-supreme",
+    image: "/images/persianas/persiana-h-sala.jpg",
+    description: "Linha Supreme com tecidos exclusivos e acabamento premium",
+    descriptionKey: "card.persianas.classica-supreme",
+  },
+  {
+    name: "Painel",
+    href: "/persianas/painel",
+    image: "/images/persianas/persiana-vertical.jpg",
+    description: "Painéis deslizantes modernos para grandes aberturas e divisórias",
+    descriptionKey: "card.persianas.painel",
   },
 ];
 
@@ -335,6 +371,38 @@ export const PERSIANA_PRODUCTS: Record<string, { name: string; image: string; ca
     { name: "Rolô - Modelo 3", image: "/images/persianas/rolo-03.jpg", category: "Persianas" },
     { name: "Double Vision - Modelo 1", image: "/images/persianas/rolo-04.jpg", category: "Persianas" },
     { name: "Double Vision - Modelo 2", image: "/images/persianas/rolo-05.jpg", category: "Persianas" },
+  ],
+  "rolo-duo": [
+    { name: "Rolô Duo - Modelo 1", image: "/images/persianas/rolo-01.jpg", category: "Persianas" },
+    { name: "Rolô Duo - Modelo 2", image: "/images/persianas/rolo-02.jpg", category: "Persianas" },
+  ],
+  rolo: [
+    { name: "Rolô - Modelo 1", image: "/images/persianas/rolo-01.jpg", category: "Persianas" },
+    { name: "Rolô - Modelo 2", image: "/images/persianas/rolo-03.jpg", category: "Persianas" },
+  ],
+  romana: [
+    { name: "Romana - Modelo 1", image: "/images/persianas/persiana-07.jpg", category: "Persianas" },
+    { name: "Romana - Modelo 2", image: "/images/persianas/persiana-04.jpg", category: "Persianas" },
+  ],
+  romanshine: [
+    { name: "Romanshine - Modelo 1", image: "/images/persianas/persiana-04.jpg", category: "Persianas" },
+    { name: "Romanshine - Modelo 2", image: "/images/persianas/persiana-14.jpg", category: "Persianas" },
+  ],
+  miragem: [
+    { name: "Miragem - Modelo 1", image: "/images/persianas/persiana-11.jpg", category: "Persianas" },
+    { name: "Miragem - Modelo 2", image: "/images/persianas/persiana-15.jpg", category: "Persianas" },
+  ],
+  "vf-romana-de-teto": [
+    { name: "VF Romana de Teto - Modelo 1", image: "/images/persianas/persiana-17.jpg", category: "Persianas" },
+    { name: "VF Romana de Teto - Modelo 2", image: "/images/persianas/persiana-13.jpg", category: "Persianas" },
+  ],
+  "classica-supreme": [
+    { name: "Clássica Supreme - Modelo 1", image: "/images/persianas/persiana-h-sala.jpg", category: "Persianas" },
+    { name: "Clássica Supreme Plus - Modelo 1", image: "/images/persianas/persiana-h-cinza.jpg", category: "Persianas" },
+  ],
+  painel: [
+    { name: "Painel - Modelo 1", image: "/images/persianas/persiana-vertical.jpg", category: "Persianas" },
+    { name: "Painel - Modelo 2", image: "/images/persianas/persiana-13.jpg", category: "Persianas" },
   ],
 };
 

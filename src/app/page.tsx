@@ -36,7 +36,7 @@ export default function Home() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative flex min-h-[85vh] items-center justify-center">
+      <section className="relative flex min-h-[85vh] flex-col items-center justify-between py-14">
         {/* Mobile: vídeo de fundo */}
         <video
           className="absolute inset-0 h-full w-full object-cover md:hidden"
@@ -57,14 +57,19 @@ export default function Home() {
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/40 to-black/70" />
 
-        <div className="relative z-10 mx-auto max-w-4xl px-6 text-center">
-          <p className="mb-4 text-sm font-medium uppercase tracking-[0.3em] text-primary drop-shadow-md">
+        {/* Stylo Decore — topo, maior e mais visível */}
+        <div className="relative z-10 w-full px-6 pt-2 text-center">
+          <p className="font-serif text-3xl font-bold uppercase tracking-[0.25em] text-primary drop-shadow-[0_2px_12px_rgba(0,0,0,0.5)] md:text-4xl lg:text-5xl">
             Stylo Decore
           </p>
-          <h1 className="mb-6 font-serif text-4xl font-bold leading-tight text-white drop-shadow-[0_2px_12px_rgba(0,0,0,0.6)] md:text-5xl lg:text-6xl xl:text-7xl">
+        </div>
+
+        {/* Texto pequeno + CTAs — base do vídeo */}
+        <div className="relative z-10 mx-auto w-full max-w-3xl px-6 pb-4 text-center">
+          <h1 className="mb-1.5 font-serif text-lg font-semibold text-white drop-shadow-md md:text-xl">
             {t("hero.title")}
           </h1>
-          <p className="mx-auto mb-10 max-w-2xl text-lg text-white drop-shadow-[0_1px_6px_rgba(0,0,0,0.7)] md:text-xl xl:text-2xl">
+          <p className="mx-auto mb-8 max-w-xl text-sm text-white/85 drop-shadow md:text-base">
             {t("hero.subtitle")}
           </p>
           <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
@@ -89,11 +94,27 @@ export default function Home() {
       {/* Nossas Coleções */}
       <section id="colecoes" className="relative -mt-10 rounded-t-[2.5rem] bg-background pt-20 md:pt-28">
         <ScrollReveal animation="up">
-          <div className="mx-auto max-w-7xl px-6 mb-12">
+          <div className="mx-auto max-w-7xl px-6 mb-10">
             <h2 className="font-serif text-3xl font-bold text-foreground md:text-4xl">
               {t("home.collections")}
             </h2>
             <div className="mt-3 h-1 w-16 rounded-full bg-primary" />
+
+            {/* Diferenciais resumidos */}
+            <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-3">
+              <div>
+                <p className="mb-1 text-sm font-bold text-foreground">Personalização</p>
+                <p className="text-sm leading-relaxed text-foreground/55">Produtos que se adaptam às medidas, cores e necessidades do seu espaço.</p>
+              </div>
+              <div>
+                <p className="mb-1 text-sm font-bold text-foreground">Orientação de design</p>
+                <p className="text-sm leading-relaxed text-foreground/55">Apoio profissional para ajudar você a fazer as melhores escolhas.</p>
+              </div>
+              <div>
+                <p className="mb-1 text-sm font-bold text-foreground">Curadoria</p>
+                <p className="text-sm leading-relaxed text-foreground/55">Peças selecionadas para criar ambientes harmoniosos e bem resolvidos.</p>
+              </div>
+            </div>
           </div>
         </ScrollReveal>
 

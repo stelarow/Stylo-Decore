@@ -189,9 +189,9 @@ export default function SubcategoryPage({
         </div>
       </ScrollReveal>
 
-      {/* Galeria de imagens empilhadas */}
+      {/* Galeria de imagens */}
       <div className="mx-auto max-w-3xl lg:max-w-5xl px-6 pb-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 lg:gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 lg:gap-4">
           {products.map((product, i) => (
             <ScrollReveal key={product.name} animation="up" delay={i * 90}>
               <a
@@ -211,7 +211,7 @@ export default function SubcategoryPage({
                       <img
                         src={product.desktopImage}
                         alt={product.name}
-                        className={desktopImageClass ?? "hidden lg:block w-full aspect-[4/3] object-cover transition-transform duration-500 group-hover:scale-[1.02]"}
+                        className={desktopImageClass ?? "hidden lg:block w-full aspect-[9/16] object-cover transition-transform duration-500 group-hover:scale-[1.02]"}
                       />
                       <img
                         src={product.image}
@@ -223,7 +223,7 @@ export default function SubcategoryPage({
                     <img
                       src={product.image}
                       alt={product.name}
-                      className="w-full aspect-[4/3] object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+                      className="w-full aspect-[4/3] lg:aspect-[9/16] object-cover transition-transform duration-500 group-hover:scale-[1.02]"
                     />
                   )}
                   {/* Overlay com info no hover */}
