@@ -80,17 +80,24 @@ export default function HeroSection() {
         />
       </div>
 
-      <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/40 to-black/70" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/20 to-black/65" />
 
-      <div className="relative z-10 mx-auto max-w-4xl px-6 text-center">
-        <p className="mb-4 text-sm font-medium uppercase tracking-[0.3em] text-primary drop-shadow-md">
+      {/* Center: Brand name */}
+      <div className="relative z-10 flex min-h-[85vh] w-full flex-col items-center justify-center text-center">
+        <h1 className="font-serif text-7xl font-bold uppercase tracking-[0.3em] text-primary drop-shadow-[0_4px_24px_rgba(0,0,0,0.8)] md:text-8xl lg:text-9xl">
           Stylo Decore
-        </p>
-        <h1 className="mb-6 font-serif text-4xl font-bold leading-tight text-white drop-shadow-[0_2px_12px_rgba(0,0,0,0.6)] md:text-5xl lg:text-6xl xl:text-7xl">
-          20 anos de experiência transformando ambientes
         </h1>
-        <p className="mx-auto mb-10 max-w-2xl text-lg text-white drop-shadow-[0_1px_6px_rgba(0,0,0,0.7)] md:text-xl xl:text-2xl">
-          Sofisticação e conforto em cada detalhe da sua casa.
+        {/* Decorative gold line */}
+        <div className="mt-6 h-px w-24 bg-primary/60" />
+      </div>
+
+      {/* Bottom: tagline + buttons */}
+      <div className="absolute bottom-12 left-0 right-0 z-10 flex flex-col items-center px-6 text-center">
+        <p className="mb-1 text-sm font-semibold text-white drop-shadow-[0_1px_6px_rgba(0,0,0,0.7)] md:text-base">
+          Peças personalizáveis e orientação de design
+        </p>
+        <p className="mb-8 text-xs text-white/80 drop-shadow-[0_1px_4px_rgba(0,0,0,0.6)] md:text-sm">
+          Para ajudar você a criar uma casa bonita, funcional e com personalidade.
         </p>
         <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
           <a

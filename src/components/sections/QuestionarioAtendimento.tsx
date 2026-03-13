@@ -30,7 +30,7 @@ interface ContactData {
 const PRODUCTS: { key: ProductKey; image: string; name: string; desc: string }[] = [
   { key: "cortinas",      image: "/images/cortinas/cortina-01.jpg",   name: "Cortinas",        desc: "Tecido, wave, blackout e mais" },
   { key: "persianas",     image: "/images/persianas/persiana-01.jpg", name: "Persianas",       desc: "Horizontal, vertical, rolô"   },
-  { key: "papelDeParede", image: "/images/papel/papel-01.jpg",        name: "Papel de Parede", desc: "Breeze, Geométricos, Infantil, Cozinha"    },
+  { key: "papelDeParede", image: "/images/papel/papel-01.jpg",        name: "Papel de Parede", desc: "Floral, Texturas, Clássico, Moderno e mais"    },
   { key: "tapetes",       image: "/images/tapetes/tapete-01.jpg",     name: "Tapetes",         desc: "Sob medida, decorativo"       },
 ];
 
@@ -54,7 +54,7 @@ const QUESTIONS: Record<ProductKey, Question[]> = {
     { label: "Qual é o seu prazo para este projeto?",     labelKey: "q.ql.prazo",       key: "prazo",       options: ["Urgente (menos de 1 mês)", "1 a 3 meses", "Mais de 3 meses", "Ainda não definido"] },
   ],
   papelDeParede: [
-    { label: "Qual coleção te interessa?",                labelKey: "q.ql.colecao",     key: "colecao",     options: ["Geométricos", "Infantil", "Cozinha", "Ainda não sei"] },
+    { label: "Qual coleção te interessa?",                labelKey: "q.ql.colecao",     key: "colecao",     options: ["Geométricos", "Infantil", "Floral", "Texturas", "Clássico", "Moderno", "Natural & Botânico", "Minimalista", "Ainda não sei"] },
     { label: "Qual é o ambiente?",                        labelKey: "q.ql.ambiente",    key: "ambiente",    options: ["Sala", "Quarto", "Escritório", "Corredor", "Outro", "Não sei"] },
     { label: "Que visual você busca?",                    labelKey: "q.ql.visual",      key: "visual",      options: ["Texturizado / Relevo", "Liso e sofisticado", "Estampado / Padrão", "Geométrico", "Não sei"] },
     { label: "A parede já possui papel de parede?",       labelKey: "q.ql.estadoParede",key: "estadoParede",options: ["Sim, precisa remover", "Não, parede limpa", "Não sei", "Preciso de orientação"] },
@@ -78,7 +78,6 @@ const OPTION_IMAGES: Record<string, Record<string, string>> = {
   colecao: {
     "Geométricos": "/images/papel-geometricos.jpg",
     "Infantil": "/images/papel-infantil.jpg",
-    "Cozinha": "/images/papel/cozinha/cozinha-marmore-calacata-dourado.jpg",
     // "Ainda não sei" → text card
   },
   tipo: {

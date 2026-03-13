@@ -84,6 +84,14 @@ export default function InfantilContent() {
       specs={data.specs}
       products={PAPEL_PRODUCTS.infantil}
       desktopHeroImage="/images/papel/infantil-hero-desktop.jpg"
+      videoSrc="/videos/non-woven-demo.mp4"
+      videoTitle="video.papel.title"
+      videoCaption="video.papel.caption"
+      videoFeatures={[
+        { icon: "droplets", label: "video.papel.feat.higienizacao" },
+        { icon: "shield", label: "video.papel.feat.durabilidade" },
+        { icon: "layers", label: "video.papel.feat.resistencia" },
+      ]}
     />
   );
 }

@@ -31,6 +31,14 @@ export default function BreezePage() {
         description="Leveza e frescor para ambientes contemporâneos. A coleção Breeze traz tons suaves e padrões delicados que criam uma atmosfera leve e arejada."
         products={PAPEL_PRODUCTS.breeze}
         desktopHeroImage="/images/papel/breeze-hero-desktop.png"
+        videoSrc="/videos/non-woven-demo.mp4"
+        videoTitle="video.papel.title"
+        videoCaption="video.papel.caption"
+        videoFeatures={[
+          { icon: "droplets", label: "video.papel.feat.higienizacao" },
+          { icon: "shield", label: "video.papel.feat.durabilidade" },
+          { icon: "layers", label: "video.papel.feat.resistencia" },
+        ]}
       />
     </>
   );

@@ -1,6 +1,6 @@
 import type { NavItem, ContactInfo } from "@/types";
 
-export const WHATSAPP_NUMBER = "554896733626";
+export const WHATSAPP_NUMBER = "5548988070882";
 export const WHATSAPP_NUMBER_2 = "554891074707";
 
 export const WHATSAPP_DEFAULT_MESSAGE =
@@ -17,7 +17,7 @@ export function getWhatsAppUrl2(message?: string) {
 }
 
 export const CONTACT: ContactInfo = {
-  phone: "(48) 9673-3626",
+  phone: "(48) 98807-0882",
   phone2: "(48) 9107-4707",
   whatsapp: WHATSAPP_NUMBER,
   whatsapp2: WHATSAPP_NUMBER_2,
@@ -43,7 +43,6 @@ export const NAVIGATION: NavItem[] = [
     label: "Cortinas",
     href: "/cortinas",
     children: [
-      { label: "Cortinas de Tecido", href: "/cortinas/tecido" },
       { label: "Prega Americana", href: "/cortinas/prega-americana" },
       { label: "Cortina com Ilhós", href: "/cortinas/ilhos" },
       { label: "Cortina Wave", href: "/cortinas/wave" },
@@ -54,44 +53,52 @@ export const NAVIGATION: NavItem[] = [
     label: "Persianas",
     href: "/persianas",
     children: [
-      { label: "Horizontais", href: "/persianas/horizontais" },
-      { label: "Verticais", href: "/persianas/verticais" },
-      { label: "Rolô & Double Vision", href: "/persianas/rolo-double-vision" },
+      { label: "Rolô Duo", href: "/persianas/rolo-duo" },
+      { label: "Rolô", href: "/persianas/rolo" },
+      { label: "Romana", href: "/persianas/romana" },
+      { label: "Romanshine", href: "/persianas/romanshine" },
+      { label: "Miragem", href: "/persianas/miragem" },
+      { label: "VF Romana de Teto", href: "/persianas/vf-romana-de-teto" },
+      { label: "Clássica Supreme", href: "/persianas/classica-supreme" },
+      { label: "Painel", href: "/persianas/painel" },
     ],
   },
   {
     label: "Papel de Parede",
     href: "/papeis-de-parede",
     children: [
+      { label: "Breeze", href: "/papeis-de-parede/breeze" },
       { label: "Geométricos", href: "/papeis-de-parede/geometricos" },
       { label: "Infantil", href: "/papeis-de-parede/infantil" },
-      { label: "Cozinha", href: "/papeis-de-parede/cozinha" },
+      { label: "Floral", href: "/papeis-de-parede/floral" },
+      { label: "Texturas", href: "/papeis-de-parede/texturas" },
+      { label: "Clássico", href: "/papeis-de-parede/classico" },
+      { label: "Moderno", href: "/papeis-de-parede/moderno" },
+      { label: "Natural & Botânico", href: "/papeis-de-parede/natural-botanico" },
+      { label: "Minimalista", href: "/papeis-de-parede/minimalista" },
     ],
   },
   {
     label: "Tapetes",
     href: "/tapetes",
     children: [
-      { label: "Carving Organic", href: "/tapetes/carving-organic" },
-      { label: "Nativa", href: "/tapetes/nativa" },
-      { label: "Rede", href: "/tapetes/rede" },
+      { label: "Moderno", href: "/tapetes/moderno" },
+      { label: "Clássico", href: "/tapetes/classico" },
+      { label: "Minimalista", href: "/tapetes/minimalista" },
+      { label: "Boho", href: "/tapetes/boho" },
+      { label: "Natural", href: "/tapetes/natural" },
     ],
   },
-  {
-    label: "Almofadas",
-    href: "/almofadas",
-    children: [
-      { label: "Decorativas", href: "/almofadas/decorativas" },
-    ],
-  },
+  { label: "Almofadas", href: "/almofadas" },
   {
     label: "Móveis Sob Medida",
     href: "/moveis-sob-medida",
     children: [
-      { label: "Estantes", href: "/moveis-sob-medida/estantes" },
-      { label: "Armários", href: "/moveis-sob-medida/armarios" },
-      { label: "Mesa de Centro", href: "/moveis-sob-medida/mesa-de-centro" },
-      { label: "Painel de TV", href: "/moveis-sob-medida/painel-de-tv" },
+      { label: "Sala", href: "/moveis-sob-medida/sala" },
+      { label: "Quarto", href: "/moveis-sob-medida/quarto" },
+      { label: "Cozinha", href: "/moveis-sob-medida/cozinha" },
+      { label: "Home Office", href: "/moveis-sob-medida/home-office" },
+      { label: "Closet", href: "/moveis-sob-medida/closet" },
     ],
   },
   { label: "Blog", href: "/blog" },

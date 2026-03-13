@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import dynamic from "next/dynamic";
-import { ArrowRight, Sparkles, Ruler, Award, Wrench, Check, Smartphone } from "lucide-react";
+import { ArrowRight, Sparkles, Ruler, Award, Wrench, Check, Smartphone, SlidersHorizontal, Palette, Star, Monitor } from "lucide-react";
 import { CATEGORIES, getWhatsAppUrl } from "@/lib/constants";
 import { BLOG_POSTS } from "@/lib/data";
 import ScrollReveal from "@/components/ui/ScrollReveal";
@@ -36,7 +36,7 @@ export default function Home() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative flex min-h-[85vh] flex-col items-center justify-between py-14">
+      <section className="relative flex min-h-[85vh] flex-col items-center justify-center">
         {/* Mobile: vídeo de fundo */}
         <video
           className="absolute inset-0 h-full w-full object-cover md:hidden"
@@ -55,21 +55,17 @@ export default function Home() {
           loop
           playsInline
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/40 to-black/70" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/35 to-black/65" />
 
-        {/* Stylo Decore — topo, maior e mais visível */}
-        <div className="relative z-10 w-full px-6 pt-2 text-center">
-          <p className="font-serif text-3xl font-bold uppercase tracking-[0.25em] text-primary drop-shadow-[0_2px_12px_rgba(0,0,0,0.5)] md:text-4xl lg:text-5xl">
+        {/* Conteúdo centralizado */}
+        <div className="relative z-10 mx-auto w-full max-w-3xl px-6 text-center">
+          <p className="mb-4 font-serif text-4xl font-bold uppercase tracking-[0.25em] text-primary drop-shadow-[0_2px_16px_rgba(0,0,0,0.6)] md:text-5xl lg:text-6xl">
             Stylo Decore
           </p>
-        </div>
-
-        {/* Texto pequeno + CTAs — base do vídeo */}
-        <div className="relative z-10 mx-auto w-full max-w-3xl px-6 pb-4 text-center">
-          <h1 className="mb-1.5 font-serif text-lg font-semibold text-white drop-shadow-md md:text-xl">
+          <h1 className="mb-3 font-serif text-xl font-semibold text-white drop-shadow-md md:text-2xl lg:text-3xl">
             {t("hero.title")}
           </h1>
-          <p className="mx-auto mb-8 max-w-xl text-sm text-white/85 drop-shadow md:text-base">
+          <p className="mx-auto mb-10 max-w-xl text-sm text-white/85 drop-shadow md:text-base">
             {t("hero.subtitle")}
           </p>
           <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
@@ -99,22 +95,6 @@ export default function Home() {
               {t("home.collections")}
             </h2>
             <div className="mt-3 h-1 w-16 rounded-full bg-primary" />
-
-            {/* Diferenciais resumidos */}
-            <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-3">
-              <div>
-                <p className="mb-1 text-sm font-bold text-foreground">Personalização</p>
-                <p className="text-sm leading-relaxed text-foreground/55">Produtos que se adaptam às medidas, cores e necessidades do seu espaço.</p>
-              </div>
-              <div>
-                <p className="mb-1 text-sm font-bold text-foreground">Orientação de design</p>
-                <p className="text-sm leading-relaxed text-foreground/55">Apoio profissional para ajudar você a fazer as melhores escolhas.</p>
-              </div>
-              <div>
-                <p className="mb-1 text-sm font-bold text-foreground">Curadoria</p>
-                <p className="text-sm leading-relaxed text-foreground/55">Peças selecionadas para criar ambientes harmoniosos e bem resolvidos.</p>
-              </div>
-            </div>
           </div>
         </ScrollReveal>
 
@@ -152,6 +132,42 @@ export default function Home() {
             </Link>
           ))}
         </div>
+
+        {/* Diferenciais resumidos */}
+        <div className="bg-background px-6 py-14">
+          <div className="mx-auto max-w-7xl grid grid-cols-1 gap-10 sm:grid-cols-3">
+            {[
+              {
+                icon: SlidersHorizontal,
+                title: "Personalização",
+                text: "Produtos que se adaptam às medidas, cores e necessidades do seu espaço.",
+                delay: 0,
+              },
+              {
+                icon: Palette,
+                title: "Orientação de design",
+                text: "Apoio profissional para ajudar você a fazer as melhores escolhas.",
+                delay: 120,
+              },
+              {
+                icon: Star,
+                title: "Curadoria",
+                text: "Peças selecionadas para criar ambientes harmoniosos e bem resolvidos.",
+                delay: 240,
+              },
+            ].map((item) => (
+              <ScrollReveal key={item.title} animation="up" delay={item.delay}>
+                <div className="flex flex-col items-center text-center gap-4">
+                  <div className="flex h-16 w-16 items-center justify-center rounded-full bg-primary/15">
+                    <item.icon className="h-7 w-7 text-primary" strokeWidth={1.5} />
+                  </div>
+                  <p className="text-base font-bold text-foreground">{item.title}</p>
+                  <p className="text-sm leading-relaxed text-foreground/90 max-w-[220px]">{item.text}</p>
+                </div>
+              </ScrollReveal>
+            ))}
+          </div>
+        </div>
       </section>
 
       {/* Como Atendemos */}
@@ -174,7 +190,7 @@ export default function Home() {
           </ScrollReveal>
 
           {/* Cards */}
-          <div className="grid gap-6 md:grid-cols-2 md:items-stretch">
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 md:items-stretch">
 
             {/* Card 1 — Orçamento Online */}
             <ScrollReveal animation="left" className="flex flex-col">
@@ -214,18 +230,66 @@ export default function Home() {
                   ))}
                 </ol>
 
-                <Link
-                  href="/questionario?tipo=online"
+                <a
+                  href={getWhatsAppUrl(t("home.online.whatsapp"))}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="group/btn inline-flex h-12 w-full items-center justify-center gap-2 rounded-full border-2 border-foreground/20 text-sm font-semibold text-foreground transition-all duration-300 hover:border-primary hover:text-primary"
                 >
                   {t("home.online.cta")}
                   <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover/btn:translate-x-1" />
-                </Link>
+                </a>
               </div>
             </ScrollReveal>
 
-            {/* Card 2 — Consultoria Premium */}
-            <ScrollReveal animation="right" delay={100} className="flex flex-col">
+            {/* Card 2 — Consultoria Online Gratuita */}
+            <ScrollReveal animation="up" delay={100} className="flex flex-col">
+              <div className="group flex h-full flex-col rounded-2xl border border-[#B59E7D]/25 bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md">
+                {/* Top row */}
+                <div className="mb-6 flex items-start justify-between">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10">
+                    <Monitor className="h-6 w-6 text-primary" />
+                  </div>
+                  <span className="rounded-full border border-[#B59E7D]/30 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-foreground/40">
+                    {t("home.consulting.badge")}
+                  </span>
+                </div>
+
+                <h3 className="mb-3 font-serif text-2xl font-bold text-foreground">
+                  {t("home.consulting.title")}
+                </h3>
+                <p className="mb-7 text-sm leading-relaxed text-foreground/60">
+                  {t("home.consulting.desc")}
+                </p>
+
+                {/* Features */}
+                <ul className="mb-8 flex-1 space-y-3">
+                  {[
+                    t("home.consulting.f1"),
+                    t("home.consulting.f2"),
+                    t("home.consulting.f3"),
+                  ].map((feature) => (
+                    <li key={feature} className="flex items-center gap-3">
+                      <Check className="h-4 w-4 shrink-0 text-primary" />
+                      <span className="text-sm text-foreground/70">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <a
+                  href={getWhatsAppUrl(t("home.consulting.whatsapp"))}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group/btn inline-flex h-12 w-full items-center justify-center gap-2 rounded-full border-2 border-foreground/20 text-sm font-semibold text-foreground transition-all duration-300 hover:border-primary hover:text-primary"
+                >
+                  {t("home.consulting.cta")}
+                  <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover/btn:translate-x-1" />
+                </a>
+              </div>
+            </ScrollReveal>
+
+            {/* Card 3 — Consultoria Premium */}
+            <ScrollReveal animation="right" delay={200} className="flex flex-col">
               <div className="group relative flex h-full flex-col rounded-2xl border-2 border-primary/40 bg-white p-8 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
                 {/* Linha dourada no topo */}
                 <div className="absolute left-0 right-0 top-0 h-[3px] rounded-t-2xl bg-primary" />

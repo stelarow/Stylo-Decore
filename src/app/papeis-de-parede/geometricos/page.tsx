@@ -32,6 +32,14 @@ export default function GeometricosPage() {
         descriptionKey="page.geometricos.desc"
         products={PAPEL_PRODUCTS.geometricos}
         desktopHeroImage="/images/papel-geometricos.jpg"
+        videoSrc="/videos/non-woven-demo.mp4"
+        videoTitle="video.papel.title"
+        videoCaption="video.papel.caption"
+        videoFeatures={[
+          { icon: "droplets", label: "video.papel.feat.higienizacao" },
+          { icon: "shield", label: "video.papel.feat.durabilidade" },
+          { icon: "layers", label: "video.papel.feat.resistencia" },
+        ]}
       />
     </>
   );

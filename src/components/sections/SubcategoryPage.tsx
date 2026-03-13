@@ -1,10 +1,11 @@
 "use client";
 
-import { Check, ClipboardList, ArrowRight, Ruler, Scissors, Wind, Shirt } from "lucide-react";
+import { Check, ClipboardList, Ruler, Scissors, Wind, Shirt, Layers, Paintbrush, Shield, Droplets } from "lucide-react";
 import { getWhatsAppUrl } from "@/lib/constants";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import { useLanguage } from "@/context/LanguageContext";
 import { useRef, useState } from "react";
+import ImageLightbox from "@/components/ui/ImageLightbox";
 
 interface ProductItem {
   name: string;
@@ -35,7 +36,8 @@ interface SubcategoryPageProps {
   videoSrc?: string;
   videoCaption?: string;
   videoTitle?: string;
-  videoFeatures?: { icon: "ruler" | "scissors" | "wind" | "shirt"; label: string }[];
+  videoObjectPosition?: string;
+  videoFeatures?: { icon: "ruler" | "scissors" | "wind" | "shirt" | "layers" | "paintbrush" | "shield" | "droplets"; label: string }[];
 }
 
 export default function SubcategoryPage({
@@ -59,18 +61,24 @@ export default function SubcategoryPage({
   videoSrc,
   videoCaption,
   videoTitle,
+  videoObjectPosition,
   videoFeatures,
 }: SubcategoryPageProps) {
   const { t } = useLanguage();
   const [longPressActive, setLongPressActive] = useState<string | null>(null);
   const longPressTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [videoIsPortrait, setVideoIsPortrait] = useState<boolean | null>(true);
+  const [lightbox, setLightbox] = useState<{ src: string; alt: string } | null>(null);
 
   const videoIconMap = {
     ruler: <Ruler size={28} strokeWidth={1.5} />,
     scissors: <Scissors size={28} strokeWidth={1.5} />,
     wind: <Wind size={28} strokeWidth={1.5} />,
     shirt: <Shirt size={28} strokeWidth={1.5} />,
+    layers: <Layers size={28} strokeWidth={1.5} />,
+    paintbrush: <Paintbrush size={28} strokeWidth={1.5} />,
+    shield: <Shield size={28} strokeWidth={1.5} />,
+    droplets: <Droplets size={28} strokeWidth={1.5} />,
   };
 
   const handleVideoLoaded = (e: React.SyntheticEvent<HTMLVideoElement>) => {
@@ -193,17 +201,19 @@ export default function SubcategoryPage({
       <div className="mx-auto max-w-3xl lg:max-w-5xl px-6 pb-10">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 lg:gap-4">
           {products.map((product, i) => (
-            <ScrollReveal key={product.name} animation="up" delay={i * 90}>
-              <a
-                href={getWhatsAppUrl(
-                  `${t("sub.whatsapp.interest")} ${category}: ${product.name}. ${t("sub.whatsapp.info")}`
-                )}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group block"
+            <ScrollReveal key={`${product.name}-${i}`} animation="up" delay={i * 90}>
+              <button
+                className="group block w-full cursor-zoom-in text-left"
+                onClick={() =>
+                  setLightbox({
+                    src: product.desktopImage || product.image,
+                    alt: product.name,
+                  })
+                }
                 onTouchStart={() => product.descriptionKey && handleTouchStart(product.name)}
                 onTouchEnd={handleTouchEnd}
                 onTouchCancel={handleTouchEnd}
+                aria-label={`Ver imagem de ${product.name}`}
               >
                 <div className="relative overflow-hidden">
                   {product.desktopImage ? (
@@ -226,14 +236,10 @@ export default function SubcategoryPage({
                       className="w-full aspect-[4/3] lg:aspect-[9/16] object-cover transition-transform duration-500 group-hover:scale-[1.02]"
                     />
                   )}
-                  {/* Overlay com info no hover */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-                  <div className={`absolute left-0 right-0 p-5 translate-y-4 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 ${product.descriptionKey ? "bottom-[72px]" : "bottom-0"}`}>
-                    <p className="text-sm font-semibold text-white mb-2">{product.name}</p>
-                    <span className="inline-flex items-center gap-2 rounded-full bg-white/90 px-5 py-2 text-xs font-semibold text-foreground backdrop-blur-sm transition-colors group-hover:bg-white">
-                      {t("sub.interest")}
-                      <ArrowRight className="h-3.5 w-3.5" />
-                    </span>
+                  {/* Overlay com nome no hover */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                  <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-2 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+                    <p className="text-sm font-semibold text-white">{product.name}</p>
                   </div>
                   {/* Faixa glass — aparece no hover (desktop) ou long-press (mobile) */}
                   {product.descriptionKey && (
@@ -249,14 +255,14 @@ export default function SubcategoryPage({
                     </div>
                   )}
                 </div>
-              </a>
+              </button>
             </ScrollReveal>
           ))}
         </div>
       </div>
 
       {/* Vídeo opcional */}
-      {videoSrc && (
+      {(videoSrc || videoTitle || videoCaption) && (
         <section className="mt-16 mb-4">
           {/* Separador visual */}
           <ScrollReveal animation="fade">
@@ -280,18 +286,17 @@ export default function SubcategoryPage({
 
           <ScrollReveal animation="fade">
             <div className="mx-auto max-w-3xl lg:max-w-5xl px-6">
-              {/* Layout dinâmico:
-                  portrait  → vídeo à esquerda (lg+), conteúdo à direita; mobile: vídeo em cima
-                  landscape → legenda em cima, vídeo abaixo */}
               <div
                 className={
-                  videoIsPortrait
-                    ? "flex flex-col md:flex-row gap-8 items-center"
-                    : "flex flex-col gap-6"
+                  videoSrc
+                    ? videoIsPortrait
+                      ? "flex flex-col md:flex-row gap-8 items-center"
+                      : "flex flex-col gap-6"
+                    : "flex flex-col gap-5"
                 }
               >
                 {/* Legenda em cima (landscape / null) */}
-                {!videoIsPortrait && videoCaption && (
+                {videoSrc && !videoIsPortrait && videoCaption && (
                   <div className="flex items-start gap-3 px-1">
                     <div
                       className="mt-1 w-0.5 self-stretch rounded-full flex-shrink-0"
@@ -307,33 +312,35 @@ export default function SubcategoryPage({
                 )}
 
                 {/* Vídeo */}
-                <div
-                  className={
-                    videoIsPortrait
-                      ? "relative overflow-hidden rounded-2xl shadow-lg flex-shrink-0 w-full md:w-auto"
-                      : "relative overflow-hidden rounded-2xl shadow-xl"
-                  }
-                >
-                  <video
-                    src={videoSrc}
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    onLoadedMetadata={handleVideoLoaded}
+                {videoSrc && (
+                  <div
                     className={
                       videoIsPortrait
-                        ? "w-full h-full object-cover rounded-2xl"
-                        : "w-full aspect-video object-cover"
+                        ? "relative overflow-hidden rounded-2xl shadow-lg flex-shrink-0 w-full md:w-auto"
+                        : "relative overflow-hidden rounded-2xl shadow-xl"
                     }
-                    style={videoIsPortrait ? { maxHeight: "460px", minHeight: "280px" } : undefined}
-                  />
-                  <div className="absolute inset-0 pointer-events-none rounded-2xl ring-1 ring-inset ring-tobacco/20" />
-                </div>
+                  >
+                    <video
+                      src={videoSrc}
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      onLoadedMetadata={handleVideoLoaded}
+                      className={
+                        videoIsPortrait
+                          ? "w-full h-full object-cover rounded-2xl"
+                          : "w-full aspect-video object-cover"
+                      }
+                      style={videoIsPortrait ? { maxHeight: "460px", minHeight: "280px", objectPosition: videoObjectPosition ?? "center" } : undefined}
+                    />
+                    <div className="absolute inset-0 pointer-events-none rounded-2xl ring-1 ring-inset ring-tobacco/20" />
+                  </div>
+                )}
 
-                {/* Conteúdo ao lado (portrait) */}
-                {videoIsPortrait && (
-                  <div className="flex flex-col justify-center gap-5 flex-1 w-full md:pl-2">
+                {/* Conteúdo ao lado (portrait) ou standalone sem vídeo */}
+                {(videoIsPortrait || !videoSrc) && (
+                  <div className={`flex flex-col justify-center gap-5 ${videoSrc ? "flex-1 w-full md:pl-2" : "w-full"}`}>
                     {/* Barra dourada vertical + título */}
                     {videoTitle && (
                       <div className="flex items-stretch gap-5">
@@ -458,6 +465,14 @@ export default function SubcategoryPage({
           </p>
         </div>
       </ScrollReveal>
+
+      {lightbox && (
+        <ImageLightbox
+          src={lightbox.src}
+          alt={lightbox.alt}
+          onClose={() => setLightbox(null)}
+        />
+      )}
     </div>
   );
 }
