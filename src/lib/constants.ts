@@ -155,7 +155,7 @@ export const CATEGORIES = [
     href: "/moveis-sob-medida",
     description: "Estantes, armários e home office planejados",
     tag: "PLANEJADO",
-    image: "/images/cortinas-hero-room.jpeg", // TODO: imagem real
+    image: "/images/moveis-cozinha-hero.png",
     imagePosition: "center center",
   },
 ] as const;

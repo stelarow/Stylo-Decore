@@ -30,6 +30,7 @@ interface CategoryPageProps {
   subcategories: SubcategoryItem[];
   faqItems?: { question: string; answer: string }[];
   heroDesktopImageStyle?: React.CSSProperties;
+  heroImage?: string;
 }
 
 export default function CategoryPage({
@@ -44,6 +45,7 @@ export default function CategoryPage({
   subcategories,
   faqItems,
   heroDesktopImageStyle,
+  heroImage,
 }: CategoryPageProps) {
   const { t } = useLanguage();
   const resolvedTitle = titleKey ? t(titleKey) : title;
@@ -57,7 +59,14 @@ export default function CategoryPage({
       {/* Hero */}
       {subcategories[0] && (
         <div className="relative w-full min-h-[50vh] md:min-h-[65vh] lg:min-h-[70vh] overflow-hidden">
-          {subcategories[0].desktopImage ? (
+          {heroImage ? (
+            <img
+              src={heroImage}
+              alt={title}
+              className="absolute inset-0 h-full w-full object-cover"
+              style={heroDesktopImageStyle}
+            />
+          ) : subcategories[0].desktopImage ? (
             <>
               <img
                 src={subcategories[0].desktopImage}
@@ -149,9 +158,6 @@ export default function CategoryPage({
                 )}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
                 <div className="absolute inset-x-0 bottom-0 p-6 md:p-8">
-                  <span className="mb-2 inline-block rounded-full bg-primary px-3 py-1 text-xs font-semibold text-background-dark">
-                    Premium
-                  </span>
                   <h3 className="mb-1 text-2xl font-bold text-white">
                     {t(subcategories[0].href) || subcategories[0].name}
                   </h3>

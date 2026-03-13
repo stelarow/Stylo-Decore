@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     title: "Móveis Sob Medida em Florianópolis | Stylo Decore",
     description: "Estantes, armários e home office planejados sob medida em Florianópolis e Região.",
     url: "/moveis-sob-medida",
-    images: [{ url: "/images/cortinas-hero-room.jpeg", width: 1200, height: 630, alt: "Móveis Sob Medida - Stylo Decore" }],
+    images: [{ url: "/images/moveis-cozinha-hero.png", width: 1200, height: 630, alt: "Móveis Sob Medida - Stylo Decore" }],
   },
 };
 
@@ -37,6 +37,7 @@ export default function MoveisSobMedidaPage() {
         introKey="cat.moveis.intro"
         subcategories={MOVEIS_SUBCATEGORIES}
         faqItems={MOVEIS_FAQ_KEYS}
+        heroImage="/images/moveis-cozinha-hero.png"
       />
     </>
   );
