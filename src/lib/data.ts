@@ -111,7 +111,7 @@ export const CORTINAS_TIPOS_PREGAS = [
   {
     name: "Prega Macho",
     href: "/cortinas/tipos-de-pregas/prega-macho",
-    image: "/images/cortinas-prega-americana.jpg",
+    image: "/images/cortinas/prega-americana-desktop-02.jpg",
     description: "Pregas triplas estruturadas para um visual sofisticado",
     descriptionKey: "card.cortinas.prega-macho",
     comingSoon: true,
@@ -119,7 +119,7 @@ export const CORTINAS_TIPOS_PREGAS = [
   {
     name: "Prega Wave",
     href: "/cortinas/tipos-de-pregas/prega-wave",
-    image: "/images/cortinas-wave.jpg",
+    image: "/images/cortinas/wave-01.jpg",
     description: "Caimento suave em ondas uniformes e contemporâneas",
     descriptionKey: "card.cortinas.prega-wave",
     comingSoon: true,
