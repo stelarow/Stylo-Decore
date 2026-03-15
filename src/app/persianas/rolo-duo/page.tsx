@@ -28,8 +28,8 @@ export default function RoloDuoPage() {
         category="Persianas"
         titleKey="/persianas/rolo-duo"
         categoryKey="/persianas"
-        heroImage="/images/persianas/persiana-15.jpg"
-        desktopHeroImage="/images/persianas/persiana-rolo-hero-desktop.jpg"
+        heroImage="/images/persianas/rolo-duo-hero.png"
+        desktopHeroImage="/images/persianas/rolo-duo-hero.png"
         description="Duas camadas de tecido em perfeita harmonia. A Cortina Rolô Duo combina uma camada filtrante e uma opaca, permitindo controle total da luminosidade e privacidade sem abrir mão do estilo."
         products={PERSIANA_PRODUCTS["rolo-duo"]}
       />

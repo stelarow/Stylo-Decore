@@ -139,14 +139,6 @@ export default function ContactSection() {
                   >
                     {CONTACT.phone}
                   </a>
-                  <a
-                    href={getWhatsAppUrl2()}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block text-sm text-foreground transition-colors hover:text-primary"
-                  >
-                    {CONTACT.phone2}
-                  </a>
                 </div>
               </li>
 

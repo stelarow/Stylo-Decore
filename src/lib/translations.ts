@@ -38,10 +38,8 @@ export const NAV_TRANSLATIONS: Record<Language, Record<string, string>> = {
     "/persianas/rolo-duo": "Rolô Duo",
     "/persianas/rolo": "Rolô",
     "/persianas/romana": "Romana",
-    "/persianas/romanshine": "Romanshine",
     "/persianas/miragem": "Miragem",
     "/persianas/vf-romana-de-teto": "VF Romana de Teto",
-    "/persianas/classica-supreme": "Clássica Supreme",
     "/persianas/painel": "Painel",
     "/papeis-de-parede": "Papel de Parede",
     "/papeis-de-parede/breeze": "Coleção Breeze",
@@ -295,7 +293,7 @@ export const NAV_TRANSLATIONS: Record<Language, Record<string, string>> = {
     "faq.q1": "Vocês atendem em quais cidades?",
     "faq.a1":
       "Atendemos Florianópolis e toda a Grande Florianópolis, incluindo São José, Palhoça, Biguaçu, Governador Celso Ramos e regiões próximas. Entre em contato para confirmar disponibilidade na sua localidade.",
-    "faq.q2": "Como funciona a medição gratuita?",
+    "faq.q2": "Como funciona a medição?",
     "faq.a2":
       "Após o contato inicial, agendamos uma visita técnica no seu endereço. Nossa consultora vai até você com o mostruário completo, realiza a medição com precisão milimétrica e apresenta as melhores opções para o seu projeto — tudo sem custo adicional.",
     "faq.q3": "Qual é o prazo de entrega e instalação?",
@@ -455,7 +453,7 @@ export const NAV_TRANSLATIONS: Record<Language, Record<string, string>> = {
     "about.nilza.role": "Fundadora & Designer",
     "about.nilza.bio":
       "Designer de interiores com mais de 20 anos de experiência no mercado de decoração. Atuou à frente de uma loja especializada no exterior, desenvolvendo expertise em curadoria de peças, tecidos, revestimentos e mobiliário com olhar apurado.",
-    "about.clarice.role": "Designer de Interiores",
+    "about.clarice.role": "CEO e Designer de Ambientes",
     "about.clarice.bio":
       "Designer de ambientes, graduada e mestre na área, com mais de 9 anos de experiência em projetos residenciais e comerciais no Brasil e no exterior. Sua pesquisa investiga a relação entre o ambiente e a qualidade de vida, e o seu trabalho dialoga com referências brasileiras e europeias.",
 
@@ -559,10 +557,8 @@ export const NAV_TRANSLATIONS: Record<Language, Record<string, string>> = {
     "card.persianas.rolo-duo": "Duas camadas de tecido para controle total de luz e privacidade",
     "card.persianas.rolo": "Simplicidade e funcionalidade em tecidos de alta qualidade",
     "card.persianas.romana": "Dobras horizontais elegantes que valorizam qualquer ambiente",
-    "card.persianas.romanshine": "Acabamento acetinado exclusivo para um visual sofisticado",
     "card.persianas.miragem": "Efeito visual único com transparência e privacidade simultâneas",
     "card.persianas.vf-romana-de-teto": "Instalação em teto para ambientes contemporâneos e arrojados",
-    "card.persianas.classica-supreme": "Linha Supreme com tecidos exclusivos e acabamento premium",
     "card.persianas.painel": "Painéis deslizantes modernos para grandes aberturas e divisórias",
     "card.papeis.geometricos": "Padrões geométricos e abstratos para ambientes modernos",
     "card.papeis.infantil": "Estampas encantadoras para o quarto dos pequenos",
@@ -616,10 +612,8 @@ export const NAV_TRANSLATIONS: Record<Language, Record<string, string>> = {
     "/persianas/rolo-duo": "Roller Duo",
     "/persianas/rolo": "Roller",
     "/persianas/romana": "Roman",
-    "/persianas/romanshine": "Romanshine",
     "/persianas/miragem": "Miragem",
     "/persianas/vf-romana-de-teto": "VF Ceiling Roman",
-    "/persianas/classica-supreme": "Classic Supreme",
     "/persianas/painel": "Panel",
     "/papeis-de-parede": "Wallpaper",
     "/papeis-de-parede/breeze": "Breeze Collection",
@@ -861,7 +855,7 @@ export const NAV_TRANSLATIONS: Record<Language, Record<string, string>> = {
     "faq.q1": "Which cities do you serve?",
     "faq.a1":
       "We serve Florianópolis and the greater Florianópolis area, including São José, Palhoça, Biguaçu, Governador Celso Ramos and nearby regions. Please contact us to confirm availability in your location.",
-    "faq.q2": "How does the free measurement work?",
+    "faq.q2": "How does the measurement work?",
     "faq.a2":
       "After initial contact, we schedule a technical visit to your address. Our consultant comes to you with the complete sample collection, takes precise millimeter-perfect measurements and presents the best options for your project — all at no additional cost.",
     "faq.q3": "What is the delivery and installation lead time?",
@@ -1021,7 +1015,7 @@ export const NAV_TRANSLATIONS: Record<Language, Record<string, string>> = {
     "about.nilza.role": "Founder & Designer",
     "about.nilza.bio":
       "Interior designer with over 20 years of experience in the decoration market. Led a specialized store abroad, developing expertise in curating pieces, fabrics, finishes, and furniture with a refined eye.",
-    "about.clarice.role": "Interior Designer",
+    "about.clarice.role": "CEO & Interior Designer",
     "about.clarice.bio":
       "Environment designer with a graduate and master's degree, with over 9 years of experience in residential and commercial projects in Brazil and abroad. Her research explores the relationship between environment and quality of life, with work that bridges Brazilian and European references.",
 
@@ -1125,10 +1119,8 @@ export const NAV_TRANSLATIONS: Record<Language, Record<string, string>> = {
     "card.persianas.rolo-duo": "Two fabric layers for total light and privacy control",
     "card.persianas.rolo": "Simplicity and functionality in high-quality fabrics",
     "card.persianas.romana": "Elegant horizontal folds that enhance any space",
-    "card.persianas.romanshine": "Exclusive satin finish for a sophisticated look",
     "card.persianas.miragem": "Unique visual effect with simultaneous transparency and privacy",
     "card.persianas.vf-romana-de-teto": "Ceiling installation for contemporary and bold spaces",
-    "card.persianas.classica-supreme": "Supreme line with exclusive fabrics and premium finish",
     "card.persianas.painel": "Modern sliding panels for large openings and dividers",
     "card.papeis.geometricos": "Geometric and abstract patterns for modern spaces",
     "card.papeis.infantil": "Enchanting prints for children's rooms",
@@ -1182,10 +1174,8 @@ export const NAV_TRANSLATIONS: Record<Language, Record<string, string>> = {
     "/persianas/rolo-duo": "Enrollable Dúo",
     "/persianas/rolo": "Enrollable",
     "/persianas/romana": "Romana",
-    "/persianas/romanshine": "Romanshine",
     "/persianas/miragem": "Miragem",
     "/persianas/vf-romana-de-teto": "VF Romana de Techo",
-    "/persianas/classica-supreme": "Clásica Supreme",
     "/persianas/painel": "Panel",
     "/papeis-de-parede": "Papel Tapiz",
     "/papeis-de-parede/breeze": "Colección Breeze",
@@ -1429,7 +1419,7 @@ export const NAV_TRANSLATIONS: Record<Language, Record<string, string>> = {
     "faq.q1": "¿En qué ciudades atienden?",
     "faq.a1":
       "Atendemos Florianópolis y toda el área metropolitana de Florianópolis, incluyendo São José, Palhoça, Biguaçu, Governador Celso Ramos y regiones cercanas. Contáctenos para confirmar disponibilidad en su localidad.",
-    "faq.q2": "¿Cómo funciona la medición gratuita?",
+    "faq.q2": "¿Cómo funciona la medición?",
     "faq.a2":
       "Tras el contacto inicial, programamos una visita técnica en su dirección. Nuestra consultora va hasta usted con el muestrario completo, realiza la medición con precisión milimétrica y presenta las mejores opciones para su proyecto — todo sin costo adicional.",
     "faq.q3": "¿Cuál es el plazo de entrega e instalación?",
@@ -1589,7 +1579,7 @@ export const NAV_TRANSLATIONS: Record<Language, Record<string, string>> = {
     "about.nilza.role": "Fundadora & Diseñadora",
     "about.nilza.bio":
       "Diseñadora de interiores con más de 20 años de experiencia en el mercado de la decoración. Dirigió una tienda especializada en el exterior, desarrollando expertise en curaduría de piezas, tejidos, revestimientos y mobiliario con mirada refinada.",
-    "about.clarice.role": "Diseñadora de Interiores",
+    "about.clarice.role": "CEO y Diseñadora de Ambientes",
     "about.clarice.bio":
       "Diseñadora de ambientes, graduada y con maestría en el área, con más de 9 años de experiencia en proyectos residenciales y comerciales en Brasil y en el exterior. Su investigación explora la relación entre el ambiente y la calidad de vida, con un trabajo que dialoga con referencias brasileñas y europeas.",
 
@@ -1693,10 +1683,8 @@ export const NAV_TRANSLATIONS: Record<Language, Record<string, string>> = {
     "card.persianas.rolo-duo": "Dos capas de tela para control total de luz y privacidad",
     "card.persianas.rolo": "Simplicidad y funcionalidad en telas de alta calidad",
     "card.persianas.romana": "Pliegues horizontales elegantes que realzan cualquier ambiente",
-    "card.persianas.romanshine": "Acabado acetinado exclusivo para un aspecto sofisticado",
     "card.persianas.miragem": "Efecto visual único con transparencia y privacidad simultáneas",
     "card.persianas.vf-romana-de-teto": "Instalación en techo para ambientes contemporáneos y atrevidos",
-    "card.persianas.classica-supreme": "Línea Supreme con telas exclusivas y acabado premium",
     "card.persianas.painel": "Paneles deslizantes modernos para grandes aperturas y divisores",
     "card.papeis.geometricos": "Patrones geométricos y abstractos para ambientes modernos",
     "card.papeis.infantil": "Estampados encantadores para el cuarto de los pequeños",

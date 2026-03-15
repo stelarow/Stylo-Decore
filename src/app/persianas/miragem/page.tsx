@@ -28,10 +28,19 @@ export default function MiragemPage() {
         category="Persianas"
         titleKey="/persianas/miragem"
         categoryKey="/persianas"
-        heroImage="/images/persianas/persiana-11.jpg"
-        desktopHeroImage="/images/persianas/persiana-hero-desktop.jpeg"
+        heroImage="/images/persianas/miragem-hero.png"
+        desktopHeroImage="/images/persianas/miragem-hero.png"
         description="Uma ilusão de óptica em forma de cortina. A Miragem cria um jogo fascinante entre transparência e privacidade, filtrando a luz de forma única enquanto mantém o ambiente protegido de olhares externos."
         products={PERSIANA_PRODUCTS["miragem"]}
+        sectionImage="/images/persianas/miragem-detalhe.png"
+        sectionLabel="Diferenciais"
+        videoTitle="Design pensado para ambientes de alto padrão."
+        videoCaption="Tecido translúcido que cria luz difusa sem UV direto. Lâminas com efeito flutuante — mais limpas e modernas que os modelos tradicionais. Ideal para salas de estar, home cinemas e dormitórios que pedem um toque extra de refinamento."
+        videoFeatures={[
+          { icon: "wind", label: "Controle de Luz" },
+          { icon: "layers", label: "Efeito Flutuante" },
+          { icon: "paintbrush", label: "Versatilidade" },
+        ]}
       />
     </>
   );

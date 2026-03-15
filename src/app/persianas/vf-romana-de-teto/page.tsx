@@ -28,8 +28,8 @@ export default function VFRomanaDeTetoPagem() {
         category="Persianas"
         titleKey="/persianas/vf-romana-de-teto"
         categoryKey="/persianas"
-        heroImage="/images/persianas/persiana-17.jpg"
-        desktopHeroImage="/images/persianas/persiana-hero-desktop.jpeg"
+        heroImage="/images/persianas/vf-romana-teto-02.png"
+        desktopHeroImage="/images/persianas/vf-romana-teto-02.png"
         description="Design que nasce do teto. A Cortina VF Romana de Teto é instalada diretamente no forro, criando um acabamento impecável e contemporâneo — ideal para projetos arquitetônicos que valorizam cada detalhe."
         products={PERSIANA_PRODUCTS["vf-romana-de-teto"]}
       />

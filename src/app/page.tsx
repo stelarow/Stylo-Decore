@@ -91,7 +91,7 @@ export default function Home() {
       <section id="colecoes" className="relative -mt-10 rounded-t-[2.5rem] bg-background pt-20 md:pt-28">
         <ScrollReveal animation="up">
           <div className="mx-auto max-w-7xl px-6 mb-10">
-            <h2 className="font-serif text-3xl font-bold text-foreground md:text-4xl">
+            <h2 className="font-sans text-3xl font-light uppercase tracking-[0.2em] text-foreground md:text-4xl">
               {t("home.collections")}
             </h2>
             <div className="mt-3 h-1 w-16 rounded-full bg-primary" />

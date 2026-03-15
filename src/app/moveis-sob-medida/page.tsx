@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import CategoryPage from "@/components/sections/CategoryPage";
+import ProcessTimeline from "@/components/sections/ProcessTimeline";
 import JsonLd from "@/components/seo/JsonLd";
 import { getBreadcrumbJsonLd, getFaqJsonLd, MOVEIS_FAQ, MOVEIS_FAQ_KEYS } from "@/lib/seo";
 import { MOVEIS_SUBCATEGORIES } from "@/lib/data";
@@ -38,6 +39,7 @@ export default function MoveisSobMedidaPage() {
         subcategories={MOVEIS_SUBCATEGORIES}
         faqItems={MOVEIS_FAQ_KEYS}
         heroImage="/images/moveis-cozinha-hero.png"
+        midContent={<ProcessTimeline />}
       />
     </>
   );

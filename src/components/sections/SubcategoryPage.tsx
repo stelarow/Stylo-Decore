@@ -38,6 +38,8 @@ interface SubcategoryPageProps {
   videoTitle?: string;
   videoObjectPosition?: string;
   videoFeatures?: { icon: "ruler" | "scissors" | "wind" | "shirt" | "layers" | "paintbrush" | "shield" | "droplets"; label: string }[];
+  sectionImage?: string;
+  sectionLabel?: string;
 }
 
 export default function SubcategoryPage({
@@ -63,6 +65,8 @@ export default function SubcategoryPage({
   videoTitle,
   videoObjectPosition,
   videoFeatures,
+  sectionImage,
+  sectionLabel,
 }: SubcategoryPageProps) {
   const { t } = useLanguage();
   const [longPressActive, setLongPressActive] = useState<string | null>(null);
@@ -199,7 +203,7 @@ export default function SubcategoryPage({
 
       {/* Galeria de imagens */}
       <div className="mx-auto max-w-3xl lg:max-w-5xl px-6 pb-10">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 lg:gap-4">
+        <div className={`grid grid-cols-1 gap-5 lg:gap-6 ${products.length <= 2 ? "lg:grid-cols-2" : "lg:grid-cols-3"}`}>
           {products.map((product, i) => (
             <ScrollReveal key={`${product.name}-${i}`} animation="up" delay={i * 90}>
               <button
@@ -236,11 +240,6 @@ export default function SubcategoryPage({
                       className="w-full aspect-[4/3] lg:aspect-[9/16] object-cover transition-transform duration-500 group-hover:scale-[1.02]"
                     />
                   )}
-                  {/* Overlay com nome no hover */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-                  <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-2 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
-                    <p className="text-sm font-semibold text-white">{product.name}</p>
-                  </div>
                   {/* Faixa glass — aparece no hover (desktop) ou long-press (mobile) */}
                   {product.descriptionKey && (
                     <div
@@ -261,8 +260,8 @@ export default function SubcategoryPage({
         </div>
       </div>
 
-      {/* Vídeo opcional */}
-      {(videoSrc || videoTitle || videoCaption) && (
+      {/* Vídeo / Imagem de destaque opcional */}
+      {(videoSrc || videoTitle || videoCaption || sectionImage) && (
         <section className="mt-16 mb-4">
           {/* Separador visual */}
           <ScrollReveal animation="fade">
@@ -275,7 +274,7 @@ export default function SubcategoryPage({
                     className="text-xs font-semibold tracking-[0.2em] uppercase"
                     style={{ color: "var(--color-tobacco)" }}
                   >
-                    {t("video.processo.label")}
+                    {sectionLabel ?? t("video.processo.label")}
                   </span>
                   <div className="w-1.5 h-1.5 rounded-full bg-primary" />
                 </div>
@@ -292,6 +291,8 @@ export default function SubcategoryPage({
                     ? videoIsPortrait
                       ? "flex flex-col md:flex-row gap-8 items-center"
                       : "flex flex-col gap-6"
+                    : sectionImage
+                    ? "flex flex-col md:flex-row gap-8 items-center"
                     : "flex flex-col gap-5"
                 }
               >
@@ -308,6 +309,18 @@ export default function SubcategoryPage({
                     >
                       {t(videoCaption)}
                     </p>
+                  </div>
+                )}
+
+                {/* Imagem estática (portrait) */}
+                {sectionImage && !videoSrc && (
+                  <div className="relative overflow-hidden rounded-2xl shadow-lg flex-shrink-0 w-full md:w-[240px] lg:w-[280px]">
+                    <img
+                      src={sectionImage}
+                      alt={videoTitle ?? title}
+                      className="w-full aspect-[9/16] object-cover rounded-2xl"
+                    />
+                    <div className="absolute inset-0 pointer-events-none rounded-2xl ring-1 ring-inset ring-tobacco/20" />
                   </div>
                 )}
 
@@ -338,7 +351,7 @@ export default function SubcategoryPage({
                   </div>
                 )}
 
-                {/* Conteúdo ao lado (portrait) ou standalone sem vídeo */}
+                {/* Conteúdo ao lado (portrait / sectionImage) ou standalone sem mídia */}
                 {(videoIsPortrait || !videoSrc) && (
                   <div className={`flex flex-col justify-center gap-5 ${videoSrc ? "flex-1 w-full md:pl-2" : "w-full"}`}>
                     {/* Barra dourada vertical + título */}

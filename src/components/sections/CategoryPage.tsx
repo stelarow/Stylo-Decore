@@ -31,6 +31,7 @@ interface CategoryPageProps {
   faqItems?: { question: string; answer: string }[];
   heroDesktopImageStyle?: React.CSSProperties;
   heroImage?: string;
+  midContent?: React.ReactNode;
 }
 
 export default function CategoryPage({
@@ -46,6 +47,7 @@ export default function CategoryPage({
   faqItems,
   heroDesktopImageStyle,
   heroImage,
+  midContent,
 }: CategoryPageProps) {
   const { t } = useLanguage();
   const resolvedTitle = titleKey ? t(titleKey) : title;
@@ -195,33 +197,45 @@ export default function CategoryPage({
                 </Link>
               ))}
 
-              {/* Card CTA - Consultoria */}
-              <div className="flex flex-col items-center justify-center rounded-2xl bg-foreground p-8 text-center shadow-sm">
-                <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-primary/20">
-                  <Check className="h-7 w-7 text-primary" />
-                </div>
-                <h3 className="mb-2 font-serif text-xl font-bold text-white">
-                  {t("cat.consultancy.title")}
-                </h3>
-                <p className="mb-6 text-sm text-white/70">
-                  {t("cat.consultancy.desc")}
-                </p>
-                <a
-                  href={getWhatsAppUrl(
-                    `${t("cat.consultancy.whatsapp")}${resolvedTitle.toLowerCase()}.`
-                  )}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="brushed-gold inline-flex items-center rounded-full px-6 py-2.5 text-sm font-semibold text-background-dark transition-all hover:shadow-lg active:scale-95"
-                >
-                  {t("cat.consultancy.cta")}
-                </a>
-              </div>
 
             </div>
           </div>
         </ScrollReveal>
       )}
+
+      {/* Conteúdo intermediário (ex: timeline) */}
+      {midContent}
+
+      {/* Consultoria Personalizada */}
+      <ScrollReveal animation="up">
+        <div className="mx-auto max-w-7xl px-6 py-12 md:py-16">
+          <div className="rounded-2xl bg-foreground px-8 py-12 md:px-16 flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
+            <div className="flex items-center gap-5">
+              <div className="hidden md:flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-primary/20">
+                <Check className="h-7 w-7 text-primary" />
+              </div>
+              <div>
+                <h3 className="font-serif text-xl font-bold text-white mb-1">
+                  {t("cat.consultancy.title")}
+                </h3>
+                <p className="text-sm text-white/70 max-w-md">
+                  {t("cat.consultancy.desc")}
+                </p>
+              </div>
+            </div>
+            <a
+              href={getWhatsAppUrl(
+                `${t("cat.consultancy.whatsapp")}${resolvedTitle.toLowerCase()}.`
+              )}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="brushed-gold inline-flex shrink-0 items-center rounded-full px-8 py-3 text-sm font-semibold text-background-dark transition-all hover:shadow-lg active:scale-95"
+            >
+              {t("cat.consultancy.cta")}
+            </a>
+          </div>
+        </div>
+      </ScrollReveal>
 
       {/* FAQ Accordion */}
       <ScrollReveal animation="up">

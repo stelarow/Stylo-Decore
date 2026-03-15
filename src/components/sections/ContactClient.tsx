@@ -44,14 +44,6 @@ export function ContactClient() {
                     >
                       {CONTACT.phone}
                     </a>
-                    <a
-                      href={getWhatsAppUrl2()}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-mahogany-light transition-colors hover:text-[#25D366]"
-                    >
-                      {CONTACT.phone2}
-                    </a>
                   </div>
                   <p className="mt-1 text-sm font-medium text-primary">
                     {t("contact.whatsappPrompt")}
@@ -64,7 +56,6 @@ export function ContactClient() {
                 <div>
                   <h3 className="mb-1 font-semibold text-foreground">{t("contact.telephone")}</h3>
                   <p className="text-mahogany-light">{CONTACT.phone}</p>
-                  <p className="text-mahogany-light">{CONTACT.phone2}</p>
                 </div>
               </div>
 

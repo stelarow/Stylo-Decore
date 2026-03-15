@@ -100,14 +100,6 @@ export default function Footer() {
                   >
                     {CONTACT.phone}
                   </a>
-                  <a
-                    href={getWhatsAppUrl2()}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-sm text-white/60 transition-colors hover:text-primary"
-                  >
-                    {CONTACT.phone2}
-                  </a>
                 </div>
               </li>
               <li className="flex items-start gap-3">
