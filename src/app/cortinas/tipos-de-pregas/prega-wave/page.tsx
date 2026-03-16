@@ -31,7 +31,7 @@ export default function PregaWavePage() {
         titleKey="/cortinas/tipos-de-pregas/prega-wave"
         categoryKey="/cortinas"
         description="Caimento suave em ondas uniformes e contínuas. A prega wave é o estilo contemporâneo por excelência — linhas fluidas que trazem leveza e modernidade a qualquer ambiente."
-        heroImage="/images/cortinas/wave-01.jpg"
+        heroImage="/images/cortinas/prega-wave-hero-desktop.png"
         products={CORTINA_PRODUCTS["prega-wave"]}
         videoSrc="/videos/processo-cortinas.mp4"
         videoTitle="video.processo.title"

@@ -38,8 +38,9 @@ export default function MoveisSobMedidaPage() {
         introKey="cat.moveis.intro"
         subcategories={MOVEIS_SUBCATEGORIES}
         faqItems={MOVEIS_FAQ_KEYS}
-        heroImage="/images/moveis-cozinha-hero.png"
+        heroImage="/images/moveis-sala-hero.jpg"
         midContent={<ProcessTimeline />}
+        disableLinks
       />
     </>
   );

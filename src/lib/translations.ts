@@ -64,7 +64,9 @@ export const NAV_TRANSLATIONS: Record<Language, Record<string, string>> = {
     "/moveis-sob-medida/quarto": "Quarto",
     "/moveis-sob-medida/cozinha": "Cozinha",
     "/moveis-sob-medida/home-office": "Home Office",
+    "/moveis-sob-medida/banheiro": "Banheiro",
     "/moveis-sob-medida/closet": "Closet",
+    "/moveis-sob-medida/inspire-se": "Inspire-se",
     "/moveis-sob-medida/estantes": "Estantes",
     "/moveis-sob-medida/armarios": "Armários",
     "/moveis-sob-medida/mesa-de-centro": "Mesa de Centro",
@@ -235,6 +237,7 @@ export const NAV_TRANSLATIONS: Record<Language, Record<string, string>> = {
     "page.moveis.quarto.desc": "Guarda-roupas e cabeceiras sob medida com design exclusivo. Máximo aproveitamento do espaço e conforto para o seu quarto.",
     "page.moveis.cozinha.desc": "Armários e bancadas planejadas para cozinha. Projetos que unem praticidade, beleza e organização.",
     "page.moveis.home-office.desc": "Escritórios e espaços de trabalho sob medida. Ambientes funcionais e inspiradores para trabalhar em casa.",
+    "page.moveis.banheiro.desc": "Gabinetes e armários sob medida para banheiro. Projetos que unem sofisticação, funcionalidade e elegância.",
     "page.moveis.closet.desc": "Closets planejados com organização inteligente e acabamento refinado. Elegância e praticidade em cada detalhe.",
     "page.tapetes.rede.desc": "Tapetes em rede com textura natural e design exclusivo. Peças que unem leveza e sofisticação, disponíveis em diversos tamanhos e acabamentos sob medida.",
     "sub.showroom.title": "Solicite um Orçamento",
@@ -578,6 +581,7 @@ export const NAV_TRANSLATIONS: Record<Language, Record<string, string>> = {
     "card.moveis.quarto": "Guarda-roupas e cabeceiras sob medida para o quarto",
     "card.moveis.cozinha": "Armários e bancadas planejadas para cozinha",
     "card.moveis.home-office": "Escritórios e espaços de trabalho sob medida em casa",
+    "card.moveis.banheiro": "Gabinetes e armários sob medida para banheiro",
     "card.moveis.closet": "Closets planejados com organização e elegância",
   },
 
@@ -638,7 +642,9 @@ export const NAV_TRANSLATIONS: Record<Language, Record<string, string>> = {
     "/moveis-sob-medida/quarto": "Bedroom",
     "/moveis-sob-medida/cozinha": "Kitchen",
     "/moveis-sob-medida/home-office": "Home Office",
+    "/moveis-sob-medida/banheiro": "Bathroom",
     "/moveis-sob-medida/closet": "Closet",
+    "/moveis-sob-medida/inspire-se": "Get Inspired",
     "/moveis-sob-medida/estantes": "Shelving Units",
     "/moveis-sob-medida/armarios": "Wardrobes",
     "/moveis-sob-medida/mesa-de-centro": "Coffee Table",
@@ -649,8 +655,8 @@ export const NAV_TRANSLATIONS: Record<Language, Record<string, string>> = {
     whatsappCta: "WhatsApp",
 
     // Hero
-    "hero.title": "Peças personalizáveis e orientação de design",
-    "hero.subtitle": "Para ajudar você a criar uma casa bonita, funcional e com personalidade.",
+    "hero.title": "Customizable pieces and design guidance",
+    "hero.subtitle": "To help you create a beautiful, functional, and personal home.",
     "hero.ctaPrimary": "Request a Quote",
     "hero.ctaSecondary": "View Collections",
     "hero.whatsapp": "Hello! I'd like to request a quote.",
@@ -662,7 +668,7 @@ export const NAV_TRANSLATIONS: Record<Language, Record<string, string>> = {
     "home.service.eyebrow": "Service Options",
     "home.service.title": "Choose how to start",
     "home.service.subtitle":
-      "Two options designed to fit your needs — from the convenience of digital to an exclusive in-home consultation.",
+      "Three options designed to fit your needs — from the convenience of digital to an exclusive in-home consultation.",
     "home.online.badge": "Online · Free",
     "home.online.title": "Free Online Quote",
     "home.online.desc":
@@ -672,6 +678,17 @@ export const NAV_TRANSLATIONS: Record<Language, Record<string, string>> = {
       "Send via WhatsApp — we'll reply with fabric and finish options for you to choose from",
     "home.online.step3": "Receive your cost estimate quickly",
     "home.online.cta": "Get an estimate now",
+    "home.online.whatsapp": "Hello! I'd like a quote from Stylo Decore.",
+    "home.consulting.badge": "Online · Free",
+    "home.consulting.title": "Free Online Consultation",
+    "home.consulting.desc":
+      "If you want to go beyond product selection, you can count on our interior design consultants. They can help you:",
+    "home.consulting.f1": "Define the best piece, style and details that suit you best",
+    "home.consulting.f2": "Choose pieces that complement each other",
+    "home.consulting.f3": "Create more comfortable and personalized spaces",
+    "home.consulting.cta": "I want a free online consultation",
+    "home.consulting.whatsapp":
+      "Hello! I'd like a Free Online Consultation with Stylo Decore.",
     "home.premium.badge": "Most Recommended",
     "home.premium.label": "Premium · In-Home",
     "home.premium.title": "Premium In-Home Consultation",
@@ -798,6 +815,7 @@ export const NAV_TRANSLATIONS: Record<Language, Record<string, string>> = {
     "page.moveis.quarto.desc": "Custom wardrobes and headboards with exclusive design. Maximum use of space and comfort for your bedroom.",
     "page.moveis.cozinha.desc": "Custom kitchen cabinets and countertops. Projects combining practicality, beauty and organisation.",
     "page.moveis.home-office.desc": "Custom home offices and workspaces. Functional and inspiring environments to work from home.",
+    "page.moveis.banheiro.desc": "Custom bathroom vanities and cabinets. Projects that combine sophistication, functionality and elegance.",
     "page.moveis.closet.desc": "Custom closets with smart organisation and refined finishes. Elegance and practicality in every detail.",
     "page.tapetes.rede.desc": "Net rugs with natural texture and exclusive design. Pieces that combine lightness and sophistication, available in various custom sizes and finishes.",
     "sub.showroom.title": "Request a Quote",
@@ -1140,6 +1158,7 @@ export const NAV_TRANSLATIONS: Record<Language, Record<string, string>> = {
     "card.moveis.quarto": "Custom wardrobes and headboards for the bedroom",
     "card.moveis.cozinha": "Custom kitchen cabinets and countertops",
     "card.moveis.home-office": "Custom home offices and workspaces",
+    "card.moveis.banheiro": "Custom bathroom cabinets and vanities",
     "card.moveis.closet": "Custom closets with smart organisation and elegance",
   },
 
@@ -1200,7 +1219,9 @@ export const NAV_TRANSLATIONS: Record<Language, Record<string, string>> = {
     "/moveis-sob-medida/quarto": "Dormitorio",
     "/moveis-sob-medida/cozinha": "Cocina",
     "/moveis-sob-medida/home-office": "Home Office",
+    "/moveis-sob-medida/banheiro": "Baño",
     "/moveis-sob-medida/closet": "Vestidor",
+    "/moveis-sob-medida/inspire-se": "Inspírate",
     "/moveis-sob-medida/estantes": "Estanterías",
     "/moveis-sob-medida/armarios": "Armarios",
     "/moveis-sob-medida/mesa-de-centro": "Mesa de Centro",
@@ -1211,8 +1232,8 @@ export const NAV_TRANSLATIONS: Record<Language, Record<string, string>> = {
     whatsappCta: "WhatsApp",
 
     // Hero
-    "hero.title": "Peças personalizáveis e orientação de design",
-    "hero.subtitle": "Para ajudar você a criar uma casa bonita, funcional e com personalidade.",
+    "hero.title": "Piezas personalizables y orientación de diseño",
+    "hero.subtitle": "Para ayudarle a crear una casa bonita, funcional y con personalidad.",
     "hero.ctaPrimary": "Solicitar Presupuesto",
     "hero.ctaSecondary": "Ver Colecciones",
     "hero.whatsapp": "¡Hola! Me gustaría solicitar un presupuesto.",
@@ -1224,7 +1245,7 @@ export const NAV_TRANSLATIONS: Record<Language, Record<string, string>> = {
     "home.service.eyebrow": "Formas de Atención",
     "home.service.title": "Elija cómo empezar",
     "home.service.subtitle":
-      "Dos opciones pensadas para adaptarse a su momento — de la comodidad de lo digital a la atención exclusiva en su hogar.",
+      "Tres opciones pensadas para adaptarse a su momento — de la comodidad de lo digital a la atención exclusiva en su hogar.",
     "home.online.badge": "Online · Gratuito",
     "home.online.title": "Presupuesto Online Gratuito",
     "home.online.desc":
@@ -1234,6 +1255,17 @@ export const NAV_TRANSLATIONS: Record<Language, Record<string, string>> = {
       "Envíe por WhatsApp — le respondemos con opciones de telas y acabados para elegir",
     "home.online.step3": "Reciba la estimación de costo rápidamente",
     "home.online.cta": "Quiero una estimación ahora",
+    "home.online.whatsapp": "¡Hola! Me gustaría un presupuesto con Stylo Decore.",
+    "home.consulting.badge": "Online · Gratuito",
+    "home.consulting.title": "Consultoría Online Gratuita",
+    "home.consulting.desc":
+      "Si desea ir más allá de la elección de productos, puede contar con nuestras consultoras de diseño de interiores. Ellas pueden ayudarle a:",
+    "home.consulting.f1": "Definir la mejor pieza, estilo y detalles que mejor le convengan",
+    "home.consulting.f2": "Elegir piezas que combinen entre sí",
+    "home.consulting.f3": "Crear espacios más cómodos y personalizados",
+    "home.consulting.cta": "Quiero una consultoría online",
+    "home.consulting.whatsapp":
+      "¡Hola! Me gustaría una Consultoría Online Gratuita con Stylo Decore.",
     "home.premium.badge": "Más Recomendado",
     "home.premium.label": "Premium · Presencial",
     "home.premium.title": "Consultoría Presencial Premium",
@@ -1361,6 +1393,7 @@ export const NAV_TRANSLATIONS: Record<Language, Record<string, string>> = {
     "page.moveis.quarto.desc": "Armarios y cabeceras a medida con diseño exclusivo. Máximo aprovechamiento del espacio y confort para su dormitorio.",
     "page.moveis.cozinha.desc": "Armarios y encimeras a medida para cocina. Proyectos que unen practicidad, belleza y organización.",
     "page.moveis.home-office.desc": "Oficinas y espacios de trabajo a medida en casa. Ambientes funcionales e inspiradores para trabajar desde casa.",
+    "page.moveis.banheiro.desc": "Gabinetes y armarios a medida para baño. Proyectos que unen sofisticación, funcionalidad y elegancia.",
     "page.moveis.closet.desc": "Vestidores a medida con organización inteligente y acabado refinado. Elegancia y practicidad en cada detalle.",
     "page.tapetes.rede.desc": "Alfombras de red con textura natural y diseño exclusivo. Piezas que unen ligereza y sofisticación, disponibles en varios tamaños y acabados a medida.",
     "sub.showroom.title": "Solicite un Presupuesto",
@@ -1704,6 +1737,7 @@ export const NAV_TRANSLATIONS: Record<Language, Record<string, string>> = {
     "card.moveis.quarto": "Armarios y cabeceras a medida para el dormitorio",
     "card.moveis.cozinha": "Armarios y encimeras a medida para cocina",
     "card.moveis.home-office": "Oficinas y espacios de trabajo a medida en casa",
+    "card.moveis.banheiro": "Gabinetes y armarios a medida para baño",
     "card.moveis.closet": "Vestidores a medida con organización inteligente y elegancia",
   },
 };

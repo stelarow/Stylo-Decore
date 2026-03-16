@@ -31,7 +31,7 @@ export default function PregaMachoPage() {
         titleKey="/cortinas/tipos-de-pregas/prega-macho"
         categoryKey="/cortinas"
         description="Pregas triplas estruturadas que criam volume e sofisticação. A prega macho transmite elegância robusta e atemporal, ideal para ambientes formais e salas de destaque."
-        heroImage="/images/cortinas/wave-01.jpg"
+        heroImage="/images/cortinas/prega-macho-hero-desktop.jpg"
         products={CORTINA_PRODUCTS["prega-macho"]}
         videoSrc="/videos/processo-cortinas.mp4"
         videoTitle="video.processo.title"

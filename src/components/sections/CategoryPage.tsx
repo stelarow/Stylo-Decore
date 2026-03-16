@@ -32,6 +32,7 @@ interface CategoryPageProps {
   heroDesktopImageStyle?: React.CSSProperties;
   heroImage?: string;
   midContent?: React.ReactNode;
+  disableLinks?: boolean;
 }
 
 export default function CategoryPage({
@@ -48,6 +49,7 @@ export default function CategoryPage({
   heroDesktopImageStyle,
   heroImage,
   midContent,
+  disableLinks,
 }: CategoryPageProps) {
   const { t } = useLanguage();
   const resolvedTitle = titleKey ? t(titleKey) : title;
@@ -132,70 +134,45 @@ export default function CategoryPage({
         <ScrollReveal animation="up" threshold={0.05}>
           <div className="mx-auto max-w-7xl px-6 py-12">
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {/* Card grande - primeiro item */}
-              <Link
-                href={subcategories[0].href}
-                className="group relative overflow-hidden sm:row-span-2"
-              >
-                <div className="aspect-[4/5] lg:aspect-auto" />
-                {subcategories[0].cardImage ? (
+              {/* Cards iguais */}
+              {subcategories.map((item) => {
+                const cardContent = (
                   <>
-                    <img
-                      src={subcategories[0].cardImage}
-                      alt={subcategories[0].name}
-                      className="absolute inset-0 hidden h-full w-full object-cover transition-transform duration-500 group-hover:scale-105 lg:block"
-                    />
-                    <img
-                      src={subcategories[0].image}
-                      alt={subcategories[0].name}
-                      className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105 lg:hidden"
-                    />
-                  </>
-                ) : (
-                  <img
-                    src={subcategories[0].image}
-                    alt={subcategories[0].name}
-                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                )}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
-                <div className="absolute inset-x-0 bottom-0 p-6 md:p-8">
-                  <h3 className="mb-1 text-2xl font-bold text-white">
-                    {t(subcategories[0].href) || subcategories[0].name}
-                  </h3>
-                  <p className="text-sm text-white/70">{subcategories[0].descriptionKey ? t(subcategories[0].descriptionKey) : subcategories[0].description}</p>
-                  <div className="mt-4 flex h-10 w-10 items-center justify-center rounded-full bg-primary text-background-dark opacity-0 transition-all duration-300 group-hover:opacity-100">
-                    <ArrowRight className="h-5 w-5" />
-                  </div>
-                </div>
-              </Link>
-
-              {/* Cards menores */}
-              {subcategories.slice(1).map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="group relative overflow-hidden"
-                >
-                  <div className="aspect-[3/4]">
-                    <img
-                      src={item.image}
-                      alt={item.name}
-                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                  </div>
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                  <div className="absolute inset-x-0 bottom-0 p-6">
-                    <h3 className="mb-1 text-xl font-bold text-white">
-                      {t(item.href) || item.name}
-                    </h3>
-                    <p className="text-sm text-white/70">{item.descriptionKey ? t(item.descriptionKey) : item.description}</p>
-                    <div className="mt-3 flex h-9 w-9 items-center justify-center rounded-full bg-primary text-background-dark opacity-0 transition-all duration-300 group-hover:opacity-100">
-                      <ArrowRight className="h-4 w-4" />
+                    <div className="aspect-[3/4]">
+                      <img
+                        src={item.cardImage || item.image}
+                        alt={item.name}
+                        className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
                     </div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                    <div className="absolute inset-x-0 bottom-0 p-6">
+                      <h3 className="mb-1 text-xl font-bold text-white">
+                        {t(item.href) || item.name}
+                      </h3>
+                      <p className="text-sm text-white/70">{item.descriptionKey ? t(item.descriptionKey) : item.description}</p>
+                      {!disableLinks && (
+                        <div className="mt-3 flex h-9 w-9 items-center justify-center rounded-full bg-primary text-background-dark opacity-0 transition-all duration-300 group-hover:opacity-100">
+                          <ArrowRight className="h-4 w-4" />
+                        </div>
+                      )}
+                    </div>
+                  </>
+                );
+                return disableLinks ? (
+                  <div key={item.href} className="group relative overflow-hidden">
+                    {cardContent}
                   </div>
-                </Link>
-              ))}
+                ) : (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className="group relative overflow-hidden"
+                  >
+                    {cardContent}
+                  </Link>
+                );
+              })}
 
 
             </div>

@@ -80,7 +80,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE_URL}/moveis-sob-medida/quarto`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
     { url: `${SITE_URL}/moveis-sob-medida/cozinha`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
     { url: `${SITE_URL}/moveis-sob-medida/home-office`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${SITE_URL}/moveis-sob-medida/banheiro`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
     { url: `${SITE_URL}/moveis-sob-medida/closet`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${SITE_URL}/moveis-sob-medida/inspire-se`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
 
     // Blog
     { url: `${SITE_URL}/blog`, lastModified: now, changeFrequency: "weekly", priority: 0.7 },

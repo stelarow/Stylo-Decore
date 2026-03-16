@@ -31,7 +31,7 @@ export default function PregaAmericanaPage() {
         titleKey="/cortinas/tipos-de-pregas/prega-americana"
         categoryKey="/cortinas"
         description="Estilo clássico com pregas elegantes e bem definidas. A cortina com prega americana é perfeita para quem busca requinte e tradição na decoração."
-        heroImage="/images/cortinas/cortina-prega-hero-desktop.png"
+        heroImage="/images/cortinas/prega-americana-hero-desktop.png"
         products={CORTINA_PRODUCTS["prega-americana"]}
         desktopImageClass="hidden lg:block w-full aspect-[3/4] object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
         mobileImageClass="lg:hidden w-full aspect-[3/4] object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"

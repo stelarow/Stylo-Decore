@@ -91,13 +91,6 @@ export const CORTINAS_SUBCATEGORIES = [
     description: "Varão, trilho suíço e trilho motorizado",
     descriptionKey: "card.cortinas.suportes-e-ferragens",
   },
-  {
-    name: "Modelos",
-    href: "/cortinas/modelos",
-    image: "/images/cortinas/wave-01.jpg",
-    description: "Tradicional, com forro, dupla e piso-teto",
-    descriptionKey: "card.cortinas.modelos",
-  },
 ];
 
 export const CORTINAS_TIPOS_PREGAS = [
@@ -111,21 +104,21 @@ export const CORTINAS_TIPOS_PREGAS = [
   {
     name: "Prega Macho",
     href: "/cortinas/tipos-de-pregas/prega-macho",
-    image: "/images/cortinas/prega-americana-desktop-02.jpg",
+    image: "/images/cortinas/prega-macho-02.png",
     description: "Pregas triplas estruturadas para um visual sofisticado",
     descriptionKey: "card.cortinas.prega-macho",
   },
   {
     name: "Prega Wave",
     href: "/cortinas/tipos-de-pregas/prega-wave",
-    image: "/images/cortinas/wave-01.jpg",
+    image: "/images/cortinas/prega-wave-04.png",
     description: "Caimento suave em ondas uniformes e contemporâneas",
     descriptionKey: "card.cortinas.prega-wave",
   },
   {
     name: "Cortina Franzida",
     href: "/cortinas/tipos-de-pregas/cortina-franzida",
-    image: "/images/cortinas/wave-02.jpg",
+    image: "/images/cortinas/cortina-franzida-card.png",
     description: "Franzido clássico com volume e leveza",
     descriptionKey: "card.cortinas.cortina-franzida",
   },
@@ -134,9 +127,9 @@ export const CORTINAS_TIPOS_PREGAS = [
 // Produtos de Cortinas por subcategoria
 export const CORTINA_PRODUCTS: Record<string, { name: string; image: string; desktopImage?: string; category: string }[]> = {
   "prega-americana": [
-    { name: "Prega Americana - Modelo 1", image: "/images/cortinas/prega-americana-desktop-01.jpg", desktopImage: "/images/cortinas/prega-americana-desktop-01.jpg", category: "Cortinas" },
-    { name: "Prega Americana - Modelo 2", image: "/images/cortinas/prega-americana-desktop-02.jpg", desktopImage: "/images/cortinas/prega-americana-desktop-02.jpg", category: "Cortinas" },
-    { name: "Prega Americana - Modelo 3", image: "/images/cortinas/prega-americana-desktop-03.jpg", desktopImage: "/images/cortinas/prega-americana-desktop-03.jpg", category: "Cortinas" },
+    { name: "Prega Americana - Modelo 1", image: "/images/cortinas/prega-americana-01.png", desktopImage: "/images/cortinas/prega-americana-01.png", category: "Cortinas" },
+    { name: "Prega Americana - Modelo 2", image: "/images/cortinas/prega-americana-02.png", desktopImage: "/images/cortinas/prega-americana-02.png", category: "Cortinas" },
+    { name: "Prega Americana - Modelo 3", image: "/images/cortinas/prega-americana-03.png", desktopImage: "/images/cortinas/prega-americana-03.png", category: "Cortinas" },
   ],
   ilhos: [
     { name: "Cortina com Ilhós - Modelo 1", image: "/images/cortinas/ilhos-01.jpg", category: "Cortinas" },
@@ -149,9 +142,11 @@ export const CORTINA_PRODUCTS: Record<string, { name: string; image: string; des
     { name: "Cortina Wave - Modelo 3", image: "/images/cortinas/wave-03.jpg", category: "Cortinas" },
   ],
   varao: [
-    { name: "Varão Simples", image: "/images/cortinas/cortina-26.jpg", desktopImage: "/images/cortinas/cortina-26.jpg", category: "Cortinas" },
-    { name: "Varão com Ponteira Decorativa", image: "/images/cortinas/cortina-27.jpg", desktopImage: "/images/cortinas/cortina-27.jpg", category: "Cortinas" },
-    { name: "Varão Duplo", image: "/images/cortinas/cortina-28.jpg", desktopImage: "/images/cortinas/cortina-28.jpg", category: "Cortinas" },
+    { name: "Varão Simples", image: "/images/cortinas/varao-01.png", desktopImage: "/images/cortinas/varao-01.png", category: "Cortinas" },
+    { name: "Varão com Ponteira Decorativa", image: "/images/cortinas/varao-02.png", desktopImage: "/images/cortinas/varao-02.png", category: "Cortinas" },
+    { name: "Varão Duplo", image: "/images/cortinas/varao-03.png", desktopImage: "/images/cortinas/varao-03.png", category: "Cortinas" },
+    { name: "Varão Decorativo", image: "/images/cortinas/varao-04.png", desktopImage: "/images/cortinas/varao-04.png", category: "Cortinas" },
+    { name: "Varão sob Medida", image: "/images/cortinas/varao-05.png", desktopImage: "/images/cortinas/varao-05.png", category: "Cortinas" },
   ],
   "blackout-acusticas": [
     { name: "Blackout & Acústica - Modelo 1", image: "/images/cortinas/blackout-01.jpg", category: "Cortinas" },
@@ -159,36 +154,35 @@ export const CORTINA_PRODUCTS: Record<string, { name: string; image: string; des
     { name: "Blackout & Acústica - Modelo 3", image: "/images/cortinas/blackout-03.jpg", category: "Cortinas" },
   ],
   "prega-macho": [
-    { name: "Prega Macho - Modelo 1", image: "/images/cortinas/wave-01.jpg", desktopImage: "/images/cortinas/wave-01.jpg", category: "Cortinas" },
-    { name: "Prega Macho - Modelo 2", image: "/images/cortinas/wave-02.jpg", desktopImage: "/images/cortinas/wave-02.jpg", category: "Cortinas" },
-    { name: "Prega Macho - Modelo 3", image: "/images/cortinas/wave-03.jpg", desktopImage: "/images/cortinas/wave-03.jpg", category: "Cortinas" },
+    { name: "Prega Macho - Modelo 1", image: "/images/cortinas/prega-macho-01.png", desktopImage: "/images/cortinas/prega-macho-01.png", category: "Cortinas" },
+    { name: "Prega Macho - Modelo 2", image: "/images/cortinas/prega-macho-02.png", desktopImage: "/images/cortinas/prega-macho-02.png", category: "Cortinas" },
   ],
   "prega-wave": [
-    { name: "Prega Wave - Modelo 1", image: "/images/cortinas/wave-01.jpg", desktopImage: "/images/cortinas/wave-01.jpg", category: "Cortinas" },
-    { name: "Prega Wave - Modelo 2", image: "/images/cortinas/wave-02.jpg", desktopImage: "/images/cortinas/wave-02.jpg", category: "Cortinas" },
-    { name: "Prega Wave - Modelo 3", image: "/images/cortinas/wave-03.jpg", desktopImage: "/images/cortinas/wave-03.jpg", category: "Cortinas" },
+    { name: "Prega Wave - Modelo 1", image: "/images/cortinas/prega-wave-01.png", desktopImage: "/images/cortinas/prega-wave-01.png", category: "Cortinas" },
+    { name: "Prega Wave - Modelo 2", image: "/images/cortinas/prega-wave-02.png", desktopImage: "/images/cortinas/prega-wave-02.png", category: "Cortinas" },
+    { name: "Prega Wave - Modelo 3", image: "/images/cortinas/prega-wave-03.png", desktopImage: "/images/cortinas/prega-wave-03.png", category: "Cortinas" },
+    { name: "Prega Wave - Modelo 4", image: "/images/cortinas/prega-wave-04.png", desktopImage: "/images/cortinas/prega-wave-04.png", category: "Cortinas" },
   ],
   "cortina-franzida": [
-    { name: "Cortina Franzida - Modelo 1", image: "/images/cortinas/ilhos-01.jpg", desktopImage: "/images/cortinas/ilhos-01.jpg", category: "Cortinas" },
-    { name: "Cortina Franzida - Modelo 2", image: "/images/cortinas/ilhos-02.jpg", desktopImage: "/images/cortinas/ilhos-02.jpg", category: "Cortinas" },
-    { name: "Cortina Franzida - Modelo 3", image: "/images/cortinas/ilhos-03.jpg", desktopImage: "/images/cortinas/ilhos-03.jpg", category: "Cortinas" },
+    { name: "Cortina Franzida - Modelo 1", image: "/images/cortinas/cortina-franzida-01.png", desktopImage: "/images/cortinas/cortina-franzida-01.png", category: "Cortinas" },
+    { name: "Cortina Franzida - Modelo 2", image: "/images/cortinas/cortina-franzida-02.png", desktopImage: "/images/cortinas/cortina-franzida-02.png", category: "Cortinas" },
   ],
   // Tipos de Acabamento
   "barra-larga": [
-    { name: "Barra Larga - Modelo 1", image: "/images/cortinas/cortina-01.jpg", desktopImage: "/images/cortinas/cortina-01-desktop.jpg", category: "Cortinas" },
-    { name: "Barra Larga - Modelo 2", image: "/images/cortinas/cortina-03.jpg", desktopImage: "/images/cortinas/cortina-01-desktop.jpg", category: "Cortinas" },
-    { name: "Barra Larga - Modelo 3", image: "/images/cortinas/cortina-04.jpg", desktopImage: "/images/cortinas/cortina-07-desktop.jpg", category: "Cortinas" },
+    { name: "Barra Larga - Modelo 1", image: "/images/cortinas/barra-larga-01.png", desktopImage: "/images/cortinas/barra-larga-01.png", category: "Cortinas" },
+    { name: "Barra Larga - Modelo 2", image: "/images/cortinas/barra-larga-02.png", desktopImage: "/images/cortinas/barra-larga-02.png", category: "Cortinas" },
+    { name: "Barra Larga - Modelo 3", image: "/images/cortinas/barra-larga-03.png", desktopImage: "/images/cortinas/barra-larga-03.png", category: "Cortinas" },
+    { name: "Barra Larga - Modelo 4", image: "/images/cortinas/barra-larga-04.png", desktopImage: "/images/cortinas/barra-larga-04.png", category: "Cortinas" },
   ],
   "forro-blackout": [
-    { name: "Blackout 80% — Meia Sombra", image: "/images/cortinas/blackout-01.jpg", desktopImage: "/images/cortinas/blackout-01.jpg", category: "Cortinas" },
-    { name: "Blackout 95% — Alta Privacidade", image: "/images/cortinas/blackout-02.jpg", desktopImage: "/images/cortinas/blackout-02.jpg", category: "Cortinas" },
-    { name: "Blackout 100% — Escurecimento Total", image: "/images/cortinas/blackout-03.jpg", desktopImage: "/images/cortinas/blackout-03.jpg", category: "Cortinas" },
+    { name: "Blackout 95% — Alta Privacidade", image: "/images/cortinas/forro-blackout-01.png", desktopImage: "/images/cortinas/forro-blackout-01.png", category: "Cortinas" },
+    { name: "Blackout 100% — Escurecimento Total", image: "/images/cortinas/forro-blackout-02.png", desktopImage: "/images/cortinas/forro-blackout-02.png", category: "Cortinas" },
   ],
   // Suportes e Ferragens
   "trilho-suico": [
-    { name: "Trilho Suíço - Modelo 1", image: "/images/cortinas/prega-americana-desktop-04.jpg", desktopImage: "/images/cortinas/prega-americana-desktop-04.jpg", category: "Cortinas" },
-    { name: "Trilho Suíço - Modelo 2", image: "/images/cortinas/prega-americana-desktop-05.jpg", desktopImage: "/images/cortinas/prega-americana-desktop-05.jpg", category: "Cortinas" },
-    { name: "Trilho Suíço - Modelo 3", image: "/images/cortinas/prega-americana-desktop-06.jpg", desktopImage: "/images/cortinas/prega-americana-desktop-06.jpg", category: "Cortinas" },
+    { name: "Trilho Suíço - Modelo 1", image: "/images/cortinas/trilho-suico-01.png", desktopImage: "/images/cortinas/trilho-suico-01.png", category: "Cortinas" },
+    { name: "Trilho Suíço - Modelo 2", image: "/images/cortinas/trilho-suico-02.jpg", desktopImage: "/images/cortinas/trilho-suico-02.jpg", category: "Cortinas" },
+    { name: "Trilho Suíço - Modelo 3", image: "/images/cortinas/trilho-suico-03.png", desktopImage: "/images/cortinas/trilho-suico-03.png", category: "Cortinas" },
   ],
   "trilho-motorizado": [
     { name: "Trilho Motorizado - Modelo 1", image: "/images/cortinas/wave-04.jpg", desktopImage: "/images/cortinas/wave-04.jpg", category: "Cortinas" },
@@ -223,8 +217,8 @@ export const CORTINAS_TIPOS_ACABAMENTO = [
   {
     name: "Barra Larga",
     href: "/cortinas/tipos-de-acabamento/barra-larga",
-    image: "/images/cortinas/cortina-01.jpg",
-    desktopImage: "/images/cortinas/cortina-01-desktop.jpg",
+    image: "/images/cortinas/barra-larga-03.png",
+    desktopImage: "/images/cortinas/barra-larga-03.png",
     description: "Acabamento elegante na bainha da cortina com barra de peso",
     descriptionKey: "card.cortinas.barra-larga",
   },
@@ -242,14 +236,14 @@ export const CORTINAS_SUPORTES_FERRAGENS = [
   {
     name: "Varão",
     href: "/cortinas/suportes-e-ferragens/varao",
-    image: "/images/cortinas/cortina-26.jpg",
+    image: "/images/cortinas/varao-03.png",
     description: "Varão simples, com ponteira decorativa ou duplo",
     descriptionKey: "card.cortinas.varao",
   },
   {
     name: "Trilho Suíço",
     href: "/cortinas/suportes-e-ferragens/trilho-suico",
-    image: "/images/cortinas/prega-americana-desktop-04.jpg",
+    image: "/images/cortinas/trilho-suico-02.jpg",
     description: "Trilho embutido discreto, ideal para cortinas de tecido",
     descriptionKey: "card.cortinas.trilho-suico",
   },
@@ -306,14 +300,14 @@ export const PERSIANAS_SUBCATEGORIES = [
   {
     name: "Rolô",
     href: "/persianas/rolo",
-    image: "/images/persianas/rolo-01.jpg",
+    image: "/images/persianas/rolo-hero-desktop.png",
     description: "Simplicidade e funcionalidade em tecidos de alta qualidade",
     descriptionKey: "card.persianas.rolo",
   },
   {
     name: "Romana",
     href: "/persianas/romana",
-    image: "/images/persianas/persiana-07.jpg",
+    image: "/images/persianas/romana-01.jpg",
     description: "Dobras horizontais elegantes que valorizam qualquer ambiente",
     descriptionKey: "card.persianas.romana",
   },
@@ -531,8 +525,8 @@ export const PERSIANA_PRODUCTS: Record<string, { name: string; image: string; ca
     { name: "Rolô - Modelo 2", image: "/images/persianas/rolo-new-02.png", category: "Persianas" },
   ],
   romana: [
-    { name: "Romana - Modelo 1", image: "/images/persianas/persiana-07.jpg", category: "Persianas" },
-    { name: "Romana - Modelo 2", image: "/images/persianas/persiana-04.jpg", category: "Persianas" },
+    { name: "Romana - Modelo 1", image: "/images/persianas/romana-01.jpg", category: "Persianas" },
+    { name: "Romana - Modelo 2", image: "/images/persianas/romana-02.jpg", category: "Persianas" },
   ],
   miragem: [
     { name: "Miragem - Modelo 1", image: "/images/persianas/miragem-01.png", category: "Persianas" },
@@ -597,23 +591,30 @@ export const MOVEIS_SUBCATEGORIES = [
   {
     name: "Quarto",
     href: "/moveis-sob-medida/quarto",
-    image: "https://images.unsplash.com/photo-1631679706909-1844bbd07221?w=600&h=750&fit=crop",
+    image: "/images/moveis-quarto-card.jpg",
     description: "Guarda-roupas e cabeceiras sob medida para o quarto",
     descriptionKey: "card.moveis.quarto",
   },
   {
     name: "Cozinha",
     href: "/moveis-sob-medida/cozinha",
-    image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&h=750&fit=crop",
+    image: "/images/moveis-cozinha-card.jpg",
     description: "Armários e bancadas planejadas para cozinha",
     descriptionKey: "card.moveis.cozinha",
   },
   {
     name: "Home Office",
     href: "/moveis-sob-medida/home-office",
-    image: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&h=750&fit=crop",
+    image: "/images/moveis-home-office-card.jpg",
     description: "Escritórios e espaços de trabalho sob medida em casa",
     descriptionKey: "card.moveis.home-office",
+  },
+  {
+    name: "Banheiro",
+    href: "/moveis-sob-medida/banheiro",
+    image: "/images/moveis-banheiro-card.jpg",
+    description: "Gabinetes e armários sob medida para banheiro",
+    descriptionKey: "card.moveis.banheiro",
   },
   {
     name: "Closet",
@@ -632,5 +633,6 @@ export const MOVEL_PRODUCTS: Record<string, { name: string; image: string; categ
   quarto: getPlaceholderProducts("Móveis Sob Medida", "Quarto", 2),
   cozinha: getPlaceholderProducts("Móveis Sob Medida", "Cozinha", 2),
   "home-office": getPlaceholderProducts("Móveis Sob Medida", "Home Office", 2),
+  banheiro: getPlaceholderProducts("Móveis Sob Medida", "Banheiro", 2),
   closet: getPlaceholderProducts("Móveis Sob Medida", "Closet", 2),
 };

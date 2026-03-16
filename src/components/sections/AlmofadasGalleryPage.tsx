@@ -1,9 +1,11 @@
 "use client";
 
+import { useState } from "react";
 import { getWhatsAppUrl } from "@/lib/constants";
 import { ALMOFADAS_FAQ_KEYS } from "@/lib/seo";
 import FAQAccordion from "@/components/ui/FAQAccordion";
 import ScrollReveal from "@/components/ui/ScrollReveal";
+import ImageLightbox from "@/components/ui/ImageLightbox";
 
 const KITS = [
   { name: "Kit Sala Clássico",  image: "/images/almofadas/decorativa-1.jpeg" },
@@ -26,9 +28,13 @@ const CAMA = [
   { name: "Cama Solteiro",     image: "/images/almofadas/decorativa-2.jpeg" },
 ];
 
-function PhotoCard({ name, image }: { name: string; image: string }) {
+function PhotoCard({ name, image, onClick }: { name: string; image: string; onClick: () => void }) {
   return (
-    <div className="group relative overflow-hidden rounded-xl">
+    <button
+      className="group relative overflow-hidden rounded-xl cursor-zoom-in w-full text-left"
+      onClick={onClick}
+      aria-label={`Ver imagem de ${name}`}
+    >
       <div className="aspect-[3/4]">
         <img
           src={image}
@@ -36,17 +42,13 @@ function PhotoCard({ name, image }: { name: string; image: string }) {
           className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
         />
       </div>
-      {/* gradient for label readability */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent" />
-      {/* name label */}
-      <span className="absolute bottom-3 left-3 rounded-full bg-black/30 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-white backdrop-blur-sm">
-        {name}
-      </span>
-    </div>
+    </button>
   );
 }
 
 export default function AlmofadasGalleryPage() {
+  const [lightbox, setLightbox] = useState<{ src: string; alt: string } | null>(null);
+
   return (
     <div>
       {/* Hero */}
@@ -90,7 +92,7 @@ export default function AlmofadasGalleryPage() {
           </h2>
           <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4 md:gap-4">
             {KITS.map((item) => (
-              <PhotoCard key={item.name} {...item} />
+              <PhotoCard key={item.name} {...item} onClick={() => setLightbox({ src: item.image, alt: item.name })} />
             ))}
           </div>
         </section>
@@ -104,7 +106,7 @@ export default function AlmofadasGalleryPage() {
           </h2>
           <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4 md:gap-4">
             {SOFA.map((item) => (
-              <PhotoCard key={item.name} {...item} />
+              <PhotoCard key={item.name} {...item} onClick={() => setLightbox({ src: item.image, alt: item.name })} />
             ))}
           </div>
         </section>
@@ -118,7 +120,7 @@ export default function AlmofadasGalleryPage() {
           </h2>
           <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4 md:gap-4">
             {CAMA.map((item) => (
-              <PhotoCard key={item.name} {...item} />
+              <PhotoCard key={item.name} {...item} onClick={() => setLightbox({ src: item.image, alt: item.name })} />
             ))}
           </div>
         </section>
@@ -155,6 +157,14 @@ export default function AlmofadasGalleryPage() {
           <FAQAccordion items={ALMOFADAS_FAQ_KEYS} />
         </div>
       </ScrollReveal>
+
+      {lightbox && (
+        <ImageLightbox
+          src={lightbox.src}
+          alt={lightbox.alt}
+          onClose={() => setLightbox(null)}
+        />
+      )}
     </div>
   );
 }

@@ -55,43 +55,44 @@ function Bullets({ items }: { items: string[] }) {
 
 const steps = [
   {
-    title: "Consulta Inicial",
+    title: "Corte com Precisão",
     content: (
       <MediaBlock media={<VideoCard src="/videos/processo-01.mp4" />}>
         <p className="text-foreground font-medium text-sm md:text-base leading-relaxed">
-          Nosso time vai até o seu espaço para entender cada detalhe.
+          Cada painel cortado com exatidão milimétrica.
         </p>
         <p className="text-tobacco text-sm leading-relaxed">
-          Medimos, escutamos e anotamos tudo o que você imagina — estilo,
-          funcionalidade e orçamento. É o ponto de partida para um projeto
-          que é só seu.
+          Utilizamos serras de alta precisão para garantir que cada peça
+          saia com as dimensões exatas do projeto. Sem folgas, sem
+          retrabalho.
         </p>
         <Bullets
           items={[
-            "Visita ao seu espaço",
-            "Levantamento de medidas",
-            "Entendimento do seu estilo",
+            "Serra de precisão industrial",
+            "Cortes conforme projeto aprovado",
+            "Tolerância milimétrica em cada peça",
           ]}
         />
       </MediaBlock>
     ),
   },
   {
-    title: "Projeto 3D Personalizado",
+    title: "Modelagem e Acabamento das Bordas",
     content: (
       <MediaBlock media={<VideoCard src="/videos/processo-02.mp4" />}>
         <p className="text-foreground font-medium text-sm md:text-base leading-relaxed">
-          Você visualiza o resultado antes de qualquer peça ser fabricada.
+          Bordas trabalhadas à mão para um toque impecável.
         </p>
         <p className="text-tobacco text-sm leading-relaxed">
-          Desenvolvemos o projeto 3D completo com todos os detalhes.
-          Aprovar ou ajustar fica fácil — sem surpresas no final.
+          Após o corte, cada peça tem suas bordas modeladas e lixadas
+          manualmente. É nesse detalhe que se sente a diferença entre
+          um móvel comum e um móvel de alto padrão.
         </p>
         <Bullets
           items={[
-            "Renderização 3D completa",
-            "Escolha de materiais e cores",
-            "Aprovação antes da produção",
+            "Modelagem manual das bordas",
+            "Lixamento progressivo",
+            "Acabamento liso ao toque",
           ]}
         />
       </MediaBlock>
@@ -149,50 +150,51 @@ const steps = [
     ),
   },
   {
-    title: "Embalagem e Logística",
+    title: "Polimento e Acabamento em Mármore",
     content: (
       <MediaBlock media={<VideoCard src="/videos/processo-04.mp4" />}>
         <p className="text-foreground font-medium text-sm md:text-base leading-relaxed">
-          Cada peça protegida e identificada para chegar perfeita até você.
+          Superfície impecável, do bruto ao espelho.
         </p>
         <p className="text-tobacco text-sm leading-relaxed">
-          Após aprovação final, os móveis são embalados individualmente com
-          proteção especial. Cada volume é etiquetado por projeto e ambiente,
-          garantindo uma montagem organizada e sem perdas.
+          Cada peça em mármore passa por etapas progressivas de polimento
+          até atingir o brilho e a textura ideais. Um acabamento artesanal
+          que realça as veias naturais da pedra.
         </p>
         <Bullets
           items={[
-            "Embalagem individual por peça",
-            "Identificação por ambiente",
-            "Transporte com veículo próprio",
+            "Polimento progressivo em múltiplas etapas",
+            "Realce das veias naturais do mármore",
+            "Acabamento brilhante ou acetinado",
           ]}
         />
       </MediaBlock>
     ),
   },
   {
-    title: "Pronto para Instalar",
+    title: "Estoque e Expedição",
     content: (
       <MediaBlock
         media={
           <ImageCard
             src="/images/processo-entrega.jpg"
-            alt="Móveis embalados prontos para entrega"
+            alt="Estoque com produtos prontos para entrega"
           />
         }
       >
         <p className="text-foreground font-medium text-sm md:text-base leading-relaxed">
-          Instalação completa pela nossa equipe especializada.
+          Produtos finalizados, organizados e prontos para sair.
         </p>
         <p className="text-tobacco text-sm leading-relaxed">
-          Tudo nivelado, ajustado e alinhado com precisão milimétrica no
-          seu espaço. Você só precisa se apaixonar pelo resultado.
+          Cada móvel concluído vai direto para o estoque, separado por
+          projeto e aguardando a data de entrega combinada. Tudo
+          controlado para que nada se perca no caminho.
         </p>
         <Bullets
           items={[
-            "Entrega no prazo combinado",
-            "Montagem por equipe própria",
-            "Acabamento final perfeito",
+            "Separação por projeto e ambiente",
+            "Controle de estoque por entrega",
+            "Transporte com veículo próprio",
           ]}
         />
       </MediaBlock>
@@ -205,7 +207,7 @@ const steps = [
         media={
           <ImageCard
             src="/images/processo-montagem.jpg"
-            alt="Móveis finalizados no showroom"
+            alt="Produto final instalado"
           />
         }
       >
@@ -213,9 +215,9 @@ const steps = [
           Do chão de fábrica ao ambiente dos seus sonhos.
         </p>
         <p className="text-tobacco text-sm leading-relaxed">
-          Cada peça entregue reflete horas de dedicação, tecnologia e
-          cuidado artesanal. Móveis que combinam design, funcionalidade e
-          durabilidade — feitos exclusivamente para você.
+          O produto final instalado no seu espaço — exatamente como
+          projetado. Cada detalhe entregue com o cuidado e a qualidade
+          que você merece.
         </p>
         <Bullets
           items={[

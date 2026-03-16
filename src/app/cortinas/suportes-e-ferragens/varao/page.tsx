@@ -31,7 +31,7 @@ export default function VaraoPage() {
         titleKey="/cortinas/suportes-e-ferragens/varao"
         categoryKey="/cortinas"
         description="O varão é o suporte mais clássico para cortinas, disponível em diferentes estilos e acabamentos. Do simples ao decorativo, cada varão tem um charme próprio que complementa o ambiente."
-        heroImage="/images/cortinas/cortina-26.jpg"
+        heroImage="/images/cortinas/varao-hero-desktop.png"
         products={CORTINA_PRODUCTS["varao"]}
         videoSrc="/videos/processo-cortinas.mp4"
         videoTitle="video.processo.title"

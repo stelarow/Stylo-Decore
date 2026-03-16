@@ -97,6 +97,7 @@ export const NAVIGATION: NavItem[] = [
       { label: "Cozinha", href: "/moveis-sob-medida/cozinha" },
       { label: "Home Office", href: "/moveis-sob-medida/home-office" },
       { label: "Closet", href: "/moveis-sob-medida/closet" },
+      { label: "Inspire-se", href: "/moveis-sob-medida/inspire-se" },
     ],
   },
   { label: "Blog", href: "/blog" },
