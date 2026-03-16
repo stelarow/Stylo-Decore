@@ -28,7 +28,7 @@ export default function RomanaPage() {
         category="Persianas"
         titleKey="/persianas/romana"
         categoryKey="/persianas"
-        heroImage="/images/persianas/persiana-07.jpg"
+        heroImage="/images/persianas/romana-hero-mobile.jpg"
         desktopHeroImage="/images/persianas/romana-hero-desktop.png"
         description="O clássico reinventado. A Cortina Romana cria dobras horizontais suaves ao ser recolhida, conferindo ao ambiente uma atmosfera sofisticada e atemporal em qualquer espaço."
         products={PERSIANA_PRODUCTS["romana"]}

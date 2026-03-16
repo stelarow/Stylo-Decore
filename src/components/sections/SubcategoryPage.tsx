@@ -40,6 +40,7 @@ interface SubcategoryPageProps {
   videoFeatures?: { icon: "ruler" | "scissors" | "wind" | "shirt" | "layers" | "paintbrush" | "shield" | "droplets"; label: string }[];
   sectionImage?: string;
   sectionLabel?: string;
+  heroHeightClass?: string;
 }
 
 export default function SubcategoryPage({
@@ -67,6 +68,7 @@ export default function SubcategoryPage({
   videoFeatures,
   sectionImage,
   sectionLabel,
+  heroHeightClass,
 }: SubcategoryPageProps) {
   const { t } = useLanguage();
   const [longPressActive, setLongPressActive] = useState<string | null>(null);
@@ -120,7 +122,7 @@ export default function SubcategoryPage({
   return (
     <div>
       {/* Hero - Imagem principal grande */}
-      <div className="relative w-full min-h-[70vh] md:min-h-[80vh]">
+      <div className={`relative w-full ${heroHeightClass ?? "min-h-[70vh] md:min-h-[80vh]"}`}>
         {desktopHeroImage ? (
           <>
             <img
@@ -156,6 +158,25 @@ export default function SubcategoryPage({
               }
               alt={title}
               className="absolute inset-0 h-full w-full object-cover object-top lg:hidden"
+            />
+          </>
+        ) : mobileHeroImage ? (
+          <>
+            <img
+              src={
+                heroImage ||
+                products[0]?.image ||
+                "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=1920&q=80"
+              }
+              alt={title}
+              className="absolute inset-0 hidden h-full w-full object-cover object-top lg:block"
+              style={heroImageStyle}
+            />
+            <img
+              src={mobileHeroImage}
+              alt={title}
+              className="absolute inset-0 h-full w-full object-cover object-top lg:hidden"
+              style={mobileHeroImageStyle}
             />
           </>
         ) : (

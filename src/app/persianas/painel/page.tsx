@@ -29,9 +29,12 @@ export default function PainelPage() {
         titleKey="/persianas/painel"
         categoryKey="/persianas"
         heroImage="/images/persianas/painel-hero.png"
-        desktopHeroImage="/images/persianas/painel-hero.png"
+        desktopHeroImage="/images/persianas/painel-hero-desktop.png"
+        mobileHeroImage="/images/persianas/painel-hero-mobile.png"
         description="Modernidade em movimento. A Cortina Painel apresenta placas deslizantes sobrepostas que criam divisões dinâmicas no espaço — perfeita para grandes janelas, varandas e ambientes open concept."
         products={PERSIANA_PRODUCTS["painel"]}
+        heroImageStyle={{ objectPosition: "center 40%" }}
+        mobileHeroImageStyle={{ objectPosition: "center 40%" }}
       />
     </>
   );

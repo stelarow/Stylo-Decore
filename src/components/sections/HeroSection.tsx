@@ -60,14 +60,12 @@ export default function HeroSection() {
         ref={videoContainerRef}
         className="absolute inset-0 will-change-transform"
       >
-        {/* Mobile video */}
-        <video
-          className="absolute inset-0 h-full w-full object-cover md:hidden"
-          src="/videos/hero-0310.mp4"
-          autoPlay
-          muted
-          loop
-          playsInline
+        {/* Mobile image */}
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/images/hero-mobile.png"
+          alt="Cortinas sob medida Stylo Decore"
+          className="absolute inset-0 h-full w-full object-cover object-center md:hidden"
         />
         {/* Desktop video — ping-pong loop */}
         <video

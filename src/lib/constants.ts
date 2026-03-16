@@ -43,10 +43,10 @@ export const NAVIGATION: NavItem[] = [
     label: "Cortinas",
     href: "/cortinas",
     children: [
-      { label: "Prega Americana", href: "/cortinas/prega-americana" },
+      { label: "Tipos de Pregas", href: "/cortinas/tipos-de-pregas" },
       { label: "Cortina com Ilhós", href: "/cortinas/ilhos" },
-      { label: "Cortina Wave", href: "/cortinas/wave" },
-      { label: "Blackout & Acústicas", href: "/cortinas/blackout-acusticas" },
+      { label: "Tipos de Acabamento", href: "/cortinas/tipos-de-acabamento" },
+      { label: "Suportes e Ferragens", href: "/cortinas/suportes-e-ferragens" },
     ],
   },
   {
@@ -92,11 +92,6 @@ export const NAVIGATION: NavItem[] = [
     label: "Móveis Sob Medida",
     href: "/moveis-sob-medida",
     children: [
-      { label: "Sala", href: "/moveis-sob-medida/sala" },
-      { label: "Quarto", href: "/moveis-sob-medida/quarto" },
-      { label: "Cozinha", href: "/moveis-sob-medida/cozinha" },
-      { label: "Home Office", href: "/moveis-sob-medida/home-office" },
-      { label: "Closet", href: "/moveis-sob-medida/closet" },
       { label: "Inspire-se", href: "/moveis-sob-medida/inspire-se" },
     ],
   },

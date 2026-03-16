@@ -30,6 +30,7 @@ export default function MiragemPage() {
         categoryKey="/persianas"
         heroImage="/images/persianas/miragem-hero.png"
         desktopHeroImage="/images/persianas/miragem-hero.png"
+        mobileHeroImage="/images/persianas/miragem-hero-mobile.png"
         description="Uma ilusão de óptica em forma de cortina. A Miragem cria um jogo fascinante entre transparência e privacidade, filtrando a luz de forma única enquanto mantém o ambiente protegido de olhares externos."
         products={PERSIANA_PRODUCTS["miragem"]}
         sectionImage="/images/persianas/miragem-detalhe.png"

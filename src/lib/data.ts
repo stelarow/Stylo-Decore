@@ -71,6 +71,13 @@ export const BLOG_POSTS = [
 
 export const CORTINAS_SUBCATEGORIES = [
   {
+    name: "Cortina com Ilhós",
+    href: "/cortinas/ilhos",
+    image: "/images/cortinas/cortina-ilhos-hero-desktop.png",
+    description: "Argolas metálicas com visual moderno e deslizamento suave",
+    descriptionKey: "card.cortinas.ilhos",
+  },
+  {
     name: "Tipos de Pregas",
     href: "/cortinas/tipos-de-pregas",
     image: "/images/cortinas/cortina-prega-hero-desktop.png",
@@ -132,9 +139,8 @@ export const CORTINA_PRODUCTS: Record<string, { name: string; image: string; des
     { name: "Prega Americana - Modelo 3", image: "/images/cortinas/prega-americana-03.png", desktopImage: "/images/cortinas/prega-americana-03.png", category: "Cortinas" },
   ],
   ilhos: [
-    { name: "Cortina com Ilhós - Modelo 1", image: "/images/cortinas/ilhos-01.jpg", category: "Cortinas" },
-    { name: "Cortina com Ilhós - Modelo 2", image: "/images/cortinas/ilhos-02.jpg", category: "Cortinas" },
-    { name: "Cortina com Ilhós - Modelo 3", image: "/images/cortinas/ilhos-03.jpg", category: "Cortinas" },
+    { name: "Cortina com Ilhós - Modelo 1", image: "/images/cortinas/ilhos-01.png", desktopImage: "/images/cortinas/ilhos-01.png", category: "Cortinas" },
+    { name: "Cortina com Ilhós - Modelo 2", image: "/images/cortinas/ilhos-02.png", desktopImage: "/images/cortinas/ilhos-02.png", category: "Cortinas" },
   ],
   wave: [
     { name: "Cortina Wave - Modelo 1", image: "/images/cortinas/wave-01.jpg", category: "Cortinas" },
