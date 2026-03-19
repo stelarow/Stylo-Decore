@@ -87,14 +87,14 @@ export const CORTINAS_SUBCATEGORIES = [
   {
     name: "Tipos de Acabamento",
     href: "/cortinas/tipos-de-acabamento",
-    image: "/images/cortinas/blackout-01.jpg",
+    image: "/images/cortinas/tipos-acabamento-hero.png",
     description: "Barra larga, forro e blackout em diversas porcentagens",
     descriptionKey: "card.cortinas.tipos-de-acabamento",
   },
   {
     name: "Suportes e Ferragens",
     href: "/cortinas/suportes-e-ferragens",
-    image: "/images/cortinas/cortina-26.jpg",
+    image: "/images/cortinas/suportes-ferragens-card.jpg",
     description: "Varão, trilho suíço e trilho motorizado",
     descriptionKey: "card.cortinas.suportes-e-ferragens",
   },
@@ -104,16 +104,17 @@ export const CORTINAS_TIPOS_PREGAS = [
   {
     name: "Prega Americana",
     href: "/cortinas/tipos-de-pregas/prega-americana",
-    image: "/images/cortinas/prega-americana-desktop-01.jpg",
+    image: "/images/cortinas/prega-americana-card.png",
     description: "Estilo clássico com pregas elegantes e bem definidas",
     descriptionKey: "card.cortinas.prega-americana",
   },
   {
     name: "Prega Macho",
     href: "/cortinas/tipos-de-pregas/prega-macho",
-    image: "/images/cortinas/prega-macho-02.png",
+    image: "/images/cortinas/prega-macho-nav.png",
     description: "Pregas triplas estruturadas para um visual sofisticado",
     descriptionKey: "card.cortinas.prega-macho",
+    imagePosition: "scale-125 object-center",
   },
   {
     name: "Prega Wave",
@@ -141,6 +142,7 @@ export const CORTINA_PRODUCTS: Record<string, { name: string; image: string; des
   ilhos: [
     { name: "Cortina com Ilhós - Modelo 1", image: "/images/cortinas/ilhos-01.png", desktopImage: "/images/cortinas/ilhos-01.png", category: "Cortinas" },
     { name: "Cortina com Ilhós - Modelo 2", image: "/images/cortinas/ilhos-02.png", desktopImage: "/images/cortinas/ilhos-02.png", category: "Cortinas" },
+    { name: "Cortina com Ilhós - Modelo 3", image: "/images/cortinas/ilhos-03.png", desktopImage: "/images/cortinas/ilhos-03.png", category: "Cortinas" },
   ],
   wave: [
     { name: "Cortina Wave - Modelo 1", image: "/images/cortinas/wave-01.jpg", category: "Cortinas" },
@@ -153,6 +155,8 @@ export const CORTINA_PRODUCTS: Record<string, { name: string; image: string; des
     { name: "Varão Duplo", image: "/images/cortinas/varao-03.png", desktopImage: "/images/cortinas/varao-03.png", category: "Cortinas" },
     { name: "Varão Decorativo", image: "/images/cortinas/varao-04.png", desktopImage: "/images/cortinas/varao-04.png", category: "Cortinas" },
     { name: "Varão sob Medida", image: "/images/cortinas/varao-05.png", desktopImage: "/images/cortinas/varao-05.png", category: "Cortinas" },
+    { name: "Varão de Canto", image: "/images/cortinas/varao-06.jpg", desktopImage: "/images/cortinas/varao-06.jpg", category: "Cortinas" },
+    { name: "Varão Preto com Prega", image: "/images/cortinas/varao-07.png", desktopImage: "/images/cortinas/varao-07.png", category: "Cortinas" },
   ],
   "blackout-acusticas": [
     { name: "Blackout & Acústica - Modelo 1", image: "/images/cortinas/blackout-01.jpg", category: "Cortinas" },
@@ -168,6 +172,8 @@ export const CORTINA_PRODUCTS: Record<string, { name: string; image: string; des
     { name: "Prega Wave - Modelo 2", image: "/images/cortinas/prega-wave-02.png", desktopImage: "/images/cortinas/prega-wave-02.png", category: "Cortinas" },
     { name: "Prega Wave - Modelo 3", image: "/images/cortinas/prega-wave-03.png", desktopImage: "/images/cortinas/prega-wave-03.png", category: "Cortinas" },
     { name: "Prega Wave - Modelo 4", image: "/images/cortinas/prega-wave-04.png", desktopImage: "/images/cortinas/prega-wave-04.png", category: "Cortinas" },
+    { name: "Prega Wave - Modelo 5", image: "/images/cortinas/prega-wave-05.png", desktopImage: "/images/cortinas/prega-wave-05.png", category: "Cortinas" },
+    { name: "Prega Wave - Modelo 6", image: "/images/cortinas/prega-wave-06.png", desktopImage: "/images/cortinas/prega-wave-06.png", category: "Cortinas" },
   ],
   "cortina-franzida": [
     { name: "Cortina Franzida - Modelo 1", image: "/images/cortinas/cortina-franzida-01.png", desktopImage: "/images/cortinas/cortina-franzida-01.png", category: "Cortinas" },
@@ -183,6 +189,7 @@ export const CORTINA_PRODUCTS: Record<string, { name: string; image: string; des
   "forro-blackout": [
     { name: "Blackout 95% — Alta Privacidade", image: "/images/cortinas/forro-blackout-01.png", desktopImage: "/images/cortinas/forro-blackout-01.png", category: "Cortinas" },
     { name: "Blackout 100% — Escurecimento Total", image: "/images/cortinas/forro-blackout-02.png", desktopImage: "/images/cortinas/forro-blackout-02.png", category: "Cortinas" },
+    { name: "Blackout 100% — Sanca com Iluminação", image: "/images/cortinas/forro-blackout-03.png", desktopImage: "/images/cortinas/forro-blackout-03.png", category: "Cortinas" },
   ],
   // Suportes e Ferragens
   "trilho-suico": [
@@ -223,15 +230,15 @@ export const CORTINAS_TIPOS_ACABAMENTO = [
   {
     name: "Barra Larga",
     href: "/cortinas/tipos-de-acabamento/barra-larga",
-    image: "/images/cortinas/barra-larga-03.png",
-    desktopImage: "/images/cortinas/barra-larga-03.png",
+    image: "/images/cortinas/barra-larga-acabamento-card.png",
+    desktopImage: "/images/cortinas/barra-larga-acabamento-card.png",
     description: "Acabamento elegante na bainha da cortina com barra de peso",
     descriptionKey: "card.cortinas.barra-larga",
   },
   {
     name: "Forro & Blackout",
     href: "/cortinas/tipos-de-acabamento/forro-blackout",
-    image: "/images/cortinas/blackout-01.jpg",
+    image: "/images/cortinas/cortina-blackout-hero-mobile.png",
     description: "Forro com diferentes porcentagens de bloqueio de luz",
     descriptionKey: "card.cortinas.forro-blackout",
   },
@@ -242,7 +249,7 @@ export const CORTINAS_SUPORTES_FERRAGENS = [
   {
     name: "Varão",
     href: "/cortinas/suportes-e-ferragens/varao",
-    image: "/images/cortinas/varao-03.png",
+    image: "/images/cortinas/varao-card.png",
     description: "Varão simples, com ponteira decorativa ou duplo",
     descriptionKey: "card.cortinas.varao",
   },
@@ -256,7 +263,7 @@ export const CORTINAS_SUPORTES_FERRAGENS = [
   {
     name: "Trilho Motorizado",
     href: "/cortinas/suportes-e-ferragens/trilho-motorizado",
-    image: "/images/cortinas/wave-04.jpg",
+    image: "/images/cortinas/trilho-motorizado-01.jpg",
     description: "Automação com controle remoto ou integração com smart home",
     descriptionKey: "card.cortinas.trilho-motorizado",
   },
@@ -342,9 +349,17 @@ export const PERSIANAS_SUBCATEGORIES = [
 
 export const PAPEIS_SUBCATEGORIES = [
   {
+    name: "Coleção Breeze",
+    href: "/papeis-de-parede/breeze",
+    image: "/images/papel/breeze-hero-desktop.png",
+    description: "Leveza e frescor para ambientes contemporâneos",
+    descriptionKey: "card.papeis.breeze",
+  },
+  {
     name: "Geométricos",
     href: "/papeis-de-parede/geometricos",
-    image: "/images/papeis-hero.jpg",
+    image: "/images/geometrico-card.png",
+    imagePosition: "object-top",
     description: "Padrões geométricos e abstratos para ambientes modernos",
     descriptionKey: "card.papeis.geometricos",
   },
@@ -356,46 +371,25 @@ export const PAPEIS_SUBCATEGORIES = [
     descriptionKey: "card.papeis.infantil",
   },
   {
-    name: "Floral",
-    href: "/papeis-de-parede/floral",
-    image: "/images/papel/papel-01.jpg",
-    description: "Estampas florais para ambientes elegantes e cheios de vida",
-    descriptionKey: "card.papeis.floral",
-  },
-  {
-    name: "Texturas",
-    href: "/papeis-de-parede/texturas",
-    image: "/images/papel/papel-04.jpg",
+    name: "Boho",
+    href: "/papeis-de-parede/boho",
+    image: "/images/papel/boho-hero-mobile.png",
     description: "Efeitos táteis e visuais que adicionam profundidade ao espaço",
     descriptionKey: "card.papeis.texturas",
   },
   {
-    name: "Clássico",
-    href: "/papeis-de-parede/classico",
-    image: "/images/papel/papel-08.jpg",
-    description: "Padrões atemporais com elegância e sofisticação",
-    descriptionKey: "card.papeis.classico",
+    name: "Natural",
+    href: "/papeis-de-parede/natural",
+    image: "/images/papel/natural-hero-mobile.png",
+    description: "Texturas naturais e fibras orgânicas que conectam com a natureza",
+    descriptionKey: "card.papeis.natural",
   },
   {
-    name: "Moderno",
-    href: "/papeis-de-parede/moderno",
-    image: "/images/papel/papel-11.jpg",
-    description: "Design contemporâneo para ambientes arrojados e únicos",
-    descriptionKey: "card.papeis.moderno",
-  },
-  {
-    name: "Natural & Botânico",
-    href: "/papeis-de-parede/natural-botanico",
-    image: "/images/papel/papel-14.jpg",
+    name: "Natureza",
+    href: "/papeis-de-parede/natureza",
+    image: "/images/papel/natureza-hero-mobile.png",
     description: "Folhagens e elementos naturais que trazem o jardim para dentro",
-    descriptionKey: "card.papeis.natural-botanico",
-  },
-  {
-    name: "Minimalista",
-    href: "/papeis-de-parede/minimalista",
-    image: "/images/papel/papel-18.jpg",
-    description: "Leveza e clareza para espaços serenos e equilibrados",
-    descriptionKey: "card.papeis.minimalista",
+    descriptionKey: "card.papeis.natureza",
   },
 ];
 
@@ -409,7 +403,7 @@ export const TAPETES_SUBCATEGORIES = [
     descriptionKey: "card.tapetes.moderno",
   },
   {
-    name: "Clássico",
+    name: "ClássicoS",
     href: "/tapetes/classico",
     image: "/images/tapetes/tapete-04.jpg",
     desktopImage: "/images/tapetes/tapete-decorativo-hero-desktop.png",
@@ -450,9 +444,9 @@ export const TAPETE_PRODUCTS: Record<string, { name: string; image: string; cate
     { name: "Moderno - Modelo 3", image: "/images/tapetes/tapete-03.jpg", category: "Tapetes" },
   ],
   classico: [
-    { name: "Clássico - Modelo 1", image: "/images/tapetes/tapete-04.jpg", category: "Tapetes" },
-    { name: "Clássico - Modelo 2", image: "/images/tapetes/tapete-05.jpg", category: "Tapetes" },
-    { name: "Clássico - Modelo 3", image: "/images/tapetes/tapete-06.jpg", category: "Tapetes" },
+    { name: "ClássicoS - Modelo 1", image: "/images/tapetes/tapete-04.jpg", category: "Tapetes" },
+    { name: "ClássicoS - Modelo 2", image: "/images/tapetes/tapete-05.jpg", category: "Tapetes" },
+    { name: "ClássicoS - Modelo 3", image: "/images/tapetes/tapete-06.jpg", category: "Tapetes" },
   ],
   minimalista: [
     { name: "Minimalista - Modelo 1", image: "/images/tapetes/tapete-07.jpg", category: "Tapetes" },
@@ -463,6 +457,11 @@ export const TAPETE_PRODUCTS: Record<string, { name: string; image: string; cate
     { name: "Boho - Modelo 1", image: "/images/tapetes/tapete-10.jpg", category: "Tapetes" },
     { name: "Boho - Modelo 2", image: "/images/tapetes/tapete-11.jpg", category: "Tapetes" },
     { name: "Boho - Modelo 3", image: "/images/tapetes/tapete-12.jpg", category: "Tapetes" },
+    { name: "Nativa do Boho - Modelo 1", image: "/images/tapetes/tapete-nativa-boho-01.png", category: "Tapetes" },
+    { name: "Nativa do Boho - Modelo 2", image: "/images/tapetes/tapete-nativa-boho-02.png", category: "Tapetes" },
+    { name: "Nativa do Boho - Modelo 3", image: "/images/tapetes/tapete-nativa-boho-03.png", category: "Tapetes" },
+    { name: "Nativa do Boho - Modelo 4", image: "/images/tapetes/tapete-nativa-boho-04.png", category: "Tapetes" },
+    { name: "Nativa do Boho - Modelo 5", image: "/images/tapetes/tapete-nativa-boho-05.png", category: "Tapetes" },
   ],
   natural: [
     { name: "Natural - Modelo 1", image: "/images/tapetes/tapete-13.jpg", category: "Tapetes" },
@@ -474,49 +473,50 @@ export const TAPETE_PRODUCTS: Record<string, { name: string; image: string; cate
 // Produtos de Papel de Parede por subcategoria
 export const PAPEL_PRODUCTS: Record<string, { name: string; image: string; category: string; descriptionKey?: string }[]> = {
   breeze: [
-    { name: "Breeze - Modelo 1", image: "/images/papel/papel-17.jpg", category: "Papéis de Parede" },
-    { name: "Breeze - Modelo 2", image: "/images/papel/papel-20.jpg", category: "Papéis de Parede" },
-    { name: "Breeze - Modelo 3", image: "/images/papel/papel-07.jpg", category: "Papéis de Parede" },
+    { name: "Breeze - Modelo 1", image: "/images/papel/breeze-01.png", category: "Papéis de Parede" },
+    { name: "Breeze - Modelo 2", image: "/images/papel/breeze-02.png", category: "Papéis de Parede" },
+    { name: "Breeze - Modelo 3", image: "/images/papel/breeze-03.png", category: "Papéis de Parede" },
+    { name: "Breeze - Modelo 4", image: "/images/papel/breeze-04.png", category: "Papéis de Parede" },
   ],
   geometricos: [
-    { name: "Abstrato Cinza e Rose", image: "/images/papel/geometrico-01.jpg", category: "Papéis de Parede" },
-    { name: "Abstrato Folhagem Areia", image: "/images/papel/geometrico-02.jpg", category: "Papéis de Parede" },
-    { name: "Etternity Cinza", image: "/images/papel/geometrico-06.jpg", category: "Papéis de Parede" },
+    { name: "Zara Grafite Rose Gold", image: "/images/papel/geometrico-whisk.png", category: "Papéis de Parede" },
+    { name: "Losango Off-White", image: "/images/papel/geometrico-moodboard.png", category: "Papéis de Parede" },
   ],
   infantil: [
     { name: "Motocross", image: "/images/papel/papel-infantil-motocross.jpg", category: "Papéis de Parede" },
     { name: "Jardim Floral Bebê", image: "/images/papel/papel-infantil-jardim-floral-bebe.jpg", category: "Papéis de Parede" },
     { name: "Mapa Mundi Rosa", image: "/images/papel/papel-infantil-mapa-mundi-rosa.jpg", category: "Papéis de Parede" },
-  ],
-  floral: [
-    { name: "Rosa Inglesa", image: "/images/papel/papel-01.jpg", category: "Papéis de Parede" },
-    { name: "Magnólia Branca", image: "/images/papel/papel-02.jpg", category: "Papéis de Parede" },
-    { name: "Peônia Rosada", image: "/images/papel/papel-03.jpg", category: "Papéis de Parede" },
+    { name: "Fundo do Mar", image: "/images/papel/papel-infantil-fundo-do-mar.jpg", category: "Papéis de Parede" },
+    { name: "Oceano Aquarela", image: "/images/papel/papel-infantil-oceano-aquarela.png", category: "Papéis de Parede" },
   ],
   texturas: [
-    { name: "Cimento Queimado", image: "/images/papel/papel-04.jpg", category: "Papéis de Parede" },
-    { name: "Fibra Natural", image: "/images/papel/papel-05.jpg", category: "Papéis de Parede" },
-    { name: "Linho Bege", image: "/images/papel/papel-06.jpg", category: "Papéis de Parede" },
+    { name: "Cimento Queimado", image: "/images/papel/boho-01.png", category: "Papéis de Parede" },
+    { name: "Fibra Natural", image: "/images/papel/boho-02.png", category: "Papéis de Parede" },
+    { name: "Linho Bege", image: "/images/papel/boho-03.png", category: "Papéis de Parede" },
   ],
-  classico: [
-    { name: "Damasco Dourado", image: "/images/papel/papel-08.jpg", category: "Papéis de Parede" },
-    { name: "Arabesco Real", image: "/images/papel/papel-09.jpg", category: "Papéis de Parede" },
-    { name: "Listras Imperiais", image: "/images/papel/papel-10.jpg", category: "Papéis de Parede" },
+  natural: [
+    { name: "Cimento Terrazzo", image: "/images/papel/natural-textura-01.png", category: "Papéis de Parede" },
+    { name: "Madeira Natural", image: "/images/papel/natural-textura-02.png", category: "Papéis de Parede" },
+    { name: "Linho Cru", image: "/images/papel/natural-textura-03.png", category: "Papéis de Parede" },
+    { name: "Estuque Bege", image: "/images/papel/natural-textura-04.png", category: "Papéis de Parede" },
+    { name: "Caiação Natural", image: "/images/papel/natural-textura-05.png", category: "Papéis de Parede" },
+    { name: "Terrazzo Branco", image: "/images/papel/natural-textura-06.png", category: "Papéis de Parede" },
+    { name: "Marmorite Prata", image: "/images/papel/natural-textura-07.png", category: "Papéis de Parede" },
   ],
-  moderno: [
-    { name: "Concreto Cinza", image: "/images/papel/papel-11.jpg", category: "Papéis de Parede" },
-    { name: "Metal Escovado", image: "/images/papel/papel-12.jpg", category: "Papéis de Parede" },
-    { name: "Grafite Urban", image: "/images/papel/papel-13.jpg", category: "Papéis de Parede" },
-  ],
-  "natural-botanico": [
-    { name: "Folhagem Tropical", image: "/images/papel/papel-14.jpg", category: "Papéis de Parede" },
-    { name: "Bambu Verde", image: "/images/papel/papel-15.jpg", category: "Papéis de Parede" },
-    { name: "Samambaia Selvagem", image: "/images/papel/papel-16.jpg", category: "Papéis de Parede" },
-  ],
-  minimalista: [
-    { name: "Off-White Liso", image: "/images/papel/papel-18.jpg", category: "Papéis de Parede" },
-    { name: "Cinza Neblina", image: "/images/papel/papel-19.jpg", category: "Papéis de Parede" },
-    { name: "Areia Fina", image: "/images/papel/papel-21.jpg", category: "Papéis de Parede" },
+  "natureza": [
+    { name: "Folhagem Tropical", image: "/images/papel/natural-botanico-01.png", category: "Papéis de Parede" },
+    { name: "Bambu Verde", image: "/images/papel/natural-botanico-02.png", category: "Papéis de Parede" },
+    { name: "Samambaia Selvagem", image: "/images/papel/natural-botanico-03.png", category: "Papéis de Parede" },
+    { name: "Folhas Lineares Rose", image: "/images/papel/natural-botanico-04.png", category: "Papéis de Parede" },
+    { name: "Jardim Suspenso", image: "/images/papel/natural-botanico-05.png", category: "Papéis de Parede" },
+    { name: "Selva Tropical", image: "/images/papel/natural-botanico-06.png", category: "Papéis de Parede" },
+    { name: "Folhas Escuras Tabaco", image: "/images/papel/natural-botanico-07.png", category: "Papéis de Parede" },
+    { name: "Jardim Floral Verde", image: "/images/papel/natural-botanico-08.png", category: "Papéis de Parede" },
+    { name: "Palmeira Azul Noite", image: "/images/papel/natural-botanico-09.png", category: "Papéis de Parede" },
+    { name: "Mural Selva Brumosa", image: "/images/papel/natural-botanico-10.png", category: "Papéis de Parede" },
+    { name: "Fauna Tropical", image: "/images/papel/natural-botanico-11.png", category: "Papéis de Parede" },
+    { name: "Pássaros Morris Azul", image: "/images/papel/natural-botanico-12.png", category: "Papéis de Parede" },
+    { name: "Pavões Amarelo Imperial", image: "/images/papel/natural-botanico-13.png", category: "Papéis de Parede" },
   ],
 };
 
@@ -589,8 +589,9 @@ export const MOVEIS_SUBCATEGORIES = [
   {
     name: "Sala",
     href: "/moveis-sob-medida/sala",
-    image: "/images/moveis-painel-tv.png",
-    desktopImage: "/images/moveis-painel-tv-desktop.png",
+    image: "/images/moveis-sala-card.png",
+    desktopImage: "/images/moveis-sala-card.png",
+    imagePosition: "object-left",
     description: "Painéis, estantes e racks planejados para sala de estar",
     descriptionKey: "card.moveis.sala",
   },
@@ -625,7 +626,7 @@ export const MOVEIS_SUBCATEGORIES = [
   {
     name: "Closet",
     href: "/moveis-sob-medida/closet",
-    image: "https://images.unsplash.com/photo-1558997519-83ea9252edf8?w=600&h=750&fit=crop",
+    image: "/images/moveis-closet-card.png",
     description: "Closets planejados com organização e elegância",
     descriptionKey: "card.moveis.closet",
   },

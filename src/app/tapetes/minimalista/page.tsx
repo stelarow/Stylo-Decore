@@ -28,7 +28,7 @@ export default function TapeteMinimalistaPage() {
         category="Tapetes"
         titleKey="/tapetes/minimalista"
         categoryKey="/tapetes"
-        description="Simplicidade e sofisticação em harmonia perfeita. Tapetes com design clean que valorizam o espaço sem poluir visualmente."
+        descriptionKey="page.tapetes.minimalista.desc"
         products={TAPETE_PRODUCTS["minimalista"]}
         desktopHeroImage="/images/tapetes/tapete-passadeira-hero-desktop.png"
         mobileHeroImage="/images/tapetes/tapete-passadeira-hero-mobile.png"

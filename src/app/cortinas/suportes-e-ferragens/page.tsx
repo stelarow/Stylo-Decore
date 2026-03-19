@@ -27,11 +27,14 @@ export default function SuportesEFerragensPage() {
       ])} />
       <JsonLd data={getFaqJsonLd(CORTINAS_FAQ)} />
       <CategoryPage
+        heroImage="/images/cortinas/suportes-ferragens-hero.jpg"
+        heroDesktopImageStyle={{ objectPosition: "center 15%" }}
+        heroMobileImageStyle={{ objectPosition: "center 15%" }}
         title="Suportes e Ferragens"
         titleKey="/cortinas/suportes-e-ferragens"
-        headline="A Base de Tudo"
-        description="O suporte certo garante instalação perfeita, durabilidade e funcionalidade à sua cortina."
-        intro="Varão, trilho suíço ou trilho motorizado — cada sistema tem suas vantagens e se adapta a diferentes tipos de cortina, ambiente e estilo de vida."
+        headlineKey="cat.cortinas.suportes.headline"
+        descriptionKey="cat.cortinas.suportes.description"
+        introKey="cat.cortinas.suportes.intro"
         subcategories={CORTINAS_SUPORTES_FERRAGENS}
         faqItems={CORTINAS_FAQ_KEYS}
       />

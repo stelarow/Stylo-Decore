@@ -31,7 +31,7 @@ export default function RoloPage() {
         heroImage="/images/persianas/rolo-01.jpg"
         mobileHeroImage="/images/persianas/rolo-mobile.jpg"
         desktopHeroImage="/images/persianas/rolo-hero-desktop.png"
-        description="Elegância na sua forma mais simples. A Cortina Rolô oferece design limpo e funcional, disponível em diversas cores e tecidos — do tule translúcido ao blackout total."
+        descriptionKey="page.persianas.rolo.desc"
         products={PERSIANA_PRODUCTS["rolo"]}
       />
     </>

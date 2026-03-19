@@ -1,6 +1,6 @@
 import type { NavItem, ContactInfo } from "@/types";
 
-export const WHATSAPP_NUMBER = "5548988070882";
+export const WHATSAPP_NUMBER = "554888807882";
 export const WHATSAPP_NUMBER_2 = "554891074707";
 
 export const WHATSAPP_DEFAULT_MESSAGE =
@@ -17,7 +17,7 @@ export function getWhatsAppUrl2(message?: string) {
 }
 
 export const CONTACT: ContactInfo = {
-  phone: "(48) 98807-0882",
+  phone: "(48) 8880-7882",
   phone2: "(48) 9107-4707",
   whatsapp: WHATSAPP_NUMBER,
   whatsapp2: WHATSAPP_NUMBER_2,
@@ -68,33 +68,14 @@ export const NAVIGATION: NavItem[] = [
       { label: "Breeze", href: "/papeis-de-parede/breeze" },
       { label: "Geométricos", href: "/papeis-de-parede/geometricos" },
       { label: "Infantil", href: "/papeis-de-parede/infantil" },
-      { label: "Floral", href: "/papeis-de-parede/floral" },
-      { label: "Texturas", href: "/papeis-de-parede/texturas" },
-      { label: "Clássico", href: "/papeis-de-parede/classico" },
-      { label: "Moderno", href: "/papeis-de-parede/moderno" },
-      { label: "Natural & Botânico", href: "/papeis-de-parede/natural-botanico" },
-      { label: "Minimalista", href: "/papeis-de-parede/minimalista" },
+      { label: "Boho", href: "/papeis-de-parede/boho" },
+      { label: "Natural", href: "/papeis-de-parede/natural" },
+      { label: "Natureza", href: "/papeis-de-parede/natureza" },
     ],
   },
-  {
-    label: "Tapetes",
-    href: "/tapetes",
-    children: [
-      { label: "Moderno", href: "/tapetes/moderno" },
-      { label: "Clássico", href: "/tapetes/classico" },
-      { label: "Minimalista", href: "/tapetes/minimalista" },
-      { label: "Boho", href: "/tapetes/boho" },
-      { label: "Natural", href: "/tapetes/natural" },
-    ],
-  },
+  { label: "Tapetes", href: "/tapetes" },
   { label: "Almofadas", href: "/almofadas" },
-  {
-    label: "Móveis Sob Medida",
-    href: "/moveis-sob-medida",
-    children: [
-      { label: "Inspire-se", href: "/moveis-sob-medida/inspire-se" },
-    ],
-  },
+  { label: "Móveis Sob Medida", href: "/moveis-sob-medida" },
   { label: "Blog", href: "/blog" },
   { label: "Contato", href: "/contato" },
 ];

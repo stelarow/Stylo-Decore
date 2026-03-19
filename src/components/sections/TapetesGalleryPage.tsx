@@ -1,125 +1,333 @@
 "use client";
 
+import { useState } from "react";
 import { getWhatsAppUrl } from "@/lib/constants";
 import { TAPETES_FAQ_KEYS } from "@/lib/seo";
 import FAQAccordion from "@/components/ui/FAQAccordion";
 import ScrollReveal from "@/components/ui/ScrollReveal";
+import ImageLightbox from "@/components/ui/ImageLightbox";
+import { useLanguage } from "@/context/LanguageContext";
+
+// ─── Data ────────────────────────────────────────────────────────────────────
 
 const ESTILOS = [
-  { name: "Moderno",      image: "/images/tapetes/tapete-01.jpg" },
-  { name: "Clássico",     image: "/images/tapetes/tapete-04.jpg" },
-  { name: "Minimalista",  image: "/images/tapetes/tapete-07.jpg" },
-  { name: "Boho",         image: "/images/tapetes/tapete-10.jpg" },
-  { name: "Natural",      image: "/images/tapetes/tapete-13.jpg" },
+  {
+    id: "moderno",
+    labelKey: "/tapetes/moderno",
+    products: [
+      {
+        name: "Finger Print",
+        images: [
+          { src: "/images/tapetes/finger-print-01.png", objectPosition: "center 75%" },
+          { src: "/images/tapetes/finger-print-02.png" },
+          { src: "/images/tapetes/finger-print-03.png" },
+          { src: "/images/tapetes/finger-print-04.png" },
+        ],
+      },
+      {
+        name: "Hera New",
+        images: [
+          { src: "/images/tapetes/hera-new-01.png", objectPosition: "center 70%" },
+          { src: "/images/tapetes/hera-new-02.png" },
+          { src: "/images/tapetes/hera-new-03.png" },
+          { src: "/images/tapetes/hera-new-04.png" },
+          { src: "/images/tapetes/hera-new-05.png" },
+        ],
+      },
+      {
+        name: "Space",
+        images: [
+          { src: "/images/tapetes/space-01.png", objectPosition: "center 80%" },
+          { src: "/images/tapetes/space-02.png" },
+          { src: "/images/tapetes/space-03.png" },
+          { src: "/images/tapetes/space-04.png" },
+        ],
+      },
+    ],
+  },
+  {
+    id: "classico",
+    labelKey: "/tapetes/classico",
+    products: [
+      {
+        name: "Sense",
+        images: [
+          { src: "/images/tapetes/sense-03.png" },
+          { src: "/images/tapetes/sense-01.png" },
+          { src: "/images/tapetes/sense-02.png" },
+        ],
+      },
+      {
+        name: "Foffo",
+        images: [
+          { src: "/images/tapetes/foffo-04.png" },
+          { src: "/images/tapetes/foffo-01.png" },
+          { src: "/images/tapetes/foffo-02.png" },
+          { src: "/images/tapetes/foffo-03.png" },
+        ],
+      },
+      {
+        name: "Relex N",
+        images: [
+          { src: "/images/tapetes/relex-n-01.png" },
+          { src: "/images/tapetes/relex-n-02.png" },
+          { src: "/images/tapetes/relex-n-03.png" },
+          { src: "/images/tapetes/relex-n-04.png" },
+        ],
+      },
+      {
+        name: "Mariana",
+        images: [
+          { src: "/images/tapetes/mariana-01.png" },
+          { src: "/images/tapetes/mariana-02.png" },
+          { src: "/images/tapetes/mariana-03.png" },
+        ],
+      },
+    ],
+  },
+  {
+    id: "minimalista",
+    labelKey: "gallery.tapetes.style.organico",
+    products: [
+      {
+        name: "Carving Orgânico",
+        images: [
+          { src: "/images/tapetes/organico-01.png" },
+          { src: "/images/tapetes/organico-02.png" },
+          { src: "/images/tapetes/organico-03.png" },
+          { src: "/images/tapetes/organico-04.png" },
+        ],
+      },
+    ],
+  },
+  {
+    id: "boho",
+    labelKey: "/tapetes/boho",
+    products: [
+      {
+        name: "Nativa",
+        images: [
+          { src: "/images/tapetes/nativa-03.png" },
+          { src: "/images/tapetes/nativa-01.png" },
+          { src: "/images/tapetes/nativa-02.png" },
+          { src: "/images/tapetes/nativa-04.png" },
+          { src: "/images/tapetes/nativa-05.png" },
+        ],
+      },
+      {
+        name: "Rustik",
+        images: [
+          { src: "/images/tapetes/rustik-02.png" },
+          { src: "/images/tapetes/rustik-03.png" },
+          { src: "/images/tapetes/rustik-04.png" },
+        ],
+      },
+      {
+        name: "New Bouclê",
+        images: [
+          { src: "/images/tapetes/new-boucle-04.png" },
+          { src: "/images/tapetes/new-boucle-02.png" },
+          { src: "/images/tapetes/new-boucle-03.png" },
+        ],
+      },
+    ],
+  },
+  {
+    id: "natural",
+    labelKey: "/tapetes/natural",
+    products: [
+      {
+        name: "Eco Terra",
+        images: [
+          { src: "/images/tapetes/eco-terra-05.png" },
+          { src: "/images/tapetes/eco-terra-01.png" },
+          { src: "/images/tapetes/eco-terra-02.png" },
+          { src: "/images/tapetes/eco-terra-03.png" },
+          { src: "/images/tapetes/eco-terra-04.png" },
+        ],
+      },
+      {
+        name: "Sarja",
+        images: [
+          { src: "/images/tapetes/sarja-06.png" },
+          { src: "/images/tapetes/sarja-02.png" },
+          { src: "/images/tapetes/sarja-03.png" },
+          { src: "/images/tapetes/sarja-04.png" },
+          { src: "/images/tapetes/sarja-05.png" },
+        ],
+      },
+      {
+        name: "Seridó N",
+        images: [
+          { src: "/images/tapetes/serido-n-03.png" },
+          { src: "/images/tapetes/serido-n-02.png" },
+          { src: "/images/tapetes/serido-n-04.png" },
+          { src: "/images/tapetes/serido-n-05.png" },
+        ],
+      },
+    ],
+  },
 ];
 
-const FORMATOS = [
-  { name: "Retangular",  image: "/images/tapetes/tapete-08.jpg" },
-  { name: "Redondo",     image: "/images/tapetes/tapete-09.jpg" },
-  { name: "Orgânico",    image: "/images/tapetes/carving-organic-card-1.png" },
-  { name: "Passadeira",  image: "/images/tapetes/tapete-passadeira-hero-desktop.png" },
-];
+// ─── Types ───────────────────────────────────────────────────────────────────
 
-function PhotoCard({ name, image }: { name: string; image: string }) {
+type ProductImage = { src: string; objectPosition?: string };
+type Product = { name: string; images: ProductImage[] };
+
+// ─── Style section ────────────────────────────────────────────────────────────
+
+function StyleSection({
+  id,
+  labelKey,
+  products,
+  eager,
+}: {
+  id: string;
+  labelKey: string;
+  products: Product[];
+  eager?: boolean;
+}) {
+  const { t } = useLanguage();
+  const [lightbox, setLightbox] = useState<{ src: string; alt: string } | null>(null);
+
   return (
-    <div className="group relative overflow-hidden rounded-xl">
-      <div className="aspect-[3/4]">
-        <img
-          src={image}
-          alt={name}
-          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+    <div id={id} className="pt-2">
+      <ScrollReveal animation="up">
+        {/* Section header */}
+        <div className="mb-8 flex items-center gap-4">
+          <span className="font-serif text-2xl md:text-3xl font-bold text-foreground">
+            {t(labelKey)}
+          </span>
+          <div className="flex-1 h-px bg-tobacco-light" />
+        </div>
+
+        {/* Products */}
+        <div className="space-y-10">
+          {products.map((product) => (
+            <div key={product.name}>
+              {/* Product name */}
+              <p className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-mahogany-light">
+                {product.name}
+              </p>
+
+              {/* Images grid */}
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4 auto-rows-[280px] md:auto-rows-[320px]">
+                {product.images.map((img, i) => (
+                  <button
+                    key={i}
+                    className="relative overflow-hidden rounded-lg group cursor-zoom-in text-left"
+                    onClick={() => setLightbox({ src: img.src, alt: `${product.name} ${i + 1}` })}
+                  >
+                    <img
+                      src={img.src}
+                      alt={`${product.name} ${i + 1}`}
+                      className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      style={{ objectPosition: img.objectPosition ?? "center" }}
+                      loading={eager && i === 0 ? "eager" : "lazy"}
+                    />
+                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
+                  </button>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </ScrollReveal>
+
+      {lightbox && (
+        <ImageLightbox
+          src={lightbox.src}
+          alt={lightbox.alt}
+          onClose={() => setLightbox(null)}
         />
-      </div>
-      {/* gradient for label readability */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent" />
-      {/* name label */}
-      <span className="absolute bottom-3 left-3 rounded-full bg-black/30 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-white backdrop-blur-sm">
-        {name}
-      </span>
+      )}
     </div>
   );
 }
 
+// ─── Page ────────────────────────────────────────────────────────────────────
+
 export default function TapetesGalleryPage() {
+  const { t } = useLanguage();
+
   return (
-    <div>
+    <div className="bg-background min-h-screen">
       {/* Hero */}
-      <div className="relative w-full min-h-[50vh] md:min-h-[65vh] lg:min-h-[70vh] overflow-hidden">
+      <div className="relative w-full min-h-[45vh] md:min-h-[55vh] overflow-hidden">
         <img
           src="/images/tapetes/tapete-sob-medida-hero-desktop.png"
-          alt="Tapetes"
+          alt={t("gallery.tapetes.title")}
           className="absolute inset-0 hidden h-full w-full object-cover lg:block"
         />
         <img
           src="/images/tapetes/tapete-sob-medida-hero-mobile.png"
-          alt="Tapetes"
+          alt={t("gallery.tapetes.title")}
           className="absolute inset-0 h-full w-full object-cover lg:hidden"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
-        <div className="relative flex h-full min-h-[50vh] md:min-h-[65vh] lg:min-h-[70vh] items-end">
-          <div className="mx-auto w-full max-w-7xl px-6 pb-12 md:pb-16 lg:pb-20">
+        <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/35 to-transparent" />
+        <div className="relative flex h-full min-h-[45vh] md:min-h-[55vh] items-end">
+          <div className="mx-auto w-full max-w-7xl px-6 pb-12 md:pb-16">
             <p className="mb-3 text-sm font-medium uppercase tracking-[0.2em] text-primary">
-              Conforto & Estilo
+              {t("gallery.tapetes.eyebrow")}
             </p>
             <h1 className="mb-3 font-serif text-4xl font-bold text-white md:text-5xl lg:text-6xl">
-              Tapetes
+              {t("gallery.tapetes.title")}
             </h1>
-            <p className="max-w-xl text-lg text-white/80 lg:text-2xl">
-              Conforto e estilo para seus ambientes. Descubra nossa coleção de tapetes.
+            <p className="max-w-xl text-lg text-white/80 lg:text-xl">
+              {t("gallery.tapetes.subtitle")}
             </p>
           </div>
         </div>
       </div>
 
-      {/* Intro */}
-      <ScrollReveal animation="up">
-        <div className="mx-auto max-w-7xl px-6 py-16 md:py-20">
-          <p className="mx-auto max-w-3xl text-center text-xl leading-relaxed text-mahogany-light md:text-2xl">
-            Tapetes são peças fundamentais na composição de ambientes, trazendo conforto, delimitação de espaços e personalidade. Trabalhamos com formatos, tamanhos e materiais sob medida para cada projeto.
-          </p>
+      {/* Anchor nav */}
+      <div className="sticky top-20 z-30 bg-background/95 backdrop-blur-md border-b border-tobacco-light shadow-sm">
+        <div className="mx-auto max-w-7xl px-6">
+          <nav className="flex gap-1 overflow-x-auto py-3 scrollbar-none">
+            <a
+              href="#estilos"
+              className="shrink-0 rounded-full px-4 py-1.5 text-sm font-medium text-mahogany-light transition-colors hover:bg-tobacco-light hover:text-foreground"
+            >
+              {t("gallery.tapetes.navEstilos")}
+            </a>
+          </nav>
         </div>
-      </ScrollReveal>
+      </div>
 
-      {/* Estilos */}
-      <ScrollReveal animation="up" threshold={0.05}>
-        <section className="mx-auto max-w-7xl px-6 pb-16 md:pb-20">
-          <h2 className="mb-8 font-serif text-3xl font-bold text-mahogany md:text-4xl">
-            Estilos
-          </h2>
-          <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5 md:gap-4">
-            {ESTILOS.map((item) => (
-              <PhotoCard key={item.name} {...item} />
+      {/* Content */}
+      <div className="mx-auto max-w-7xl px-6 py-16 space-y-20">
+
+        {/* Estilos */}
+        <section id="estilos">
+          <ScrollReveal animation="up">
+            <div className="mb-10 flex items-center gap-4">
+              <span className="font-serif text-3xl md:text-4xl font-bold text-foreground">
+                {t("gallery.tapetes.sectionEstilos")}
+              </span>
+              <div className="flex-1 h-px bg-tobacco-light" />
+            </div>
+          </ScrollReveal>
+          <div className="space-y-14">
+            {ESTILOS.map((item, i) => (
+              <StyleSection key={item.id} {...item} eager={i === 0} />
             ))}
           </div>
         </section>
-      </ScrollReveal>
 
-      {/* Formatos */}
-      <ScrollReveal animation="up" threshold={0.05}>
-        <section className="mx-auto max-w-7xl px-6 pb-16 md:pb-20">
-          <h2 className="mb-8 font-serif text-3xl font-bold text-mahogany md:text-4xl">
-            Formatos
-          </h2>
-          <div className="grid grid-cols-2 gap-3 lg:grid-cols-4 md:gap-4">
-            {FORMATOS.map((item) => (
-              <PhotoCard key={item.name} {...item} />
-            ))}
-          </div>
-        </section>
-      </ScrollReveal>
+      </div>
 
-      {/* CTA WhatsApp */}
+      {/* CTA */}
       <ScrollReveal animation="up">
         <div className="mx-auto max-w-7xl px-6 pb-16 md:pb-20">
-          <div className="rounded-2xl bg-foreground p-10 text-center">
+          <div className="rounded-2xl bg-foreground px-8 py-12 md:px-16 text-center">
             <p className="mb-2 text-sm font-medium uppercase tracking-[0.2em] text-primary">
-              Atendimento Personalizado
+              {t("gallery.tapetes.cta.eyebrow")}
             </p>
-            <h3 className="mb-4 font-serif text-2xl font-bold text-white md:text-3xl">
-              Encontre o tapete ideal para o seu espaço
-            </h3>
-            <p className="mx-auto mb-8 max-w-md text-white/70">
-              Nossa especialista ajuda a escolher o estilo, formato e medida perfeitos para o seu ambiente.
+            <h2 className="mb-4 font-serif text-2xl font-bold text-white md:text-3xl">
+              {t("gallery.tapetes.cta.title")}
+            </h2>
+            <p className="mb-8 text-white/70 max-w-lg mx-auto">
+              {t("gallery.tapetes.cta.desc")}
             </p>
             <a
               href={getWhatsAppUrl("Olá! Tenho interesse em tapetes e gostaria de um orçamento personalizado.")}
@@ -127,7 +335,7 @@ export default function TapetesGalleryPage() {
               rel="noopener noreferrer"
               className="brushed-gold inline-flex items-center rounded-full px-8 py-3 text-sm font-semibold text-background-dark transition-all hover:shadow-lg active:scale-95"
             >
-              Solicitar Orçamento
+              {t("sub.showroom.cta")}
             </a>
           </div>
         </div>

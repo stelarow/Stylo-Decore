@@ -29,9 +29,13 @@ export default function CortinasPage() {
       <CategoryPage
         title="Cortinas"
         titleKey="/cortinas"
-        headline="Elegância Natural"
-        description="Tecidos nobres que transformam ambientes. Descubra nossos modelos de cortinas sob medida para o seu espaço."
-        intro="Cortinas são sinônimo de elegância e sofisticação, com grande influência no resultado estético e no aconchego dos ambientes. Trabalhamos com tecidos nobres e soluções sob medida para transformar cada espaço com exclusividade."
+        headlineKey="cat.cortinas.headline"
+        descriptionKey="cat.cortinas.description"
+        introKey="cat.cortinas.intro"
+        heroImage="/images/cortinas-category-hero.png"
+        heroMobileImage="/images/cortinas-category-hero-mobile.png"
+        heroNaturalHeight
+        heroMobileImageStyle={{ objectPosition: "center 20%" }}
         subcategories={CORTINAS_SUBCATEGORIES}
         faqItems={CORTINAS_FAQ_KEYS}
       />

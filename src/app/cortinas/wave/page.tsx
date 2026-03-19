@@ -28,7 +28,7 @@ export default function CortinaWavePage() {
         category="Cortinas"
         titleKey="/cortinas/wave"
         categoryKey="/cortinas"
-        description="Caimento suave em ondas uniformes, criando um visual leve e contemporâneo. O trilho especial Wave garante ondas perfeitas e regulares para um acabamento impecável."
+        descriptionKey="page.cortinas.wave.desc"
         products={CORTINA_PRODUCTS["wave"]}
         videoSrc="/videos/processo-cortinas.mp4"
         videoTitle="video.processo.title"

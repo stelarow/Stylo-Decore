@@ -28,7 +28,7 @@ export default function CortinaVaraoPage() {
         category="Cortinas"
         titleKey="/cortinas/varao"
         categoryKey="/cortinas"
-        description="Clássico e atemporal, o varão é um elemento decorativo que valoriza a cortina e compõe o ambiente. Trabalhamos com varões em madeira, metal e acabamentos exclusivos para criar conjuntos únicos."
+        descriptionKey="page.cortinas.varao.desc"
         products={CORTINA_PRODUCTS["varao"]}
         videoSrc="/videos/processo-cortinas.mp4"
         videoTitle="video.processo.title"

@@ -30,7 +30,7 @@ export default function CortinaComForroPage() {
         category="Cortinas"
         titleKey="/cortinas/modelos/cortina-com-forro"
         categoryKey="/cortinas"
-        description="A cortina com forro tem uma camada adicional na face interna que amplia a privacidade, melhora o isolamento térmico e protege o tecido principal da exposição solar. Uma solução mais completa para quartos e salas."
+        descriptionKey="page.cortinas.cortina-com-forro.desc"
         heroImage="/images/cortinas/cortina-ilhos-hero-desktop.png"
         products={CORTINA_PRODUCTS["cortina-com-forro"]}
         videoSrc="/videos/processo-cortinas.mp4"

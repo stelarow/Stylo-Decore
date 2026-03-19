@@ -2,6 +2,7 @@
 
 import { useRef, useState } from "react";
 import Link from "next/link";
+import { getWhatsAppUrl } from "@/lib/constants";
 
 export default function TrilhoMotorizadoClient() {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -223,7 +224,7 @@ export default function TrilhoMotorizadoClient() {
 
       {/* CTA */}
       <Link
-        href="https://wa.me/5548999999999"
+        href={getWhatsAppUrl("Olá! Tenho interesse no Trilho Motorizado.")}
         target="_blank"
         rel="noopener noreferrer"
         style={{

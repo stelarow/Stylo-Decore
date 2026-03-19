@@ -29,9 +29,12 @@ export default function TiposDePregasPage() {
       <CategoryPage
         title="Tipos de Pregas"
         titleKey="/cortinas/tipos-de-pregas"
-        headline="Elegância com Caimento"
-        description="Descubra o tipo de prega ideal para transformar sua cortina em peça de design."
-        intro="A escolha da prega define o caráter de toda a cortina — do clássico ao contemporâneo. Cada tipo oferece um caimento e uma personalidade únicas para o seu ambiente."
+        headlineKey="cat.cortinas.pregas.headline"
+        descriptionKey="cat.cortinas.pregas.description"
+        introKey="cat.cortinas.pregas.intro"
+        heroImage="/images/cortinas/tipos-de-pregas-hero.png"
+        heroNaturalHeight
+        heroDesktopImageStyle={{ transform: "translateY(8%)" }}
         subcategories={CORTINAS_TIPOS_PREGAS}
         faqItems={CORTINAS_FAQ_KEYS}
       />

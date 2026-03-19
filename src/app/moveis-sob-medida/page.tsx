@@ -40,7 +40,6 @@ export default function MoveisSobMedidaPage() {
         faqItems={MOVEIS_FAQ_KEYS}
         heroImage="/images/moveis-sala-hero.jpg"
         midContent={<ProcessTimeline />}
-        disableLinks
       />
     </>
   );

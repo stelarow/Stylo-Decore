@@ -30,7 +30,7 @@ export default function CortinaTradicionalPage() {
         category="Cortinas"
         titleKey="/cortinas/modelos/cortina-tradicional"
         categoryKey="/cortinas"
-        description="O modelo mais clássico e versátil. A cortina tradicional em camada única adapta-se a qualquer ambiente, estilo e tipo de tecido — do voil transparente ao linho encorpado."
+        descriptionKey="page.cortinas.cortina-tradicional.desc"
         heroImage="/images/cortinas/cortina-prega-hero-desktop.png"
         products={CORTINA_PRODUCTS["cortina-tradicional"]}
         videoSrc="/videos/processo-cortinas.mp4"

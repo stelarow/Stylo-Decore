@@ -30,8 +30,11 @@ export default function TrilhoSuicoPage() {
         category="Cortinas"
         titleKey="/cortinas/suportes-e-ferragens/trilho-suico"
         categoryKey="/cortinas"
-        description="O trilho suíço é o sistema de suporte mais elegante e discreto para cortinas de tecido. Embutido no teto ou sancado, ele desaparece visualmente e dá protagonismo ao tecido e ao ambiente."
-        heroImage="/images/cortinas/trilho-suico-hero-desktop.jpg"
+        descriptionKey="page.cortinas.trilho-suico.desc"
+        heroImage="/images/cortinas/trilho-suico-hero-desktop.png"
+        mobileHeroImage="/images/cortinas/trilho-suico-hero-mobile.png"
+        heroDesktopClass="object-[center_20%]"
+        heroMobileClass="object-top"
         products={CORTINA_PRODUCTS["trilho-suico"]}
         videoSrc="/videos/processo-cortinas.mp4"
         videoTitle="video.processo.title"

@@ -139,30 +139,30 @@ export default function Home() {
             {[
               {
                 icon: SlidersHorizontal,
-                title: "Personalização",
-                text: "Produtos que se adaptam às medidas, cores e necessidades do seu espaço.",
+                titleKey: "home.vals.v1.title",
+                textKey: "home.vals.v1.text",
                 delay: 0,
               },
               {
                 icon: Palette,
-                title: "Orientação de design",
-                text: "Apoio profissional para ajudar você a fazer as melhores escolhas.",
+                titleKey: "home.vals.v2.title",
+                textKey: "home.vals.v2.text",
                 delay: 120,
               },
               {
                 icon: Star,
-                title: "Curadoria",
-                text: "Peças selecionadas para criar ambientes harmoniosos e bem resolvidos.",
+                titleKey: "home.vals.v3.title",
+                textKey: "home.vals.v3.text",
                 delay: 240,
               },
             ].map((item) => (
-              <ScrollReveal key={item.title} animation="up" delay={item.delay}>
+              <ScrollReveal key={item.titleKey} animation="up" delay={item.delay}>
                 <div className="flex flex-col items-center text-center gap-4">
                   <div className="flex h-16 w-16 items-center justify-center rounded-full bg-primary/15">
                     <item.icon className="h-7 w-7 text-primary" strokeWidth={1.5} />
                   </div>
-                  <p className="text-base font-bold text-foreground">{item.title}</p>
-                  <p className="text-sm leading-relaxed text-foreground/90 max-w-[220px]">{item.text}</p>
+                  <p className="text-base font-bold text-foreground">{t(item.titleKey)}</p>
+                  <p className="text-sm leading-relaxed text-foreground/90 max-w-[220px]">{t(item.textKey)}</p>
                 </div>
               </ScrollReveal>
             ))}

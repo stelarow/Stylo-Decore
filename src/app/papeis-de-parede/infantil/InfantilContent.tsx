@@ -83,6 +83,7 @@ export default function InfantilContent() {
       description={data.description}
       specs={data.specs}
       products={PAPEL_PRODUCTS.infantil}
+      showCatalogNote
       desktopHeroImage="/images/papel/infantil-hero-desktop.jpg"
       videoSrc="/videos/non-woven-demo.mp4"
       videoTitle="video.papel.title"

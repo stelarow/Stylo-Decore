@@ -54,7 +54,7 @@ const QUESTIONS: Record<ProductKey, Question[]> = {
     { label: "Qual é o seu prazo para este projeto?",     labelKey: "q.ql.prazo",       key: "prazo",       options: ["Urgente (menos de 1 mês)", "1 a 3 meses", "Mais de 3 meses", "Ainda não definido"] },
   ],
   papelDeParede: [
-    { label: "Qual coleção te interessa?",                labelKey: "q.ql.colecao",     key: "colecao",     options: ["Geométricos", "Infantil", "Floral", "Texturas", "Clássico", "Moderno", "Natural & Botânico", "Minimalista", "Ainda não sei"] },
+    { label: "Qual coleção te interessa?",                labelKey: "q.ql.colecao",     key: "colecao",     options: ["Geométricos", "Infantil", "Texturas", "Clássico", "Natureza", "Minimalista", "Ainda não sei"] },
     { label: "Qual é o ambiente?",                        labelKey: "q.ql.ambiente",    key: "ambiente",    options: ["Sala", "Quarto", "Escritório", "Corredor", "Outro", "Não sei"] },
     { label: "Que visual você busca?",                    labelKey: "q.ql.visual",      key: "visual",      options: ["Texturizado / Relevo", "Liso e sofisticado", "Estampado / Padrão", "Geométrico", "Não sei"] },
     { label: "A parede já possui papel de parede?",       labelKey: "q.ql.estadoParede",key: "estadoParede",options: ["Sim, precisa remover", "Não, parede limpa", "Não sei", "Preciso de orientação"] },

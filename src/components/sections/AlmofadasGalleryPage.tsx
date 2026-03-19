@@ -15,17 +15,11 @@ const KITS = [
 ];
 
 const SOFA = [
-  { name: "Sofá 2 Lugares",    image: "/images/almofadas/decorativa-2.jpeg" },
-  { name: "Sofá 3 Lugares",    image: "/images/almofadas/decorativa-1.jpeg" },
-  { name: "Sofá Chaise",       image: "/images/almofadas/decorativa-4.jpeg" },
-  { name: "Sofá Canto",        image: "/images/almofadas/decorativa-3.jpeg" },
+  { name: "Combinação para Sofá", image: "/images/almofadas/kit-sala-boho.png" },
 ];
 
 const CAMA = [
-  { name: "Cama Casal",        image: "/images/almofadas/decorativa-3.jpeg" },
-  { name: "Cama Queen",        image: "/images/almofadas/decorativa-4.jpeg" },
-  { name: "Cama King",         image: "/images/almofadas/decorativa-1.jpeg" },
-  { name: "Cama Solteiro",     image: "/images/almofadas/decorativa-2.jpeg" },
+  { name: "Combinação para Cama", image: "/images/almofadas/combinacao-cama.png" },
 ];
 
 function PhotoCard({ name, image, onClick }: { name: string; image: string; onClick: () => void }) {

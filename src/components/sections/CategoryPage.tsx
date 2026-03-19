@@ -1,11 +1,13 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import { ArrowRight, Check } from "lucide-react";
 import { getWhatsAppUrl } from "@/lib/constants";
 import { DEFAULT_FAQ_KEYS } from "@/lib/seo";
 import FAQAccordion from "@/components/ui/FAQAccordion";
 import ScrollReveal from "@/components/ui/ScrollReveal";
+import ImageLightbox from "@/components/ui/ImageLightbox";
 import { useLanguage } from "@/context/LanguageContext";
 
 interface SubcategoryItem {
@@ -14,6 +16,7 @@ interface SubcategoryItem {
   image: string;
   desktopImage?: string;
   cardImage?: string;
+  imagePosition?: string;
   description: string;
   descriptionKey?: string;
 }
@@ -30,7 +33,11 @@ interface CategoryPageProps {
   subcategories: SubcategoryItem[];
   faqItems?: { question: string; answer: string }[];
   heroDesktopImageStyle?: React.CSSProperties;
+  heroMobileImageStyle?: React.CSSProperties;
   heroImage?: string;
+  heroMobileImage?: string;
+  heroNaturalHeight?: boolean;
+  heroNoMaxHeight?: boolean;
   midContent?: React.ReactNode;
   disableLinks?: boolean;
 }
@@ -47,11 +54,16 @@ export default function CategoryPage({
   subcategories,
   faqItems,
   heroDesktopImageStyle,
+  heroMobileImageStyle,
   heroImage,
+  heroMobileImage,
+  heroNaturalHeight,
+  heroNoMaxHeight,
   midContent,
   disableLinks,
 }: CategoryPageProps) {
   const { t } = useLanguage();
+  const [lightbox, setLightbox] = useState<{ src: string; alt: string } | null>(null);
   const resolvedTitle = titleKey ? t(titleKey) : title;
   const resolvedHeadline = headlineKey ? t(headlineKey) : headline;
   const resolvedDescription = descriptionKey ? t(descriptionKey) : description;
@@ -62,14 +74,43 @@ export default function CategoryPage({
     <div>
       {/* Hero */}
       {subcategories[0] && (
-        <div className="relative w-full min-h-[50vh] md:min-h-[65vh] lg:min-h-[70vh] overflow-hidden">
-          {heroImage ? (
-            <img
-              src={heroImage}
-              alt={title}
-              className="absolute inset-0 h-full w-full object-cover"
-              style={heroDesktopImageStyle}
-            />
+        <div className={`relative w-full overflow-hidden${heroNaturalHeight ? "" : " min-h-[50vh] md:min-h-[65vh] lg:min-h-[70vh] bg-[#221e10]"}`}>
+          {heroNaturalHeight && heroImage ? (
+            <>
+              <div className={`${heroNoMaxHeight ? "" : "max-h-[90vh] overflow-hidden "}flex items-start`}>
+              <img
+                src={heroImage}
+                alt={title}
+                className={`w-full h-auto block${heroMobileImage ? " hidden lg:block" : ""}`}
+                style={heroDesktopImageStyle}
+              />
+              </div>
+              {heroMobileImage && (
+                <img
+                  src={heroMobileImage}
+                  alt={title}
+                  className="w-full h-auto block lg:hidden"
+                  style={heroMobileImageStyle}
+                />
+              )}
+            </>
+          ) : heroImage ? (
+            <>
+              <img
+                src={heroImage}
+                alt={title}
+                className={`absolute inset-0 h-full w-full object-cover${heroMobileImage ? " hidden lg:block" : ""}`}
+                style={heroDesktopImageStyle}
+              />
+              {heroMobileImage && (
+                <img
+                  src={heroMobileImage}
+                  alt={title}
+                  className="absolute inset-0 h-full w-full object-cover lg:hidden"
+                  style={heroMobileImageStyle}
+                />
+              )}
+            </>
           ) : subcategories[0].desktopImage ? (
             <>
               <img
@@ -86,14 +127,12 @@ export default function CategoryPage({
             </>
           ) : (
             <>
-              {/* desktop — zoom controlável */}
               <img
                 src={subcategories[0].image}
                 alt={title}
                 className="absolute inset-0 hidden h-full w-full object-cover lg:block"
                 style={heroDesktopImageStyle}
               />
-              {/* mobile — sem zoom extra */}
               <img
                 src={subcategories[0].image}
                 alt={title}
@@ -102,7 +141,7 @@ export default function CategoryPage({
             </>
           )}
           <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
-          <div className="relative flex h-full min-h-[50vh] md:min-h-[65vh] lg:min-h-[70vh] items-end">
+          <div className={`${heroNaturalHeight ? "absolute inset-0" : "relative"} flex h-full min-h-[50vh] md:min-h-[65vh] lg:min-h-[70vh] items-end`}>
             <div className="mx-auto w-full max-w-7xl px-6 pb-12 md:pb-16 lg:pb-20">
               <p className="mb-3 text-sm font-medium uppercase tracking-[0.2em] text-primary">
                 {resolvedHeadline || resolvedTitle}
@@ -138,11 +177,11 @@ export default function CategoryPage({
               {subcategories.map((item) => {
                 const cardContent = (
                   <>
-                    <div className="aspect-[3/4]">
+                    <div className="aspect-[3/4] overflow-hidden">
                       <img
                         src={item.cardImage || item.image}
                         alt={item.name}
-                        className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        className={`h-full w-full object-cover transition-transform duration-700 group-hover:scale-110${item.imagePosition ? ` ${item.imagePosition}` : ""}`}
                       />
                     </div>
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
@@ -160,7 +199,11 @@ export default function CategoryPage({
                   </>
                 );
                 return disableLinks ? (
-                  <div key={item.href} className="group relative overflow-hidden">
+                  <div
+                    key={item.href}
+                    className="group relative overflow-hidden cursor-zoom-in"
+                    onClick={() => setLightbox({ src: item.cardImage || item.image, alt: item.name })}
+                  >
                     {cardContent}
                   </div>
                 ) : (
@@ -220,6 +263,10 @@ export default function CategoryPage({
           <FAQAccordion items={faq} />
         </div>
       </ScrollReveal>
+
+      {lightbox && (
+        <ImageLightbox src={lightbox.src} alt={lightbox.alt} onClose={() => setLightbox(null)} />
+      )}
     </div>
   );
 }

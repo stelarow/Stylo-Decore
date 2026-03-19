@@ -28,7 +28,7 @@ export default function TapeteModernoPage() {
         category="Tapetes"
         titleKey="/tapetes/moderno"
         categoryKey="/tapetes"
-        description="Linhas contemporâneas e design arrojado para ambientes modernos. Tapetes que combinam estética atual com qualidade e conforto."
+        descriptionKey="page.tapetes.moderno.desc"
         products={TAPETE_PRODUCTS["moderno"]}
         desktopHeroImage="/images/tapetes/tapete-sob-medida-hero-desktop.png"
         mobileHeroImage="/images/tapetes/tapete-sob-medida-hero-mobile.png"

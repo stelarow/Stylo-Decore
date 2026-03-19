@@ -28,7 +28,7 @@ export default function TapeteBohoPage() {
         category="Tapetes"
         titleKey="/tapetes/boho"
         categoryKey="/tapetes"
-        description="Estilo boêmio com texturas ricas e padrões únicos. Tapetes que trazem personalidade, cor e uma atmosfera acolhedora para o seu espaço."
+        descriptionKey="page.tapetes.boho.desc"
         products={TAPETE_PRODUCTS["boho"]}
         desktopHeroImage="/images/tapetes/carving-organic-hero-desktop.png"
         mobileHeroImage="/images/tapetes/carving-organic-hero-mobile.png"

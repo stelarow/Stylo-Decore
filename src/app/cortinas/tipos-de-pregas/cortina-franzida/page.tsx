@@ -30,9 +30,12 @@ export default function CortinaFranzidaPage() {
         category="Cortinas"
         titleKey="/cortinas/tipos-de-pregas/cortina-franzida"
         categoryKey="/cortinas"
-        description="Franzido clássico com volume e leveza. Uma das técnicas mais tradicionais da costura de cortinas — cria texturas ricas e cheias de personalidade que transformam qualquer ambiente."
+        descriptionKey="page.cortinas.franzida.desc"
         heroImage="/images/cortinas/cortina-franzida-hero-desktop.jpg"
-        mobileHeroImage="/images/hero-mobile.png"
+        heroDesktopClass="object-center"
+        heroImageStyle={{ transform: "scale(0.85)", transformOrigin: "center center" }}
+        mobileHeroImage="/images/cortinas/cortina-franzida-hero-mobile.png"
+        mobileHeroImageStyle={{ transform: "scale(1.45)", transformOrigin: "center center" }}
         products={CORTINA_PRODUCTS["cortina-franzida"]}
         videoSrc="/videos/processo-cortinas.mp4"
         videoTitle="video.processo.title"

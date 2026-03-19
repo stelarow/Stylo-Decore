@@ -29,6 +29,8 @@ interface SubcategoryPageProps {
   descriptionKey?: string;
   desktopImageClass?: string;
   mobileImageClass?: string;
+  heroDesktopClass?: string;
+  heroMobileClass?: string;
   heroImageStyle?: React.CSSProperties;
   mobileHeroImageStyle?: React.CSSProperties;
   titleKey?: string;
@@ -41,6 +43,7 @@ interface SubcategoryPageProps {
   sectionImage?: string;
   sectionLabel?: string;
   heroHeightClass?: string;
+  showCatalogNote?: boolean;
 }
 
 export default function SubcategoryPage({
@@ -57,6 +60,8 @@ export default function SubcategoryPage({
   descriptionKey,
   desktopImageClass,
   mobileImageClass,
+  heroDesktopClass,
+  heroMobileClass,
   heroImageStyle,
   mobileHeroImageStyle,
   titleKey,
@@ -69,6 +74,7 @@ export default function SubcategoryPage({
   sectionImage,
   sectionLabel,
   heroHeightClass,
+  showCatalogNote,
 }: SubcategoryPageProps) {
   const { t } = useLanguage();
   const [longPressActive, setLongPressActive] = useState<string | null>(null);
@@ -128,7 +134,7 @@ export default function SubcategoryPage({
             <img
               src={desktopHeroImage}
               alt={title}
-              className="absolute inset-0 hidden h-full w-full object-cover object-top lg:block"
+              className={`absolute inset-0 hidden h-full w-full object-cover lg:block ${heroDesktopClass ?? "object-top"}`}
               style={heroImageStyle}
             />
             <img
@@ -139,7 +145,7 @@ export default function SubcategoryPage({
                 "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=1920&q=80"
               }
               alt={title}
-              className="absolute inset-0 h-full w-full object-cover object-top lg:hidden"
+              className={`absolute inset-0 h-full w-full object-cover lg:hidden ${heroMobileClass ?? "object-top"}`}
               style={mobileHeroImageStyle}
             />
           </>
@@ -148,16 +154,17 @@ export default function SubcategoryPage({
             <img
               src={heroImage || products[0]?.desktopImage}
               alt={title}
-              className="absolute inset-0 hidden h-full w-full object-cover object-top lg:block"
+              className={`absolute inset-0 hidden h-full w-full object-cover lg:block ${heroDesktopClass ?? "object-top"}`}
             />
             <img
               src={
+                mobileHeroImage ||
                 heroImage ||
                 products[0]?.image ||
                 "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=1920&q=80"
               }
               alt={title}
-              className="absolute inset-0 h-full w-full object-cover object-top lg:hidden"
+              className={`absolute inset-0 h-full w-full object-cover lg:hidden ${heroMobileClass ?? "object-top"}`}
             />
           </>
         ) : mobileHeroImage ? (
@@ -169,13 +176,13 @@ export default function SubcategoryPage({
                 "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=1920&q=80"
               }
               alt={title}
-              className="absolute inset-0 hidden h-full w-full object-cover object-top lg:block"
+              className={`absolute inset-0 hidden h-full w-full object-cover lg:block ${heroDesktopClass ?? "object-top"}`}
               style={heroImageStyle}
             />
             <img
               src={mobileHeroImage}
               alt={title}
-              className="absolute inset-0 h-full w-full object-cover object-top lg:hidden"
+              className={`absolute inset-0 h-full w-full object-cover lg:hidden ${heroMobileClass ?? "object-top"}`}
               style={mobileHeroImageStyle}
             />
           </>
@@ -187,7 +194,7 @@ export default function SubcategoryPage({
               "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=1920&q=80"
             }
             alt={title}
-            className="absolute inset-0 h-full w-full object-cover object-top"
+            className={`absolute inset-0 h-full w-full object-cover ${heroDesktopClass ?? "object-top"}`}
           />
         )}
         <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent" />
@@ -281,6 +288,19 @@ export default function SubcategoryPage({
         </div>
       </div>
 
+      {/* Nota de catálogos — papel de parede */}
+      {showCatalogNote && (
+        <ScrollReveal animation="up">
+          <div className="mx-auto max-w-3xl lg:max-w-5xl px-6 pb-8">
+            <div className="rounded-2xl border border-primary/40 bg-primary/8 px-7 py-5 text-center">
+              <p className="text-sm font-medium leading-relaxed text-foreground">
+                Para ter acesso à todos os nossos catálogos de papel de parede, entre em contato com um de nossos consultores.
+              </p>
+            </div>
+          </div>
+        </ScrollReveal>
+      )}
+
       {/* Vídeo / Imagem de destaque opcional */}
       {(videoSrc || videoTitle || videoCaption || sectionImage) && (
         <section className="mt-16 mb-4">
@@ -350,7 +370,7 @@ export default function SubcategoryPage({
                   <div
                     className={
                       videoIsPortrait
-                        ? "relative overflow-hidden rounded-2xl shadow-lg flex-shrink-0 w-full md:w-auto"
+                        ? "relative overflow-hidden rounded-2xl shadow-lg flex-shrink-0 w-full md:w-[240px] lg:w-[280px]"
                         : "relative overflow-hidden rounded-2xl shadow-xl"
                     }
                   >
@@ -363,10 +383,10 @@ export default function SubcategoryPage({
                       onLoadedMetadata={handleVideoLoaded}
                       className={
                         videoIsPortrait
-                          ? "w-full h-full object-cover rounded-2xl"
+                          ? "w-full aspect-[9/16] object-cover rounded-2xl"
                           : "w-full aspect-video object-cover"
                       }
-                      style={videoIsPortrait ? { maxHeight: "460px", minHeight: "280px", objectPosition: videoObjectPosition ?? "center" } : undefined}
+                      style={videoIsPortrait ? { objectPosition: videoObjectPosition ?? "center" } : undefined}
                     />
                     <div className="absolute inset-0 pointer-events-none rounded-2xl ring-1 ring-inset ring-tobacco/20" />
                   </div>

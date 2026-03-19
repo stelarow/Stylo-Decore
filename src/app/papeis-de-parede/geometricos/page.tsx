@@ -31,7 +31,10 @@ export default function GeometricosPage() {
         description="Padrões modernos e abstratos que criam dinamismo e sofisticação. A coleção Geométricos traz formas, linhas e texturas que transformam paredes em elementos de design."
         descriptionKey="page.geometricos.desc"
         products={PAPEL_PRODUCTS.geometricos}
+        showCatalogNote
         desktopHeroImage="/images/papel-geometricos.jpg"
+        mobileHeroImage="/images/papel-geometricos-mobile.png"
+        heroImageStyle={{ objectPosition: "left center" }}
         videoSrc="/videos/non-woven-demo.mp4"
         videoTitle="video.papel.title"
         videoCaption="video.papel.caption"

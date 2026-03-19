@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import CategoryPage from "@/components/sections/CategoryPage";
+import PersianasColors from "@/components/sections/PersianasColors";
 import JsonLd from "@/components/seo/JsonLd";
 import { getBreadcrumbJsonLd, getFaqJsonLd, PERSIANAS_FAQ, PERSIANAS_FAQ_KEYS } from "@/lib/seo";
 import { PERSIANAS_SUBCATEGORIES } from "@/lib/data";
@@ -29,11 +30,14 @@ export default function PersianasPage() {
       <CategoryPage
         title="Persianas"
         titleKey="/persianas"
-        headline="Controle de Luz"
-        description="Controle de luz com elegância e praticidade. Descubra nossas persianas sob medida para cada ambiente."
-        intro="Persianas são a solução ideal para quem busca controle de luminosidade com design sofisticado. Oferecemos modelos em diversos materiais e acabamentos, sempre com medição e instalação profissional."
+        headlineKey="cat.persianas.headline"
+        descriptionKey="cat.persianas.description"
+        introKey="cat.persianas.intro"
+        heroImage="/images/persianas/persianas-hero.png"
+        heroMobileImage="/images/persianas/persianas-hero-mobile.png"
         subcategories={PERSIANAS_SUBCATEGORIES}
         faqItems={PERSIANAS_FAQ_KEYS}
+        midContent={<PersianasColors />}
       />
     </>
   );

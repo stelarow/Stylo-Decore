@@ -30,7 +30,7 @@ export default function CortinaDuplaPage() {
         category="Cortinas"
         titleKey="/cortinas/modelos/cortina-dupla"
         categoryKey="/cortinas"
-        description="Duas camadas sobrepostas em um único trilho duplo. A combinação mais popular é voil + blackout: de dia, difunde a luz com leveza; à noite, fecha o blackout para privacidade total. Funcionalidade e beleza em um só sistema."
+        descriptionKey="page.cortinas.cortina-dupla.desc"
         heroImage="/images/cortinas/cortina-07-desktop.jpg"
         products={CORTINA_PRODUCTS["cortina-dupla"]}
         videoSrc="/videos/processo-cortinas.mp4"

@@ -30,8 +30,12 @@ export default function ForroBlackoutPage() {
         category="Cortinas"
         titleKey="/cortinas/tipos-de-acabamento/forro-blackout"
         categoryKey="/cortinas"
-        description="O forro blackout é aplicado na face interna da cortina para controlar a entrada de luz. Disponível em três porcentagens de bloqueio — escolha conforme o seu ambiente e necessidade de privacidade."
-        heroImage="/images/cortinas/cortina-blackout-hero-desktop.png"
+        descriptionKey="page.cortinas.forro-blackout.desc"
+        desktopHeroImage="/images/cortinas/cortina-blackout-hero-desktop.png"
+        heroImage="/images/cortinas/cortina-blackout-hero-mobile.png"
+        mobileHeroImage="/images/cortinas/cortina-blackout-hero-mobile.png"
+        heroImageStyle={{ objectPosition: "center center" }}
+        mobileHeroImageStyle={{ objectPosition: "center center" }}
         products={CORTINA_PRODUCTS["forro-blackout"]}
         videoSrc="/videos/processo-cortinas.mp4"
         videoTitle="video.processo.title"

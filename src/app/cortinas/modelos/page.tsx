@@ -29,9 +29,9 @@ export default function ModelosPage() {
       <CategoryPage
         title="Modelos"
         titleKey="/cortinas/modelos"
-        headline="Escolha o Seu Estilo"
-        description="Do clássico ao dramático — encontre o modelo de cortina perfeito para o seu espaço."
-        intro="Cada modelo de cortina tem uma personalidade e uma função. Tradicional, com forro, dupla ou piso-teto — a escolha certa transforma completamente o ambiente."
+        headlineKey="cat.cortinas.modelos.headline"
+        descriptionKey="cat.cortinas.modelos.description"
+        introKey="cat.cortinas.modelos.intro"
         subcategories={CORTINAS_MODELOS}
         faqItems={CORTINAS_FAQ_KEYS}
       />

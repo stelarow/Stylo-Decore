@@ -28,7 +28,7 @@ export default function TapeteNaturalPage() {
         category="Tapetes"
         titleKey="/tapetes/natural"
         categoryKey="/tapetes"
-        description="Fibras naturais e tons terrosos que conectam com a natureza. Tapetes orgânicos que trazem calor, textura e sustentabilidade ao seu ambiente."
+        descriptionKey="page.tapetes.natural.desc"
         products={TAPETE_PRODUCTS["natural"]}
         desktopHeroImage="/images/tapetes/tapete-nativa-hero.png"
         mobileHeroImage="/images/tapetes/tapete-decorativo-hero-mobile.png"

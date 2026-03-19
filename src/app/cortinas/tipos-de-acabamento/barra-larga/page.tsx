@@ -30,8 +30,10 @@ export default function BarraLargaPage() {
         category="Cortinas"
         titleKey="/cortinas/tipos-de-acabamento/barra-larga"
         categoryKey="/cortinas"
-        description="A barra larga é o acabamento na bainha inferior da cortina que confere peso, elegância e um caimento perfeito. Disponível em diferentes larguras conforme o tecido e o estilo desejado."
-        heroImage="/images/cortinas/barra-larga-hero-desktop.png"
+        descriptionKey="page.cortinas.barra-larga.desc"
+        desktopHeroImage="/images/cortinas/barra-larga-hero-desktop.png"
+        mobileHeroImage="/images/cortinas/barra-larga-hero-mobile.png"
+        heroImageStyle={{ objectPosition: "center center" }}
         products={CORTINA_PRODUCTS["barra-larga"]}
         videoSrc="/videos/processo-cortinas.mp4"
         videoTitle="video.processo.title"

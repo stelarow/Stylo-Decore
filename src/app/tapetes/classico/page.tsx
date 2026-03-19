@@ -5,11 +5,11 @@ import { getBreadcrumbJsonLd } from "@/lib/seo";
 import { TAPETE_PRODUCTS } from "@/lib/data";
 
 export const metadata: Metadata = {
-  title: "Tapetes Clássicos em Florianópolis | Stylo Decore",
+  title: "Tapetes ClássicoS em Florianópolis | Stylo Decore",
   description: "Tapetes clássicos com elegância atemporal e padrões tradicionais refinados em Florianópolis e Região. Atendimento consultivo personalizado.",
   alternates: { canonical: "/tapetes/classico" },
   openGraph: {
-    title: "Tapetes Clássicos | Stylo Decore",
+    title: "Tapetes ClássicoS | Stylo Decore",
     description: "Elegância atemporal com padrões tradicionais e refinados em Florianópolis.",
     url: "/tapetes/classico",
   },
@@ -21,14 +21,14 @@ export default function TapeteClassicoPage() {
       <JsonLd data={getBreadcrumbJsonLd([
         { name: "Home", href: "/" },
         { name: "Tapetes", href: "/tapetes" },
-        { name: "Clássico", href: "/tapetes/classico" },
+        { name: "ClássicoS", href: "/tapetes/classico" },
       ])} />
       <SubcategoryPage
-        title="Clássico"
+        title="ClássicoS"
         category="Tapetes"
         titleKey="/tapetes/classico"
         categoryKey="/tapetes"
-        description="Elegância atemporal com padrões tradicionais e refinados. Tapetes que trazem sofisticação e charme clássico para qualquer ambiente."
+        descriptionKey="page.tapetes.classico.desc"
         products={TAPETE_PRODUCTS["classico"]}
         desktopHeroImage="/images/tapetes/tapete-decorativo-hero-desktop.png"
         mobileHeroImage="/images/tapetes/tapete-decorativo-hero-mobile.png"

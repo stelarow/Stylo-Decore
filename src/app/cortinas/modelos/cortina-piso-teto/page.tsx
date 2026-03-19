@@ -30,7 +30,7 @@ export default function CortinaPisoTetoPage() {
         category="Cortinas"
         titleKey="/cortinas/modelos/cortina-piso-teto"
         categoryKey="/cortinas"
-        description="Do teto ao chão, a cortina piso-teto cria um efeito dramático e sofisticado que valoriza o pé-direito e amplia visualmente o ambiente. É o modelo preferido de arquitetos e designers de interiores para ambientes de alto padrão."
+        descriptionKey="page.cortinas.cortina-piso-teto.desc"
         heroImage="/images/cortinas/cortina-wave-hero-desktop.png"
         products={CORTINA_PRODUCTS["cortina-piso-teto"]}
         videoSrc="/videos/processo-cortinas.mp4"

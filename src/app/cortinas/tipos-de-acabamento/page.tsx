@@ -29,9 +29,11 @@ export default function TiposDeAcabamentoPage() {
       <CategoryPage
         title="Tipos de Acabamento"
         titleKey="/cortinas/tipos-de-acabamento"
-        headline="Detalhes que Fazem a Diferença"
-        description="O acabamento define a funcionalidade e o refinamento final da sua cortina."
-        intro="Barra larga ou forro blackout — cada acabamento tem um propósito e uma estética própria. Escolha o que melhor combina com o seu espaço e necessidade de luz."
+        headlineKey="cat.cortinas.acabamento.headline"
+        descriptionKey="cat.cortinas.acabamento.description"
+        introKey="cat.cortinas.acabamento.intro"
+        heroImage="/images/cortinas/acabamento-hero-desktop.png"
+        heroMobileImage="/images/cortinas/acabamento-hero-mobile.png"
         subcategories={CORTINAS_TIPOS_ACABAMENTO}
         faqItems={CORTINAS_FAQ_KEYS}
       />

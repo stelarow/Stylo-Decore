@@ -84,9 +84,9 @@ export const PAPEIS_FAQ = [
       "Paredes com umidade ativa precisam ser tratadas antes da aplicação para garantir a durabilidade. Pequenas irregularidades podem ser corrigidas com massa corrida. Fazemos uma vistoria técnica antes de confirmar o projeto para evitar surpresas e garantir o melhor resultado.",
   },
   {
-    question: "Qual a diferença entre as coleções Geométricos, Infantil e Cozinha?",
+    question: "Qual a diferença entre as coleções Natural e Natureza?",
     answer:
-      "São linhas com propostas distintas: os Geométricos destacam-se por padrões modernos e abstratos que criam dinamismo e sofisticação, ideais para salas e escritórios. O Infantil é dedicado aos quartos das crianças, com estampas divertidas, personagens e padrões encantadores. A Cozinha traz revestimentos e estampas exclusivas — de azulejos portugueses a mármores — que transformam esse ambiente em um espaço de design único.",
+      "São estéticas complementares com identidades distintas: a Natural valoriza fibras orgânicas, juta e texturas brutas que remetem à terra e ao minimalismo orgânico — perfeita para ambientes serenos e contemporâneos. Já a Natureza celebra folhagens, flores e elementos botânicos com estampas mais expressivas, trazendo o jardim para dentro de casa com vida e cor.",
   },
   {
     question: "É possível remover o papel de parede depois sem danificar a parede?",
