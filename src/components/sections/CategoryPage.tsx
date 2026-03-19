@@ -23,7 +23,7 @@ interface SubcategoryItem {
 
 interface CategoryPageProps {
   title: string;
-  description: string;
+  description?: string;
   headline?: string;
   intro?: string;
   headlineKey?: string;
