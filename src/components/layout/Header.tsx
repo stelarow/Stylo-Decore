@@ -14,6 +14,8 @@ export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const [openFlyout, setOpenFlyout] = useState<string | null>(null);
+  const [openMobileSubmenu, setOpenMobileSubmenu] = useState<string | null>(null);
   const pathname = usePathname();
   const { t } = useLanguage();
 
@@ -91,15 +93,60 @@ export default function Header() {
                           : "invisible -translate-y-2 opacity-0"
                       )}
                     >
-                      {item.children.map((child) => (
-                        <Link
-                          key={child.href}
-                          href={child.href}
-                          className="block px-5 py-2.5 text-sm text-mahogany-light transition-colors hover:bg-tobacco-light hover:text-foreground"
-                        >
-                          {t(child.href)}
-                        </Link>
-                      ))}
+                      {item.children.map((child) =>
+                        child.children ? (
+                          <div
+                            key={child.href}
+                            className="relative"
+                            onMouseEnter={() => setOpenFlyout(child.href)}
+                            onMouseLeave={() => setOpenFlyout(null)}
+                          >
+                            <Link
+                              href={child.href}
+                              className="flex items-center justify-between px-5 py-2.5 text-sm text-mahogany-light transition-colors hover:bg-tobacco-light hover:text-foreground"
+                            >
+                              {t(child.href)}
+                              <svg className="h-3.5 w-3.5 shrink-0 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                              </svg>
+                            </Link>
+                            {/* L2 Flyout panel */}
+                            <div
+                              className={cn(
+                                "absolute left-full top-0 min-w-[200px] rounded-xl bg-background py-2 shadow-lg ring-1 ring-border transition-all",
+                                openFlyout === child.href
+                                  ? "visible translate-x-1 opacity-100"
+                                  : "invisible translate-x-0 opacity-0"
+                              )}
+                            >
+                              <Link
+                                href={child.href}
+                                className="block px-5 py-2 text-xs font-semibold uppercase tracking-wide text-primary"
+                              >
+                                {t(child.href)}
+                              </Link>
+                              <div className="mx-5 mb-1.5 h-px bg-tobacco-light" />
+                              {child.children.map((sub) => (
+                                <Link
+                                  key={sub.href}
+                                  href={sub.href}
+                                  className="block px-5 py-2.5 text-sm text-mahogany-light transition-colors hover:bg-tobacco-light hover:text-foreground"
+                                >
+                                  {t(sub.href)}
+                                </Link>
+                              ))}
+                            </div>
+                          </div>
+                        ) : (
+                          <Link
+                            key={child.href}
+                            href={child.href}
+                            className="block px-5 py-2.5 text-sm text-mahogany-light transition-colors hover:bg-tobacco-light hover:text-foreground"
+                          >
+                            {t(child.href)}
+                          </Link>
+                        )
+                      )}
                     </div>
                   </div>
                 );
@@ -123,7 +170,7 @@ export default function Header() {
             <LanguageSwitcher />
           {/* Desktop WhatsApp — direita */}
           <a
-            href={getWhatsAppUrl("Olá! Gostaria de solicitar um orçamento.")}
+            href={getWhatsAppUrl(t("hero.whatsapp"))}
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 rounded-full bg-[#25D366] px-5 py-2.5 text-sm font-semibold text-white shadow-md transition-all hover:bg-[#1fb855] hover:shadow-lg"
@@ -141,7 +188,7 @@ export default function Header() {
           <button
             className="relative z-50 p-2"
             onClick={() => setMobileOpen(!mobileOpen)}
-            aria-label={mobileOpen ? "Fechar menu" : "Abrir menu"}
+            aria-label={mobileOpen ? t("header.closeMenu") : t("header.openMenu")}
           >
             {mobileOpen ? (
               <X className="h-6 w-6 text-foreground" />
@@ -173,7 +220,7 @@ export default function Header() {
         <div className="flex h-20 items-center justify-end px-6">
           <button
             onClick={() => setMobileOpen(false)}
-            aria-label="Fechar menu"
+            aria-label={t("header.closeMenu")}
           >
             <X className="h-6 w-6 text-foreground" />
           </button>
@@ -207,16 +254,56 @@ export default function Header() {
                       >
                         {t("viewAll")}
                       </Link>
-                      {item.children.map((child) => (
-                        <Link
-                          key={child.href}
-                          href={child.href}
-                          onClick={() => setMobileOpen(false)}
-                          className="block py-2.5 text-sm text-mahogany-light transition-colors hover:text-primary"
-                        >
-                          {t(child.href)}
-                        </Link>
-                      ))}
+                      {item.children.map((child) =>
+                        child.children ? (
+                          <div key={child.href}>
+                            <button
+                              className="flex w-full items-center justify-between py-2.5 text-sm text-mahogany-light transition-colors hover:text-primary"
+                              onClick={() =>
+                                setOpenMobileSubmenu(openMobileSubmenu === child.href ? null : child.href)
+                              }
+                            >
+                              {t(child.href)}
+                              <ChevronDown
+                                className={cn(
+                                  "h-4 w-4 transition-transform",
+                                  openMobileSubmenu === child.href && "rotate-180"
+                                )}
+                              />
+                            </button>
+                            {openMobileSubmenu === child.href && (
+                              <div className="pl-3 border-l border-tobacco-light">
+                                <Link
+                                  href={child.href}
+                                  onClick={() => setMobileOpen(false)}
+                                  className="block py-2 text-xs font-semibold uppercase tracking-wide text-primary"
+                                >
+                                  {t("viewAll")}
+                                </Link>
+                                {child.children.map((sub) => (
+                                  <Link
+                                    key={sub.href}
+                                    href={sub.href}
+                                    onClick={() => setMobileOpen(false)}
+                                    className="block py-2 text-sm text-mahogany-light transition-colors hover:text-primary"
+                                  >
+                                    {t(sub.href)}
+                                  </Link>
+                                ))}
+                              </div>
+                            )}
+                          </div>
+                        ) : (
+                          <Link
+                            key={child.href}
+                            href={child.href}
+                            onClick={() => setMobileOpen(false)}
+                            className="block py-2.5 text-sm text-mahogany-light transition-colors hover:text-primary"
+                          >
+                            {t(child.href)}
+                          </Link>
+                        )
+                      )}
                     </div>
                   )}
                 </div>

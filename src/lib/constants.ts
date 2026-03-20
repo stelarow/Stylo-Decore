@@ -43,10 +43,34 @@ export const NAVIGATION: NavItem[] = [
     label: "Cortinas",
     href: "/cortinas",
     children: [
-      { label: "Tipos de Pregas", href: "/cortinas/tipos-de-pregas" },
+      {
+        label: "Tipos de Pregas",
+        href: "/cortinas/tipos-de-pregas",
+        children: [
+          { label: "Prega Americana", href: "/cortinas/tipos-de-pregas/prega-americana" },
+          { label: "Prega Macho", href: "/cortinas/tipos-de-pregas/prega-macho" },
+          { label: "Prega Wave", href: "/cortinas/tipos-de-pregas/prega-wave" },
+          { label: "Cortina Franzida", href: "/cortinas/tipos-de-pregas/cortina-franzida" },
+        ],
+      },
       { label: "Cortina com Ilhós", href: "/cortinas/ilhos" },
-      { label: "Tipos de Acabamento", href: "/cortinas/tipos-de-acabamento" },
-      { label: "Suportes e Ferragens", href: "/cortinas/suportes-e-ferragens" },
+      {
+        label: "Tipos de Acabamento",
+        href: "/cortinas/tipos-de-acabamento",
+        children: [
+          { label: "Barra Larga", href: "/cortinas/tipos-de-acabamento/barra-larga" },
+          { label: "Forro & Blackout", href: "/cortinas/tipos-de-acabamento/forro-blackout" },
+        ],
+      },
+      {
+        label: "Suportes e Ferragens",
+        href: "/cortinas/suportes-e-ferragens",
+        children: [
+          { label: "Varão", href: "/cortinas/suportes-e-ferragens/varao" },
+          { label: "Trilho Suíço", href: "/cortinas/suportes-e-ferragens/trilho-suico" },
+          { label: "Trilho Motorizado", href: "/cortinas/suportes-e-ferragens/trilho-motorizado" },
+        ],
+      },
     ],
   },
   {
