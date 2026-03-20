@@ -34,7 +34,7 @@ export default function ForroBlackoutPage() {
         desktopHeroImage="/images/cortinas/cortina-blackout-hero-desktop.png"
         heroImage="/images/cortinas/cortina-blackout-hero-mobile.png"
         mobileHeroImage="/images/cortinas/cortina-blackout-hero-mobile.png"
-        heroImageStyle={{ objectPosition: "center center" }}
+        heroImageStyle={{ objectPosition: "center 20%" }}
         mobileHeroImageStyle={{ objectPosition: "center center" }}
         products={CORTINA_PRODUCTS["forro-blackout"]}
         videoSrc="/videos/processo-cortinas.mp4"
